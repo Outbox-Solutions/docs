@@ -1,0 +1,320 @@
+---
+title: "Whitelabelling"
+icon: "palette"
+description: "Customize Outbox AI with your own branding"
+---
+
+## Overview
+
+White-label Outbox AI to present the platform as your own product. Replace logos, brand names, domains, and email addresses so clients only see your agency's branding.
+
+<Tip>
+  **Perfect for agencies:** Build your brand while using Outbox AI's
+  infrastructure behind the scenes.
+</Tip>
+
+---
+
+## Access White-Label Settings
+
+Navigate to your agency's white-label configuration.
+
+<Frame>
+  <img src="/images/whitelabel-tab.png" alt="White-label Tab" />
+</Frame>
+
+<Steps>
+  <Step title="Open Agency Settings">
+    Log in to Outbox AI and click on your agency workspace
+  </Step>
+  <Step title="Navigate to White-label Tab">
+    Go to **Settings** → **White-label** tab
+  </Step>
+</Steps>
+
+---
+
+## Configure Your Branding
+
+Set up your agency's branding in four key fields.
+
+<Frame>
+  <img src="/images/whitelabel-settings-card.png" alt="White-label Settings" />
+</Frame>
+
+### 1. Logo
+
+Upload your agency logo (PNG or SVG, square, 512×512px minimum).
+
+**Where it appears:**
+
+- Sidebar navigation
+- Login screen
+- Email invitations
+- Browser favicon
+
+---
+
+### 2. Brand Name
+
+Enter your agency or product name.
+
+**Where it appears:**
+
+- Browser tab title
+- Login screen heading
+- Email subject lines
+- Platform footer
+
+**Example:** "Acme Marketing Platform", "Digital Solutions Hub"
+
+---
+
+### 3. Custom Domain
+
+Enter your custom domain (e.g., `portal.youragency.com`).
+
+**How it works:**
+
+1. Enter your subdomain (e.g., `app` or `portal`)
+2. Outbox AI provides 3 DNS records to add
+3. Add these records at your DNS provider (GoDaddy, Cloudflare, etc.)
+4. Wait for DNS propagation (usually 1-2 hours)
+5. Your portal becomes accessible at your custom domain
+
+**Example DNS Records:**
+
+If you enter `app.youragency.com`, you'll add these records:
+
+| Type  | Name      | Value                   |
+| ----- | --------- | ----------------------- |
+| CNAME | `app`     | `cname.vercel-dns.com`  |
+| CNAME | `www.app` | `cname.vercel-dns.com`  |
+| TXT   | `_vercel` | `[vercel_verification]` |
+
+<Note>
+  **Use a subdomain:** `portal.youragency.com` or `app.youragency.com` works
+  best. Avoid using your root domain. The exact TXT verification value will be
+  unique to your account.
+</Note>
+
+---
+
+### 4. Email Address
+
+Set your sender email for system notifications and invites (e.g., `noreply@youragency.com`).
+
+**Requirements:**
+
+1. **Connect SendGrid** – Add your SendGrid API key
+2. **Verify sender email** – SendGrid will send a verification link
+3. **Set as default** – Choose this email for all notifications
+
+<Warning>
+  **SendGrid required:** You need a SendGrid account to send emails from your
+  domain. Sign up at [SendGrid.com](https://sendgrid.com) if you don't have one.
+</Warning>
+
+**Common email addresses:**
+
+- `noreply@youragency.com` – Automated notifications
+- `support@youragency.com` – Support emails
+- `team@youragency.com` – Team invites
+
+---
+
+## White-Label GoHighLevel
+
+If you run a white-label GoHighLevel instance, you can replace GoHighLevel branding throughout Outbox AI.
+
+<Frame>
+  <img src="/images/whitelabel-ghl-card.png" alt="GoHighLevel White-label" />
+</Frame>
+
+### What to Configure
+
+**1. GoHighLevel Logo**  
+Upload your white-labeled GHL logo (square PNG/SVG, 256×256px minimum)
+
+**2. GoHighLevel Account Name**  
+Enter your GHL white-label name (e.g., "Acme CRM" instead of "GoHighLevel")
+
+### What Gets Replaced
+
+✅ All "GoHighLevel" text becomes your brand name  
+✅ GoHighLevel logo replaced with your logo  
+✅ Integration cards show your branding  
+✅ Settings and help text reference your CRM name
+
+**Example:**
+
+| Before                    | After                  |
+| ------------------------- | ---------------------- |
+| "Connect to GoHighLevel"  | "Connect to Acme CRM"  |
+| GoHighLevel logo          | Your CRM logo          |
+| "GoHighLevel Integration" | "Acme CRM Integration" |
+
+<Note>
+  This only affects **display** in Outbox AI. Your actual GoHighLevel
+  white-label setup remains unchanged.
+</Note>
+
+---
+
+## Testing Your Setup
+
+After configuring your white-label settings:
+
+<Steps>
+  <Step title="Visit Your Custom Domain">
+    Open your custom domain in an incognito/private window
+  </Step>
+  <Step title="Check Login Screen">Verify your logo and brand name appear</Step>
+  <Step title="Send Test Invite">
+    Invite a test email and confirm it shows your branding
+  </Step>
+  <Step title="Review All Pages">
+    Log in and verify no "Outbox AI" branding is visible
+  </Step>
+</Steps>
+
+<Tip>
+  **Use incognito mode** to see exactly what clients see without your cached
+  login session.
+</Tip>
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Custom Domain Not Loading" icon="globe">
+    **Problem:** Your domain shows an error or won't load.
+    
+    **Solutions:**
+    - Check all 3 DNS records are added correctly (no typos)
+    - Verify DNS has propagated using [DNS Checker](https://dnschecker.org)
+    - Wait up to 48 hours for full propagation
+    - Contact support if still not working after 48 hours
+  </Accordion>
+
+{" "}
+
+<Accordion title="Emails Not Sending" icon="envelope">
+  **Problem:** Invites or notifications aren't being received. **Solutions:** -
+  Verify SendGrid API key has Full Access permissions - Confirm sender email
+  shows "Verified" in SendGrid - Check recipient's spam/junk folder - Test
+  sending an email directly from SendGrid dashboard - Set up SPF/DKIM records
+  for better deliverability
+</Accordion>
+
+{" "}
+
+<Accordion title="Logo Looks Blurry" icon="image">
+  **Problem:** Your logo doesn't look sharp. **Solutions:** - Upload higher
+  resolution (at least 512×512px, preferably 1024×1024px) - Use square
+  dimensions (non-square logos get stretched) - Try SVG format for perfect
+  scaling - Ensure transparent background for dark/light mode compatibility
+</Accordion>
+
+{" "}
+
+<Accordion title="Still Seeing Outbox AI Branding" icon="eye">
+  **Problem:** "Outbox AI" still appears somewhere. **Solutions:** - Clear your
+  browser cache (Cmd+Shift+R on Mac, Ctrl+Shift+R on Windows) - Test in
+  incognito/private mode - Ensure all fields are saved in white-label settings -
+  Take screenshots of where you see it and contact support
+</Accordion>
+
+  <Accordion title="GoHighLevel Branding Still Showing" icon="layer-group">
+    **Problem:** GoHighLevel logo/name not replaced.
+    
+    **Solutions:**
+    - Verify both GHL logo AND name are set
+    - Refresh the page after saving
+    - Check the GoHighLevel white-label toggle is ON
+    - Clear cache and test in incognito mode
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Start A2P Early (US SMS)" icon="shield">
+    If using US SMS, start your A2P 10DLC registration immediately. It takes 4-6 weeks to approve.
+    
+    See the [Telephony guide](/telephony) for A2P setup instructions.
+  </Accordion>
+
+{" "}
+
+<Accordion title="Match Your Website" icon="palette">
+  Use the same logo and styling from your main website for consistent branding
+  across all client touchpoints.
+</Accordion>
+
+{" "}
+
+<Accordion title="Test Thoroughly" icon="flask">
+  Before showing clients: - Test login at custom domain - Send invites to test
+  emails - Check mobile and desktop views - Verify no Outbox AI branding
+  anywhere
+</Accordion>
+
+  <Accordion title="Document Your Setup" icon="clipboard">
+    Keep a record of:
+    - SendGrid API key location
+    - DNS records and provider
+    - Verified sender emails
+    - Custom domain URL
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Telephony Setup" icon="phone-volume" href="/telephony">
+    Configure phone numbers with white-labeled caller IDs
+  </Card>
+  <Card title="GoHighLevel Integration" icon="layer-group" href="/gohighlevel">
+    Connect your white-labeled GHL instance
+  </Card>
+  <Card title="Chat Agents" icon="comments" href="/chat-agents">
+    Create agents for your white-labeled platform
+  </Card>
+  <Card title="Voice Agents" icon="phone" href="/voice-agents">
+    Set up voice agents with your branding
+  </Card>
+</CardGroup>
+
+---
+
+## Resources
+
+<CardGroup cols={3}>
+  <Card
+    title="SendGrid Setup"
+    icon="envelope"
+    href="https://docs.sendgrid.com/ui/account-and-settings/api-keys"
+  >
+    SendGrid API key documentation
+  </Card>
+  <Card
+    title="DNS Checker"
+    icon="magnifying-glass"
+    href="https://dnschecker.org"
+  >
+    Check DNS propagation status
+  </Card>
+  <Card
+    title="Email Deliverability"
+    icon="inbox"
+    href="https://sendgrid.com/resource/email-deliverability-guide/"
+  >
+    Best practices for email delivery
+  </Card>
+</CardGroup>

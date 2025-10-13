@@ -1,29 +1,29 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Outbox AI",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "/logo/logo-light.png",
+    "light": "/logo/logo-dark.png"
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#3A79F8",
+    "light": "#537CF9",
+    "dark": "#247BF5",
     "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+      "from": "#3A79F8",
+      "to": "#537CF9"
     }
   },
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:support@getoutbox.ai"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "url": "https://app.getoutbox.ai"
   },
   "tabs": [
     {
@@ -35,17 +35,22 @@
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+      "url": "https://docs.getoutbox.ai"
     },
     {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "name": "Discord Community",
+      "icon": "discord",
+      "url": "https://discord.com/invite/eU7TJ6cRkD"
     },
     {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "name": "SKOOL Course",
+      "icon": "school",
+      "url": "https://www.skool.com/outbox-ai"
+    },
+    {
+      "name": "Affiliate (20%)",
+      "icon": "percent",
+      "url": "https://affiliates.getoutbox.ai/"
     }
   ],
   "navigation": [
@@ -54,38 +59,184 @@
       "pages": [
         "introduction",
         "quickstart",
-        "development"
-      ]
-    },
-    {
-      "group": "Essentials",
-      "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "prompting-guide",
+        "chat-agents",
+        "voice-agents",
+        "telephony",
+        "tool-library",
+        "gohighlevel",
+        "whitelabelling",
+        "subaccount-rebilling"
       ]
     },
     {
       "group": "API Documentation",
+      "pages": ["api-reference/introduction"]
+    },
+    {
+      "group": "Agent Endpoints",
       "pages": [
-        "api-reference/introduction"
+        "api-reference/endpoint/list",
+        "api-reference/endpoint/get",
+        "api-reference/endpoint/create",
+        "api-reference/endpoint/update",
+        "api-reference/endpoint/duplicate",
+        "api-reference/endpoint/delete"
       ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "Chat & Call Endpoints",
+      "pages": ["api-reference/endpoint/chat", "api-reference/endpoint/call"]
+    },
+    {
+      "group": "Agent Files",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "api-reference/endpoint/file-get",
+        "api-reference/endpoint/file-upload",
+        "api-reference/endpoint/file-update",
+        "api-reference/endpoint/file-delete"
+      ]
+    },
+    {
+      "group": "Agent Integrations",
+      "pages": [
+        "api-reference/endpoint/integration-create",
+        "api-reference/endpoint/integration-update",
+        "api-reference/endpoint/integration-delete"
+      ]
+    },
+    {
+      "group": "Agent Tools",
+      "pages": [
+        "api-reference/endpoint/tool-list",
+        "api-reference/endpoint/tool-create",
+        "api-reference/endpoint/tool-delete"
+      ]
+    },
+    {
+      "group": "Module Instance Endpoints",
+      "pages": [
+        "api-reference/endpoint/module-list",
+        "api-reference/endpoint/module-get",
+        "api-reference/endpoint/module-create",
+        "api-reference/endpoint/module-update",
+        "api-reference/endpoint/module-duplicate",
+        "api-reference/endpoint/module-delete"
+      ]
+    },
+    {
+      "group": "Module Configuration",
+      "pages": [
+        "api-reference/endpoint/module-config-get",
+        "api-reference/endpoint/module-config-update"
+      ]
+    },
+    {
+      "group": "Module Scheduling",
+      "pages": [
+        "api-reference/endpoint/module-schedule-get",
+        "api-reference/endpoint/module-schedule-create",
+        "api-reference/endpoint/module-schedule-delete"
+      ]
+    },
+    {
+      "group": "Contact Endpoints",
+      "pages": [
+        "api-reference/endpoint/contact-list",
+        "api-reference/endpoint/contact-get",
+        "api-reference/endpoint/contact-create",
+        "api-reference/endpoint/contact-update",
+        "api-reference/endpoint/contact-delete"
+      ]
+    },
+    {
+      "group": "Conversation Endpoints",
+      "pages": [
+        "api-reference/endpoint/conversation-list",
+        "api-reference/endpoint/conversation-get"
+      ]
+    },
+    {
+      "group": "Call Logs",
+      "pages": [
+        "api-reference/endpoint/call-logs",
+        "api-reference/endpoint/call-logs-agent"
+      ]
+    },
+    {
+      "group": "Chat Logs",
+      "pages": [
+        "api-reference/endpoint/chat-logs",
+        "api-reference/endpoint/chat-logs-agent"
+      ]
+    },
+    {
+      "group": "Transcripts",
+      "pages": [
+        "api-reference/endpoint/transcript-list",
+        "api-reference/endpoint/transcript-list-agent",
+        "api-reference/endpoint/transcript-get",
+        "api-reference/endpoint/transcript-delete"
+      ]
+    },
+    {
+      "group": "Company Settings",
+      "pages": [
+        "api-reference/endpoint/settings-company-get",
+        "api-reference/endpoint/settings-company-update",
+        "api-reference/endpoint/settings-company-delete",
+        "api-reference/endpoint/settings-transfer",
+        "api-reference/endpoint/settings-duplicate"
+      ]
+    },
+    {
+      "group": "Company Staff Management",
+      "pages": [
+        "api-reference/endpoint/settings-invite-create",
+        "api-reference/endpoint/settings-invite-delete",
+        "api-reference/endpoint/settings-staff-update",
+        "api-reference/endpoint/settings-staff-delete"
+      ]
+    },
+    {
+      "group": "Company Phone Numbers",
+      "pages": [
+        "api-reference/endpoint/settings-phone-list",
+        "api-reference/endpoint/settings-phone-create",
+        "api-reference/endpoint/settings-phone-assign"
+      ]
+    },
+    {
+      "group": "Agency Settings",
+      "pages": [
+        "api-reference/endpoint/agency-get",
+        "api-reference/endpoint/agency-update"
+      ]
+    },
+    {
+      "group": "Agency Companies",
+      "pages": [
+        "api-reference/endpoint/agency-company-list",
+        "api-reference/endpoint/agency-company-get",
+        "api-reference/endpoint/agency-company-create",
+        "api-reference/endpoint/agency-company-update",
+        "api-reference/endpoint/agency-company-delete"
+      ]
+    },
+    {
+      "group": "Agency Phone Numbers",
+      "pages": [
+        "api-reference/endpoint/agency-phone-list",
+        "api-reference/endpoint/agency-phone-create",
+        "api-reference/endpoint/agency-phone-assign",
+        "api-reference/endpoint/agency-phone-delete"
       ]
     }
   ],
   "footerSocials": {
-    "x": "https://x.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "x": "https://x.com/getoutbox_ai",
+    "linkedin": "https://www.linkedin.com/company/outbox-ai/",
+    "facebook": "https://www.facebook.com/outboxai",
+    "instagram": "https://www.instagram.com/outboxai"
   }
 }

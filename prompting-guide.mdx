@@ -1,0 +1,988 @@
+---
+title: "Prompting Guide"
+icon: "wand-magic-sparkles"
+description: "Master the art of writing effective prompts for your AI agents"
+---
+
+## Overview
+
+A well-crafted prompt is the foundation of every successful AI agent. This guide walks you through the essential components of great prompts, from basic structure to advanced techniques that will make your agents feel truly human.
+
+<Tip>
+  **Quick Start:** When creating a new agent, simply add a description in the
+  "Create Agent" modal and Outbox AI will automatically generate a professional
+  prompt for you! You can then refine it using the guidance below.
+</Tip>
+
+---
+
+## AI-Powered Prompt Generation
+
+Outbox AI makes prompt writing easier with built-in AI assistance.
+
+### When Creating an Agent
+
+<Frame>
+  <img
+    src="/images/prompting-create-agent-description.png"
+    alt="Agent Description"
+  />
+</Frame>
+
+When you create a new agent, add a description of what you want the agent to do. Outbox AI will automatically generate a complete, professional prompt based on your description.
+
+**Example Description:**
+
+```
+I need a receptionist for my dental practice that can book appointments,
+answer common questions about our services, and handle emergency inquiries
+with a friendly, professional tone.
+```
+
+The AI will generate a fully structured prompt with all the necessary sections, ready for you to customize.
+
+---
+
+### Generate Button
+
+Already have an agent? Use the **Generate** button to let AI adjust your existing prompt based on new instructions.
+
+**How it works:**
+
+1. Click the **Generate** button in the prompt editor
+2. Describe what you want to change or improve
+3. AI rewrites your prompt with the updates
+4. Review and save the changes
+
+**Example:**
+
+- "Make the tone more casual and friendly"
+- "Add a section about our new pricing tiers"
+- "Include instructions for handling refund requests"
+
+<Note>
+  The Generate button is perfect for iterating on your prompts without starting
+  from scratch!
+</Note>
+
+---
+
+## General Prompt Structure
+
+Break your prompt into six key sections for maximum clarity and effectiveness.
+
+### 1. Role & Objective
+
+Define who the agent is and what they should accomplish.
+
+<AccordionGroup>
+  <Accordion title="Role" icon="user-tie">
+    **Who is the agent?**
+    
+    State the business name, location, and the agent's specific function.
+
+    **Examples:**
+    - "You are the inbound receptionist for Elite Fitness, Perth, Australia."
+    - "You are a customer service agent for Bright Solar Solutions."
+    - "You are the sales assistant for CrossFit Downtown, helping prospects book their first class."
+
+    <Frame>
+      <img src="/images/prompting-role-example.png" alt="Role Example" />
+    </Frame>
+
+  </Accordion>
+
+  <Accordion title="Objective" icon="bullseye">
+    **The single outcome you want on each call or chat.**
+
+    Make it crystal-clear. Every conversation should drive toward this goal.
+
+    **Examples:**
+    - "Your goal is to book a free consultation appointment."
+    - "Your objective is to qualify the lead and determine if they're a good fit."
+    - "Your purpose is to upsell existing members to the premium tier."
+
+    <Tip>
+      Keep it to ONE primary objective per agent. Multiple objectives create confusion.
+    </Tip>
+
+  </Accordion>
+</AccordionGroup>
+
+---
+
+### 2. Sales Script (Flow Blocks)
+
+Break your script into logical chunks rather than writing one long paragraph. This makes the agent's decision-making faster and more accurate.
+
+#### Key Checkpoints
+
+Structure your conversation flow with clear milestones:
+
+1. **Greeting** – How should the agent open the conversation?
+2. **Discovery questions** – What information do you need to gather?
+3. **Pitch** – How do you present the offer or solution?
+4. **Close/next step** – How do you move toward the objective?
+
+**Example:**
+
+```markdown
+## Conversation Flow
+
+### 1. Greeting
+
+"Hi! Thanks for reaching out to Elite Fitness. How can I help you today?"
+
+### 2. Discovery
+
+Ask about:
+
+- Their fitness goals
+- Previous gym experience
+- Preferred workout times
+
+### 3. Pitch
+
+"Based on what you've told me, our [SPECIFIC MEMBERSHIP] would be perfect.
+It includes [RELEVANT BENEFITS]."
+
+### 4. Close
+
+"I can get you booked in for a free tour this week.
+Does Tuesday or Thursday work better for you?"
+```
+
+#### Conditional Branches
+
+Handle different scenarios with clear if/else logic:
+
+**Example:**
+
+```markdown
+## Conditional Logic
+
+**If** the caller only wants pricing:
+
+- Provide the basic price
+- Emphasize value ("That includes unlimited classes plus...")
+- Offer a free trial to see the facility
+
+**Else if** the prospect isn't the decision-maker:
+
+- Get the decision-maker's name and number
+- Offer to send information via email
+- Schedule a follow-up call when both parties are available
+
+**Else if** they're calling about a specific promotion:
+
+- Confirm the promotion details
+- Create urgency ("This offer ends Friday")
+- Book them in immediately
+```
+
+<Note>
+  Clear branches prevent the agent from rambling or mixing up scenarios.
+</Note>
+
+#### Extras
+
+Include special data the agent needs so it never has to ask you:
+
+- Today's class schedule
+- Current promotions and expiry dates
+- Staff availability
+- Temporary closures or changes
+
+**Example:**
+
+```markdown
+## Current Schedule
+
+**Monday-Friday:** 5am - 9pm
+**Saturday:** 7am - 5pm  
+**Sunday:** 8am - 2pm
+
+**Special Note:** We're closed December 25-26 for Christmas.
+
+## Active Promotions
+
+**New Year Special:** 50% off first month (expires Jan 31)
+**Referral Bonus:** Existing members get $50 credit for each referral
+```
+
+---
+
+### 3. FAQs
+
+Present common questions and model answers. Use simple Q ➜ A pairs—tables aren't necessary.
+
+**Format:**
+
+```markdown
+## Frequently Asked Questions
+
+**Q:** What's the address?  
+**A:** 1920 St George's Terrace, Perth, 6000 WA.
+
+**Q:** How much is membership?  
+**A:** We have three tiers:
+
+- Basic ($29/week) - Access during off-peak hours
+- Standard ($45/week) - Unlimited access + group classes
+- Premium ($65/week) - Everything plus personal training sessions
+
+**Q:** Do I need to sign a contract?  
+**A:** No lock-in contracts. You can pause or cancel anytime with 14 days notice.
+
+**Q:** What should I bring to my first class?  
+**A:** Just comfortable workout clothes, a water bottle, and a positive attitude!
+We provide all equipment.
+```
+
+<Tip>
+  Include anything callers ask repeatedly: opening hours, cancellation policy,
+  current promos, parking information, what to wear, etc.
+</Tip>
+
+---
+
+### 4. Common Objections & Rebuttals
+
+List the top push-backs your staff hear and give the agent a winning response.
+
+**Format:**
+
+```markdown
+## Handling Objections
+
+**"I need to think about it."**  
+→ "Of course! Would a quick follow-up call tomorrow help you decide?
+I can also send you our member testimonials if that'd be helpful."
+
+**"That's too expensive."**  
+→ "I totally understand. Keep in mind that breaks down to just $6.50 per day—
+less than a coffee! Plus we offer flexible payment plans.
+Would fortnightly payments work better for your budget?"
+
+**"I don't have time right now."**  
+→ "No problem! Most of our members felt the same way at first.
+Our early morning sessions at 5am and late evening slots at 8pm
+are super popular with busy professionals.
+Would one of those times suit you better?"
+
+**"I'm not sure I'll actually use it."**  
+→ "That's exactly why we offer the free 7-day trial!
+Come try a few classes with zero commitment.
+Most people who try it end up loving it.
+Can I book you in for a trial this week?"
+```
+
+<Warning>
+  Don't script defensive or argumentative responses. Keep rebuttals positive and
+  solution-oriented.
+</Warning>
+
+---
+
+### 5. Tonality & Personality
+
+Define how the agent should sound. This is what makes the difference between a robotic interaction and a natural conversation.
+
+**Key Elements:**
+
+```markdown
+## Tone & Personality
+
+**Voice & Style:**
+
+- Friendly Australian vibe, informal but respectful
+- Use casual language ("Hey," "no worries," "awesome!")
+- Mirror the caller's energy level
+
+**Natural Speech:**
+
+- Natural fillers are allowed ("um," "ah," "well," "let me check that for you")
+- Never sound robotic or overly scripted
+- Pause naturally when thinking or looking something up
+
+**Numbers & Formatting:**
+
+- Write numbers as words where possible (e.g., "twenty-five," not "25")
+- Say dates conversationally ("Tuesday the fifteenth" not "15/01/2025")
+
+**Handling AI Questions:**
+
+- Don't announce you're AI up-front
+- Never lie if asked directly
+- If asked, respond: "I'm an AI assistant helping the team.
+  I can handle most questions, but I'm happy to connect you with
+  a human if you'd prefer."
+```
+
+<AccordionGroup>
+  <Accordion title="Example: Professional & Formal" icon="briefcase">
+    "Good morning, thank you for contacting [COMPANY]. 
+    This is [AGENT NAME], how may I assist you today?"
+    
+    - Use complete sentences
+    - Avoid slang or colloquialisms
+    - Maintain respectful distance
+    
+    **Best for:** Legal, medical, financial services, B2B
+  </Accordion>
+
+{" "}
+
+<Accordion title="Example: Casual & Friendly" icon="face-smile">
+  "Hey! Thanks for reaching out. What can I help you with?" - Use contractions
+  ("I'm," "we're," "that's") - Inject personality and warmth - Be conversational
+  **Best for:** Fitness, hospitality, retail, consumer services
+</Accordion>
+
+{" "}
+
+<Accordion title="Example: Energetic & Sales-Focused" icon="bolt">
+  "Hi there! Super excited to hear from you! Let's find the perfect solution for
+  what you need!" - High energy and enthusiasm - Action-oriented language -
+  Create urgency and excitement **Best for:** Sales calls, limited-time offers,
+  event bookings
+</Accordion>
+
+  <Accordion title="Example: Empathetic & Supportive" icon="heart">
+    "Thanks for calling. I'm sorry to hear you're having trouble. 
+    Let me help you sort this out."
+    
+    - Acknowledge emotions
+    - Show patience and understanding
+    - Problem-solving focus
+    
+    **Best for:** Customer support, technical help, complaints handling
+  </Accordion>
+</AccordionGroup>
+
+---
+
+### 6. Response Style Guidelines
+
+Control how the agent structures its responses and manages the conversation flow.
+
+**Guidelines:**
+
+```markdown
+## Response Style
+
+**Brevity:**
+
+- Keep replies concise—no rambling
+- Get to the point quickly
+- One idea per response
+
+**Questioning:**
+
+- Ask ONE clear question at a time, then wait
+- Don't overwhelm with multiple questions
+- Let the caller finish before moving on
+
+**Confirmation:**
+
+- Confirm key details before progressing
+- Repeat back: dates, email addresses, phone numbers, spelling of names
+- Example: "Just to confirm, that's J-O-H-N at john@email.com, correct?"
+
+**Closing:**
+
+- End every successful interaction with the agreed next step
+- Example: "Perfect! I've got you booked for Tuesday at 3pm.
+  You'll receive a confirmation email in the next few minutes.
+  Looking forward to seeing you then!"
+
+**Errors & Uncertainty:**
+
+- If unsure, admit it rather than guessing
+- Offer to find out: "Let me check with the team and call you back"
+- Provide alternatives when you can't do exactly what's requested
+```
+
+<Tip>
+  **Pro Tip:** Test your agent with intentionally vague or confusing inputs to
+  see how well it handles uncertainty.
+</Tip>
+
+---
+
+## Dynamic Variables
+
+Dynamic variables let your agent personalize every outbound call without hard-coding details. They behave like mail-merge tags: write the variable once, and Outbox AI swaps in the live value when the call is placed.
+
+### What the Agent Already Knows
+
+Before you add anything, remember the voice agent automatically has:
+
+- **Current time** – Pulled from the time-zone you set under Advanced Settings
+- **Caller's number** – The phone number it is dialing
+
+That alone covers most "good morning" or "local time" references.
+
+---
+
+### Injecting Extra Details
+
+Use double curly braces in your prompt or first message:
+
+```
+Hi {{first_name}}, thanks for calling!
+```
+
+**Syntax Rules:**
+
+- **Format:** `{{variable_name}}`
+- **Case:** Keep names all lower-case
+- **Spaces:** Use underscores (e.g., `{{first_name}}`, not `{{First Name}}`)
+- **Instant preview:** Once you type the tag and click Save, it appears in the Agent Context panel
+
+---
+
+### Popular Variables
+
+Here are the most commonly used dynamic variables:
+
+```markdown
+{{first_name}} / {{full_name}} – Greet leads by name
+{{time_zone}} – Helpful if you've pre-saved a contact's zone
+{{appointment_date}} – Reference upcoming bookings
+{{location}} – Mention their city or region
+{{company_name}} – For B2B calls
+{{last_contact_date}} – When you last spoke
+{{lead_source}} – Where they came from (Google, Facebook, referral)
+{{custom_field_name}} – Any custom field you store in your CRM
+```
+
+**Example Usage:**
+
+```markdown
+## First Message (Outbound)
+
+"Hi {{first_name}}, this is Sarah from Elite Fitness.
+I'm following up on your inquiry about our {{membership_type}} membership.
+Do you have a quick minute to chat?"
+
+## Appointment Reminder
+
+"Hey {{first_name}}! Just a friendly reminder that you've got
+a session booked with us tomorrow ({{appointment_date}}) at
+{{appointment_time}}. Looking forward to seeing you!"
+```
+
+---
+
+### Adding Variables Mid-Build
+
+<Steps>
+  <Step title="Insert the Tag">
+    Type `{{ variable_name }}` anywhere in your prompt or tool settings
+  </Step>
+  <Step title="Save & Reload">
+    Click Save. New fields appear under Agent Context
+  </Step>
+  <Step title="Test with Sample Values">
+    Fill in test values to preview how the agent will sound
+  </Step>
+  <Step title="Populate in Workflow">
+    When configuring the "Send Outbound Call" action in your automation, supply
+    the live values from your CRM
+  </Step>
+</Steps>
+
+---
+
+### Outbound vs Inbound
+
+**Outbound Calls:**  
+Dynamic variables work immediately. Supply values when you configure the Send Outbound Call action in your workflow.
+
+**Inbound Calls:**  
+Tags won't populate automatically. Instead:
+
+1. Trigger a **Find or Create Contact** tool at the start of the call
+2. Pass returned details into the prompt
+3. Create a new contact on the fly if none exists
+
+<Note>
+  For inbound calls, you'll need to fetch contact data from your CRM first
+  before variables can be populated.
+</Note>
+
+---
+
+## Markdown Formatting
+
+Writing a single block of text works—but wrapping your prompt in Markdown makes every section clearer for you and the AI model. Better structure means faster, more accurate answers.
+
+<Frame>
+  <img src="/images/prompting-markdown-preview.png" alt="Markdown Preview" />
+</Frame>
+
+### Why Bother with Markdown?
+
+<CardGroup cols={2}>
+  <Card title="Faster Navigation" icon="compass">
+    Creates visible headings and sections so the model can jump straight to the
+    right part
+  </Card>
+
+{" "}
+
+<Card title="Clear Logic" icon="code-branch">
+  Keeps if/else branches separate so they don't bleed into each other
+</Card>
+
+{" "}
+
+<Card title="Easy Maintenance" icon="wrench">
+  Makes it easier to spot gaps or typos before you save
+</Card>
+
+  <Card title="Better Performance" icon="gauge-high">
+    Well-structured prompts get better, more consistent results
+  </Card>
+</CardGroup>
+
+---
+
+### Markdown in 60 Seconds
+
+Here are the key elements you'll use most:
+
+```markdown
+# Heading 1
+
+## Heading 2
+
+### Heading 3
+
+A blank line starts a new paragraph.
+
+**bold** for important phrases
+
+_italic_ for softer emphasis or asides
+
+> Block quote to indent reference text or examples
+
+- Bullet list item
+- Another bullet
+
+1. Ordered list item
+2. Another ordered item
+
+[Link text](https://example.com)
+
+`inline code` for technical terms
+```
+
+---
+
+### Your Workflow
+
+<Steps>
+  <Step title="Draft in a Text Editor">
+    Write your prompt in any text editor you're comfortable with
+  </Step>
+  <Step title="Preview in Markdown Live">
+    Paste it into [Markdown Live Preview](https://markdownlivepreview.com/). The
+    left pane shows your code; the right pane shows the rendered result
+  </Step>
+  <Step title="Refine the Structure">
+    Tweak headings, lists, and spacing until the right-hand preview looks
+    crystal-clear
+  </Step>
+  <Step title="Copy to Outbox AI">
+    Copy the finished Markdown back into Outbox AI
+  </Step>
+</Steps>
+
+<Tip>
+  Need a quick refresher? Keep
+  [MarkdownGuide.org](https://www.markdownguide.org/) open in another tab.
+</Tip>
+
+---
+
+### Example Structure (Snippet)
+
+Here's what a well-structured prompt looks like:
+
+```markdown
+# Role & Objective
+
+You are the inbound receptionist for Elite Fitness, Perth, Australia.
+Your goal is to book free trial appointments for prospective members.
+
+## Conversation Flow
+
+### 1. Greeting
+
+"Hi! Thanks for reaching out to Elite Fitness. How can I help you today?"
+
+### 2. Discovery
+
+Ask about their fitness goals and preferred workout times.
+
+### 3. Pitch
+
+"Based on what you've told me, I think you'd love our [SPECIFIC PROGRAM]."
+
+### 4. Close
+
+"I can get you booked in for a free trial this week.
+Does Tuesday or Thursday work better?"
+
+## FAQs
+
+**Q:** What time do you open?  
+**A:** We're open 5am – 9pm Monday–Friday, 7am – 5pm Saturday.
+
+**Q:** Do I need to bring anything?  
+**A:** Just comfortable workout clothes and a water bottle!
+
+## Conditional Logic
+
+**If** caller only wants pricing:
+
+- Provide the basic price
+- Emphasize value ("That includes unlimited classes...")
+- Offer a free trial
+
+**Else if** caller asks about a specific program:
+
+- Explain that program's benefits
+- Mention success stories
+- Book them in
+```
+
+The model now sees clear blocks—no hunting for information.
+
+---
+
+### Voice-Specific Caveat (11 Labs and Similar)
+
+<Warning>
+  When the sentence is inside quotes—the part the agent will actually
+  speak—leave out bold or italic markers.
+</Warning>
+
+Otherwise the speech engine may:
+
+- Drop the formatted words altogether, **or**
+- Read out the asterisks ("asterisk Outbox AI asterisk")
+
+**Bad:**
+
+```markdown
+"Thanks for calling **Elite Fitness**!"
+```
+
+**Good:**
+
+```markdown
+**Agent should say:**  
+"Thanks for calling Elite Fitness!"
+```
+
+Keep formatting outside quoted dialogue and you'll avoid those glitches.
+
+---
+
+### Quick Automation Tip
+
+Pressed for time? Paste your plain prompt into ChatGPT (GPT-4o or Claude) and say:
+
+> "Convert this text into Markdown. Do not bold any words that appear inside quotation marks or use any tables."
+
+Then check the output in [Markdown Live Preview](https://markdownlivepreview.com/) before pasting it into Outbox AI.
+
+---
+
+## Sublime Text for Bulk Edits
+
+Manually swapping out dozens of variables in a template is painful. **Sublime Text** (free to download, cross-platform) lets you blitz through those changes in seconds.
+
+<Card
+  title="Download Sublime Text"
+  icon="download"
+  href="https://www.sublimetext.com/"
+>
+  Free, cross-platform text editor with powerful find-and-replace features
+</Card>
+
+<Frame>
+  <img src="/images/prompting-sublime-text.png" alt="Sublime Text" />
+</Frame>
+
+---
+
+### Install & Open
+
+1. **Download** Sublime Text from the [official website](https://www.sublimetext.com/)
+2. **Launch** the application
+3. **Paste or open** your prompt template (e.g., your CrossFit gym outbound-call script)
+
+---
+
+### Multi-Replace in a Single Hit
+
+<Steps>
+  <Step title="Open Find Bar">
+    Press `⌘F` (Mac) or `Ctrl+F` (Windows/Linux)
+  </Step>
+  <Step title="Enable Regex Mode">
+    Click the `.*` button to enable regular-expression mode
+  </Step>
+  <Step title="Enter Search Pattern">
+    Type the exact token you want to change. Escape special characters with a backslash.
+    
+    **Example:** To target `{{gym_name}}`, search for:
+    ```
+    \{\{gym_name\}\}
+    ```
+  </Step>
+  <Step title="Replace All">
+    Click "Replace All" and enter the new value—every occurrence updates instantly
+  </Step>
+  <Step title="Copy Back">
+    Copy the fresh template back into Outbox AI
+  </Step>
+</Steps>
+
+<Frame>
+  <img
+    src="/images/prompting-sublime-replace.png"
+    alt="Sublime Text Find and Replace"
+  />
+</Frame>
+
+### Example: Updating Multiple Variables
+
+If you have a template with `{{gym_name}}`, `{{gym_address}}`, and `{{gym_phone}}` that you need to update for a new client:
+
+1. **Find:** `\{\{gym_name\}\}` → **Replace:** "Elite Fitness"
+2. **Find:** `\{\{gym_address\}\}` → **Replace:** "123 Fitness St, Perth"
+3. **Find:** `\{\{gym_phone\}\}` → **Replace:** "(08) 1234 5678"
+
+Done in seconds instead of hunting through the document manually!
+
+<Tip>
+  **Pro Tip:** Save your template with placeholder variables (like `
+  {{ COMPANY_NAME }}`) and use Sublime Text to create customized versions for
+  each new client.
+</Tip>
+
+---
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Start with the AI Generator" icon="robot">
+    Don't start from scratch! Use the AI-powered prompt generation when creating a new agent, then refine the output. It's faster and gives you a solid foundation.
+  </Accordion>
+
+{" "}
+
+<Accordion title="Test Early, Test Often" icon="flask">
+  Don't wait until your prompt is "perfect" to test it: 1. Write a basic version
+  2. Test with real scenarios 3. Note where it fails or sounds awkward 4. Refine
+  those specific sections 5. Test again Iteration beats perfection.
+</Accordion>
+
+{" "}
+
+<Accordion title="Use Real Customer Language" icon="comments">
+  Listen to actual calls or read real customer messages. Copy the exact phrasing
+  they use: - ✅ "Do you guys do personal training?" - ❌ "Are one-on-one
+  coaching sessions available?" Match their language in your FAQs and responses.
+</Accordion>
+
+{" "}
+
+<Accordion title="Keep Sections Modular" icon="puzzle-piece">
+  Build your prompt in distinct sections so you can: - Swap out FAQs without
+  touching the main script - Update pricing without rewriting objections - Test
+  different tonality without breaking the flow Modular = maintainable.
+</Accordion>
+
+{" "}
+
+<Accordion title="Document Your Changes" icon="clipboard">
+  When you update a prompt, note what you changed and why: ```markdown ##
+  Changelog **2025-01-15:** Added Solar Savings tool **2025-01-10:** Updated
+  pricing to reflect new membership tiers **2024-12-20:** Softened tone in
+  objection handling ``` Helps you track what works and what doesn't.
+</Accordion>
+
+  <Accordion title="Use the Generate Button for Refinements" icon="wand-sparkles">
+    Already have a working prompt but need adjustments? 
+    Use the Generate button instead of manual edits:
+    
+    - "Make the tone 20% more enthusiastic"
+    - "Add a section about our refund policy"
+    - "Simplify the language for a general audience"
+    
+    The AI will preserve your structure while making targeted improvements.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Common Mistakes to Avoid
+
+<AccordionGroup>
+  <Accordion title="❌ Too Vague" icon="question">
+    **Bad:** "Be helpful and answer questions."
+    
+    **Good:** "You are a customer service agent for ABC Company. Your goal is to resolve customer issues within the first interaction. Always confirm the issue is resolved before ending the call."
+    
+    Specificity creates consistency.
+  </Accordion>
+
+{" "}
+
+<Accordion title="❌ Too Rigid" icon="lock">
+  **Bad:** "Follow this script exactly, word for word." **Good:** "Use this
+  script as a guide. Adapt your phrasing to match the caller's style, but always
+  hit these key points: [list]." Flexibility sounds more human.
+</Accordion>
+
+{" "}
+
+<Accordion title="❌ Forgetting Edge Cases" icon="triangle-exclamation">
+  **Missing:** What if they don't want to book? What if they hung up by
+  accident? What if they're angry? **Include:** "If the caller is upset,
+  acknowledge their frustration first. 'I understand that's frustrating. Let's
+  sort this out together.'" Cover the unhappy paths.
+</Accordion>
+
+{" "}
+
+<Accordion title="❌ Overly Complex Formatting" icon="code">
+  **Bad:** Tables, nested lists, excessive bolding in spoken dialogue **Good:**
+  Simple Markdown, clear sections, formatting only for structure (not in quotes)
+  Simple = reliable.
+</Accordion>
+
+  <Accordion title="❌ Ignoring Feedback" icon="ear-deaf">
+    **Bad:** Writing a prompt and never updating it
+    
+    **Good:** Reviewing conversation logs weekly, noting repeated issues, and refining the prompt
+    
+    Your first version will never be your best version.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Agent Sounds Robotic" icon="robot">
+    **Problem:** Responses feel stiff and unnatural.
+    
+    **Solutions:**
+    - Add more conversational filler words ("um," "ah," "let me check")
+    - Use contractions ("I'm," "we're," "that's")
+    - Include friendly phrases ("no worries," "sounds good," "awesome!")
+    - Test with a more casual tone setting
+  </Accordion>
+
+{" "}
+
+<Accordion title="Agent Ignoring Instructions" icon="ban">
+  **Problem:** The agent isn't following key parts of your prompt.
+  **Solutions:** - Move critical instructions to the top of the prompt - Use
+  bold headings for important sections - Repeat key rules in multiple sections
+  if necessary - Simplify complex conditional logic - Use the Generate button to
+  restructure
+</Accordion>
+
+{" "}
+
+<Accordion title="Agent Rambling" icon="comment-dots">
+  **Problem:** Responses are too long and lose the caller. **Solutions:** - Add
+  to Response Style Guidelines: "Keep answers under 2-3 sentences" - Explicitly
+  say: "Ask ONE question at a time, then wait" - Include examples of concise
+  responses in your script
+</Accordion>
+
+{" "}
+
+<Accordion title="Variables Not Populating" icon="brackets-curly">
+  **Problem:** Dynamic variables show as `{{ first_name }}` instead of actual
+  values. **Solutions:** - Check syntax: must be `{{ variable_name }}` with
+  double curly braces - Ensure variable is lowercase with underscores - For
+  inbound calls, add a Find or Create Contact tool first - For outbound calls,
+  verify values are passed in the workflow - Save and reload to see new
+  variables in Agent Context
+</Accordion>
+
+  <Accordion title="Markdown Not Rendering" icon="file-code">
+    **Problem:** Your formatting looks broken in the agent's responses.
+    
+    **Solutions:**
+    - Remove formatting (bold/italic) from inside quoted dialogue
+    - Ensure blank lines between sections
+    - Test in Markdown Live Preview first
+    - Keep formatting simple (headings, bullets, quotes only)
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Create Your First Agent" icon="plus" href="/chat-agents">
+    Put your new prompting skills to work
+  </Card>
+
+{" "}
+
+<Card title="Tool Library" icon="books" href="/tool-library">
+  Explore available tools to enhance your agents
+</Card>
+
+{" "}
+
+<Card title="Voice Agents" icon="phone" href="/voice-agents">
+  Apply these techniques to voice agents
+</Card>
+
+  <Card title="GoHighLevel Integration" icon="layer-group" href="/gohighlevel">
+    Connect your agents to your CRM
+  </Card>
+</CardGroup>
+
+---
+
+## Resources
+
+<CardGroup cols={3}>
+  <Card
+    title="Markdown Live Preview"
+    icon="eye"
+    href="https://markdownlivepreview.com/"
+  >
+    Test your Markdown formatting in real-time
+  </Card>
+
+{" "}
+
+<Card title="Markdown Guide" icon="book" href="https://www.markdownguide.org/">
+  Complete Markdown syntax reference
+</Card>
+
+  <Card
+    title="Sublime Text"
+    icon="download"
+    href="https://www.sublimetext.com/"
+  >
+    Powerful text editor for bulk variable replacement
+  </Card>
+</CardGroup>

@@ -1,0 +1,756 @@
+---
+title: "Tool Library"
+icon: "books"
+description: "Explore plug-and-play tools for your AI agents"
+---
+
+## Overview
+
+The Tool Library provides ready-made integrations that your AI agents can use during conversations. No coding required—just add the tool, configure the settings, and your agent can book appointments, send messages, fetch data, and more.
+
+<Tip>
+  **How it works:** When you add a tool to your agent, it becomes available for
+  the agent to call during conversations. The agent decides when to use each
+  tool based on your prompt instructions.
+</Tip>
+
+---
+
+## Variables vs Configurations
+
+Understanding the difference between variables and configurations is key to using tools effectively.
+
+<CardGroup cols={2}>
+  <Card title="Variables" icon="wand-sparkles">
+    **Filled by the agent during the conversation** The agent gathers this
+    information from the customer and passes it to the tool. **Examples:** -
+    Customer's name - Preferred appointment time - Email address - Phone number
+  </Card>
+
+  <Card title="Configurations" icon="gear">
+    **Preset when you add the tool** You configure these once, and they stay the
+    same for every call/chat. **Examples:** - API keys - Calendar IDs - Default
+    timezone - Integration credentials
+  </Card>
+</CardGroup>
+
+**Example:**
+
+When using the "Fetch Free Slots" tool:
+
+- **Configuration:** You set the Calendar ID once (which calendar to check)
+- **Variables:** The agent fills in the start_date and timezone during each conversation
+
+---
+
+## GoHighLevel Integration
+
+Tools for integrating with your GoHighLevel CRM and calendars.
+
+<AccordionGroup>
+  <Accordion title="Find Or Create Contact" icon="user-plus">
+    Find or create a contact in GoHighLevel to use for appointment booking and other functions.
+
+    **Description:**
+    Search for an existing contact by phone, email, or name. If not found, create a new contact record. Returns the Contact ID for use with other tools.
+
+    **Variables (Agent fills during call):**
+    - `name` – The full name of the user *(optional)*
+    - `phone` – Phone number in international format *(optional)*
+    - `email` – Email address *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your GoHighLevel integration*
+
+    **Use Cases:**
+    - Look up customer before booking appointment
+    - Create new leads on the fly
+    - Verify contact exists before proceeding
+
+    <Tip>
+      Best practice: Use this tool at the start of your conversation flow to get the contact ID, then pass that ID to other GHL tools.
+    </Tip>
+
+  </Accordion>
+
+  <Accordion title="Fetch Free Slots" icon="calendar-days">
+    Fetch a list of available appointment slots for a GoHighLevel calendar within a specific time range.
+
+    **Description:**
+    Check calendar availability in real-time and return a list of open time slots.
+
+    **Variables (Agent fills during call):**
+    - `start_date` – Start date to search from in ISO 8601 format *(required)*
+    - `end_date` – End date to search until in ISO 8601 format *(optional)*
+    - `timezone` – Timezone in IANA format *(optional)*
+
+    **Configurations (You set once):**
+    - **Calendar ID** – The GoHighLevel calendar to check
+
+    **Use Cases:**
+    - "What times do you have available this week?"
+    - Check availability before offering booking
+    - Display multiple options to the customer
+
+  </Accordion>
+
+  <Accordion title="Get Booked Appointments" icon="calendar-check">
+    Retrieve a list of appointments already booked for a specific contact.
+
+    **Description:**
+    Fetch all existing appointments for a contact so you can discuss, reschedule, or cancel them.
+
+    **Variables (Agent fills during call):**
+    - `timezone` – Timezone in IANA format *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses the current contact from GoHighLevel*
+
+    **Use Cases:**
+    - "Do you have any upcoming appointments?"
+    - Verify appointment before rescheduling
+    - Check if customer already has a booking
+
+  </Accordion>
+
+  <Accordion title="Cancel or Reschedule Appointment" icon="calendar-xmark">
+    Cancel or reschedule a specific GoHighLevel appointment to a later date.
+
+    **Description:**
+    Modify or cancel existing appointments based on customer requests.
+
+    **Variables (Agent fills during call):**
+    - `action` – Either "cancel" or "reschedule" *(required)*
+    - `appointment_id` – The ID of the appointment to modify *(required)*
+    - `booking_id` – The booking ID *(required)*
+    - `new_start_time` – New time in ISO8601 format *(required for reschedule)*
+    - `timezone` – Timezone in IANA format *(optional)*
+
+    **Configurations (You set once):**
+    *None required*
+
+    **Use Cases:**
+    - "I need to reschedule my appointment"
+    - Cancel no-shows automatically
+    - Move appointments to different time slots
+
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Cal.com Integration
+
+Tools for managing appointments with Cal.com calendars.
+
+<AccordionGroup>
+  <Accordion title="Fetch Free Slots" icon="calendar-days">
+    Fetch available appointment slots between two dates for a specific Cal.com event type.
+
+    **Description:**
+    Check Cal.com calendar availability and return open time slots.
+
+    **Variables (Agent fills during call):**
+    - `start_date` – Start date to search from in ISO 8601 format *(required)*
+    - `end_date` – End date to search until in ISO 8601 format *(optional)*
+    - `timezone` – Timezone in IANA format *(optional)*
+
+    **Configurations (You set once):**
+    - **Event Type ID** – The Cal.com event type to check availability for
+
+    **Use Cases:**
+    - Show available appointment times
+    - Let customers choose from multiple slots
+    - Check next week's availability
+
+  </Accordion>
+
+  <Accordion title="Get User Bookings" icon="calendar-check">
+    Get a list of bookings for a specific user so you can reschedule or cancel them.
+
+    **Description:**
+    Retrieve all Cal.com bookings for a user by their email address.
+
+    **Variables (Agent fills during call):**
+    - `attendee_email` – Email of the attendee *(required)*
+    - `timezone` – Timezone in IANA format *(optional)*
+
+    **Configurations (You set once):**
+    - **Event Type ID** – The Cal.com event type to query
+
+    **Use Cases:**
+    - "What appointments do I have scheduled?"
+    - Find booking ID before canceling/rescheduling
+    - Verify appointment details
+
+  </Accordion>
+
+  <Accordion title="Cancel or Reschedule Booking" icon="calendar-xmark">
+    Cancel or reschedule a booking made in Cal.com.
+
+    **Description:**
+    Modify or cancel existing Cal.com bookings.
+
+    **Variables (Agent fills during call):**
+    - `action` – Either "cancel" or "reschedule" *(required)*
+    - `booking_id` – The ID of the booking to modify *(required)*
+    - `new_start_time` – New time in ISO8601 format *(required for reschedule)*
+    - `timezone` – Timezone in IANA format *(optional)*
+
+    **Configurations (You set once):**
+    *None required*
+
+    **Use Cases:**
+    - Reschedule appointments on customer request
+    - Cancel bookings that are no longer needed
+    - Move appointments to accommodate schedule changes
+
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Popular Tools
+
+Commonly used tools that work across all industries.
+
+<AccordionGroup>
+  <Accordion title="Book AI Callback" icon="phone-arrow-up-right">
+    Allow your agents to schedule callbacks—the agent will automatically call the user back at the specified time.
+
+    **Description:**
+    Perfect for "call me back later" scenarios. The agent schedules the callback and it appears in your call queue.
+
+    **Variables (Agent fills during call):**
+    - `call_time` – Local time to call back in ISO 8601 format *(required)*
+    - `timezone` – Timezone in IANA format *(required)*
+    - `first_message` – Opening line when callback connects *(optional)*
+
+    **Configurations (You set once):**
+    *None required*
+
+    **Use Cases:**
+    - "Can you call me back in 2 hours?"
+    - Schedule follow-up calls
+    - Respect customer's preferred contact times
+    - Handle "I'm busy right now" objections
+
+    <Tip>
+      Example first message: "Hi again! This is Sarah from Elite Fitness calling back as promised. Do you have a minute now?"
+    </Tip>
+
+  </Accordion>
+
+  <Accordion title="Get Current Time" icon="clock">
+    Get the current time for any timezone in ISO 8601 format.
+
+    **Description:**
+    Essential for time-sensitive operations and appointment booking logic.
+
+    **Variables (Agent fills during call):**
+    - `timezone` – Timezone in IANA format *(optional)*
+
+    **Configurations (You set once):**
+    - **Default Timezone** – The fallback timezone if none is specified
+
+    **Use Cases:**
+    - Calculate "tomorrow" or "next Monday"
+    - Verify it's during business hours
+    - Convert between timezones for scheduling
+
+  </Accordion>
+
+  <Accordion title="Send Twilio SMS" icon="message">
+    Send text messages directly from your agent using your Twilio account.
+
+    **Description:**
+    Send SMS messages during or after conversations for confirmations, follow-ups, or reminders.
+
+    **Variables (Agent fills during call):**
+    - `to_number` – Phone number in international format *(required)*
+    - `message` – The SMS message content *(required)*
+
+    **Configurations (You set once):**
+    - **Twilio Account SID** – Your Twilio account identifier
+    - **Twilio Auth Token** – Your Twilio authentication token *(secret)*
+    - **From Number** – The Twilio number to send from
+
+    **Use Cases:**
+    - Send appointment confirmations via SMS
+    - Text a receipt or booking reference
+    - Send follow-up information after the call
+    - Share links or documents
+
+    <Note>
+      Remember: US SMS requires A2P registration. See the [Telephony guide](/telephony) for details.
+    </Note>
+
+  </Accordion>
+
+  <Accordion title="Send SendGrid Email" icon="envelope">
+    Send emails directly from your agent using SendGrid.
+
+    **Description:**
+    Email confirmations, documents, or follow-up information during or after conversations.
+
+    **Variables (Agent fills during call):**
+    - `to_email` – Recipient's email address *(required)*
+    - `subject` – Email subject line *(required)*
+    - `message` – Email body content *(required)*
+
+    **Configurations (You set once):**
+    - **SendGrid API Key** – Your SendGrid API key *(secret)*
+    - **From Email** – The email address to send from
+    - **From Name** – Display name for the sender
+
+    **Use Cases:**
+    - Email appointment confirmations
+    - Send detailed information too long for SMS
+    - Share documents or links
+    - Follow up with additional resources
+
+    <Tip>
+      Use a verified sender email in SendGrid for better deliverability!
+    </Tip>
+
+  </Accordion>
+
+  <Accordion title="Solar Savings (US Only)" icon="solar-panel">
+    Calculate estimated savings from switching to solar based on monthly electricity bill and address.
+
+    **Description:**
+    Perfect for solar sales calls. Provides instant savings estimates to help close deals.
+
+    **Variables (Agent fills during call):**
+    - `monthly_bill` – Current monthly electricity bill in USD *(required)*
+    - `address` – Customer's full address *(required)*
+
+    **Configurations (You set once):**
+    *None required*
+
+    **Use Cases:**
+    - "How much would I save with solar?"
+    - Qualify leads based on bill amount
+    - Provide instant ROI calculations
+    - Create urgency with savings numbers
+
+    <Warning>
+      **US Only:** This tool uses US solar data and pricing. Not accurate for other countries.
+    </Warning>
+
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Fitness Industry
+
+Specialized tools for gyms, studios, and fitness businesses using Mindbody or MyTime.
+
+### Mindbody Integration
+
+<AccordionGroup>
+  <Accordion title="Fetch Mindbody Classes" icon="dumbbell">
+    Find all classes and available slots in Mindbody for a specific day.
+
+    **Description:**
+    Query your Mindbody schedule to show customers what classes are available.
+
+    **Variables (Agent fills during call):**
+    - `date` – Date to fetch classes for in dd/mm/yyyy format *(required)*
+
+    **Configurations (You set once):**
+    - **MB Site ID** – Your Mindbody site identifier
+    - **MB API Key** – Your Mindbody API key *(secret)*
+    - **MB Email** – Mindbody account email
+    - **MB Password** – Mindbody account password *(secret)*
+
+    **Use Cases:**
+    - "What yoga classes do you have tomorrow?"
+    - Show class schedule for the week
+    - Check capacity before booking
+
+  </Accordion>
+
+  <Accordion title="Book Mindbody Class" icon="calendar-plus">
+    Book a new or existing user into a Mindbody class.
+
+    **Description:**
+    Register customers for classes directly from your agent.
+
+    **Variables (Agent fills during call):**
+    - `class_id` – The class ID to book *(required)*
+    - `full_name` – Customer's full name *(optional)*
+    - `phone` – Customer's phone number *(optional)*
+    - `email` – Customer's email address *(optional)*
+
+    **Configurations (You set once):**
+    - **MB Site ID** – Your Mindbody site identifier
+    - **MB API Key** – Your Mindbody API key *(secret)*
+    - **MB Email** – Mindbody account email
+    - **MB Password** – Mindbody account password *(secret)*
+
+    **Use Cases:**
+    - Book into classes instantly over the phone
+    - Register new members during signup calls
+    - Reserve spots in popular classes
+
+  </Accordion>
+</AccordionGroup>
+
+---
+
+### MyTime Integration
+
+<AccordionGroup>
+  <Accordion title="Find Or Create MyTime Client" icon="user-plus">
+    Find or create a client in your MyTime system.
+
+    **Description:**
+    Search for existing clients or create new ones before booking appointments.
+
+    **Variables (Agent fills during call):**
+    - `phone_number` – Phone in international format *(required)*
+    - `full_name` – Full name *(optional)*
+    - `email` – Email address *(optional)*
+
+    **Configurations (You set once):**
+    - **Partner API Key** – Your MyTime API key *(secret)*
+    - **Subdomain** – Your MyTime subdomain
+    - **Location MyTime ID** – Your location identifier
+
+    **Use Cases:**
+    - Look up existing clients
+    - Create new client records
+    - Get client ID for booking
+
+  </Accordion>
+
+  <Accordion title="Fetch MyTime Services" icon="list">
+    Fetch all services available at your MyTime location.
+
+    **Description:**
+    Display your service menu so customers can choose what they want.
+
+    **Variables (Agent fills during call):**
+    *None—returns all services*
+
+    **Configurations (You set once):**
+    - **Partner API Key** – Your MyTime API key *(secret)*
+    - **Subdomain** – Your MyTime subdomain
+    - **Location MyTime ID** – Your location identifier
+
+    **Use Cases:**
+    - "What services do you offer?"
+    - List treatment options
+    - Display pricing for different services
+
+  </Accordion>
+
+  <Accordion title="Fetch MyTime Availabilities" icon="calendar-days">
+    Fetch available appointment times for a specific therapy at your MyTime location.
+
+    **Description:**
+    Show customers when they can book for their chosen service.
+
+    **Variables (Agent fills during call):**
+    - `therapy_id` – The service/therapy ID *(required)*
+    - `date` – Date to check in yyyy-mm-dd format *(required)*
+    - `employee_id` – Specific therapist *(optional)*
+
+    **Configurations (You set once):**
+    - **Partner API Key** – Your MyTime API key *(secret)*
+    - **Subdomain** – Your MyTime subdomain
+    - **Location MyTime ID** – Your location identifier
+    - **Timezone** – Your business timezone
+
+    **Use Cases:**
+    - "When can I get a massage?"
+    - Show available appointment times
+    - Check specific therapist availability
+
+  </Accordion>
+
+  <Accordion title="Book MyTime Appointment" icon="calendar-plus">
+    Book an appointment for a specific therapy in MyTime.
+
+    **Description:**
+    Complete the booking directly during the conversation.
+
+    **Variables (Agent fills during call):**
+    - `client_id` – The MyTime client ID *(required)*
+    - `therapy_id` – The service/therapy ID *(required)*
+    - `begin_at` – Start time in local ISO8601 format *(required)*
+    - `employee_id` – Specific therapist *(optional)*
+
+    **Configurations (You set once):**
+    - **Partner API Key** – Your MyTime API key *(secret)*
+    - **Subdomain** – Your MyTime subdomain
+    - **Location MyTime ID** – Your location identifier
+    - **Timezone** – Your business timezone
+
+    **Use Cases:**
+    - Book massage appointments
+    - Schedule beauty treatments
+    - Reserve spa services
+
+  </Accordion>
+
+  <Accordion title="Fetch MyTime Appointments" icon="calendar-check">
+    Fetch all appointments for a client at your MyTime location.
+
+    **Description:**
+    View all of a client's upcoming or past appointments.
+
+    **Variables (Agent fills during call):**
+    - `client_id` – The MyTime client ID *(required)*
+
+    **Configurations (You set once):**
+    - **Partner API Key** – Your MyTime API key *(secret)*
+    - **Subdomain** – Your MyTime subdomain
+    - **Location MyTime ID** – Your location identifier
+    - **Timezone** – Your business timezone
+
+    **Use Cases:**
+    - Check customer's booking history
+    - Verify upcoming appointments
+    - Find appointment ID for rescheduling
+
+  </Accordion>
+
+  <Accordion title="Cancel or Reschedule MyTime Appointment" icon="calendar-xmark">
+    Cancel or reschedule an appointment at your MyTime location.
+
+    **Description:**
+    Modify existing bookings based on customer needs.
+
+    **Variables (Agent fills during call):**
+    - `action` – Either "cancel" or "reschedule" *(required)*
+    - `appointment_id` – Appointment to modify *(required)*
+    - `begin_at` – New start time in ISO8601 format *(required for reschedule)*
+    - `employee_id` – Different therapist *(optional)*
+
+    **Configurations (You set once):**
+    - **Partner API Key** – Your MyTime API key *(secret)*
+    - **Subdomain** – Your MyTime subdomain
+    - **Timezone** – Your business timezone
+
+    **Use Cases:**
+    - Reschedule treatments
+    - Cancel appointments
+    - Switch to a different therapist
+
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## How to Add Tools to Your Agent
+
+<Steps>
+  <Step title="Open Your Agent">
+    Navigate to the **Agents** tab and select the agent you want to enhance
+  </Step>
+  <Step title="Go to Tools Section">
+    Scroll to the **Tools** section in the agent editor
+  </Step>
+  <Step title="Click Add Tool">
+    Click **Add Tool** and choose **Tool Library**
+  </Step>
+  <Step title="Select a Tool">
+    Browse by category or search for a specific tool by name
+  </Step>
+  <Step title="Configure Settings">
+    Fill in any required **Configurations** (API keys, calendar IDs, etc.) These
+    are one-time settings that apply to all uses of this tool
+  </Step>
+  <Step title="Update Your Prompt">
+    Add instructions to your prompt telling the agent when to use this tool
+    Example: "When a customer wants to book an appointment, use the Fetch Free
+    Slots tool to show available times, then use Book Appointment to complete
+    the booking."
+  </Step>
+  <Step title="Save and Test">
+    Save your agent and test the tool integration thoroughly
+  </Step>
+</Steps>
+
+<Frame>
+  <img src="/images/chat-tool-library.png" alt="Add Tool from Library" />
+</Frame>
+
+---
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Be Explicit in Your Prompt" icon="message-lines">
+    Don't assume the agent will figure out when to use tools. Tell it exactly:
+    
+    **Bad:**  
+    "You can check appointment availability."
+    
+    **Good:**  
+    "When a customer asks about available times, use the Fetch Free Slots tool. Pass their timezone and search the next 7 days. Then read back the available times."
+    
+    Explicit instructions = reliable behavior.
+  </Accordion>
+
+{" "}
+
+<Accordion title="Chain Tools Together" icon="link">
+  Many workflows require multiple tools in sequence: 1. **Find Or Create
+  Contact** → Get contact ID 2. **Fetch Free Slots** → Show available times 3.
+  **Book Appointment** → Complete the booking Make sure your prompt explains the
+  full sequence.
+</Accordion>
+
+{" "}
+
+<Accordion title="Handle Tool Failures Gracefully" icon="triangle-exclamation">
+  Tools can fail (API down, no availability, invalid data). Tell your agent what
+  to do: "If the booking tool returns an error, apologize and offer to take
+  their details manually. Say: 'I'm sorry, our booking system is having a
+  moment. Can I take your name and number? I'll have someone call you back
+  within 30 minutes to confirm your appointment.'"
+</Accordion>
+
+{" "}
+
+<Accordion title="Test with Real Data" icon="flask">
+  Don't test with fake calendar IDs or invalid credentials: - Use your actual
+  production calendars - Test during business hours when slots are available -
+  Try booking for real dates - Verify bookings appear in your actual system Test
+  with real data or you'll miss issues.
+</Accordion>
+
+{" "}
+
+<Accordion title="Use Timezones Consistently" icon="earth-americas">
+  Timezone mismatches cause booking disasters: - Always set your agent's default
+  timezone in settings - Use IANA format (e.g., "America/New_York",
+  "Australia/Sydney") - When customers mention times, clarify: "That's 3pm your
+  local time in Sydney, correct?" - Store customer timezone in your CRM for
+  future calls
+</Accordion>
+
+  <Accordion title="Secure Your API Keys" icon="key">
+    Many tools require API keys and credentials:
+    
+    - Never put API keys directly in your prompt
+    - Use the Configuration fields (they're encrypted)
+    - Rotate keys periodically for security
+    - Use separate keys per client when possible
+    - Revoke keys immediately if a client leaves
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Tool Not Working" icon="wrench">
+    **Problem:** The agent isn't using the tool or it's failing.
+    
+    **Solutions:**
+    
+    1. **Check your prompt:** Does it explicitly tell the agent when to use this tool?
+    2. **Verify configurations:** Are all required fields filled in correctly?
+    3. **Test credentials:** API keys, calendar IDs, etc. may be incorrect or expired
+    4. **Check tool logs:** Look for specific error messages in the conversation transcript
+    5. **Test the API directly:** Use Postman or curl to verify your credentials work
+  </Accordion>
+
+{" "}
+
+<Accordion title="Agent Using Tool at Wrong Time" icon="clock-rotate-left">
+  **Problem:** The tool triggers when it shouldn't. **Solutions:** - Make
+  conditions more specific in your prompt - Add "only if" clauses: "Only use the
+  booking tool AFTER the customer has confirmed they want to book" - Test with
+  edge cases where the tool shouldn't trigger - Add explicit examples of when
+  NOT to use the tool
+</Accordion>
+
+{" "}
+
+<Accordion title="Variables Not Populating" icon="input-text">
+  **Problem:** Required variables are missing or empty. **Solutions:** - Ensure
+  the agent asks for all required information first - Tell the agent: "Before
+  using the booking tool, you MUST have: name, phone, and preferred date" - Add
+  validation in your prompt: "If the customer hasn't given you their phone
+  number, ask for it before proceeding" - Check that variable names in your
+  prompt match the tool's expected names
+</Accordion>
+
+{" "}
+
+<Accordion title="Timezone Issues" icon="globe">
+  **Problem:** Appointments booking at wrong times. **Solutions:** - Set the
+  agent's default timezone in Advanced Settings - Always ask: "What timezone are
+  you in?" if customer location is unclear - Use ISO 8601 format with timezone
+  offset when possible - Test bookings and verify they appear at correct times
+  in your system - For international customers, confirm: "Just to be clear,
+  that's 3pm London time, correct?"
+</Accordion>
+
+{" "}
+
+<Accordion title="API Rate Limits" icon="gauge">
+  **Problem:** Tool fails with "rate limit exceeded" error. **Solutions:** -
+  Most APIs limit requests per minute - For high-volume operations, space out
+  tool calls - Contact your integration provider (Mindbody, Cal.com, etc.) to
+  increase limits - Implement retry logic in your prompt: "If the tool fails,
+  wait 30 seconds and try again"
+</Accordion>
+
+  <Accordion title="Integration Not Showing in Tool Library" icon="eye-slash">
+    **Problem:** You don't see a tool you need.
+    
+    **Solutions:**
+    
+    - Check if you've connected the integration first (e.g., GoHighLevel must be connected before GHL tools appear)
+    - Refresh the page
+    - Verify your subscription includes that integration
+    - Contact support if a documented tool is missing
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Request New Tools
+
+Don't see the integration you need?
+
+<Card
+  title="Request a New Tool"
+  icon="plus"
+  href="mailto:support@getoutbox.ai?subject=Tool Library Request"
+>
+  Email us at support@getoutbox.ai with: - The integration name (e.g., "Acuity
+  Scheduling") - What you need it to do - Links to the API documentation - How
+  many clients would use it Popular requests get prioritized!
+</Card>
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Chat Agents" icon="comments" href="/chat-agents">
+    Add tools to your chat agents
+  </Card>
+  <Card title="Voice Agents" icon="phone" href="/voice-agents">
+    Add tools to your voice agents
+  </Card>
+  <Card title="GoHighLevel Integration" icon="layer-group" href="/gohighlevel">
+    Connect GoHighLevel to unlock GHL tools
+  </Card>
+  <Card
+    title="Prompting Guide"
+    icon="wand-magic-sparkles"
+    href="/prompting-guide"
+  >
+    Write prompts that use tools effectively
+  </Card>
+</CardGroup>

@@ -1,33 +1,54 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: "Introduction"
+description: "API reference documentation for Outbox AI"
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+## Base URL
 
-## Welcome
+All API requests should be made to:
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
-
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+```
+https://api.getoutbox.ai
+```
 
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+All API endpoints are authenticated using an `Authorization` header with your API key. Note that you should pass the API key directly without the 'Bearer' prefix.
 
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
+```bash
+Authorization: your-api-key-here
+```
+
+### API Key Types
+
+There are two types of API keys:
+
+- **Company API Key**: Used for company-level operations including:
+
+  - Agent management (agents, files, integrations, tools)
+  - Module instances
+  - Contacts and conversations
+  - Call logs, chat logs, and transcripts
+  - Company settings, staff, and phone numbers
+
+- **Agency API Key**: Required for all agency-level operations (`/agency/*` endpoints) including:
+  - Agency settings management
+  - Managing companies under your agency
+  - Agency admin invitations
+  - Agency phone number management
+
+You can find your API keys in your dashboard settings. Make sure to use the correct API key type for the endpoints you're accessing.
+
+### Example Request
+
+```bash
+curl -X GET https://api.getoutbox.ai/agent/list \
+  -H "Authorization: your-company-api-key-here" \
+  -H "Content-Type: application/json"
+```
+
+```bash
+curl -X GET https://api.getoutbox.ai/agency \
+  -H "Authorization: your-agency-api-key-here" \
+  -H "Content-Type: application/json"
 ```

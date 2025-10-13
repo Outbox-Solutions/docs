@@ -1,86 +1,392 @@
 ---
-title: 'Quickstart'
-description: 'Start building awesome documentation in under 5 minutes'
+title: "Quickstart"
+icon: "rocket"
+description: "Get your first AI agent up and running in minutes"
 ---
 
-## Setup your development
+## Welcome to Outbox AI
 
-Learn how to update your docs locally and and deploy them to the public.
+This quickstart guide will walk you through everything you need to create, test, and deploy your first AI agent. No coding required.
 
-### Edit and preview
+<Note>
+  **Start your 14-day free trial** at [getoutbox.ai](https://getoutbox.ai) to
+  follow along with this guide.
+</Note>
+
+## Get Started in 3 Steps
+
+<Steps>
+  <Step title="Access Your Dashboard">
+    Log in to your Outbox AI account and familiarize yourself with the
+    dashboard. You'll see an overview of contacts, calls, conversations, status
+    breakdowns, and key statistics for all your agents.
+  </Step>
+  <Step title="Create Your First Agent">
+    Navigate to the Agents tab and create either a voice agent (for
+    inbound/outbound calling) or chat agent (for web chat, Messenger,
+    Instagram). Use our AI-powered prompt generator to build a complete agent in
+    seconds.
+  </Step>
+  <Step title="Test & Deploy">
+    Test your agent directly in the platform, then share a branded demo link
+    with clients or deploy it live. All fully white-labelled under your brand.
+  </Step>
+</Steps>
+
+## Understanding the Dashboard
+
+Your dashboard is command central for managing all your AI agents and client accounts.
 
 <AccordionGroup>
-  <Accordion icon="github" title="Clone your docs locally">
-    During the onboarding process, we created a repository on your Github with
-    your docs content. You can find this repository on our
-    [dashboard](https://dashboard.mintlify.com). To clone the repository
-    locally, follow these
-    [instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
-    in your terminal.
+  <Accordion title="Key Metrics" icon="chart-line">
+    Monitor performance at a glance with real-time data on contacts, calls,
+    conversations, and status breakdowns. Track success rates, pickup rates, and
+    costs across all campaigns.
   </Accordion>
-  <Accordion icon="rectangle-terminal" title="Preview changes">
-    Previewing helps you make sure your changes look as intended. We built a
-    command line interface to render these changes locally. 1. Install the
-    [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the
-    documentation changes locally with this command: ``` npm i -g mintlify ```
-    2. Run the following command at the root of your documentation (where
-    `mint.json` is): ``` mintlify dev ```
+  <Accordion title="Contacts & Conversations" icon="users">
+    Add contacts manually for campaigns or sync automatically from GoHighLevel.
+    View all chats and calls per contact in one unified conversation view.
+  </Accordion>
+  <Accordion title="Call & Chat Logs" icon="phone">
+    Track every outbound call with cost, duration, and outcome. Manage call
+    queues when concurrency lines are full. View chat logs across all messaging
+    platforms.
+  </Accordion>
+  <Accordion title="Call Scoring" icon="star">
+    Every call is automatically rated from 0% to 100% based on performance
+    metrics, helping you optimize your agents over time.
   </Accordion>
 </AccordionGroup>
 
-### Deploy your changes
+## Connect GoHighLevel (Optional)
 
-<AccordionGroup>
+Outbox AI offers native GoHighLevel integration to seamlessly sync contacts, trigger workflows, and manage conversations within your CRM.
 
-<Accordion icon="message-bot" title="Install our Github app">
-  Our Github app automatically deploys your changes to your docs site, so you
-  don't need to manage deployments yourself. You can find the link to install on
-  your [dashboard](https://dashboard.mintlify.com). Once the bot has been
-  successfully installed, there should be a check mark next to the commit hash
-  of the repo.
-</Accordion>
-<Accordion icon="rocket" title="Push your changes">
-  [Commit and push your changes to
-  Git](https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository#about-git-push)
-  for your changes to update in your docs site. If you push and don't see that
-  the Github app successfully deployed your changes, you can also manually
-  update your docs through our [dashboard](https://dashboard.mintlify.com).
-</Accordion>
+<Note>
+  GoHighLevel integration is optional but highly recommended for agencies
+  already using GHL for client management.
+</Note>
 
-</AccordionGroup>
+### Setting Up Your Integration
 
-## Update your docs
+<Steps>
+  <Step title="Navigate to Integrations">
+    Go to your Company Settings and click on the Integrations tab.
+  </Step>
+  <Step title="Connect GoHighLevel Account">
+    Click "Connect GoHighLevel" and authorize Outbox AI to access your GHL
+    account or your client's GHL account. You'll be redirected to GoHighLevel to
+    approve the connection.
+  </Step>
+  <Step title="Configure Sync Settings">
+    Choose which data to sync: - **Contact Sync**: Automatically import contacts
+    from GHL to Outbox AI - **Conversation Sync**: Push all AI calls and chats
+    back to GHL conversations - **Workflow Triggers**: Enable "AI Call
+    Completed" triggers in GHL workflows
+  </Step>
+  <Step title="Set Up Company Sub-Accounts">
+    If you're managing multiple clients, connect each client's GHL sub-account
+    to their respective Company in Outbox AI. This keeps everything organized
+    and separated.
+  </Step>
+</Steps>
 
-Add content directly in your files with MDX syntax and React components. You can use any of our components, or even build your own.
+### What You Can Do With GHL Integration
 
-<CardGroup>
-
-<Card title="Style Your Docs" icon="paintbrush" href="/settings/global">
-  Add flair to your docs with personalized branding.
-</Card>
-
-<Card
-  title="Add API Endpoints"
-  icon="square-code"
-  href="/api-playground/configuration"
->
-  Implement your OpenAPI spec and enable API user interaction.
-</Card>
-
-<Card
-  title="Integrate Analytics"
-  icon="chart-mixed"
-  href="/analytics/supported-integrations"
->
-  Draw insights from user interactions with your documentation.
-</Card>
-
-<Card
-  title="Host on a Custom Domain"
-  icon="browser"
-  href="/settings/custom-domain/subdomain"
->
-  Keep your docs on your own website's subdomain.
-</Card>
-
+<CardGroup cols={2}>
+  <Card title="Send AI Call Action" icon="phone">
+    Trigger outbound AI calls directly from GHL workflows with pre-filled
+    contact data.
+  </Card>
+  <Card title="AI Call Completed Trigger" icon="check">
+    Automate follow-up workflows based on call status, outcomes, and agent
+    responses.
+  </Card>
+  <Card title="Contact Sync" icon="arrows-rotate">
+    Keep contacts synchronized between Outbox AI and GoHighLevel in real-time.
+  </Card>
+  <Card title="Conversation History" icon="list">
+    All AI calls and chats automatically appear in the contact's GHL
+    conversation timeline.
+  </Card>
 </CardGroup>
+
+<Tip>
+  **Pro Tip**: Set up GHL workflows to automatically trigger AI calls when new
+  leads are added, or send follow-up SMS/emails based on call outcomes.
+</Tip>
+
+## Creating Your First Agent
+
+Agents are the core of Outbox AI. Choose the type of agent you want to build and follow the configuration steps below.
+
+<Tabs>
+  <Tab title="🎤 Voice Agents">
+    Perfect for inbound receptionist duties or outbound calling campaigns. Handle calls 24/7 with natural conversation.
+
+    ### Step 1: Set Your Agent Prompt
+
+    The **Prompt** is the backbone of your agent's behavior — what it says, how it handles objections, and what outcomes it aims for.
+
+    <Steps>
+      <Step title="Describe Your Agent">
+        Simply type what you want your agent to do (e.g., "Qualify solar leads and book appointments"). Outbox AI will generate a complete prompt using years of refined frameworks.
+      </Step>
+      <Step title="Review & Customize">
+        Review the generated prompt and adjust the tone, objectives, and conversation flow to match your needs.
+      </Step>
+    </Steps>
+
+    ### Step 2: Add Tools
+
+    Connect your agent to actions for seamless automation:
+
+    <CardGroup cols={2}>
+      <Card title="Calendar Booking" icon="calendar">
+        Book appointments via Cal.com or GoHighLevel calendars
+      </Card>
+      <Card title="Send SMS" icon="message">
+        Send follow-up text messages during or after calls
+      </Card>
+      <Card title="Send Email" icon="envelope">
+        Trigger email sequences based on call outcomes
+      </Card>
+      <Card title="CRM Actions" icon="database">
+        Update contact fields, add tags, or trigger workflows
+      </Card>
+    </CardGroup>
+
+    ### Step 3: Build Your Knowledge Base
+
+    Give your agent the information it needs to answer questions accurately:
+
+    <AccordionGroup>
+      <Accordion title="Upload Files" icon="file">
+        Upload PDFs, documents, or text files with product info, FAQs, or pricing details.
+      </Accordion>
+      <Accordion title="Scrape Websites" icon="globe">
+        Enter your client's website URL and we'll automatically scrape and format the content using Firecrawl.
+      </Accordion>
+      <Accordion title="Paste Text" icon="text">
+        Copy and paste any relevant information directly into the knowledge base.
+      </Accordion>
+    </AccordionGroup>
+
+    ### Step 4: Configure Voice Settings
+
+    Customize how your agent sounds and behaves on calls:
+
+    <AccordionGroup>
+      <Accordion title="Choose Voice" icon="microphone">
+        Select from 1,000+ AI voices across different accents, genders, and speaking styles. Preview each voice before selecting.
+      </Accordion>
+      <Accordion title="Select Model" icon="brain">
+        Choose the AI model that best fits your use case (speed vs. intelligence trade-off).
+      </Accordion>
+      <Accordion title="Background Sound" icon="volume">
+        Add subtle background sounds like office ambience or silence for a more natural feel.
+      </Accordion>
+      <Accordion title="First Message" icon="comment">
+        Set what your agent says when the call connects (e.g., "Hi, this is Sarah calling from Solar Solutions...").
+      </Accordion>
+      <Accordion title="Call Forwarding" icon="phone-arrow-up-right">
+        Configure phone numbers to forward calls to if needed (e.g., transfer to human agent).
+      </Accordion>
+    </AccordionGroup>
+
+  </Tab>
+  
+  <Tab title="💬 Chat Agents">
+    Deploy on your website, Facebook Messenger, Instagram, or other messaging platforms for instant responses.
+
+    ### Step 1: Set Your Agent Prompt
+
+    The **Prompt** is the backbone of your agent's behavior — what it says, how it handles objections, and what outcomes it aims for.
+
+    <Steps>
+      <Step title="Describe Your Agent">
+        Simply type what you want your agent to do (e.g., "Answer FAQs and collect lead information"). Outbox AI will generate a complete prompt using years of refined frameworks.
+      </Step>
+      <Step title="Review & Customize">
+        Review the generated prompt and adjust the tone, objectives, and conversation flow to match your needs.
+      </Step>
+    </Steps>
+
+    ### Step 2: Add Tools
+
+    Connect your agent to actions for seamless automation:
+
+    <CardGroup cols={2}>
+      <Card title="Calendar Booking" icon="calendar">
+        Book appointments via Cal.com or GoHighLevel calendars
+      </Card>
+      <Card title="Send SMS" icon="message">
+        Send follow-up text messages during or after conversations
+      </Card>
+      <Card title="Send Email" icon="envelope">
+        Trigger email sequences based on conversation outcomes
+      </Card>
+      <Card title="CRM Actions" icon="database">
+        Update contact fields, add tags, or trigger workflows
+      </Card>
+    </CardGroup>
+
+    ### Step 3: Build Your Knowledge Base
+
+    Give your agent the information it needs to answer questions accurately:
+
+    <AccordionGroup>
+      <Accordion title="Upload Files" icon="file">
+        Upload PDFs, documents, or text files with product info, FAQs, or pricing details.
+      </Accordion>
+      <Accordion title="Scrape Websites" icon="globe">
+        Enter your client's website URL and we'll automatically scrape and format the content using Firecrawl.
+      </Accordion>
+      <Accordion title="Paste Text" icon="text">
+        Copy and paste any relevant information directly into the knowledge base.
+      </Accordion>
+    </AccordionGroup>
+
+    ### Step 4: Add Platform Integrations
+
+    Choose where your chat agent will be deployed:
+
+    <CardGroup cols={3}>
+      <Card title="Website Widget" icon="browser">
+        Embed a chat widget on your website or client's site
+      </Card>
+      <Card title="Facebook Messenger" icon="facebook">
+        Connect to Facebook Pages for Messenger conversations
+      </Card>
+      <Card title="Instagram DMs" icon="instagram">
+        Respond to Instagram direct messages automatically
+      </Card>
+      <Card title="WhatsApp" icon="whatsapp">
+        Deploy on WhatsApp Business accounts
+      </Card>
+      <Card title="SMS" icon="message">
+        Two-way SMS conversations with contacts
+      </Card>
+      <Card title="Custom API" icon="code">
+        Integrate with any platform via our API
+      </Card>
+    </CardGroup>
+
+  </Tab>
+</Tabs>
+
+## Testing & Sharing
+
+<Steps>
+  <Step title="Test In-Platform">
+    Every agent can be tested directly inside the platform. Chat with it or call
+    it to see how it performs before going live.
+  </Step>
+  <Step title="Share Demo Links">
+    Generate a branded demo link (web call or phone call) and share it with
+    clients. This is an excellent way to win new business — clients can try the
+    agent themselves, fully white-labelled with your branding.
+  </Step>
+  <Step title="Deploy Live">
+    Once you're happy with the results, deploy your agent to handle real
+    customer interactions 24/7.
+  </Step>
+</Steps>
+
+## Pre-Built Tools Library
+
+No coding required. Just click and activate:
+
+<CardGroup cols={2}>
+  <Card title="GoHighLevel" icon="arrows-spin">
+    Native CRM integration with workflow automation and contact sync.
+  </Card>
+  <Card title="Cal.com" icon="calendar">
+    Seamless appointment booking directly from conversations.
+  </Card>
+  <Card title="Twilio" icon="phone">
+    Voice calling and SMS messaging infrastructure.
+  </Card>
+  <Card title="Sendgrid" icon="envelope">
+    Email delivery and automated follow-ups.
+  </Card>
+</CardGroup>
+
+## Managing Companies & Rebilling
+
+<AccordionGroup>
+  <Accordion title="Company Settings" icon="building">
+    Each client company has its own settings for billing, phone numbers, and
+    integrations. Keep everything organized and separated.
+  </Accordion>
+  <Accordion title="Agency Management" icon="users-gear">
+    Manage multiple client companies from one dashboard. See spend per client
+    and set custom pricing: - Add retainer fees (e.g., $200/month) - Adjust call
+    rate markups (cost $0.12/min, charge $0.16/min) - Set chat multipliers to
+    mark up message costs
+  </Accordion>
+  <Accordion title="Automated Rebilling" icon="credit-card">
+    Set your pricing once, and the system handles all invoicing and payment
+    collection from your clients. You receive revenue minus the platform fee —
+    fully automated.
+  </Accordion>
+</AccordionGroup>
+
+## White Labelling Your Platform
+
+Make Outbox AI completely yours:
+
+<Steps>
+  <Step title="Upload Your Branding">
+    Add your logo, company name, and brand colors to the platform.
+  </Step>
+  <Step title="Set Custom Domain">
+    Point your subdomain (e.g., `app.yourагency.com`) to Outbox AI with simple
+    DNS records.
+  </Step>
+  <Step title="Email Branding">
+    Send all system emails from your own domain, so clients never see Outbox
+    branding.
+  </Step>
+</Steps>
+
+<Note>
+  Your clients will see it as **your software** — Outbox branding won't appear
+  anywhere.
+</Note>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Development Guide" icon="code" href="/development">
+    Learn advanced configuration and customization options.
+  </Card>
+  <Card title="API Reference" icon="book" href="/api-reference/introduction">
+    Explore the full API documentation for custom integrations.
+  </Card>
+  <Card
+    title="Join SKOOL Course"
+    icon="graduation-cap"
+    href="https://www.skool.com/outbox-ai"
+  >
+    Access our free comprehensive course on building and selling AI agents.
+  </Card>
+  <Card
+    title="Discord Community"
+    icon="discord"
+    href="https://discord.gg/outboxai"
+  >
+    Get support, share best practices, and connect with other agencies.
+  </Card>
+</CardGroup>
+
+## Need Help?
+
+<Card
+  title="Join Our Community"
+  icon="users"
+  href="https://www.skool.com/outbox-ai"
+>
+  Drop questions in our SKOOL community or Discord channel. We're constantly
+  rolling out new features and improvements based on your feedback.
+</Card>

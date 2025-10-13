@@ -1,0 +1,710 @@
+---
+title: "Chat Agents"
+icon: "comments"
+description: "Build and deploy AI chat agents across multiple messaging platforms"
+---
+
+## Overview
+
+Chat agents handle every written channel—Instagram DMs, Facebook Messenger, web-chat widgets, SMS, WhatsApp, and email. This guide walks you through creating, configuring, and testing them so they feel every bit as polished as your voice agents.
+
+---
+
+## Create an Agent
+
+### Step 1: Access Chat Agents
+
+Navigate to the **Agents** tab in your Outbox AI dashboard.
+
+<Frame>
+  <img src="/images/chat-agents-dashboard.png" alt="Chat Agents Dashboard" />
+</Frame>
+
+### Step 2: Create New Agent
+
+Click **New Agent** or open an existing one from the list.
+
+<Frame>
+  <img
+    src="/images/prompting-create-agent-description.png"
+    alt="Create New Chat Agent"
+  />
+</Frame>
+
+<Tip>
+  **AI-Powered Prompt Generation:** If you enter a description of the agent in
+  the "Create Agent" modal, Outbox AI will automatically generate a professional
+  prompt for you!
+</Tip>
+
+---
+
+## Write the Prompt
+
+The prompt is the brain of your chat agent. In the large text box, you'll define how your agent behaves.
+
+<Frame>
+  <img src="/images/chat-agent-prompt.png" alt="Chat Agent Prompt Editor" />
+</Frame>
+
+### What to Include:
+
+1. **Agent's Role** – Who is the agent? (e.g., "You are a friendly customer service representative for XYZ Company")
+2. **Tone & Personality** – Formal, casual, enthusiastic, empathetic, etc.
+3. **Goals** – What should the agent accomplish? (qualify leads, book appointments, answer FAQs)
+4. **Tool Usage Instructions** – Explicitly tell the agent when to use tools:
+
+```
+When a customer wants to book an appointment, call the book_appointment tool.
+When you need to check inventory, use the check_stock tool.
+```
+
+<Note>
+  **Don't forget to save!** Click the **Save** button to apply your changes.
+  Once saved, the agent updates in real-time.
+</Note>
+
+---
+
+## Attach Tools
+
+Tools give your chat agent superpowers—the ability to book appointments, send data to external systems, fetch real-time information, and more.
+
+<AccordionGroup>
+  <Accordion title="Custom URL" icon="link">
+    Call any webhook to integrate with Zapier, Make, or your own custom API.
+
+    **Configuration:**
+
+    1. Enter the webhook URL
+    2. Define the request method (GET, POST, PUT, DELETE)
+    3. Add any required headers or parameters
+    4. Map the response data to variables
+
+    <Frame>
+      <img src="/images/chat-tool-custom-url.png" alt="Custom URL Tool" />
+    </Frame>
+
+    **Use Cases:**
+    - Send lead data to your CRM
+    - Trigger automations in Zapier or Make
+    - Connect to third-party APIs
+    - Update external databases
+
+  </Accordion>
+
+  <Accordion title="Tool Library" icon="books">
+    Pick from ready-made tools that handle common tasks.
+
+    **Available Tools:**
+
+    **Cal.com Integration:**
+    - **Cancel or Reschedule Booking** – Cancel or reschedule a booking made in Cal.com
+    - **Fetch Free Slots** – Fetch free slots between two dates for a specific event type
+    - **Get User Bookings** – Get a list of bookings for a specific user so you can reschedule or cancel it
+
+    **GoHighLevel Integration:**
+    - **Cancel or Reschedule Appointment** – Cancel or reschedule a specific appointment to a later date
+    - **Fetch Free Slots** – Fetch a list of free slots for a calendar within a specific time range
+    - **Find Or Create Contact** – Find or create a contact to use for appointment booking and other functions
+    - **Get Booked Appointments** – Retrieve a list of booked appointments for a contact
+
+    **Popular Tools:**
+    - **Book AI Callback** – Allow agents to call users back at a later time
+    - **Get Current Time** – Get the current time for a given timezone in ISO 8601 format
+    - **Send SendGrid Email** – Integrate SendGrid to send emails directly from your agent
+    - **Send Twilio SMS** – Integrate Twilio to send text messages directly from your agent
+    - **Solar Savings (US Only)** – Calculate estimated savings of switching to solar based on monthly bill and address
+
+    <Frame>
+      <img src="/images/chat-tool-library.png" alt="Tool Library" />
+    </Frame>
+
+    <Tip>
+      The tool library is constantly growing. Check back regularly for new additions!
+    </Tip>
+
+  </Accordion>
+
+  <Accordion title="Calendar Booking" icon="calendar">
+    Connect to calendars so your agent can check availability and book appointments automatically.
+
+    **Currently Supported:**
+    - ✅ GoHighLevel calendars
+    - ✅ Cal.com
+
+    **Coming Soon:**
+    - 🔜 HubSpot
+    - 🔜 Salesforce
+
+    <Frame>
+      <img src="/images/chat-tool-calendar.png" alt="Calendar Booking Tool" />
+    </Frame>
+
+    **What the agent can do:**
+    - Check real-time availability
+    - Book appointments
+    - Reschedule existing bookings
+    - Cancel appointments
+    - Send confirmation messages
+
+  </Accordion>
+
+  <Accordion title="MCP Server" icon="server">
+    Connect to Model Context Protocol (MCP) servers, including Zapier's MCP integration.
+
+    **Configuration:**
+
+    1. Select **"Other"** as the provider
+    2. Paste the MCP server URL
+    3. Link to a specific tool from the server
+
+    <Frame>
+      <img src="/images/chat-tool-mcp-server.png" alt="MCP Server Tool" />
+    </Frame>
+
+    **Use Cases:**
+    - Connect to Zapier MCP servers for hundreds of integrations
+    - Link to custom MCP servers you've built
+    - Access specialized AI tools and services
+    - Integrate with enterprise systems
+
+    <Note>
+      MCP servers provide a standardized way for AI agents to interact with external tools and data sources.
+    </Note>
+
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Platform Integrations
+
+Toggle the channels your sub-account already has inside GoHighLevel. Your chat agent can handle conversations across all these platforms simultaneously.
+
+<Frame>
+  <img
+    src="/images/chat-platform-integrations.png"
+    alt="Platform Integrations"
+  />
+</Frame>
+
+### Available Channels:
+
+<CardGroup cols={2}>
+  <Card title="Instagram DMs" icon="instagram">
+    Automatically respond to Instagram direct messages
+  </Card>
+
+{" "}
+
+<Card title="Facebook Messenger" icon="facebook-messenger">
+  Handle Facebook Messenger conversations
+</Card>
+
+{" "}
+
+<Card title="Email" icon="envelope">
+  Respond to emails automatically
+</Card>
+
+{" "}
+
+<Card title="SMS" icon="message">
+  Answer text messages instantly
+</Card>
+
+{" "}
+
+<Card title="WhatsApp" icon="whatsapp">
+  Manage WhatsApp business conversations
+</Card>
+
+  <Card title="Web Chat" icon="comment-dots">
+    Embed a chat widget on any website
+  </Card>
+</CardGroup>
+
+<Warning>
+  **Important:** Switching a platform on means this agent will answer **all**
+  new messages for that channel (unless a trigger blocks it—see next section).
+</Warning>
+
+---
+
+## Triggers for Campaigns & Keyword Flows
+
+Triggers give you precise control over when your agent should respond. Perfect for Instagram reels, keyword campaigns, or keeping the AI silent while you chat with clients manually.
+
+### How Triggers Work:
+
+1. **Add a trigger word or phrase** (e.g., "start", "book", "info")
+2. The agent **only wakes up** when the incoming message matches the trigger
+3. Messages that don't match the trigger are ignored by the AI
+
+### Example Use Cases:
+
+<AccordionGroup>
+  <Accordion title="Instagram Reel Campaigns" icon="video">
+    "DM me **START** to claim your free voucher!"
+    
+    The agent only responds to messages containing "start", ignoring casual comments and other DMs.
+  </Accordion>
+
+{" "}
+
+<Accordion title="Keyword-Based Routing" icon="route">
+  - **"book"** → Activate booking agent - **"support"** → Activate support agent
+  - **"refund"** → Activate refund agent
+</Accordion>
+
+  <Accordion title="Manual Control" icon="hand">
+    Set a trigger so the AI doesn't interfere when you're personally chatting with VIP clients.
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  Leave triggers **empty** if you want the agent to respond to every message on
+  the enabled platforms.
+</Tip>
+
+---
+
+## Delay Settings
+
+Make your agent feel more human by adding natural response delays.
+
+### Configuration:
+
+- **Minimum delay** – The shortest time before the agent responds
+- **Maximum delay** – The longest time before the agent responds
+- The actual delay is **randomized** between these values
+
+### Recommended Settings:
+
+<CardGroup cols={2}>
+  <Card title="Instant Response" icon="bolt">
+    Min: 0 seconds Max: 5 seconds For time-sensitive inquiries or customer
+    support
+  </Card>
+
+{" "}
+
+<Card title="Human-like Response" icon="user">
+  Min: 30 seconds Max: 120 seconds For conversations that should feel natural
+  and unhurried
+</Card>
+
+{" "}
+
+<Card title="Casual Response" icon="coffee">
+  Min: 2 minutes Max: 10 minutes For lower-priority channels or when mimicking a
+  busy human
+</Card>
+
+  <Card title="Business Hours Simulation" icon="clock">
+    Min: 15 minutes Max: 60 minutes For email responses or non-urgent inquiries
+  </Card>
+</CardGroup>
+
+<Note>
+  **Why randomize?** A fixed delay (e.g., always 60 seconds) feels robotic.
+  Random delays make the agent feel more human and authentic.
+</Note>
+
+---
+
+## Knowledge Base
+
+Give your agent access to company information, product details, policies, and more. Choose from three methods:
+
+<AccordionGroup>
+  <Accordion title="File Upload" icon="file-arrow-up">
+    Drop files directly into the knowledge base—the agent will read and understand them.
+
+    **Supported Formats:**
+    - 📄 PDFs
+    - 📝 Word documents (.docx, .doc)
+    - 📊 CSV files
+    - 📋 Plain-text files (.txt)
+    - 🔤 Markdown files (.md)
+
+    <Frame>
+      <img src="/images/chat-knowledge-file-upload.png" alt="File Upload" />
+    </Frame>
+
+    **Best for:**
+    - Product manuals
+    - Company policies
+    - FAQs
+    - Pricing sheets
+    - Training materials
+
+  </Accordion>
+
+  <Accordion title="Website Scrape" icon="globe">
+    Paste any URL and Outbox AI will scrape the entire site into clean, AI-readable Markdown.
+
+    **Powered by Firescraper** – Advanced scraping technology that handles:
+    - JavaScript-rendered content
+    - Multi-page sites
+    - Dynamic content
+    - Complex site structures
+
+    <Frame>
+      <img src="/images/chat-knowledge-website-scrape.png" alt="Website Scrape" />
+    </Frame>
+
+    **Best for:**
+    - Company websites
+    - Product documentation
+    - Help centers
+    - Blog content
+    - Knowledge base articles
+
+    <Tip>
+      The scraper will follow links and capture the entire site structure, not just a single page!
+    </Tip>
+
+  </Accordion>
+
+  <Accordion title="Plain Text" icon="text">
+    Paste raw text directly into the knowledge base.
+
+    <Frame>
+      <img src="/images/chat-knowledge-plain-text.png" alt="Plain Text" />
+    </Frame>
+
+    **Best for:**
+    - Custom instructions
+    - Quick reference information
+    - Company values and mission
+    - Temporary information
+    - Testing and prototyping
+
+    <Note>
+      You can combine all three methods! Add files, scrape websites, **and** paste text for maximum coverage.
+    </Note>
+
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Agent Settings
+
+Fine-tune your agent's behavior with advanced configuration options.
+
+### Time Zone
+
+Set the agent's time zone to ensure accurate date and appointment logic.
+
+<Note>
+  The time zone affects how the agent interprets phrases like "tomorrow at 3pm"
+  or "next Monday."
+</Note>
+
+---
+
+### Model Selection
+
+Choose the AI model that powers your agent. Each model has different capabilities, speeds, and costs.
+
+<Frame>
+  <img src="/images/chat-settings-model.png" alt="Model Selection" />
+</Frame>
+
+<AccordionGroup>
+  <Accordion title="GPT-4.1 (Recommended)" icon="star">
+    **Best balance of speed, cost, and intelligence.**
+
+    - ⚡ Fast response times
+    - 💰 Cost-effective for high-volume conversations
+    - 🧠 Excellent understanding of context and nuance
+    - ✅ Recommended for most use cases
+
+    **Pricing:** ~$0.01 per conversation
+
+  </Accordion>
+
+  <Accordion title="GPT-4o" icon="brain">
+    **OpenAI's flagship model with superior performance.**
+
+    - 🎯 Superior reasoning ability
+    - 📚 Better handling of complex knowledge bases
+    - 💡 More creative responses
+    - 💸 Higher cost per conversation
+
+    **Pricing:** ~$0.015 per conversation
+
+    **Best for:** High-value conversations, complex product lines, technical support
+
+  </Accordion>
+
+  <Accordion title="GPT-4.1 Mini / Nano" icon="gauge-simple-min">
+    **Ultra-cheap, only for very basic auto-responses.**
+
+    - 🏃 Extremely fast
+    - 💵 Very low cost
+    - ⚠️ Limited reasoning ability
+    - 📝 Best for simple, scripted responses
+
+    **Pricing:** ~$0.001 per conversation
+
+    **Best for:** Simple FAQs, basic greetings, keyword-based responses
+
+  </Accordion>
+
+  <Accordion title="GPT o3 / o4-mini (Premium)" icon="gem">
+    **Premium accuracy with advanced reasoning capabilities.**
+
+    - 🔍 Can search the web in real-time
+    - 🎓 Exceptional reasoning and problem-solving
+    - ⏱️ Slower response times (5-15 seconds)
+    - 💎 Premium pricing
+
+    **Pricing:** ~$0.05 per conversation
+
+    **Best for:** Research-heavy conversations, fact-checking, complex technical queries
+
+  </Accordion>
+</AccordionGroup>
+
+<Warning>
+  **Cost Management:** Higher-tier models can significantly increase your costs.
+  Start with GPT-4.1 and only upgrade if you need the extra capabilities.
+</Warning>
+
+---
+
+## Embed Code
+
+Get HTML code to embed your chat widget on any website—yours or your clients'.
+
+<Frame>
+  <img src="/images/chat-embed-code.png" alt="Embed Code" />
+</Frame>
+
+### How to Use:
+
+1. Copy the HTML snippet from the **Embed Code** section
+2. Paste it into your website's HTML, just before the closing `</body>` tag
+3. The chat widget will appear on your site automatically
+
+### Example Code:
+
+```html
+<script
+  src="https://app.getoutbox.ai/widget/chat.js"
+  data-agent-id="6531f2d6-7067-458b-a782-2cae809a7dc6"
+  data-open="false"
+  async
+></script>
+```
+
+<Note>
+  Replace the `data-agent-id` value with your actual agent ID from the Embed
+  Code section.
+</Note>
+
+<Tip>
+  **Customization:** You can style the chat widget using CSS to match your
+  website's branding!
+</Tip>
+
+---
+
+## Initial Message
+
+Set the first message contacts see when they open the chat widget.
+
+### Example Initial Messages:
+
+<AccordionGroup>
+  <Accordion title="Friendly Greeting" icon="hand-wave">
+    "👋 Hi there! How can I help you today?"
+  </Accordion>
+
+{" "}
+
+<Accordion title="Specific Offer" icon="gift">
+  "🎉 Welcome! Ask me about our special promotion—20% off all services this
+  week!"
+</Accordion>
+
+{" "}
+
+<Accordion title="Lead Qualification" icon="clipboard-question">
+  "Hi! I'm here to help you find the perfect solution. What brings you here
+  today?"
+</Accordion>
+
+  <Accordion title="Booking Focus" icon="calendar-check">
+    "Ready to book your appointment? I can check availability and get you scheduled in seconds!"
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  The initial message only appears in the **web chat embed**. Other platforms
+  (Instagram, SMS, etc.) don't support initial messages.
+</Note>
+
+---
+
+## Interrupt Mode
+
+Allow the agent to be interrupted when a message is manually sent to the contact.
+
+### How It Works:
+
+When **Interrupt Mode** is enabled:
+
+1. ✅ The AI agent handles all conversations automatically
+2. 👤 A human team member sends a manual message in GoHighLevel
+3. 🛑 The AI agent is **immediately interrupted** for that contact
+4. 🙋 The human takes over the conversation
+5. 🤖 The AI stays silent unless manually reactivated
+
+### When to Enable:
+
+<CardGroup cols={2}>
+  <Card title="Enable Interrupt Mode" icon="toggle-on">
+    **Best for most use cases:** - You want the flexibility to jump into
+    conversations - VIP clients get personal attention - Complex situations need
+    human expertise - Team members can take over seamlessly
+  </Card>
+
+  <Card title="Disable Interrupt Mode" icon="toggle-off">
+    **When you want full automation:** - Fully automated support channels -
+    After-hours emergency contacts - High-volume, low-touch scenarios - Testing
+    agent performance
+  </Card>
+</CardGroup>
+
+<Tip>
+  **Pro Tip:** Keep Interrupt Mode **enabled** during business hours so your
+  team can step in when needed, but consider disabling it after hours for 24/7
+  automation.
+</Tip>
+
+---
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Start Simple, Then Expand" icon="seedling">
+    1. Create a basic agent with one or two tools
+    2. Test thoroughly on a single platform
+    3. Add more platforms and tools gradually
+    4. Monitor conversations and refine the prompt
+  </Accordion>
+
+{" "}
+
+<Accordion title="Be Specific in Your Prompt" icon="bullseye">
+  Vague prompts create unpredictable agents. Instead of: ❌ "Be helpful and
+  friendly" Try: ✅ "You are a customer service agent for ABC Company. Your goal
+  is to help customers book appointments. Always be polite, confirm details
+  before booking, and thank customers at the end of each conversation."
+</Accordion>
+
+{" "}
+
+<Accordion title="Test Extensively Before Going Live" icon="flask">
+  - Send test messages from different platforms - Try edge cases ("What if I say
+  no?" "What if I'm confused?") - Have team members role-play difficult
+  customers - Check that tools are working correctly
+</Accordion>
+
+{" "}
+
+<Accordion title="Monitor and Iterate" icon="chart-line">
+  - Review conversation logs regularly - Look for patterns where the agent
+  struggles - Update the prompt based on real conversations - Add knowledge base
+  articles for common questions
+</Accordion>
+
+  <Accordion title="Use Delay Settings Wisely" icon="clock">
+    **Different situations need different delays:**
+    
+    - ⚡ Instant (0-5s): Customer support, urgent inquiries
+    - 👤 Human-like (30-120s): Sales conversations, lead nurturing
+    - 📧 Relaxed (5-15m): Email responses, non-urgent channels
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Agent Not Responding" icon="circle-exclamation">
+    **Possible causes:**
+    
+    1. ✅ Check that the platform is toggled **on** in Platform Integrations
+    2. 🔑 Verify your GoHighLevel connection is active
+    3. 🎯 Ensure triggers aren't blocking the agent (if triggers are set)
+    4. ⚡ Confirm the agent is not paused or disabled
+  </Accordion>
+
+{" "}
+
+<Accordion title="Agent Giving Wrong Answers" icon="message-xmark">
+  **How to fix:** 1. 📝 Update the prompt with more specific instructions 2. 📚
+  Add relevant information to the knowledge base 3. 🧪 Test with the exact
+  phrasing customers use 4. 🤖 Consider upgrading to a smarter model (4.0 or o3)
+</Accordion>
+
+{" "}
+
+<Accordion title="Tools Not Working" icon="wrench">
+  **Troubleshooting steps:** 1. 🔗 Check that webhook URLs are correct 2. 🔐
+  Verify API keys and authentication 3. 📋 Ensure the prompt explicitly tells
+  the agent when to use the tool 4. 🧪 Test the tool manually outside of the
+  agent
+</Accordion>
+
+{" "}
+
+<Accordion title="Agent Responding Too Fast/Slow" icon="gauge">
+  **Adjust delay settings:** - Too fast? Increase minimum delay - Too slow?
+  Decrease maximum delay - Inconsistent? Widen the range for more variation
+</Accordion>
+
+  <Accordion title="Interrupt Mode Not Working" icon="hand">
+    **Checklist:**
+    
+    1. ✅ Confirm Interrupt Mode is enabled in settings
+    2. 💬 Ensure you're sending messages from GoHighLevel (not another platform)
+    3. 👤 Verify you're sending as a team member, not as the AI
+    4. 🔄 Try refreshing the conversation view
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Next Steps
+
+Now that you've set up your chat agent, here's what to do next:
+
+<CardGroup cols={2}>
+  <Card title="Test Thoroughly" icon="vial" href="#best-practices">
+    Run through all scenarios before going live with real customers
+  </Card>
+
+{" "}
+
+<Card title="Set Up Voice Agents" icon="phone" href="/voice-agents">
+  Complement your chat agents with AI voice calling
+</Card>
+
+{" "}
+
+<Card title="Connect GoHighLevel" icon="layer-group" href="/gohighlevel">
+  Integrate with your CRM for maximum automation
+</Card>
+
+  <Card title="Monitor Performance" icon="chart-mixed" href="/analytics">
+    Track conversations and optimize your agents
+  </Card>
+</CardGroup>

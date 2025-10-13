@@ -1,0 +1,266 @@
+---
+title: "Subaccounts & Rebilling"
+icon: "credit-card"
+description: "Manage companies, users, and automated billing for your clients"
+---
+
+## Overview
+
+The Agency Settings allows you to create and manage multiple company accounts under one umbrella. Each company gets its own isolated environment with separate agents, billing, and user permissions.
+
+## Company Management
+
+In the **Agency Settings**, click **Companies** on the sidebar to access the company management dashboard.
+
+### Creating a Company
+
+<Steps>
+  <Step title="Open Companies Tab">
+    Navigate to the **Companies** tab in your Agency Settings.
+  </Step>
+  <Step title="Add Company">
+    Click **Create a company** and fill in the details: - Upload a logo - Set
+    company name - Enter e-mail address - Add postal address
+  </Step>
+  <Step title="Save">
+    Agency Plus and Agency Pro plans can hold unlimited companies. Agency Basic
+    is limited to 3 companies.
+  </Step>
+</Steps>
+
+<Frame>
+  <img src="/images/subaccount-add-company.png" alt="Subaccount Add Company" />
+</Frame>
+
+### Suspend or Delete
+
+- **Suspend** – Freeze access to the company account temporarily
+- **Delete** – Remove the tenant entirely with one click
+
+<Warning>
+  Deleting a company is permanent and cannot be undone. All agents, data, and
+  settings will be lost.
+</Warning>
+
+## User Management
+
+### Company-Level Users
+
+Grant team members access to individual company accounts with role-based permissions.
+
+<Steps>
+  <Step title="Go to Company Settings">
+    Navigate to **Settings → Company** within the company workspace.
+  </Step>
+  <Step title="Find Company Staff">
+    Scroll down to the **Company Staff** section.
+  </Step>
+  <Step title="Invite User">
+    Enter the user's e-mail and select a role: - **Viewer** – View transcripts
+    and analytics (read-only) - **Editor** – Viewer rights plus edit prompts,
+    tools, and agent settings - **Creator** – Editor rights plus create new
+    agents - **Admin** – Full access including phone numbers, billing, and
+    integrations
+  </Step>
+  <Step title="Send Invitation">
+    Click **Invite**. The user receives an e-mail link to create their password.
+  </Step>
+</Steps>
+
+### Agency-Level Admins
+
+Agency admins have full rights over all company accounts under the agency.
+
+<Steps>
+  <Step title="Switch to Agency Settings">
+    Ensure you're in the Agency Settings (not a company workspace).
+  </Step>
+  <Step title="Open Agency Admins">Go to **Settings → Agency Admins**.</Step>
+  <Step title="Invite Admin">
+    Enter an e-mail address and click **Invite**.
+  </Step>
+</Steps>
+
+<Info>
+  Agency Admins inherit full rights over all company accounts under that agency.
+</Info>
+
+## Billing & Usage
+
+Track usage and profitability for each company account.
+
+### Usage Dashboard
+
+View detailed metrics for each subaccount:
+
+- **Cost** – How much the usage cost your agency
+- **Revenue** – How much you charged the client
+- **Profit** – Your margin (Revenue - Cost)
+
+This gives you full visibility into which clients are most profitable and helps with pricing optimization.
+
+## Advanced Rebilling Settings
+
+Configure automated billing rules for each company account.
+
+<Frame>
+  <img
+    src="/images/rebilling-advanced-settings.png"
+    alt="Rebilling Advanced Settings"
+  />
+</Frame>
+
+### Rebill Option
+
+Toggle rebilling on or off for the company. When off, you'll need to bill the client manually.
+
+### Retainer Fee (Optional)
+
+```
+Retainer Fee: $0.00 USD/month
+```
+
+Set a fixed monthly fee that will be charged to this company each month, regardless of usage.
+
+### Chat Multiplier
+
+```
+Chat Multiplier: 1.0x
+```
+
+Multiplier applied to the cost of each chat message response. For example:
+
+- `1.0` = Pass through cost at 0% markup
+- `1.5` = 50% markup on chat costs
+- `2.0` = 100% markup on chat costs
+
+### Call Rate (per minute)
+
+```
+Call Rate: $0.16/min
+```
+
+The rate charged to your client per call minute (excluding VOIP provider costs). This is your margin on voice calls.
+
+### Agent Limit (Optional)
+
+```
+Agent Limit: Unlimited
+```
+
+Set the maximum number of agents this company can create. Leave empty for unlimited agents.
+
+### Concurrent Lanes
+
+```
+Concurrent Lanes: 10 (Max: 25)
+```
+
+Control how many simultaneous calls the client can handle at once. This prevents resource abuse and helps manage infrastructure costs.
+
+## Rebilling Options
+
+Choose how you want to collect payment from your clients.
+
+<AccordionGroup>
+  <Accordion title="Off">
+    Rebilling is disabled. You'll need to invoice clients manually through your
+    own system.
+  </Accordion>
+
+{" "}
+
+<Accordion title="GHL Wallet">
+  Automatically charge the client's GoHighLevel Wallet balance.
+  <Warning>
+    Only available if you own **GoHighLevel Agency-Pro** with Rebilling enabled.
+  </Warning>
+</Accordion>
+
+{" "}
+
+<Accordion title="Stripe Draft">
+  Generate an invoice draft that you can review before sending to the client.
+  **Best for:** Agencies that want to review invoices before they go out.
+</Accordion>
+
+{" "}
+
+<Accordion title="Stripe Invoice">
+  E-mail a final invoice automatically. The client pays manually via Stripe's
+  payment link. **Best for:** Clients who prefer to review and pay invoices
+  manually.
+</Accordion>
+
+{" "}
+
+<Accordion title="Stripe Charge">
+  Automatically charge the stored card on the 1st of each month. **Best for:**
+  Fully automated billing with reliable clients.
+  <Info>Requires the client to have a valid payment method on file.</Info>
+</Accordion>
+
+  <Accordion title="Direct Billing">
+    Bill the client directly through their own payment method.
+    
+    <Warning>
+      **This will break whitelabel functionality.** The client will see Outbox
+      branding instead of your agency branding.
+    </Warning>
+  </Accordion>
+</AccordionGroup>
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Set competitive but profitable rates">
+    Research market rates for AI voice and chat agents. A typical markup is
+    50-100% on infrastructure costs, but you can charge more based on the value
+    you provide (custom integrations, dedicated support, etc.).
+  </Accordion>
+
+{" "}
+
+<Accordion title="Use retainer fees for predictable revenue">
+  If you're providing ongoing support or maintenance, add a retainer fee. This
+  creates predictable MRR (Monthly Recurring Revenue) for your agency.
+</Accordion>
+
+{" "}
+
+<Accordion title="Start with Stripe Draft for new clients">
+  When onboarding new clients, use Stripe Draft mode so you can review usage and
+  costs before sending the first invoice. Once you're comfortable with their
+  usage patterns, switch to automatic charging.
+</Accordion>
+
+  <Accordion title="Set concurrent lane limits appropriately">
+    Don't give unlimited concurrent lanes unless the client has committed to
+    high-volume usage. Most small businesses need 3-5 lanes, while call centers
+    might need 10-25.
+  </Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Client isn't receiving invitation emails">
+    - Check that the email address is correct - Ask them to check spam/junk
+    folders - Try resending the invitation - Verify your email service isn't
+    blocking outbound mail
+  </Accordion>
+
+{" "}
+
+<Accordion title="Stripe charges are failing">
+  - Ensure the client has a valid payment method on file - Check if their card
+  has expired - Verify the card has sufficient funds/credit available - Consider
+  switching to Stripe Invoice mode for manual payment
+</Accordion>
+
+  <Accordion title="Usage costs seem incorrect">
+    - Check the date range you're viewing - Verify the call duration calculation
+    (some providers round up) - Review the chat message count and token usage -
+    Ensure your multipliers and rates are set correctly
+  </Accordion>
+</AccordionGroup>

@@ -1,0 +1,1224 @@
+---
+title: "Voice Agents"
+icon: "phone"
+description: "Create AI voice agents for inbound and outbound calls"
+---
+
+## Overview
+
+Voice agents are the powerhouse of Outbox AI—perfect for outbound dialing, lead qualification, appointment booking, and more. They do have a steeper learning curve than chat agents, so use this guide as your reference while you build.
+
+<Note>
+  **New to prompting?** Check out our [Prompting Guide](/prompting-guide) for
+  best practices on writing effective agent instructions.
+</Note>
+
+---
+
+## Prompt Settings
+
+The foundation of your voice agent starts with two key fields.
+
+<Frame>
+  <img
+    src="/images/voice-core-prompt-settings.png"
+    alt="Core Prompt Settings"
+  />
+</Frame>
+
+### Prompt
+
+Paste your full prompt here. This is the brain of your voice agent—it defines personality, objectives, and how to handle different scenarios.
+
+**Important Considerations:**
+
+- ⚠️ **Words will be spoken aloud** – Avoid complex symbols, unusual punctuation, or hard-to-pronounce terms
+- 🗣️ **Write for speech** – Use "twenty-five" instead of "25" for natural-sounding responses
+- 📝 **Keep it conversational** – The agent should sound human, not like it's reading a script
+
+<Tip>
+  Use the **Generate** button to let AI help you create or refine your prompt!
+  See our [Prompting Guide](/prompting-guide) for detailed instructions.
+</Tip>
+
+---
+
+### First Message
+
+Control how the agent opens the conversation.
+
+**For Inbound Calls:**
+
+Set a greeting so callers know who answered.
+
+```
+"Outbox AI, Jacob speaking—how can I help?"
+```
+
+```
+"Thanks for calling Elite Fitness! This is Sarah. What can I do for you today?"
+```
+
+**For Outbound Calls:**
+
+Create a personalized opening that gets attention.
+
+```
+"Hi {{first_name}}, this is Sarah from Elite Fitness. I'm calling about your inquiry. Do you have a quick minute?"
+```
+
+**Leave Blank:**
+
+If you want the agent to **wait for the caller to speak first** (common for inbound support lines).
+
+---
+
+## Tools
+
+Give your voice agent superpowers by connecting it to external services and automations.
+
+<AccordionGroup>
+  <Accordion title="Custom URL" icon="link">
+    Call external services via Zapier, Make, or any webhook.
+
+    **Configuration:**
+
+    1. Enter your webhook URL
+    2. Supply authentication headers if required
+    3. Map variables from the conversation
+    4. Define what data to return
+
+    <Frame>
+      <img src="/images/chat-tool-custom-url.png" alt="Custom URL Tool" />
+    </Frame>
+
+    **Use Cases:**
+    - Send lead data to your CRM
+    - Check inventory or pricing in real-time
+    - Trigger Zapier workflows
+    - Update external databases
+    - Verify customer information
+
+  </Accordion>
+
+  <Accordion title="Tool Library" icon="books">
+    Quick plug-ins for common tasks—no coding required.
+
+    **Available Tools:**
+
+    **Cal.com Integration:**
+    - **Get Free Slots** – Fetch available appointment times
+    - **Book Appointment** – Schedule meetings directly
+    - **Cancel/Reschedule** – Modify existing bookings
+
+    **GoHighLevel Integration:**
+    - **Get Free Slots** – Check calendar availability
+    - **Book Appointment** – Schedule calls automatically
+    - **Find Or Create Contact** – Manage contact records
+    - **Send SMS** – Follow up via text after the call
+
+    **Popular Tools:**
+    - **Book AI Callback** – Schedule the agent to call back later
+    - **Get Current Time** – Reference accurate time/date info
+    - **Send SendGrid Email** – Email confirmations or follow-ups
+    - **Send Twilio SMS** – Text messages during or after calls
+    - **Solar Savings (US Only)** – Calculate solar savings on the fly
+
+    <Frame>
+      <img src="/images/chat-tool-library.png" alt="Tool Library" />
+    </Frame>
+
+    <Tip>
+      The tool library is constantly expanding. Check back regularly for new integrations!
+    </Tip>
+
+  </Accordion>
+
+  <Accordion title="Book Appointment" icon="calendar">
+    Choose a calendar and let the agent schedule appointments directly during the call.
+
+    **Currently Supported:**
+    - ✅ GoHighLevel calendars
+    - ✅ Cal.com
+
+    **Coming Soon:**
+    - 🔜 HubSpot
+    - 🔜 Salesforce
+
+    <Frame>
+      <img src="/images/chat-tool-book-appointment.png" alt="Book Appointment" />
+    </Frame>
+
+    **What the Agent Can Do:**
+    - Check real-time availability
+    - Offer multiple time slots
+    - Book the appointment on the call
+    - Confirm details before finalizing
+    - Send automatic confirmation messages
+
+  </Accordion>
+
+  <Accordion title="MCP Server" icon="server">
+    Connect to Model Context Protocol (MCP) servers for advanced integrations.
+
+    **Configuration:**
+
+    1. Add the MCP server URL
+    2. Select specific tools from the server
+    3. Configure authentication if required
+
+    <Frame>
+      <img src="/images/chat-tool-mcp-server.png" alt="MCP Server" />
+    </Frame>
+
+    **Use Cases:**
+    - Connect to Zapier's MCP server for hundreds of integrations
+    - Link to custom MCP servers you've built
+    - Access specialized AI tools and services
+    - Integrate with enterprise systems
+
+    <Note>
+      MCP servers provide a standardized way for AI agents to interact with external tools and data sources during live calls.
+    </Note>
+
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Voice & Model Options
+
+Configure your agent's language, voice, intelligence, and background sound.
+
+---
+
+### Language Selection
+
+Choose the language and regional accent for your agent.
+
+**Available Languages:**
+
+- **English (US)** – American English accent
+- **English** – General English
+- **English (Australia)** – Australian accent
+- **English (UK)** – British accent
+- **English (India)** – Indian accent
+- **English (New Zealand)** – New Zealand accent
+- **German** – German language
+- **Dutch** – Dutch language
+- **Swedish** – Swedish language
+- **Danish** – Danish language
+- **Spanish** – Spanish language
+- **French** – French language
+- **Portuguese** – Portuguese language
+
+<Note>
+  Language selection affects both the agent's speech and its understanding of
+  regional expressions and terminology.
+</Note>
+
+---
+
+### Voice Selection
+
+Choose from **1,000+ ElevenLabs voices** to match your brand and audience perfectly.
+
+<Frame>
+  <img
+    src="/images/voice-provider-selection.png"
+    alt="Voice Provider Selection"
+  />
+</Frame>
+
+**Voice Library:**
+
+Outbox AI offers access to ElevenLabs' massive voice library with over 1,000 professionally trained voices covering:
+
+- **Multiple accents** – US, UK, Australian, Indian, and more
+- **Diverse genders** – Male, female, and neutral voices
+- **Age ranges** – Young, middle-aged, and mature voices
+- **Tones** – Professional, casual, energetic, empathetic, and more
+
+**Choosing the Right Voice:**
+
+<CardGroup cols={2}>
+  <Card title="Professional Services" icon="briefcase">
+    Clear, articulate voices with neutral accents - Legal, accounting, medical -
+    B2B sales - Corporate reception
+  </Card>
+  <Card title="Consumer Services" icon="users">
+    Warm, friendly voices with local accents - Fitness, hospitality - Retail,
+    e-commerce - Local services
+  </Card>
+  <Card title="Sales & Marketing" icon="bullhorn">
+    Energetic, engaging voices - Outbound sales - Event bookings - Limited-time
+    offers
+  </Card>
+  <Card title="Support & Care" icon="headset">
+    Patient, empathetic voices - Customer support - Healthcare - Technical
+    assistance
+  </Card>
+</CardGroup>
+
+<Tip>
+  **Pro Tip:** Test multiple voices with the same prompt. The right voice can
+  dramatically improve engagement and conversion rates.
+</Tip>
+
+---
+
+### Model Selection
+
+Choose the AI model that powers your agent's intelligence. Each model balances speed and reasoning ability differently.
+
+<Note>
+  **All models are priced the same**, so choose based on your needs for speed
+  vs. intelligence, not cost!
+</Note>
+
+<AccordionGroup>
+  <Accordion title="GPT-4.1 (Recommended)" icon="star">
+    **770ms • Accurate • Moderate**
+
+    The best balance of speed and intelligence for most use cases.
+
+    - ⚡ Fast enough for natural conversations
+    - 🧠 Accurate reasoning and comprehension
+    - ✅ Handles most conversation flows smoothly
+    - 🎯 Reliable performance across scenarios
+
+    **Best for:** Standard appointment booking, lead qualification, customer support, sales calls, FAQ handling
+
+  </Accordion>
+  <Accordion title="GPT-4.1 Mini" icon="gauge-simple-max">
+    **700ms • Moderate • Fast**
+
+    Faster than GPT-4.1 but with slightly reduced intelligence.
+
+    - 🏃 Quick response times
+    - 💬 Good for straightforward conversations
+    - ⚠️ May struggle with complex scenarios
+
+    **Best for:** Simple appointment confirmations, basic FAQs, predictable conversation flows
+
+  </Accordion>
+  <Accordion title="GPT-4.1 Nano" icon="microchip">
+    **510ms • Less Accurate • Fastest**
+
+    The fastest model, but with reduced reasoning ability.
+
+    - ⚡⚡ Extremely fast (under 1 second)
+    - 📝 Best for scripted interactions
+    - ⚠️ Limited ability to handle unexpected questions
+
+    **Best for:** Appointment reminders, simple confirmations, highly scripted calls where speed matters most
+
+  </Accordion>
+  <Accordion title="GPT-4o" icon="brain">
+    **600ms • Most Accurate • Slower**
+
+    The most intelligent GPT-4 model with superior reasoning.
+
+    - 🎯 Exceptional accuracy and comprehension
+    - 📚 Handles complex scenarios excellently
+    - 💡 Better at handling objections and edge cases
+    - ⏱️ Slightly slower than GPT-4.1
+
+    **Best for:** Complex sales conversations, technical support, consultative selling, handling difficult customers
+
+  </Accordion>
+  <Accordion title="GPT-5" icon="gem">
+    **1550ms • Smartest • Slower**
+
+    The most intelligent model available, but with noticeable latency.
+
+    - 🎓 Exceptional reasoning capabilities
+    - 🔍 Best for highly complex conversations
+    - ⏱️ Significant delay (1.5+ seconds) may feel laggy
+
+    **Best for:** High-value consultations where accuracy matters more than speed, complex technical discussions, situations requiring deep reasoning
+
+  </Accordion>
+  <Accordion title="GPT-5 Mini" icon="sparkles">
+    **1450ms • Smart • Moderate**
+
+    Smart reasoning with slightly better speed than GPT-5.
+
+    - 🧠 Advanced intelligence
+    - ⏱️ Still slower than GPT-4 models
+    - 🎯 Good for complex scenarios that don't need full GPT-5 power
+
+    **Best for:** Complex conversations where you need strong reasoning but can't afford GPT-5's latency
+
+  </Accordion>
+  <Accordion title="GPT-5 Nano" icon="window-maximize">
+    **1350ms • Smart • Fastest (of GPT-5 series)**
+
+    The fastest GPT-5 model with good intelligence.
+
+    - 📊 Handles longer conversation histories
+    - ⚡ Faster than other GPT-5 models
+    - 🧠 Still intelligent, just not as advanced
+
+    **Best for:** Long conversations requiring extensive context, complex calls that need GPT-5 intelligence with better speed
+
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  **Choosing the Right Model:** Start with **GPT-4.1** for most use cases. Only
+  upgrade to GPT-4o or GPT-5 if you encounter specific scenarios requiring
+  higher intelligence. Downgrade to Mini/Nano only if speed is critical and
+  conversations are simple.
+</Tip>
+
+---
+
+### Background Sound
+
+Add ambient background noise to make your calls feel more human and authentic.
+
+**Available Options:**
+
+- **Office** – General office sounds (keyboard typing, subtle background chatter)
+- **Lounge** – General lounge sounds (subtle café/waiting room ambience)
+- **Mute** – No background sound (clean audio only)
+
+**When to Use Background Sound:**
+
+<AccordionGroup>
+  <Accordion title="✅ Use for Outbound Sales" icon="check">
+    Background sounds make outbound calls feel more authentic and less "robotic." The subtle ambience suggests the caller is in a real office environment.
+  </Accordion>
+
+{" "}
+
+<Accordion title="✅ Use for Appointment Reminders" icon="check">
+  Light office sounds help the call feel like it's coming from a real
+  receptionist.
+</Accordion>
+
+{" "}
+
+<Accordion title="❌ Avoid for Customer Support" icon="xmark">
+  Support calls should be crystal-clear. Background noise can make it harder to
+  hear, especially if the customer is in a noisy environment.
+</Accordion>
+
+  <Accordion title="❌ Avoid if Volume is an Issue" icon="xmark">
+    If your audio levels are inconsistent or too quiet, background sounds can make it worse. Fix audio issues first, then add ambience.
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  Test with and without background sound to see what feels right for your use
+  case. What works for one industry might not work for another.
+</Tip>
+
+---
+
+## Knowledge Base
+
+Give your agent access to company information, product details, policies, and more. Choose from three methods:
+
+<Warning>
+  **Performance Impact:** Knowledge base lookups add **2-4 seconds of latency**
+  per query during calls. Best reserved for inbound reception, help-desk
+  scenarios, or when accuracy matters more than speed. For fast-paced outbound
+  calls, put FAQs directly in your prompt instead.
+</Warning>
+
+<AccordionGroup>
+  <Accordion title="File Upload" icon="file-arrow-up">
+    Drop files directly into the knowledge base—the agent will read and understand them.
+
+    **Supported Formats:**
+    - 📄 PDFs
+    - 📝 Word documents (.docx, .doc)
+    - 📊 CSV files
+    - 📋 Plain-text files (.txt)
+    - 🔤 Markdown files (.md)
+
+    <Frame>
+      <img src="/images/chat-knowledge-file-upload.png" alt="File Upload" />
+    </Frame>
+
+    **Best for:**
+    - Product manuals
+    - Company policies
+    - FAQs
+    - Pricing sheets
+    - Training materials
+
+  </Accordion>
+
+  <Accordion title="Website Scrape" icon="globe">
+    Paste any URL and Outbox AI will scrape the entire site into clean, AI-readable Markdown.
+
+    **Powered by Firescraper** – Advanced scraping technology that handles:
+    - JavaScript-rendered content
+    - Multi-page sites
+    - Dynamic content
+    - Complex site structures
+
+    <Frame>
+      <img src="/images/chat-knowledge-website-scrape.png" alt="Website Scrape" />
+    </Frame>
+
+    **Best for:**
+    - Company websites
+    - Product documentation
+    - Help centers
+    - Blog content
+    - Knowledge base articles
+
+    <Tip>
+      The scraper will follow links and capture the entire site structure, not just a single page!
+    </Tip>
+
+  </Accordion>
+
+  <Accordion title="Plain Text" icon="text">
+    Paste raw text directly into the knowledge base.
+
+    <Frame>
+      <img src="/images/chat-knowledge-plain-text.png" alt="Plain Text" />
+    </Frame>
+
+    **Best for:**
+    - Custom instructions
+    - Quick reference information
+    - Company values and mission
+    - Temporary information
+    - Testing and prototyping
+
+    <Note>
+      You can combine all three methods! Add files, scrape websites, **and** paste text for maximum coverage.
+    </Note>
+
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Advanced Settings
+
+Fine-tune your agent's behavior with these powerful configuration options.
+
+### Time Zone
+
+**Essential for accurate appointment booking.**
+
+Set the agent's time zone so it can correctly interpret phrases like "tomorrow at 3pm" or "next Monday morning."
+
+<Note>
+  **Critical for booking tools:** Without the correct time zone, appointments
+  may be scheduled for the wrong time, causing missed meetings and frustrated
+  customers.
+</Note>
+
+---
+
+### HIPAA Compliance
+
+**Stop call logs and recordings from being stored.**
+
+When **HIPAA Compliance** is enabled:
+
+- ❌ No call recordings are stored
+- ❌ No transcriptions are saved
+- ❌ No logs are kept
+- ✅ Only basic call metadata (duration, status) is retained
+
+**When to Enable:**
+
+- Healthcare providers
+- Legal firms
+- Financial services
+- Any regulated industry requiring data protection
+
+<Warning>
+  **Trade-off:** With HIPAA mode enabled, you won't be able to review call
+  recordings for training or quality assurance purposes.
+</Warning>
+
+---
+
+### Forwarding Number
+
+**Automatically pass a qualified caller to a live rep.**
+
+Enter a phone number in **E.164 format** (e.g., `+61412345678`) to transfer calls.
+
+**How It Works:**
+
+1. Agent qualifies the lead during the call
+2. Agent says: "Great! Let me connect you with one of our specialists."
+3. Call is transferred to the forwarding number
+4. Live rep picks up and continues the conversation
+
+**Use Cases:**
+
+- Hot leads ready to buy
+- Technical questions beyond the agent's scope
+- VIP customers requesting personal service
+- Emergency or urgent situations
+
+<Tip>
+  **Pro Tip:** Use conditional logic in your prompt to decide when to forward.
+  For example: "If the caller wants to speak to someone immediately, forward the
+  call. Otherwise, book an appointment."
+</Tip>
+
+---
+
+### Key Terms
+
+**Improve transcription accuracy for unusual names, brands, suburbs, etc.**
+
+Add terms that the speech-to-text engine might misunderstand. Separate each term with a space.
+
+**Examples:**
+
+```
+Outbox Mandurah Fremantle Joondalup CrossFit Pilates HIIT
+```
+
+```
+Burleigh Currumbin Coolangatta Broadbeach Robina
+```
+
+**What to Add:**
+
+- Business names (especially unique spellings)
+- Suburb and location names
+- Product names and brands
+- Industry-specific terminology
+- Uncommon proper nouns
+
+<Note>
+  Key terms help the transcription engine recognize these words correctly during
+  the call, leading to better comprehension and fewer errors.
+</Note>
+
+---
+
+### Voicemail Message
+
+**What to say if the system detects voicemail after ~20 seconds.**
+
+**Example:**
+
+```
+"Hi {{first_name}}, this is Sarah from Elite Fitness. I was just calling to follow up on your inquiry about our membership. Give us a call back at 08 1234 5678, or I'll try you again later. Have a great day!"
+```
+
+**Best Practices:**
+
+- ✅ Keep it under 15 seconds
+- ✅ Include your callback number
+- ✅ Give a reason for the call
+- ✅ Sound natural and friendly
+- ❌ Don't oversell or sound desperate
+
+<Tip>
+  **Leave it blank** if you don't want the agent to leave voicemails. The call
+  will simply end and be logged as "no answer."
+</Tip>
+
+---
+
+### End Call Message
+
+**Last line before hanging up.**
+
+**Examples:**
+
+```
+"Thanks for your time today! You'll receive a confirmation email shortly. Have a great day!"
+```
+
+```
+"Perfect! We'll see you on Tuesday at 3pm. Looking forward to it!"
+```
+
+```
+"No worries at all. Feel free to call us back if you change your mind. Take care!"
+```
+
+**Leave Blank:**
+
+If you want the agent to **disconnect silently** after completing its objective.
+
+---
+
+### Unqualified Prompt
+
+**Define disqualifying criteria so calls are automatically tagged "Unqualified."**
+
+**Example:**
+
+```
+Mark the call as unqualified if any of the following are true:
+- The caller is a renter (we only work with homeowners)
+- The caller is over 75 years old
+- The caller is not the decision-maker
+- The property is commercial (we only do residential)
+```
+
+**Why Use This:**
+
+Unqualified tags integrate with GoHighLevel automations, allowing you to:
+
+- Automatically remove unqualified leads from sequences
+- Trigger different follow-up workflows
+- Tag contacts for future remarketing
+- Keep your pipeline clean and focused
+
+<Tip>
+  Be specific! Vague criteria lead to inconsistent tagging. Clear rules ensure
+  reliable automation.
+</Tip>
+
+---
+
+### Summary Prompt
+
+**Tell Outbox AI how to format the call summary posted back to your CRM.**
+
+<Frame>
+  <img src="/images/voice-summary-prompt.png" alt="Summary Prompt" />
+</Frame>
+
+**Example:**
+
+```
+Summarize this call in 2-3 sentences. Include:
+- The caller's main question or goal
+- Whether an appointment was booked (and when)
+- Any objections or concerns mentioned
+- Next steps
+
+Format it in plain English, suitable for a sales rep to read quickly.
+```
+
+**Default Behavior:**
+
+If left blank, Outbox AI generates a standard summary automatically.
+
+**Customization Ideas:**
+
+- Bullet points for easy scanning
+- Include specific fields for your CRM
+- Highlight key selling points mentioned
+- Note urgency level or buying intent
+
+---
+
+### Scoring Prompt
+
+**Define how the call should be scored from 0-100.**
+
+**Example:**
+
+```
+Rate how successful this call was from 0-100. 0 means a true failure: caller was upset/angry, tools malfunctioned, or a serious error occurred.
+100 means a perfect outcome: caller was engaged, happy, and all tools worked correctly.
+50 means a neutral/middle call where some interaction happened but nothing notable was achieved.
+If the call was very short (1-5 seconds), unanswered, or had no meaningful interaction, do NOT score it as 0. Instead, treat it as a neutral/no-outcome call (e.g., 30-40).
+Consider caller engagement, tool success, and overall outcome when assigning the score.
+```
+
+**How to Use Scores:**
+
+- Route high-scoring leads to sales immediately
+- Add low-scoring leads to nurture campaigns
+- Track conversion rates by score range
+- Optimize agent performance over time
+
+<Note>
+  Scores are returned with the call completion webhook and visible in
+  GoHighLevel custom fields.
+</Note>
+
+---
+
+### Webhook URL
+
+**Where to send the end-of-call report.**
+
+Enter a URL to receive a POST request with detailed call information immediately after each call completes.
+
+**Request Format:**
+
+The webhook sends a POST request with the following JSON payload:
+
+```json
+{
+  "id": "thread-uuid",
+  "status": "did-succeed",
+  "summary": "Caller wanted to book an appointment for teeth cleaning. Successfully scheduled for Tuesday at 3pm. Caller was friendly and confirmed contact details.",
+  "agent": {
+    "id": "agent-uuid",
+    "name": "Dental Receptionist",
+    "phone_number": "+61412345678"
+  },
+  "direction": "outbound",
+  "duration": 142,
+  "user": {
+    "name": "John Smith",
+    "phone_number": "+61498765432",
+    "external_id": "ghl-contact-123"
+  },
+  "transcript": "Full conversation transcript here..."
+}
+```
+
+**Fields Explained:**
+
+- **id** – Unique thread identifier
+- **status** – Call outcome (did-succeed, did-not-answer, error, etc.)
+- **summary** – AI-generated summary of the call
+- **agent.id** – The agent's unique ID
+- **agent.name** – The agent's name
+- **agent.phone_number** – The number the agent called from
+- **direction** – "inbound" or "outbound"
+- **duration** – Call length in seconds
+- **user.name** – Contact's full name
+- **user.phone_number** – Contact's phone number
+- **user.external_id** – Contact's ID in your CRM (e.g., GoHighLevel contact ID)
+- **transcript** – Complete conversation transcript
+
+**Use Cases:**
+
+- Send data to Zapier or Make
+- Update your CRM with call results
+- Trigger follow-up automations based on status
+- Log analytics in custom dashboards
+- Route hot leads to sales teams
+- Create tasks for follow-ups
+
+<Tip>
+  Test your webhook with a tool like [webhook.site](https://webhook.site) to see
+  exactly what data is being sent before connecting your production systems.
+</Tip>
+
+---
+
+### Recording Consent Message
+
+**What to tell the user if you're recording the call.**
+
+**Example:**
+
+```
+"Just so you know, this call may be recorded for quality and training purposes."
+```
+
+<Warning>
+  **Legal Requirement:** Many jurisdictions require consent before recording
+  calls. Check your local regulations and always inform callers if recording is
+  enabled.
+</Warning>
+
+---
+
+### Log to CRM
+
+**Log the recording and transcript of these calls into your CRM.**
+
+When enabled:
+
+- ✅ Full transcript is added to the contact record in GoHighLevel
+- ✅ Audio recording link is attached
+- ✅ Call summary appears in the timeline
+- ✅ Score and status are logged
+
+**Disable When:**
+
+- HIPAA compliance is required
+- Calls are purely transactional (confirmations, reminders)
+- You're doing high-volume testing
+
+---
+
+## Testing & Deployment
+
+Test your agent thoroughly before sending it live to customers.
+
+### Test Your Agent
+
+Test your voice agent before going live using either web-based calling or real phone calls.
+
+#### Option 1: Test via Web Call
+
+Click the **Test** button to talk to your agent directly from your browser—no phone required.
+
+**What This Does:**
+
+- Opens a web-based call interface in your browser
+- No phone number required
+- Instant feedback on prompt behavior
+- Perfect for rapid iteration and quick tests
+
+**Best For:**
+
+- Quick prompt testing and adjustments
+- Checking tool integrations
+- Verifying voice and tone
+- Debugging conversation flows
+- Fast iteration during development
+
+<Tip>
+  Test with **real scenarios** that customers will encounter, not just
+  happy-path conversations. Try to break it!
+</Tip>
+
+---
+
+#### Option 2: Test via Phone Call
+
+Send a real phone call to yourself to test the complete customer experience.
+
+<Frame>
+  <img src="/images/voice-test-phone-call.png" alt="Test Phone Call" />
+</Frame>
+
+<Steps>
+  <Step title="Select Your Agent">Choose which voice agent to test</Step>
+  <Step title="Enter Your Phone Number">
+    Use your mobile or desk phone (E.164 format: `+61412345678`)
+  </Step>
+  <Step title="Click Send Test Call">
+    The agent will call you within seconds
+  </Step>
+  <Step title="Have a Conversation">
+    Test booking flows, objections, edge cases, etc.
+  </Step>
+  <Step title="Review the Call">
+    Check the transcript, summary, and score in Conversations
+  </Step>
+</Steps>
+
+**Why Test on a Real Phone:**
+
+- ✅ Experience exactly what customers hear
+- ✅ Test call quality and audio levels
+- ✅ Check latency and response times in real-world conditions
+- ✅ Verify transcription accuracy
+- ✅ Ensure tools work end-to-end
+- ✅ Test caller ID display
+- ✅ Validate voicemail detection
+
+<Note>
+  Test calls are billed at standard rates, but they're worth every cent to catch
+  issues before going live!
+</Note>
+
+---
+
+### Link Numbers
+
+**Assign a DID (phone number) to an agent so incoming calls trigger the right workflow.**
+
+<Frame>
+  <img src="/images/voice-link-numbers.png" alt="Link Numbers" />
+</Frame>
+
+Navigate to **Phone Numbers** settings to:
+
+1. Add new phone numbers
+2. Assign numbers to specific agents
+
+**Use Cases:**
+
+- Dedicated support line for customer service agent
+- Separate numbers for different campaigns
+
+---
+
+### Share Button
+
+**Demo your agents with sharable web and phone call pages.**
+
+Click the **Share** button to get:
+
+#### Web Call Page
+
+A browser-based demo where anyone can talk to your agent without a phone.
+
+<Frame>
+  <img src="/images/voice-demo-web.png" alt="Share Button" />
+</Frame>
+
+**Perfect For:**
+
+- Internal demos to your team
+- Client presentations
+- Training new staff
+- Quick testing without using phone credits
+
+#### Phone Call Page
+
+A landing page with a "Call Now" button that triggers the agent to call the visitor.
+
+<Frame>
+  <img src="/images/voice-demo-phone.png" alt="Share Button" />
+</Frame>
+
+**Perfect For:**
+
+- Website "Call Me Back" buttons
+- Sales demos for prospects
+- Trade show displays
+- Email campaigns ("Click to speak with us")
+
+<Tip>
+  **Pro Tip:** Use the phone call page to let prospects try your service
+  risk-free. It's a powerful demo tool!
+</Tip>
+
+---
+
+## Monitor Results
+
+Track performance and identify issues across three key views.
+
+### Conversations
+
+**Only connected calls** – View text, audio, duration, and cost.
+
+<Frame>
+  <img src="/images/voice-conversations.png" alt="Conversations View" />
+</Frame>
+
+**What You'll See:**
+
+- 📝 Full transcript of the conversation
+- 🎧 Audio recording playback
+- ⏱️ Call duration and timestamps
+- 💰 Cost per call
+- 📊 Call score (0-100)
+- ✅ Status (completed, unqualified, forwarded, etc.)
+- 🏷️ Summary and notes
+
+**Use This View To:**
+
+- Review successful calls for training
+- Identify what's working well
+- Spot patterns in customer questions
+- Improve your prompt based on real conversations
+
+---
+
+### Call Logs
+
+**Every attempt, including voicemail and errors.**
+
+<Frame>
+  <img src="/images/voice-call-logs.png" alt="Call Logs" />
+</Frame>
+
+**What You'll See:**
+
+- All outbound call attempts
+- Inbound calls (answered and missed)
+- Voicemails detected
+- Failed calls (wrong number, carrier issues, etc.)
+- No-answer scenarios
+
+**Status Types:**
+
+- ✅ **Completed** – Call connected and finished successfully
+- 📞 **Forwarded** – Call transferred to a human
+- 📧 **Voicemail** – Agent left a message
+- ❌ **Error** – Technical failure
+- ⏭️ **No Answer** – Contact didn't pick up
+- 🚫 **Unqualified** – Prospect didn't meet criteria
+
+**Use This View To:**
+
+- Track call success rates
+- Identify problematic phone numbers
+- Monitor voicemail detection accuracy
+- Spot systematic errors or issues
+
+---
+
+### Call Queue
+
+**Overflow when concurrency is maxed, scheduled callbacks, or when wallet credit is low.**
+
+<Frame>
+  <img src="/images/voice-call-queue.png" alt="Call Queue" />
+</Frame>
+
+**Calls Enter the Queue When:**
+
+- ⏳ All concurrent call slots are full
+- 📅 Call is scheduled for a future time (callbacks)
+- 💳 Wallet balance is too low to place the call
+- 🔄 Retry attempts are pending
+
+**Queue Management:**
+
+- ▶️ **Resume** – Process queued calls immediately
+- ⏸️ **Pause** – Hold calls in queue without processing
+- ❌ **Cancel** – Remove calls from queue entirely
+
+**Monitoring:**
+
+- See how many calls are waiting
+- Identify why calls are queued
+- Prioritize urgent callbacks
+- Top up credits if needed
+
+<Warning>
+  **High Queue = Problem:** If your queue is consistently full, you need to
+  either: - Increase your concurrent call limit - Add more wallet credits - Slow
+  down your outbound campaigns
+</Warning>
+
+---
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Start with GPT-4.1" icon="star">
+    Don't overthink model selection. GPT-4.1 handles 95% of use cases perfectly. Only upgrade if you encounter specific limitations.
+  </Accordion>
+  <Accordion title="Test Voice Quality First" icon="headphones">
+  Before writing a complex prompt, test the voice itself:
+  
+  1. Create a simple "Hello, this is a test" agent
+  2. Call yourself
+  3. Evaluate clarity, tone, and professionalism
+  4. Try 2-3 different voices
+  5. Pick the winner, then build your prompt
+</Accordion>
+  <Accordion title="Keep First Messages Short" icon="message">
+    The first 3 seconds determine whether someone hangs up or engages:
+    
+    ✅ Good: "Hi Sarah, this is Jake from Elite Fitness. Quick question about your inquiry—got a minute?"
+    
+    ❌ Bad: "Hello! Thank you so much for your interest in Elite Fitness. My name is Jake and I'm calling today to follow up on the form you submitted on our website about our premium membership packages..."
+    
+    Get to the point fast.
+  </Accordion>
+  <Accordion title="Use Key Terms Liberally" icon="key">
+  If you're getting transcription errors (wrong suburb names, mangled product
+  names), don't hesitate to add 20-30 key terms. It makes a huge difference.
+  </Accordion>
+  <Accordion title="Monitor Latency" icon="gauge">
+    If your agent feels "laggy":
+    
+    - Remove knowledge base (adds 2-4s per query)
+    - Downgrade model (GPT-5 → GPT-4.1)
+    - Simplify tool complexity
+    - Shorten your prompt
+    
+    Speed matters in voice. Aim for under 1.5 second response times.
+  </Accordion>
+
+  <Accordion title="Review Conversations Weekly" icon="calendar">
+    Listen to 5-10 calls every week:
+    
+    - What objections keep coming up?
+    - Where does the agent get confused?
+    - What questions can't it answer?
+    - Where do people hang up?
+    
+    Update your prompt based on real patterns, not assumptions.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Agent Sounds Robotic" icon="robot">
+    **Problem:** The voice feels unnatural or scripted.
+    
+    **Solutions:**
+    - Enable **Background Sound** (Office or Lounge)
+    - Add filler words to your prompt ("um," "ah," "let me check")
+    - Use contractions ("I'm" not "I am," "we're" not "we are")
+    - Test a different voice with more personality
+    - Avoid overly formal language in your prompt
+  </Accordion>
+  <Accordion title="Poor Call Quality" icon="phone-slash">
+    **Problem:** Audio is choppy, quiet, or unclear.
+    
+    **Solutions:**
+    - Test a different voice provider
+    - Disable background sound if volume is low
+    - Check that the caller's connection is stable
+    - Verify you're not exceeding concurrent call limits
+    - Contact support if issue persists across multiple calls
+  </Accordion>
+  <Accordion title="Agent Taking Too Long to Respond" icon="clock">
+    **Problem:** Long pauses between responses (over 3 seconds).
+    
+    **Solutions:**
+    - Disable knowledge base if enabled
+    - Switch to a faster model (GPT-5 → GPT-4.1)
+    - Simplify tool logic and reduce API calls
+    - Shorten your prompt (aim for under 2,000 words)
+    - Remove complex conditional logic
+  </Accordion>
+  <Accordion title="Tools Not Triggering" icon="wrench">
+    **Problem:** The agent isn't using the tools you've configured.
+    
+    **Solutions:**
+    - Make tool usage **explicit** in your prompt: "When the caller wants to book, use the book_appointment tool"
+    - Test the tool manually to ensure it's working
+    - Check API keys and authentication
+    - Review tool logs for error messages
+    - Simplify the tool trigger conditions
+  </Accordion>
+  <Accordion title="Transcription Errors" icon="closed-captioning">
+    **Problem:** Names, locations, or terms are misheard.
+    
+    **Solutions:**
+    - Add problematic words to **Key Terms**
+    - Use phonetic spelling if needed (e.g., "Mandjoogoordap" for "Mandogalup")
+    - Test in a quiet environment first
+    - Ensure the caller speaks clearly
+    - Switch to a model with better transcription (GPT-4o or GPT-5)
+  </Accordion>
+
+  <Accordion title="Calls Going to Queue" icon="list">
+    **Problem:** Calls aren't being placed immediately.
+    
+    **Solutions:**
+    - Check your **wallet balance** – top up if low
+    - Verify you haven't hit your **concurrent call limit**
+    - Review scheduled callback times
+    - Resume the queue if it's paused
+    - Contact support to increase limits if needed
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Prompting Guide"
+    icon="wand-magic-sparkles"
+    href="/prompting-guide"
+  >
+    Master prompt writing for voice agents
+  </Card>
+  <Card title="Tool Library" icon="books" href="/tool-library">
+    Explore all available tools and integrations
+  </Card>
+  <Card title="GoHighLevel Integration" icon="layer-group" href="/gohighlevel">
+    Connect voice agents to your CRM
+  </Card>
+  <Card title="Telephony" icon="phone-volume" href="/telephony">
+    Set up phone numbers and call routing
+  </Card>
+</CardGroup>

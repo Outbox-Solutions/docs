@@ -10,16 +10,16 @@
       "url": "https://api.getoutbox.ai"
     }
   ],
-  "security": [
-    {
-      "apiKey": []
-    }
-  ],
   "paths": {
     "/agent/list": {
       "get": {
         "summary": "List Agents",
         "description": "Retrieve a list of agents for the authenticated user's company with optional filtering, searching, and pagination",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "page",
@@ -72,6 +72,11 @@
       "post": {
         "summary": "Duplicate Agent",
         "description": "Duplicate an existing agent to a specified company (can be the same or different company)",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "agent_id",
@@ -122,6 +127,11 @@
       "get": {
         "summary": "Get Agent",
         "description": "Retrieve agent details including configuration, tools, files, and platform integrations",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "agent_id",
@@ -155,6 +165,11 @@
       "patch": {
         "summary": "Update Agent",
         "description": "Update an existing agent's configuration",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "agent_id",
@@ -197,6 +212,11 @@
       "delete": {
         "summary": "Delete Agent",
         "description": "Delete an agent and unassign any associated phone numbers",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "agent_id",
@@ -228,6 +248,11 @@
       "post": {
         "summary": "Create Agent",
         "description": "Create a new agent (chatbot or voicebot)",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "requestBody": {
           "description": "Agent creation details",
           "required": true,
@@ -267,6 +292,11 @@
       "get": {
         "summary": "Get File Content",
         "description": "Retrieve the text content of an agent's file (supports PDF, DOCX, and text files)",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "file_id",
@@ -307,6 +337,11 @@
       "patch": {
         "summary": "Update File Content",
         "description": "Update the text content of an existing file",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "file_id",
@@ -347,6 +382,11 @@
       "delete": {
         "summary": "Delete File",
         "description": "Delete a file from an agent and remove it from the knowledge base",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "file_id",
@@ -378,6 +418,11 @@
       "post": {
         "summary": "Upload File",
         "description": "Upload a file to an agent (file upload, text content, or web scraping)",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "requestBody": {
           "description": "File upload options - text content, file upload, or URLs for web scraping",
           "required": true,
@@ -414,6 +459,11 @@
       "post": {
         "summary": "Create/Update Platform Integration",
         "description": "Create or update a platform integration for a chatbot agent (e.g., Instagram, Facebook)",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "agent_id",
@@ -459,6 +509,11 @@
       "patch": {
         "summary": "Update Integration",
         "description": "Update an existing platform integration",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "requestBody": {
           "description": "Integration update details",
           "required": true,
@@ -491,6 +546,11 @@
       "delete": {
         "summary": "Delete Integration",
         "description": "Delete a platform integration",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "requestBody": {
           "description": "Integration ID to delete",
           "required": true,
@@ -525,6 +585,11 @@
       "get": {
         "summary": "List Agent Tools",
         "description": "Retrieve a list of all tools for an agent (simplified view)",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "agent_id",
@@ -561,6 +626,11 @@
       "post": {
         "summary": "Create/Update Tool",
         "description": "Create or update a tool for an agent",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "agent_id",
@@ -606,6 +676,11 @@
       "delete": {
         "summary": "Delete Tool",
         "description": "Delete a tool from an agent",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "requestBody": {
           "description": "Tool ID to delete",
           "required": true,
@@ -640,7 +715,11 @@
       "post": {
         "summary": "Send Chat Message",
         "description": "Send a message to a chatbot agent and receive a response (for chatbot agents only)",
-        "security": [],
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "agent_id",
@@ -677,6 +756,9 @@
           "400": {
             "description": "Bad Request - Missing required fields or invalid agent type"
           },
+          "401": {
+            "description": "Unauthorized - Invalid or missing API key"
+          },
           "404": {
             "description": "Agent not found"
           }
@@ -685,9 +767,13 @@
     },
     "/agent/call/{agent_id}": {
       "post": {
-        "summary": "Initiate Phone Call",
+        "summary": "Send AI Call",
         "description": "Initiate an outbound phone call with a voicebot agent (for voicebot agents only)",
-        "security": [],
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "agent_id",
@@ -735,6 +821,9 @@
           "400": {
             "description": "Bad Request - Missing phone_number, invalid scheduled_at format, insufficient wallet balance, or failed to create contact"
           },
+          "401": {
+            "description": "Unauthorized - Invalid or missing API key"
+          },
           "404": {
             "description": "Agent not found"
           }
@@ -745,6 +834,11 @@
       "get": {
         "summary": "List Module Instances",
         "description": "Retrieve a list of all module instances for the authenticated user's company",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "responses": {
           "200": {
             "description": "List of module instances retrieved successfully",
@@ -769,6 +863,11 @@
       "get": {
         "summary": "Get Module Instance",
         "description": "Retrieve detailed information about a specific module instance including configurations and recent logs",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "instance_id",
@@ -811,6 +910,11 @@
       "patch": {
         "summary": "Update Module Instance",
         "description": "Update a module instance's name",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "instance_id",
@@ -851,6 +955,11 @@
       "delete": {
         "summary": "Delete Module Instance",
         "description": "Delete a module instance and clean up associated schedules and configurations",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "instance_id",
@@ -882,6 +991,11 @@
       "post": {
         "summary": "Create Module Instance",
         "description": "Create a new module instance",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "requestBody": {
           "description": "Module instance creation details",
           "required": true,
@@ -913,6 +1027,11 @@
       "get": {
         "summary": "Get Instance Configurations",
         "description": "Retrieve all configuration settings for a module instance",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "instance_id",
@@ -949,6 +1068,11 @@
       "patch": {
         "summary": "Update Instance Configuration",
         "description": "Update a specific configuration value for a module instance",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "instance_id",
@@ -994,6 +1118,11 @@
       "get": {
         "summary": "Get Instance Schedule",
         "description": "Retrieve the schedule configuration for a module instance",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "instance_id",
@@ -1027,6 +1156,11 @@
       "post": {
         "summary": "Create/Update Schedule",
         "description": "Create or update a schedule for a module instance",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "instance_id",
@@ -1079,6 +1213,11 @@
       "delete": {
         "summary": "Delete Schedule",
         "description": "Delete the schedule for a module instance",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "instance_id",
@@ -1110,6 +1249,11 @@
       "post": {
         "summary": "Duplicate Module Instance",
         "description": "Duplicate a module instance to a specified company (can be the same or different company)",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "instance_id",
@@ -1155,6 +1299,11 @@
       "get": {
         "summary": "List Contacts",
         "description": "Retrieve a paginated list of contacts with filtering and sorting options",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "X-User-Timezone",
@@ -1240,6 +1389,11 @@
       "get": {
         "summary": "Get Contact",
         "description": "Retrieve detailed information about a specific contact including recent activity",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "contact_id",
@@ -1273,6 +1427,11 @@
       "patch": {
         "summary": "Update Contact",
         "description": "Update an existing contact's information",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "contact_id",
@@ -1310,6 +1469,11 @@
       "delete": {
         "summary": "Delete Contact",
         "description": "Delete a contact",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "contact_id",
@@ -1338,6 +1502,11 @@
       "post": {
         "summary": "Create Contact",
         "description": "Create a new contact",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "requestBody": {
           "description": "Contact creation details",
           "required": true,
@@ -1366,6 +1535,11 @@
       "get": {
         "summary": "List Conversations",
         "description": "Retrieve a paginated list of conversations (contacts with message/call activity)",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "page",
@@ -1419,6 +1593,11 @@
       "get": {
         "summary": "Get Conversation",
         "description": "Retrieve unified conversation history for a contact (messages, calls, tool calls, and interrupts)",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "contact_id",
@@ -1473,6 +1652,11 @@
       "get": {
         "summary": "List Call Logs",
         "description": "Retrieve a paginated list of voicebot call logs with filtering options",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "X-User-Timezone",
@@ -1597,6 +1781,11 @@
       "get": {
         "summary": "List Call Logs by Agent",
         "description": "Retrieve a paginated list of voicebot call logs for a specific agent with filtering options",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "agent_id",
@@ -1723,6 +1912,11 @@
       "get": {
         "summary": "List Chat Logs",
         "description": "Retrieve a paginated list of chatbot conversation logs with filtering options",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "X-User-Timezone",
@@ -1814,6 +2008,11 @@
       "get": {
         "summary": "List Chat Logs by Agent",
         "description": "Retrieve a paginated list of chatbot conversation logs for a specific agent with filtering options",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "agent_id",
@@ -1907,6 +2106,11 @@
       "get": {
         "summary": "List Transcripts",
         "description": "Retrieve a paginated list of transcripts (both calls and chats) with basic information",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "X-User-Timezone",
@@ -1968,6 +2172,11 @@
       "get": {
         "summary": "List Transcripts by Agent",
         "description": "Retrieve a paginated list of transcripts for a specific agent (both calls and chats) with basic information",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "agent_id",
@@ -2041,6 +2250,11 @@
       "get": {
         "summary": "Get Transcript",
         "description": "Retrieve detailed transcript information including messages, tool calls, and cost breakdown",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "transcript_id",
@@ -2083,6 +2297,11 @@
       "delete": {
         "summary": "Delete Transcript",
         "description": "Delete a transcript (thread)",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "transcript_id",
@@ -2114,6 +2333,11 @@
       "get": {
         "summary": "Get Company Settings",
         "description": "Retrieve company settings including staff and pending invites",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "responses": {
           "200": {
             "description": "Company settings retrieved successfully",
@@ -2133,6 +2357,11 @@
       "patch": {
         "summary": "Update Company Settings",
         "description": "Update company settings",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "requestBody": {
           "description": "Company update details",
           "required": true,
@@ -2167,6 +2396,11 @@
       "delete": {
         "summary": "Delete Company",
         "description": "Delete the company and all associated schedules",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "responses": {
           "200": {
             "description": "Company deleted successfully"
@@ -2184,6 +2418,11 @@
       "post": {
         "summary": "Transfer Company",
         "description": "Transfer company ownership to a different agency",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "requestBody": {
           "description": "Transfer details",
           "required": true,
@@ -2215,6 +2454,11 @@
       "post": {
         "summary": "Duplicate Company",
         "description": "Duplicate the current company to a new company with all configurations, modules, and agents",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "requestBody": {
           "description": "Duplication details",
           "required": true,
@@ -2259,6 +2503,11 @@
       "post": {
         "summary": "Invite Staff Member",
         "description": "Invite a user to join the company or add existing user as staff",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "requestBody": {
           "description": "Invitation details",
           "required": true,
@@ -2288,6 +2537,11 @@
       "delete": {
         "summary": "Cancel Invitation",
         "description": "Cancel a pending company invitation",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "requestBody": {
           "description": "Invitation ID to cancel",
           "required": true,
@@ -2322,6 +2576,11 @@
       "patch": {
         "summary": "Update Staff Member",
         "description": "Update a staff member's role",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "requestBody": {
           "description": "Staff update details",
           "required": true,
@@ -2354,6 +2613,11 @@
       "delete": {
         "summary": "Remove Staff Member",
         "description": "Remove a staff member from the company",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "requestBody": {
           "description": "Staff ID to remove",
           "required": true,
@@ -2388,6 +2652,11 @@
       "get": {
         "summary": "List Phone Numbers",
         "description": "Retrieve all phone numbers available to the company (both company-owned and agency-assigned)",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "responses": {
           "200": {
             "description": "Phone numbers retrieved successfully",
@@ -2407,6 +2676,11 @@
       "post": {
         "summary": "Add/Update Phone Number",
         "description": "Add or update a phone number",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "requestBody": {
           "description": "Phone number details",
           "required": true,
@@ -2436,6 +2710,11 @@
       "patch": {
         "summary": "Assign Agent to Phone Number",
         "description": "Assign or unassign an agent to a phone number",
+        "security": [
+          {
+            "CompanyApiKey": []
+          }
+        ],
         "requestBody": {
           "description": "Phone number assignment details",
           "required": true,
@@ -2470,6 +2749,11 @@
       "get": {
         "summary": "Get Agency Settings",
         "description": "Retrieve agency settings including admins and pending invites. Note: Requires Agency API Key.",
+        "security": [
+          {
+            "AgencyApiKey": []
+          }
+        ],
         "responses": {
           "200": {
             "description": "Agency settings retrieved successfully",
@@ -2492,6 +2776,11 @@
       "patch": {
         "summary": "Update Agency Settings",
         "description": "Update agency settings. Note: Requires Agency API Key.",
+        "security": [
+          {
+            "AgencyApiKey": []
+          }
+        ],
         "requestBody": {
           "description": "Agency update details",
           "required": true,
@@ -2528,6 +2817,11 @@
       "get": {
         "summary": "List Agency Companies",
         "description": "Retrieve a list of all companies under the agency. Note: Requires Agency API Key.",
+        "security": [
+          {
+            "AgencyApiKey": []
+          }
+        ],
         "responses": {
           "200": {
             "description": "Companies retrieved successfully",
@@ -2553,6 +2847,11 @@
       "post": {
         "summary": "Create Agency Company",
         "description": "Create a new company under the agency. Note: Requires Agency API Key.",
+        "security": [
+          {
+            "AgencyApiKey": []
+          }
+        ],
         "requestBody": {
           "description": "Company creation details",
           "required": true,
@@ -2597,6 +2896,11 @@
       "get": {
         "summary": "Get Agency Company Details",
         "description": "Retrieve detailed company information including billing data. Note: Requires Agency API Key.",
+        "security": [
+          {
+            "AgencyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "company_id",
@@ -2684,6 +2988,11 @@
       "patch": {
         "summary": "Update Agency Company",
         "description": "Update company settings (agency admin can modify billing settings). Note: Requires Agency API Key.",
+        "security": [
+          {
+            "AgencyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "company_id",
@@ -2727,6 +3036,11 @@
       "delete": {
         "summary": "Delete Agency Company",
         "description": "Delete a company. Note: Requires Agency API Key.",
+        "security": [
+          {
+            "AgencyApiKey": []
+          }
+        ],
         "parameters": [
           {
             "name": "company_id",
@@ -2758,6 +3072,11 @@
       "get": {
         "summary": "List Agency Phone Numbers",
         "description": "Retrieve all phone numbers available to the agency. Note: Requires Agency API Key.",
+        "security": [
+          {
+            "AgencyApiKey": []
+          }
+        ],
         "responses": {
           "200": {
             "description": "Phone numbers retrieved successfully",
@@ -5473,11 +5792,17 @@
       }
     },
     "securitySchemes": {
-      "apiKey": {
+      "CompanyApiKey": {
         "type": "apiKey",
         "in": "header",
         "name": "Authorization",
-        "description": "API key without 'Bearer' prefix"
+        "description": "Company API Key"
+      },
+      "AgencyApiKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "Agency API Key"
       }
     }
   }

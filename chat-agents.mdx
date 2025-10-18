@@ -151,26 +151,104 @@ Tools give your chat agent superpowers—the ability to book appointments, send 
   </Accordion>
 
   <Accordion title="MCP Server" icon="server">
-    Connect to Model Context Protocol (MCP) servers, including Zapier's MCP integration.
+    Connect to Model Context Protocol (MCP) servers for advanced integrations with 8,000+ apps via Zapier.
 
-    **Configuration:**
+    **Step-by-Step Setup:**
 
-    1. Select **"Other"** as the provider
-    2. Paste the MCP server URL
-    3. Link to a specific tool from the server
+    <Steps>
+      <Step title="1. Visit Zapier MCP">
+        Go to [mcp.zapier.com](https://mcp.zapier.com) and sign in with your Zapier account.
+      </Step>
 
-    <Frame>
-      <img src="/images/chat-tool-mcp-server.png" alt="MCP Server Tool" />
-    </Frame>
+      <Step title="2. Create New MCP Server">
+        Click **"Create New MCP Server"** and select **"Other"** as the MCP Client type.
 
-    **Use Cases:**
-    - Connect to Zapier MCP servers for hundreds of integrations
-    - Link to custom MCP servers you've built
-    - Access specialized AI tools and services
-    - Integrate with enterprise systems
+        <Frame>
+          <img src="/images/mcp-create-server.png" alt="Create MCP Server" />
+        </Frame>
+      </Step>
+
+      <Step title="3. Add Tools from 8,000+ Apps">
+        Browse and select tools from Zapier's extensive app library. Popular options include:
+        - **Google Sheets** – Search, create, and update spreadsheets
+        - **Gmail** – Send emails and manage inbox
+        - **Slack** – Send messages and create channels
+        - **HubSpot** – Manage contacts and deals
+        - **Salesforce** – Update records and create tasks
+        - **Airtable** – Query and update databases
+      </Step>
+
+      <Step title="4. Connect Your Apps">
+        Authenticate with the apps you want to use. Zapier will guide you through OAuth flows for each service.
+
+        <Frame>
+          <img src="/images/mcp-select-tools.png" alt="Select MCP Tools" />
+        </Frame>
+      </Step>
+
+      <Step title="5. Get Server URL">
+        Once configured, click **"Connect"** and copy the MCP server URL.
+
+        <Frame>
+          <img src="/images/mcp-server-url.png" alt="Copy MCP Server URL" />
+        </Frame>
+      </Step>
+
+      <Step title="6. Add to Outbox AI">
+        Paste the server URL into the **MCP Server** field in your chat agent settings.
+
+        <Frame>
+          <img src="/images/chat-tool-mcp-server.png" alt="MCP Server in Outbox" />
+        </Frame>
+      </Step>
+
+      <Step title="7. Select Specific Tools">
+        Choose which tools from your MCP server to make available to your chat agent.
+
+        <Frame>
+          <img src="/images/mcp-select-agent-tools.png" alt="Select Tools for Agent" />
+        </Frame>
+      </Step>
+    </Steps>
+
+    **Example Use Cases:**
+
+    <AccordionGroup>
+      <Accordion title="Google Sheets Integration" icon="table">
+        **Search customer data during conversations:**
+        - Look up customer information from spreadsheets
+        - Update appointment bookings in real-time
+        - Track conversation outcomes and lead quality
+      </Accordion>
+
+      <Accordion title="CRM Integration" icon="address-book">
+        **Update customer records:**
+        - Create new contacts during conversations
+        - Update deal stages based on chat interactions
+        - Add conversation notes and follow-up tasks
+      </Accordion>
+
+      <Accordion title="Communication Tools" icon="envelope">
+        **Send follow-up messages:**
+        - Email appointment confirmations
+        - Send Slack notifications to team
+        - Create tasks in project management tools
+      </Accordion>
+    </AccordionGroup>
+
+    **Advanced Features:**
+
+    - **Real-time Data Access** – Query live data during conversations
+    - **Multi-app Workflows** – Chain actions across different services
+    - **Custom Authentication** – Secure access to your business tools
+    - **Error Handling** – Graceful fallbacks when tools fail
+
+    <Tip>
+      **Pro Tip:** Start with 2-3 essential tools and gradually add more as you become comfortable with MCP integration. Too many tools can slow down response times.
+    </Tip>
 
     <Note>
-      MCP servers provide a standardized way for AI agents to interact with external tools and data sources.
+      MCP servers provide a standardized way for AI agents to interact with external tools and data sources. Zapier's MCP integration gives you access to 8,000+ apps without custom development.
     </Note>
 
   </Accordion>

@@ -158,27 +158,189 @@ Give your voice agent superpowers by connecting it to external services and auto
 
   </Accordion>
 
-  <Accordion title="MCP Server" icon="server">
-    Connect to Model Context Protocol (MCP) servers for advanced integrations.
+  <Accordion title="Transfer Tool" icon="phone-arrow-right">
+    Transfer calls to live representatives with customizable destinations and transfer types.
 
     **Configuration:**
 
-    1. Add the MCP server URL
-    2. Select specific tools from the server
-    3. Configure authentication if required
+    1. Add multiple transfer destinations (phone numbers)
+    2. Configure when to use each destination
+    3. Set transfer type and messaging
+    4. Customize what the agent says during transfer
 
     <Frame>
-      <img src="/images/chat-tool-mcp-server.png" alt="MCP Server" />
+      <img src="/images/chat-tool-transfer.png" alt="Transfer Tool" />
     </Frame>
 
+    **Adding Transfer Destinations:**
+
+    <Frame>
+      <img src="/images/chat-tool-transfer-destinations.png" alt="Transfer Tool Destinations" />
+    </Frame>
+
+    **Transfer Destinations:**
+
+    Each destination can be customized with:
+
+    - **Description** – When to use this transfer destination
+    - **Phone Number** – E.164 format (e.g., `+61412345678`)
+    - **Transfer Message** – What the agent says before transferring
+    - **Transfer Type** – Choose from three options:
+
+    **Transfer Types:**
+
+    <AccordionGroup>
+      <Accordion title="Blind Transfer" icon="phone-arrow-right">
+        **Simple transfer** – Agent transfers the call immediately without any introduction.
+
+        - ✅ Fastest transfer method
+        - ✅ No additional setup required
+        - ❌ Recipient has no context about the call
+      </Accordion>
+
+      <Accordion title="Warm Transfer with Summary" icon="phone-arrow-up">
+        **Intelligent transfer** – Agent provides a summary of the conversation to the recipient.
+
+        - ✅ Recipient knows what was discussed
+        - ✅ Seamless handoff experience
+        - ✅ Reduces repetition for the customer
+      </Accordion>
+
+      <Accordion title="Warm Transfer with Message" icon="phone-arrow-up-right">
+        **Custom transfer** – Agent delivers a specific message to the recipient before connecting.
+
+        - ✅ Fully customizable introduction
+        - ✅ Can include specific instructions
+        - ✅ Perfect for specialized departments
+      </Accordion>
+    </AccordionGroup>
+
+    **Example Setup:**
+
+    ```
+    Destination 1: Sales Team
+    - Description: "When caller is ready to purchase or has pricing questions"
+    - Message: "Let me connect you with our sales team who can help with pricing and next steps."
+    - Transfer Type: Warm Transfer with Summary
+
+    Destination 2: Technical Support
+    - Description: "When caller has technical issues or needs troubleshooting"
+    - Message: "I'll transfer you to our technical support team who specializes in these issues."
+    - Transfer Type: Warm Transfer with Message: "Customer needs help with [specific issue]"
+    ```
+
     **Use Cases:**
-    - Connect to Zapier's MCP server for hundreds of integrations
-    - Link to custom MCP servers you've built
-    - Access specialized AI tools and services
-    - Integrate with enterprise systems
+    - Route qualified leads to sales team
+    - Transfer technical questions to support
+    - Escalate complaints to management
+    - Connect VIP customers to dedicated reps
+    - Route by department or expertise
+
+    <Tip>
+      **Pro Tip:** Use conditional logic in your prompt to determine which destination to use based on the caller's needs or responses.
+    </Tip>
+
+  </Accordion>
+
+  <Accordion title="MCP Server" icon="server">
+    Connect to Model Context Protocol (MCP) servers for advanced integrations with 8,000+ apps via Zapier.
+
+    **Step-by-Step Setup:**
+
+    <Steps>
+      <Step title="1. Visit Zapier MCP">
+        Go to [mcp.zapier.com](https://mcp.zapier.com) and sign in with your Zapier account.
+      </Step>
+
+      <Step title="2. Create New MCP Server">
+        Click **"Create New MCP Server"** and select **"Other"** as the MCP Client type.
+
+        <Frame>
+          <img src="/images/mcp-create-server.png" alt="Create MCP Server" />
+        </Frame>
+      </Step>
+
+      <Step title="3. Add Tools from 8,000+ Apps">
+        Browse and select tools from Zapier's extensive app library. Popular options include:
+        - **Google Sheets** – Search, create, and update spreadsheets
+        - **Gmail** – Send emails and manage inbox
+        - **Slack** – Send messages and create channels
+        - **HubSpot** – Manage contacts and deals
+        - **Salesforce** – Update records and create tasks
+        - **Airtable** – Query and update databases
+      </Step>
+
+      <Step title="4. Connect Your Apps">
+        Authenticate with the apps you want to use. Zapier will guide you through OAuth flows for each service.
+
+        <Frame>
+          <img src="/images/mcp-select-tools.png" alt="Select MCP Tools" />
+        </Frame>
+      </Step>
+
+      <Step title="5. Get Server URL">
+        Once configured, click **"Connect"** and copy the MCP server URL.
+
+        <Frame>
+          <img src="/images/mcp-server-url.png" alt="Copy MCP Server URL" />
+        </Frame>
+      </Step>
+
+      <Step title="6. Add to Outbox AI">
+        Paste the server URL into the **MCP Server** field in your voice agent settings.
+
+        <Frame>
+          <img src="/images/chat-tool-mcp-server.png" alt="MCP Server in Outbox" />
+        </Frame>
+      </Step>
+
+      <Step title="7. Select Specific Tools">
+        Choose which tools from your MCP server to make available to your voice agent.
+
+        <Frame>
+          <img src="/images/mcp-select-agent-tools.png" alt="Select Tools for Agent" />
+        </Frame>
+      </Step>
+    </Steps>
+
+    **Example Use Cases:**
+
+    <AccordionGroup>
+      <Accordion title="Google Sheets Integration" icon="table">
+        **Search customer data during calls:**
+        - Look up customer information from spreadsheets
+        - Update appointment bookings in real-time
+        - Track call outcomes and lead quality
+      </Accordion>
+
+      <Accordion title="CRM Integration" icon="address-book">
+        **Update customer records:**
+        - Create new contacts during calls
+        - Update deal stages based on conversation
+        - Add call notes and follow-up tasks
+      </Accordion>
+
+      <Accordion title="Communication Tools" icon="envelope">
+        **Send follow-up messages:**
+        - Email appointment confirmations
+        - Send Slack notifications to team
+        - Create tasks in project management tools
+      </Accordion>
+    </AccordionGroup>
+
+    **Advanced Features:**
+
+    - **Real-time Data Access** – Query live data during calls
+    - **Multi-app Workflows** – Chain actions across different services
+    - **Custom Authentication** – Secure access to your business tools
+    - **Error Handling** – Graceful fallbacks when tools fail
+
+    <Tip>
+      **Pro Tip:** Start with 2-3 essential tools and gradually add more as you become comfortable with MCP integration. Too many tools can slow down response times.
+    </Tip>
 
     <Note>
-      MCP servers provide a standardized way for AI agents to interact with external tools and data sources during live calls.
+      MCP servers provide a standardized way for AI agents to interact with external tools and data sources during live calls. Zapier's MCP integration gives you access to 8,000+ apps without custom development.
     </Note>
 
   </Accordion>

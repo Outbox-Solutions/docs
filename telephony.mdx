@@ -453,48 +453,12 @@ Telnyx often offers lower per-minute rates than Twilio in many international mar
   reliability + Telnyx's pricing.
 </Card>
 
----
-
-### Option A – Quick & Dirty (Use the Telnyx API Key)
-
-If you only need Telnyx voice and don't care about masking:
-
-<Steps>
-  <Step title="Log In">
-    Visit [portal.telnyx.com](https://portal.telnyx.com)
-  </Step>
-  <Step title="Buy a Number">
-    Buy a number under **Numbers** → **Search & Buy** (submit any required
-    documents)
-  </Step>
-  <Step title="Copy API Key">Copy your **API Key**</Step>
-  <Step title="Add to Outbox AI">
-    In Outbox AI, go to **Settings** → **Company** → **Integrations** →
-    **Telnyx** and paste the key
-  </Step>
-  <Step title="Assign Number">
-    The number appears under **Telephony** → **Numbers**—assign it to a voice
-    agent
-  </Step>
-</Steps>
-
-<Warning>
-  **Drawback:** Calls will display that raw Telnyx number and SMS must be
-  handled elsewhere.
-</Warning>
-
----
-
-### Option B – The "Masked" Stack (Recommended)
-
-This setup combines Twilio's reliability with Telnyx's cost savings. Perfect for international markets where Telnyx offers better rates.
-
 <Note>
   **Popular in:** Australia, UK, New Zealand, and European markets where Telnyx
   rates are significantly lower than Twilio.
 </Note>
 
-#### Step 1 – Secure a Twilio SMS / Inbound Line
+### Step 1 – Secure a Twilio SMS / Inbound Line
 
 <Steps>
   <Step title="Buy Twilio Number">
@@ -511,7 +475,7 @@ This setup combines Twilio's reliability with Telnyx's cost savings. Perfect for
 
 ---
 
-#### Step 2 – Buy a Telnyx Outbound Line
+### Step 2 – Buy a Telnyx Outbound Line
 
 <Steps>
   <Step title="Search and Buy">
@@ -530,7 +494,7 @@ This setup combines Twilio's reliability with Telnyx's cost savings. Perfect for
 
 ---
 
-#### Step 3 – Create a SIP Trunk
+### Step 3 – Create a SIP Trunk
 
 <Steps>
   <Step title="Navigate to SIP Trunks">
@@ -565,7 +529,7 @@ This setup combines Twilio's reliability with Telnyx's cost savings. Perfect for
 
 ---
 
-#### Step 4 – Add Telnyx Number to Outbox AI
+### Step 4 – Add Telnyx Number to Outbox AI
 
 Now connect the Telnyx SIP trunk to Outbox AI.
 

@@ -185,7 +185,7 @@ Give your voice agent superpowers by connecting it to external services and auto
     - **Description** – When to use this transfer destination
     - **Phone Number** – E.164 format (e.g., `+61412345678`)
     - **Transfer Message** – What the agent says before transferring
-    - **Transfer Type** – Choose from three options:
+    - **Transfer Type** – Choose from four options:
 
     **Transfer Types:**
 
@@ -213,6 +213,13 @@ Give your voice agent superpowers by connecting it to external services and auto
         - ✅ Can include specific instructions
         - ✅ Perfect for specialized departments
       </Accordion>
+      <Accordion title="Warm Transfer with Agent" icon="phone-arrow-up">
+        **Concierge transfer** – Agent calls the destination first, shares context, and asks if they want the call.
+
+        - ✅ Ensures the recipient is available before connecting
+        - ✅ Lets the agent recap the conversation in real time
+        - ✅ Protects callers from being routed to unprepared recipients; agent ends the call gracefully if declined
+      </Accordion>
     </AccordionGroup>
 
     **Example Setup:**
@@ -227,6 +234,11 @@ Give your voice agent superpowers by connecting it to external services and auto
     - Description: "When caller has technical issues or needs troubleshooting"
     - Message: "I'll transfer you to our technical support team who specializes in these issues."
     - Transfer Type: Warm Transfer with Message: "Customer needs help with [specific issue]"
+
+    Destination 3: On-Call Manager
+    - Description: "Escalations that need manager approval"
+    - Message: "I have a caller with an urgent escalation. Are you free to take it?"
+    - Transfer Type: Warm Transfer with Agent
     ```
 
     **Use Cases:**
@@ -551,6 +563,7 @@ Add ambient background noise to make your calls feel more human and authentic.
 
 - **Office** – General office sounds (keyboard typing, subtle background chatter)
 - **Lounge** – General lounge sounds (subtle café/waiting room ambience)
+- **Custom Upload** – Bring your own ambience by uploading an MP3 file (loops automatically once processed)
 - **Mute** – No background sound (clean audio only)
 
 **When to Use Background Sound:**
@@ -583,6 +596,11 @@ Add ambient background noise to make your calls feel more human and authentic.
   Test with and without background sound to see what feels right for your use
   case. What works for one industry might not work for another.
 </Tip>
+
+<Note>
+  Looking for something unique? Upload an MP3 loop through the background sound
+  picker to create a custom atmosphere for your callers.
+</Note>
 
 ---
 

@@ -158,17 +158,11 @@
     },
     {
       "group": "Call Logs",
-      "pages": [
-        "api-reference/endpoint/call-logs",
-        "api-reference/endpoint/call-logs-agent"
-      ]
+      "pages": ["api-reference/endpoint/call-logs"]
     },
     {
       "group": "Chat Logs",
-      "pages": [
-        "api-reference/endpoint/chat-logs",
-        "api-reference/endpoint/chat-logs-agent"
-      ]
+      "pages": ["api-reference/endpoint/chat-logs"]
     },
     {
       "group": "Transcripts",

@@ -59,6 +59,7 @@
       "pages": [
         "introduction",
         "quickstart",
+        "javascript-sdk",
         "prompting-guide",
         "chat-agents",
         "voice-agents",

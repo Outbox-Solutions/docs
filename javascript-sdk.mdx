@@ -1,0 +1,464 @@
+---
+title: "JavaScript SDK"
+icon: "code"
+description: "Integrate Outbox voice calls directly into your web application"
+---
+
+## Overview
+
+The Outbox Web SDK (@outbox-ai/web) lets you start Outbox voice calls directly in your web application. Use it to create custom voice interfaces, embed AI calls into websites, and build interactive voice experiences.
+
+<Note>
+  **NPM Package:** Install the SDK with `npm install @outbox-ai/web`
+</Note>
+
+---
+
+## Installation
+
+You can install the package via npm:
+
+```bash
+npm install @outbox-ai/web
+```
+
+---
+
+## Quick Start
+
+### 1. Import the SDK
+
+```javascript
+import Outbox from "@outbox-ai/web";
+```
+
+### 2. Create an Instance
+
+```javascript
+const outbox = new Outbox();
+```
+
+### 3. Start a Call
+
+You can start a call by passing either an agent configuration object or an agent ID:
+
+```javascript
+// Using an agent ID
+outbox.start("your-agent-id");
+
+// OR using a full agent configuration
+outbox.start({
+  model: {
+    provider: "openai",
+    model: "gpt-4.1",
+    messages: [
+      {
+        role: "system",
+        content: "You are an assistant.",
+      },
+    ],
+  },
+  voice: {
+    provider: "11labs",
+    voiceId: "burt",
+  },
+});
+```
+
+---
+
+## Core Methods
+
+### Start a Call
+
+Start a new voice call. You can pass either an agent ID or a complete agent configuration.
+
+#### Using Agent ID
+
+```javascript
+outbox.start("your-agent-id");
+```
+
+#### Using Agent Configuration
+
+```javascript
+outbox.start({
+  model: {
+    provider: "openai",
+    model: "gpt-4.1",
+    messages: [
+      {
+        role: "system",
+        content: "You are a helpful assistant.",
+      },
+    ],
+  },
+  voice: {
+    provider: "11labs",
+    voiceId: "burt",
+  },
+});
+```
+
+#### Override Agent Parameters
+
+You can override existing agent parameters or set variables:
+
+```javascript
+const agentOverrides = {
+  recordingEnabled: false,
+  variableValues: {
+    name: "John",
+  },
+};
+
+outbox.start("your-agent-id", agentOverrides);
+```
+
+**Available Override Options:**
+
+<AccordionGroup>
+  <Accordion title="recordingEnabled" icon="record-vinyl">
+    Enable or disable call recording (boolean)
+  </Accordion>
+  
+  <Accordion title="variableValues" icon="variables">
+    Set variable values for your agent prompts (object)
+    
+    **Example:**
+    ```javascript
+    variableValues: {
+      name: "John",
+      company: "Acme Corp",
+      role: "developer"
+    }
+    ```
+  </Accordion>
+</AccordionGroup>
+
+---
+
+### Stop a Call
+
+Stop the current call and close the connection:
+
+```javascript
+outbox.stop();
+```
+
+---
+
+### Send Messages
+
+Send text messages to the agent during the call:
+
+```javascript
+outbox.send({
+  type: "add-message",
+  message: {
+    role: "system",
+    content: "The user has pressed the button, say peanuts",
+  },
+});
+```
+
+**Message Roles:**
+
+<CardGroup cols={2}>
+  <Card title="system" icon="terminal">
+    System instructions for the agent
+  </Card>
+  
+  <Card title="user" icon="user">
+    User messages or context
+  </Card>
+  
+  <Card title="assistant" icon="robot">
+    Assistant responses
+  </Card>
+  
+  <Card title="tool" icon="wrench">
+    Tool function results
+  </Card>
+</CardGroup>
+
+---
+
+### Mute/Unmute
+
+Control the user's microphone:
+
+```javascript
+// Check mute status
+outbox.isMuted(); // returns: false
+
+// Mute the microphone
+outbox.setMuted(true);
+
+// Unmute the microphone
+outbox.setMuted(false);
+
+// Check status again
+outbox.isMuted(); // returns: true
+```
+
+---
+
+### Say Message
+
+Make the agent speak a specific message and optionally end the call:
+
+```javascript
+// Say a message and continue the call
+outbox.say("Thank you for calling!");
+
+// Say a message and end the call gracefully
+outbox.say("Our time's up, goodbye!", true);
+```
+
+**Parameters:**
+
+- `message` (string) - The message for the agent to speak
+- `endCallAfterSpoken` (boolean, optional) - If true, end the call after speaking
+
+---
+
+## Events
+
+Listen to call events to react to state changes:
+
+### Speech Events
+
+```javascript
+outbox.on("speech-start", () => {
+  console.log("Agent started speaking");
+});
+
+outbox.on("speech-end", () => {
+  console.log("Agent finished speaking");
+});
+```
+
+### Call Events
+
+```javascript
+outbox.on("call-start", () => {
+  console.log("Call has started");
+});
+
+outbox.on("call-end", () => {
+  console.log("Call has ended");
+});
+```
+
+### Volume Level
+
+```javascript
+outbox.on("volume-level", (volume) => {
+  console.log(`Agent volume level: ${volume}`);
+});
+```
+
+### Messages
+
+Function calls and transcripts are sent via the message event:
+
+```javascript
+outbox.on("message", (message) => {
+  console.log("Received message:", message);
+});
+```
+
+### Error Handling
+
+```javascript
+outbox.on("error", (error) => {
+  console.error("Call error:", error);
+});
+```
+
+---
+
+## Complete Example
+
+Here's a complete example of integrating the Outbox SDK into a web application:
+
+```javascript
+import Outbox from "@outbox-ai/web";
+
+// Create SDK instance
+const outbox = new Outbox();
+
+// Set up event listeners
+outbox.on("call-start", () => {
+  console.log("Call started");
+  document.getElementById("status").textContent = "Connected";
+});
+
+outbox.on("call-end", () => {
+  console.log("Call ended");
+  document.getElementById("status").textContent = "Disconnected";
+});
+
+outbox.on("message", (message) => {
+  console.log("Message received:", message);
+  // Update UI with conversation messages
+});
+
+outbox.on("error", (error) => {
+  console.error("Error:", error);
+  alert("Call error: " + error.message);
+});
+
+// Start call button
+document.getElementById("start-call").addEventListener("click", () => {
+  outbox.start("your-agent-id", {
+    variableValues: {
+      name: document.getElementById("user-name").value,
+    },
+  });
+});
+
+// Stop call button
+document.getElementById("stop-call").addEventListener("click", () => {
+  outbox.stop();
+});
+
+// Mute toggle button
+document.getElementById("mute-toggle").addEventListener("click", () => {
+  const muted = outbox.isMuted();
+  outbox.setMuted(!muted);
+});
+```
+
+---
+
+## Use Cases
+
+<AccordionGroup>
+  <Accordion title="Custom Voice Interfaces" icon="microphone">
+    Build completely custom voice interfaces for your web applications. Control every aspect of the call experience, from UI to behavior.
+  </Accordion>
+  
+  <Accordion title="Website Integration" icon="globe">
+    Add voice capabilities to your existing website. Let visitors speak with AI agents directly from any page.
+  </Accordion>
+  
+  <Accordion title="Web Apps" icon="window">
+    Integrate voice calling into web applications like dashboards, admin panels, or customer portals.
+  </Accordion>
+  
+  <Accordion title="Progressive Web Apps" icon="mobile">
+    Create voice-enabled PWAs that work offline and provide native-like experiences across devices.
+  </Accordion>
+  
+  <Accordion title="Kiosk Applications" icon="display">
+    Build kiosk applications where users can interact with AI agents via voice without traditional interfaces.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Handle Connection States" icon="plug">
+    Always listen to `call-start` and `call-end` events to update your UI and prevent duplicate calls.
+  </Accordion>
+  
+  <Accordion title="Error Handling" icon="triangle-exclamation">
+    Implement robust error handling to gracefully handle network issues, permission errors, or API failures.
+  </Accordion>
+  
+  <Accordion title="Microphone Permissions" icon="microphone-slash">
+    Request microphone permissions before starting a call, and handle cases where users deny access.
+  </Accordion>
+  
+  <Accordion title="UI Feedback" icon="circle">
+    Provide visual feedback for all call states: connecting, active, speaking, listening, error, and disconnected.
+  </Accordion>
+  
+  <Accordion title="Clean Up" icon="broom">
+    Always call `outbox.stop()` when the user navigates away or when your component unmounts.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Microphone Not Working" icon="microphone-slash">
+    - Check browser permissions for microphone access
+    - Ensure the site is using HTTPS (required for media devices)
+    - Try different browsers to rule out browser-specific issues
+  </Accordion>
+  
+  <Accordion title="Call Won't Start" icon="phone-slash">
+    - Verify your agent ID is correct
+    - Check network connectivity
+    - Review browser console for error messages
+    - Ensure the agent exists and is active
+  </Accordion>
+  
+  <Accordion title="No Audio Heard" icon="volume-xmark">
+    - Check system volume settings
+    - Verify audio output devices are working
+    - Review event logs for audio-related errors
+  </Accordion>
+  
+  <Accordion title="Events Not Firing" icon="exclamation">
+    - Ensure event listeners are set up before starting the call
+    - Check browser console for JavaScript errors
+    - Verify SDK version is up to date
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## TypeScript Support
+
+The package includes built-in TypeScript declarations:
+
+```typescript
+import Outbox from "@outbox-ai/web";
+
+const outbox: Outbox = new Outbox();
+
+// Full type safety for all methods and events
+outbox.on("call-start", () => {
+  // TypeScript knows this is a function with no parameters
+});
+```
+
+---
+
+## Package Information
+
+- **Package Name:** `@outbox-ai/web`
+- **Latest Version:** 1.0.3
+- **Repository:** [GitHub](https://github.com/Outbox-Solutions/client-sdk-web)
+- **NPM:** [@outbox-ai/web](https://www.npmjs.com/package/@outbox-ai/web)
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="API Reference" icon="book" href="/api-reference/introduction">
+    Explore the complete API documentation
+  </Card>
+  
+  <Card title="Voice Agents" icon="phone" href="/voice-agents">
+    Learn how to configure voice agents
+  </Card>
+  
+  <Card title="GoHighLevel Integration" icon="layer-group" href="/gohighlevel">
+    Connect your SDK calls to your CRM
+  </Card>
+  
+  <Card title="Tool Library" icon="books" href="/tool-library">
+    Enhance your agents with tools and integrations
+  </Card>
+</CardGroup>
+

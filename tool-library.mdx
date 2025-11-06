@@ -8621,7 +8621,135 @@ Close is a CRM platform designed to help businesses manage and streamline their 
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Create Call" icon="phone">
+    Creates a new call record in Close.com. This tool allows you to log both inbound and outbound calls associated with a lead.
+
+    **Variables (Agent fills during call):**
+    - `lead_id` – The ID of the lead associated with the call *(required)*
+    - `direction` – Call direction: "inbound" or "outbound" *(required)*
+    - `contact_id` – The ID of the contact *(optional)*
+    - `phone` – Phone number used for the call *(optional)*
+    - `duration` – Call duration in seconds *(optional)*
+    - `note` – Notes or summary of the call *(optional)*
+    - `recording_url` – URL to the call recording *(optional)*
+    - `user_id` – The ID of the user who made/received the call *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Close integration*
+
+    **Use Cases:**
+    - Log inbound customer calls
+    - Record outbound sales calls
+    - Track call history for leads
+    - Attach call recordings to CRM records
+
+  </Accordion>
+
+  <Accordion title="Create Lead" icon="user-plus">
+    Creates a new lead in Close CRM with basic company information and optional contact details.
+
+    **Variables (Agent fills during call):**
+    - `company_name` – Name of the company *(required)*
+    - `description` – Description or notes about the lead *(optional)*
+    - `website` – Company website URL *(optional)*
+    - `status` – Lead status (e.g., "potential", "qualified", "customer") *(optional)*
+    - `contacts` – Array of contact information *(optional)*
+    - `addresses` – Array of address information *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Close integration*
+
+    **Use Cases:**
+    - Create new leads from inbound calls
+    - Add prospects discovered during conversations
+    - Capture company information from sales calls
+    - Initialize lead records for follow-up
+
+  </Accordion>
+
+  <Accordion title="Create SMS" icon="message">
+    Creates a new SMS message in Close. The tool allows sending immediate SMS messages or logging received SMS messages.
+
+    **Variables (Agent fills during call):**
+    - `local_phone` – Your phone number (the number sending/receiving) *(required)*
+    - `remote_phone` – The other party's phone number *(required)*
+    - `text` – The SMS message content *(required)*
+    - `status` – Message status (e.g., "sent", "received") *(optional)*
+    - `source` – Source of the SMS *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Close integration*
+
+    **Use Cases:**
+    - Send SMS follow-ups after calls
+    - Log SMS conversations in CRM
+    - Track text message communications
+    - Maintain SMS history for leads
+
+  </Accordion>
+
+  <Accordion title="Create Task" icon="list-check">
+    Creates a new task in Close.com. Tasks are used to track to-do items and can be associated with leads.
+
+    **Variables (Agent fills during call):**
+    - `text` – Task description or title *(required)*
+    - `due_date` – Due date for the task in ISO 8601 format *(optional)*
+    - `is_complete` – Whether the task is already completed *(optional)*
+    - `lead_id` – The ID of the lead to associate with the task *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Close integration*
+
+    **Use Cases:**
+    - Create follow-up tasks after calls
+    - Schedule reminders for sales reps
+    - Track action items from conversations
+    - Manage to-do lists for leads
+
+  </Accordion>
+
+  <Accordion title="Delete Call" icon="trash">
+    Deletes a specific call activity in Close.com. Useful for removing incorrectly logged calls or cleaning up call records.
+
+    **Variables (Agent fills during call):**
+    - `call_id` – The unique ID of the call to delete *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Close integration*
+
+    **Use Cases:**
+    - Remove duplicate call records
+    - Clean up incorrectly logged calls
+    - Delete test or error call entries
+    - Maintain accurate call history
+
+    <Warning>
+      **Cannot be undone:** This action permanently deletes the call record and cannot be reversed.
+    </Warning>
+
+  </Accordion>
+
+  <Accordion title="Get Note" icon="note-sticky">
+    Retrieves a list of note activities from Close. Allows users to fetch notes with optional filtering parameters.
+
+    **Variables (Agent fills during call):**
+    - `lead_id` – Filter notes by lead ID *(optional)*
+    - `user_id` – Filter notes by user ID *(optional)*
+    - `date_from` – Start date for filtering notes *(optional)*
+    - `date_to` – End date for filtering notes *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Close integration*
+
+    **Use Cases:**
+    - Retrieve notes for a specific lead
+    - Review conversation history
+    - Fetch notes within a date range
+    - Access previous interaction details
+
+  </Accordion>
+</AccordionGroup>
 
 ---
 
@@ -8645,7 +8773,281 @@ Composio Search provides comprehensive web search across travel (flights, hotels
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Amazon" icon="amazon">
+    Search Amazon for products across different country marketplaces. This tool searches Amazon's product catalog with support for multiple international Amazon domains/marketplaces.
+
+    **Variables (Agent fills during call):**
+    - `query` – Product search query *(required)*
+    - `domain` – Amazon marketplace domain (e.g., "amazon.com", "amazon.co.uk") *(optional)*
+    - `max_results` – Maximum number of results to return *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Composio Search integration*
+
+    **Use Cases:**
+    - Product research and price comparison
+    - International price comparison across marketplaces
+    - Finding products available in specific countries
+    - Checking product availability and ratings
+
+    <Tip>
+      Each Amazon domain serves different countries with local pricing, currency, shipping options, and product availability.
+    </Tip>
+
+  </Accordion>
+
+  <Accordion title="Duck Duck Go" icon="search">
+    Perform web searches using DuckDuckGo search engine. Focuses on web information and details without tracking.
+
+    **Variables (Agent fills during call):**
+    - `query` – Search query *(required)*
+    - `max_results` – Maximum number of results to return *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Composio Search integration*
+
+    **Use Cases:**
+    - Privacy-focused web searches
+    - General information retrieval
+    - Research without tracking
+    - Finding web content and details
+
+  </Accordion>
+
+  <Accordion title="Event" icon="calendar-days">
+    Search for upcoming events, concerts, festivals, conferences, and other activities. Finds local and global events with powerful filtering options.
+
+    **Variables (Agent fills during call):**
+    - `query` – Event search query *(required)*
+    - `location` – City, neighborhood, or address for location-based search *(optional)*
+    - `date` – Date filter (e.g., "today", "tomorrow", "weekend", "next week") *(optional)*
+    - `virtual` – Filter for virtual events *(optional)*
+    - `language` – Language for results (100+ languages supported) *(optional)*
+    - `country` – Country code for international search *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Composio Search integration*
+
+    **Use Cases:**
+    - Find local concerts and festivals
+    - Discover upcoming conferences
+    - Search for virtual events
+    - Plan event attendance
+    - Discover activities in specific locations
+
+  </Accordion>
+
+  <Accordion title="Finance" icon="chart-line">
+    Get real-time stock prices, market data, financial news, and company information with historical analysis.
+
+    **Variables (Agent fills during call):**
+    - `query` – Stock symbol, company name, or financial query *(required)*
+    - `time_range` – Time range for historical data (1D, 1W, 1M, 3M, 6M, 1Y, MAX) *(optional)*
+    - `include_news` – Include financial news in results *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Composio Search integration*
+
+    **Use Cases:**
+    - Check stock prices and market data
+    - Track cryptocurrency prices
+    - Get exchange rates
+    - Analyze market trends
+    - Research company financial information
+    - Access historical price charts
+
+    <Tip>
+      Returns detailed graph data, summary information, and key events for 6M+ time windows.
+    </Tip>
+
+  </Accordion>
+
+  <Accordion title="Flights" icon="plane">
+    Search for flights with comprehensive pricing, schedule, and airline information. Finds available flights between cities/airports with detailed pricing.
+
+    **Variables (Agent fills during call):**
+    - `origin` – Departure city or airport code *(required)*
+    - `destination` – Arrival city or airport code *(required)*
+    - `departure_date` – Departure date in ISO 8601 format *(required)*
+    - `return_date` – Return date for round-trip flights *(optional)*
+    - `adults` – Number of adult passengers *(optional)*
+    - `children` – Number of child passengers *(optional)*
+    - `infants` – Number of infant passengers *(optional)*
+    - `class` – Travel class (economy, business, first) *(optional)*
+    - `currency` – Currency for pricing *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Composio Search integration*
+
+    **Use Cases:**
+    - Find flight options and prices
+    - Compare airlines and schedules
+    - Plan round-trip or one-way travel
+    - Check flight availability
+    - Get pricing in different currencies
+
+  </Accordion>
+
+  <Accordion title="Google Maps" icon="map">
+    Perform location-specific searches using Google Maps. Fetches the most relevant location data based on the input query.
+
+    **Variables (Agent fills during call):**
+    - `query` – Location search query *(required)*
+    - `location` – Specific location or area to search within *(optional)*
+    - `type` – Type of place (e.g., "restaurant", "hotel", "gas_station") *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Composio Search integration*
+
+    **Use Cases:**
+    - Find nearby businesses and places
+    - Search for specific locations
+    - Get directions and location details
+    - Discover local services
+    - Find points of interest
+
+  </Accordion>
+
+  <Accordion title="Hotels" icon="hotel">
+    Search for hotels and vacation rentals with comprehensive filtering and pricing. Finds available accommodations with detailed information.
+
+    **Variables (Agent fills during call):**
+    - `location` – Destination city or address *(required)*
+    - `check_in` – Check-in date in ISO 8601 format *(required)*
+    - `check_out` – Check-out date in ISO 8601 format *(required)*
+    - `adults` – Number of adult guests *(optional)*
+    - `children` – Number of child guests *(optional)*
+    - `price_min` – Minimum price per night *(optional)*
+    - `price_max` – Maximum price per night *(optional)*
+    - `stars` – Minimum star rating *(optional)*
+    - `sort_by` – Sort by price, rating, or distance *(optional)*
+    - `free_cancellation` – Filter for free cancellation options *(optional)*
+    - `include_vacation_rentals` – Include vacation rentals in results *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Composio Search integration*
+
+    **Use Cases:**
+    - Find hotels and accommodations
+    - Compare prices and ratings
+    - Search for vacation rentals
+    - Filter by amenities and location
+    - Plan travel accommodations
+
+  </Accordion>
+
+  <Accordion title="Shopping" icon="shopping-cart">
+    Search for products with advanced price filtering, location targeting, and deal discovery. Provides comprehensive product search across multiple retailers.
+
+    **Variables (Agent fills during call):**
+    - `query` – Product search query *(required)*
+    - `price_min` – Minimum price filter *(optional)*
+    - `price_max` – Maximum price filter *(optional)*
+    - `location` – Geographic location for local retailers *(optional)*
+    - `sort_by` – Sort by price (low to high, high to low) *(optional)*
+    - `free_shipping` – Filter for free shipping options *(optional)*
+    - `on_sale` – Filter for sale items only *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Composio Search integration*
+
+    **Use Cases:**
+    - Product research and price comparison
+    - Find deals and sale items
+    - Discover where to buy items
+    - Compare prices across retailers
+    - Search for products within budget
+
+  </Accordion>
+
+  <Accordion title="Tavily" icon="brain">
+    Perform advanced searches using Tavily LLM Search API. Accommodates complex queries with multiple filtering options for fine-tuned results.
+
+    **Variables (Agent fills during call):**
+    - `query` – Search query (supports keyword and phrase searches) *(required)*
+    - `max_results` – Maximum number of results to return *(optional)*
+    - `include_domains` – Specific domains to include in search *(optional)*
+    - `exclude_domains` – Domains to exclude from search *(optional)*
+    - `search_depth` – Depth of search (basic or advanced) *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Composio Search integration*
+
+    **Use Cases:**
+    - Complex research queries
+    - Fine-tuned web searches
+    - Domain-specific searches
+    - Advanced information retrieval
+    - Academic and professional research
+
+  </Accordion>
+
+  <Accordion title="Trip Advisor" icon="map-location-dot">
+    Search TripAdvisor for travel recommendations and itinerary planning. Searches TripAdvisor's comprehensive travel database for attractions, restaurants, hotels, tours, and activities.
+
+    **Variables (Agent fills during call):**
+    - `query` – Search query for attractions, restaurants, hotels, or activities *(required)*
+    - `location` – Destination city or location *(optional)*
+    - `type` – Type of result (attraction, restaurant, hotel, tour) *(optional)*
+    - `max_results` – Maximum number of results to return *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Composio Search integration*
+
+    **Use Cases:**
+    - Create travel itineraries
+    - Find top-rated experiences
+    - Discover local recommendations
+    - Plan trips and activities
+    - Research destinations
+
+    <Tip>
+      Returns detailed information including ratings, reviews, photos, and traveler recommendations.
+    </Tip>
+
+  </Accordion>
+
+  <Accordion title="Walmart" icon="store">
+    Search Walmart for products with price filtering. Searches Walmart's product catalog including groceries, electronics, clothing, home goods, pharmacy, and auto services.
+
+    **Variables (Agent fills during call):**
+    - `query` – Product search query *(required)*
+    - `price_min` – Minimum price filter *(optional)*
+    - `price_max` – Maximum price filter *(optional)*
+    - `max_results` – Maximum number of results to return *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Composio Search integration*
+
+    **Use Cases:**
+    - Find everyday essentials
+    - Compare Walmart prices
+    - Discover Walmart products and services
+    - Search within budget range
+    - Find groceries and household items
+
+  </Accordion>
+
+  <Accordion title="Web" icon="globe">
+    Perform general web searches and find relevant information. Searches the web for information on any topic.
+
+    **Variables (Agent fills during call):**
+    - `query` – Search query *(required)*
+    - `max_results` – Maximum number of results to return *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Composio Search integration*
+
+    **Use Cases:**
+    - General research and fact-checking
+    - Finding websites and information
+    - Gathering information on any topic
+    - Web content discovery
+    - Information verification
+
+  </Accordion>
+</AccordionGroup>
 
 ---
 
@@ -8669,7 +9071,637 @@ Discordbot refers to automated programs on Discord servers, performing tasks lik
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Add Group DM User" icon="user-plus">
+    Adds a user to a Discord group Direct Message (DM) channel.
+
+    **Variables (Agent fills during call):**
+    - `channel_id` – The ID of the group DM channel *(required)*
+    - `user_id` – The ID of the user to add *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Discord Bot integration*
+
+    **Use Cases:**
+    - Add members to group conversations
+    - Expand group DM channels
+    - Include users in private group discussions
+
+  </Accordion>
+
+  <Accordion title="Add My Message Reaction" icon="thumbs-up">
+    Adds an emoji reaction from the authenticated user/bot to a specific message in a Discord channel.
+
+    **Variables (Agent fills during call):**
+    - `channel_id` – The ID of the channel containing the message *(required)*
+    - `message_id` – The ID of the message to react to *(required)*
+    - `emoji` – The emoji to add (unicode or custom emoji ID) *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Discord Bot integration*
+
+    **Use Cases:**
+    - React to messages automatically
+    - Acknowledge user messages
+    - Add reactions for engagement
+    - Express bot responses with emojis
+
+    <Note>
+      This action does not return information about existing reactions on the message.
+    </Note>
+
+  </Accordion>
+
+  <Accordion title="Create Channel Invite" icon="link">
+    Creates a new invite for the specified Discord channel.
+
+    **Variables (Agent fills during call):**
+    - `channel_id` – The ID of the channel to create an invite for *(required)*
+    - `max_age` – Invite expiration time in seconds (0 for never) *(optional)*
+    - `max_uses` – Maximum number of uses (0 for unlimited) *(optional)*
+    - `temporary` – Whether the invite grants temporary membership *(optional)*
+    - `unique` – Whether to reuse a similar invite if available *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Discord Bot integration*
+
+    **Use Cases:**
+    - Generate server invites
+    - Create channel-specific invites
+    - Set up temporary access links
+    - Generate invite codes programmatically
+
+    <Warning>
+      Requires 'CREATE_INSTANT_INVITE' permission for the channel.
+    </Warning>
+
+  </Accordion>
+
+  <Accordion title="Create DM" icon="envelope">
+    Creates a new direct message (DM) channel or retrieves an existing one.
+
+    **Variables (Agent fills during call):**
+    - `recipient_id` – User ID for a 1-on-1 DM *(optional)*
+    - `access_tokens` – Access tokens for a group DM *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Discord Bot integration*
+
+    **Use Cases:**
+    - Initiate private conversations
+    - Create group DM channels
+    - Retrieve existing DM channels
+    - Set up direct communication channels
+
+    <Note>
+      This action only establishes or fetches the channel and does not send messages.
+    </Note>
+
+  </Accordion>
+
+  <Accordion title="Create Guild Scheduled Event" icon="calendar-days">
+    Creates a new scheduled event in a Discord guild.
+
+    **Variables (Agent fills during call):**
+    - `guild_id` – The ID of the guild *(required)*
+    - `name` – Event name *(required)*
+    - `description` – Event description *(optional)*
+    - `scheduled_start_time` – Start time in ISO 8601 format *(required)*
+    - `scheduled_end_time` – End time in ISO 8601 format *(optional)*
+    - `entity_type` – Event type (e.g., STAGE_INSTANCE, VOICE, EXTERNAL) *(required)*
+    - `privacy_level` – Privacy level (GUILD_ONLY) *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Discord Bot integration*
+
+    **Use Cases:**
+    - Schedule server events
+    - Create voice channel events
+    - Plan external events
+    - Organize community activities
+
+    <Tip>
+      Event details depend on the `entity_type` - different types require different fields in the request body.
+    </Tip>
+
+  </Accordion>
+
+  <Accordion title="Create Message" icon="message">
+    Sends a message to a specified Discord channel.
+
+    **Variables (Agent fills during call):**
+    - `channel_id` – The ID of the channel to send the message to *(required)*
+    - `content` – Message text content *(optional)*
+    - `embeds` – Array of embed objects *(optional)*
+    - `sticker_ids` – Array of sticker IDs *(optional)*
+    - `components` – Array of message components *(optional)*
+    - `attachments` – Array of attachment objects *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Discord Bot integration*
+
+    **Use Cases:**
+    - Send text messages
+    - Post rich embeds
+    - Send stickers
+    - Include interactive components
+    - Share attachments
+
+    <Warning>
+      Requires `SEND_MESSAGES` permission and at least one of: `content`, `embeds`, `sticker_ids`, or `attachments`.
+    </Warning>
+
+  </Accordion>
+
+  <Accordion title="Delete Guild Scheduled Event" icon="trash">
+    Permanently deletes a specific scheduled event from a Discord guild.
+
+    **Variables (Agent fills during call):**
+    - `guild_id` – The ID of the guild *(required)*
+    - `event_id` – The ID of the event to delete *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Discord Bot integration*
+
+    **Use Cases:**
+    - Cancel scheduled events
+    - Remove outdated events
+    - Clean up event listings
+
+    <Warning>
+      **Irreversible:** This action permanently deletes the event and cannot be undone.
+    </Warning>
+
+  </Accordion>
+
+  <Accordion title="Delete Message" icon="trash">
+    Permanently deletes a message from a specified Discord channel.
+
+    **Variables (Agent fills during call):**
+    - `channel_id` – The ID of the channel containing the message *(required)*
+    - `message_id` – The ID of the message to delete *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Discord Bot integration*
+
+    **Use Cases:**
+    - Remove messages automatically
+    - Clean up channel content
+    - Delete bot messages
+    - Moderate channel content
+
+    <Warning>
+      **Irreversible:** This action permanently deletes the message and cannot be undone.
+    </Warning>
+
+  </Accordion>
+
+  <Accordion title="Delete User Message Reaction" icon="thumbs-down">
+    Removes a specific user's emoji reaction from a message.
+
+    **Variables (Agent fills during call):**
+    - `channel_id` – The ID of the channel containing the message *(required)*
+    - `message_id` – The ID of the message *(required)*
+    - `emoji` – The emoji to remove (unicode or custom emoji ID) *(required)*
+    - `user_id` – The ID of the user whose reaction to remove *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Discord Bot integration*
+
+    **Use Cases:**
+    - Remove reactions automatically
+    - Clean up message reactions
+    - Moderate reaction content
+
+    <Warning>
+      Requires 'Manage Messages' permission if deleting reactions from other users.
+    </Warning>
+
+  </Accordion>
+
+  <Accordion title="Get Channel" icon="hashtag">
+    Retrieves detailed metadata for a specific Discord channel.
+
+    **Variables (Agent fills during call):**
+    - `channel_id` – The ID of the channel to retrieve *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Discord Bot integration*
+
+    **Use Cases:**
+    - Get channel information
+    - Check channel permissions
+    - Retrieve channel settings
+    - Verify channel existence
+
+    <Note>
+      Returns only channel metadata, not message content or member lists.
+    </Note>
+
+  </Accordion>
+
+  <Accordion title="Get Guild Member" icon="users">
+    Retrieves detailed information for a specific member of a Discord guild.
+
+    **Variables (Agent fills during call):**
+    - `guild_id` – The ID of the guild *(required)*
+    - `user_id` – The ID of the member to retrieve *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Discord Bot integration*
+
+    **Use Cases:**
+    - Get member details
+    - Check member roles
+    - Retrieve member information
+    - Verify guild membership
+
+    <Note>
+      Requires the bot to belong to the guild and have necessary permissions (e.g., GUILD_MEMBERS intent).
+    </Note>
+
+  </Accordion>
+
+  <Accordion title="Get Guild Scheduled Event" icon="calendar-check">
+    Retrieves a specific scheduled event from a Discord guild by its ID.
+
+    **Variables (Agent fills during call):**
+    - `guild_id` – The ID of the guild *(required)*
+    - `event_id` – The ID of the event to retrieve *(required)*
+    - `with_user_count` – Whether to include subscribed user count *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Discord Bot integration*
+
+    **Use Cases:**
+    - Get event details
+    - Check event status
+    - Retrieve event information
+    - View event subscriber count
+
+  </Accordion>
+
+  <Accordion title="Get Message" icon="message">
+    Retrieves a specific message from a Discord channel.
+
+    **Variables (Agent fills during call):**
+    - `channel_id` – The ID of the channel containing the message *(required)*
+    - `message_id` – The ID of the message to retrieve *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Discord Bot integration*
+
+    **Use Cases:**
+    - Retrieve message content
+    - Get message details
+    - Fetch specific messages
+    - Read message history
+
+  </Accordion>
+
+  <Accordion title="Get Thread Member" icon="comments">
+    Retrieves a member from a specified thread using their user ID.
+
+    **Variables (Agent fills during call):**
+    - `channel_id` – The ID of the thread *(required)*
+    - `user_id` – The ID of the thread member to retrieve *(required)*
+    - `with_member` – Whether to include the full guild member object *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Discord Bot integration*
+
+    **Use Cases:**
+    - Check thread membership
+    - Get thread member details
+    - Verify user participation in threads
+
+  </Accordion>
+
+  <Accordion title="Get User" icon="user">
+    Fetches public information for a Discord user.
+
+    **Variables (Agent fills during call):**
+    - `user_id` – The ID of the user to retrieve *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Discord Bot integration*
+
+    **Use Cases:**
+    - Get user profile information
+    - Retrieve user details
+    - Check user existence
+    - Fetch public user data
+
+  </Accordion>
+
+  <Accordion title="Invite Resolve" icon="link">
+    Resolves a Discord invite code to get its details.
+
+    **Variables (Agent fills during call):**
+    - `invite_code` – The invite code to resolve *(required)*
+    - `with_counts` – Whether to include member counts *(optional)*
+    - `with_expiration` – Whether to include expiration time *(optional)*
+    - `guild_scheduled_event_id` – Specific guild scheduled event ID *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Discord Bot integration*
+
+    **Use Cases:**
+    - Validate invite codes
+    - Get invite details
+    - Check server information from invites
+    - Verify invite validity
+
+    <Note>
+      Visibility of some details may depend on bot permissions.
+    </Note>
+
+  </Accordion>
+
+  <Accordion title="Join Thread" icon="comments">
+    Joins the authenticated user to a thread specified by channel_id.
+
+    **Variables (Agent fills during call):**
+    - `channel_id` – The ID of the thread to join *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Discord Bot integration*
+
+    **Use Cases:**
+    - Join archived threads
+    - Join threads requiring explicit joining
+    - Participate in thread conversations
+    - Access thread content
+
+    <Note>
+      Use this when the user is not already a member, for archived threads, or for threads requiring explicit joining. The thread must be joinable, not locked or full, and the user must have permissions.
+    </Note>
+
+  </Accordion>
+
+  <Accordion title="List Channel Invites" icon="list">
+    Fetches all active invites for a given Discord channel.
+
+    **Variables (Agent fills during call):**
+    - `channel_id` – The ID of the channel to list invites for *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Discord Bot integration*
+
+    **Use Cases:**
+    - View all channel invites
+    - Audit invite usage
+    - Manage channel invites
+    - Review active invite codes
+
+    <Note>
+      Requires channel invite view permissions. Response object structures may vary.
+    </Note>
+
+  </Accordion>
+
+  <Accordion title="List Channel Webhooks" icon="webhook">
+    Fetches detailed information for all webhooks in a given Discord channel.
+
+    **Variables (Agent fills during call):**
+    - `channel_id` – The ID of the channel to list webhooks for *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Discord Bot integration*
+
+    **Use Cases:**
+    - Review channel webhooks
+    - Audit webhook configurations
+    - Manage webhook integrations
+    - List all webhooks in a channel
+
+  </Accordion>
+
+  <Accordion title="List Guild Members" icon="users">
+    Retrieves members for a Discord guild.
+
+    **Variables (Agent fills during call):**
+    - `guild_id` – The ID of the guild *(required)*
+    - `limit` – Maximum number of members to return *(optional)*
+    - `after` – User ID to return members after *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Discord Bot integration*
+
+    **Use Cases:**
+    - Get guild member list
+    - Retrieve server members
+    - List all guild members
+    - Access member information
+
+  </Accordion>
+
+  <Accordion title="List Guild Scheduled Events" icon="calendar">
+    Retrieves a list of scheduled events for a specified Discord guild.
+
+    **Variables (Agent fills during call):**
+    - `guild_id` – The ID of the guild *(required)*
+    - `with_user_count` – Whether to include subscribed user counts *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Discord Bot integration*
+
+    **Use Cases:**
+    - View all guild events
+    - List upcoming events
+    - Get event schedules
+    - Review event calendar
+
+  </Accordion>
+
+  <Accordion title="List Guild Scheduled Event Users" icon="user-group">
+    Fetches users who have expressed interest in a specific scheduled event.
+
+    **Variables (Agent fills during call):**
+    - `guild_id` – The ID of the guild *(required)*
+    - `event_id` – The ID of the scheduled event *(required)*
+    - `limit` – Maximum number of users to return *(optional)*
+    - `with_member` – Whether to include full guild member objects *(optional)*
+    - `before` – User ID to return users before *(optional)*
+    - `after` – User ID to return users after *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Discord Bot integration*
+
+    **Use Cases:**
+    - Get event attendees
+    - List event subscribers
+    - View event interest
+    - Retrieve event participants
+
+  </Accordion>
+
+  <Accordion title="List Messages" icon="message-lines">
+    Retrieves historical messages from a specified Discord channel.
+
+    **Variables (Agent fills during call):**
+    - `channel_id` – The ID of the channel to retrieve messages from *(required)*
+    - `limit` – Maximum number of messages to return (1-100) *(optional)*
+    - `around` – Message ID to get messages around *(optional)*
+    - `before` – Message ID to get messages before *(optional)*
+    - `after` – Message ID to get messages after *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Discord Bot integration*
+
+    **Use Cases:**
+    - Retrieve message history
+    - Get recent messages
+    - Fetch channel messages
+    - Access conversation history
+
+    <Note>
+      Messages are typically returned newest first. For real-time messages, use Discord's WebSocket Gateway API.
+    </Note>
+
+  </Accordion>
+
+  <Accordion title="List Pinned Messages" icon="thumbtack">
+    Retrieves all currently pinned messages from a Discord channel.
+
+    **Variables (Agent fills during call):**
+    - `channel_id` – The ID of the channel to retrieve pinned messages from *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Discord Bot integration*
+
+    **Use Cases:**
+    - View pinned messages
+    - Get important channel content
+    - Retrieve pinned announcements
+    - Access pinned information
+
+    <Note>
+      Typically limited to 50 messages, and no history of past pins is returned.
+    </Note>
+
+  </Accordion>
+
+  <Accordion title="Search Guild Members" icon="search">
+    Searches for members in a specific Discord guild, allowing filtering by a query string.
+
+    **Variables (Agent fills during call):**
+    - `guild_id` – The ID of the guild to search in *(required)*
+    - `query` – Search query string *(required)*
+    - `limit` – Maximum number of results to return *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Discord Bot integration*
+
+    **Use Cases:**
+    - Find guild members by name
+    - Search for specific users
+    - Filter guild members
+    - Locate users in a server
+
+  </Accordion>
+
+  <Accordion title="Unpin Message" icon="thumbtack">
+    Unpins a message that is currently pinned in a specified Discord channel.
+
+    **Variables (Agent fills during call):**
+    - `channel_id` – The ID of the channel containing the pinned message *(required)*
+    - `message_id` – The ID of the message to unpin *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Discord Bot integration*
+
+    **Use Cases:**
+    - Remove pinned messages
+    - Unpin outdated announcements
+    - Manage pinned content
+    - Clean up pinned messages
+
+    <Note>
+      The message itself is not deleted, only unpinned.
+    </Note>
+
+  </Accordion>
+
+  <Accordion title="Update Application Command" icon="gear">
+    Updates specified properties of a Discord application command.
+
+    **Variables (Agent fills during call):**
+    - `application_id` – The ID of the application *(required)*
+    - `command_id` – The ID of the command to update *(required)*
+    - `name` – New command name *(optional)*
+    - `description` – New command description *(optional)*
+    - `options` – Array of command options *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Discord Bot integration*
+
+    **Use Cases:**
+    - Update slash command properties
+    - Modify command descriptions
+    - Change command options
+    - Update bot commands
+
+    <Warning>
+      Omitted properties remain unchanged. The `options` field, if provided, overwrites all existing options.
+    </Warning>
+
+  </Accordion>
+
+  <Accordion title="Update Guild Scheduled Event" icon="calendar-pen">
+    Updates attributes for an existing Discord guild event.
+
+    **Variables (Agent fills during call):**
+    - `guild_id` – The ID of the guild *(required)*
+    - `event_id` – The ID of the event to update *(required)*
+    - `name` – New event name *(optional)*
+    - `description` – New event description *(optional)*
+    - `scheduled_start_time` – New start time *(optional)*
+    - `scheduled_end_time` – New end time *(optional)*
+    - `status` – New event status *(optional)*
+    - `location` – New event location *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Discord Bot integration*
+
+    **Use Cases:**
+    - Update event details
+    - Change event schedule
+    - Modify event information
+    - Update event status
+
+    <Note>
+      Only fields in the request body are changed.
+    </Note>
+
+  </Accordion>
+
+  <Accordion title="Update Message" icon="pen">
+    Updates a message previously sent by the bot in a Discord channel.
+
+    **Variables (Agent fills during call):**
+    - `channel_id` – The ID of the channel containing the message *(required)*
+    - `message_id` – The ID of the message to update *(required)*
+    - `content` – New message content *(optional)*
+    - `embeds` – New embed array *(optional)*
+    - `components` – New components array *(optional)*
+    - `flags` – Message flags *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Discord Bot integration*
+
+    **Use Cases:**
+    - Edit bot messages
+    - Update message content
+    - Modify embeds
+    - Change message components
+
+    <Warning>
+      Only provide fields to change. Use null or an empty list to clear existing values. New attachments cannot be uploaded.
+    </Warning>
+
+  </Accordion>
+</AccordionGroup>
 
 ---
 
@@ -8693,7 +9725,343 @@ Dynamics 365 from Microsoft combines CRM, ERP, and productivity apps to streamli
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Create Account" icon="building">
+    Creates a new account entity record in Dynamics CRM using the Web API.
+
+    **Variables (Agent fills during call):**
+    - `name` – Account name *(required)*
+    - `email` – Primary email address *(optional)*
+    - `phone` – Primary phone number *(optional)*
+    - `website` – Website URL *(optional)*
+    - `address` – Account address information *(optional)*
+    - `industry` – Industry type *(optional)*
+    - `description` – Account description *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Dynamics 365 integration*
+
+    **Use Cases:**
+    - Create new customer accounts
+    - Add company records to CRM
+    - Initialize account information
+    - Track business relationships
+
+  </Accordion>
+
+  <Accordion title="Create Case" icon="file-lines">
+    Creates a new case (incident) entity record in Dynamics CRM using the Web API.
+
+    **Variables (Agent fills during call):**
+    - `title` – Case title or subject *(required)*
+    - `description` – Case description *(optional)*
+    - `priority` – Case priority level *(optional)*
+    - `status` – Case status *(optional)*
+    - `customer_id` – ID of the customer account or contact *(optional)*
+    - `owner_id` – ID of the case owner *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Dynamics 365 integration*
+
+    **Use Cases:**
+    - Create support tickets
+    - Log customer service incidents
+    - Track issue reports
+    - Manage customer service cases
+
+  </Accordion>
+
+  <Accordion title="Create Contact" icon="user">
+    Creates a new contact entity record in Dynamics CRM using the Web API.
+
+    **Variables (Agent fills during call):**
+    - `first_name` – Contact first name *(required)*
+    - `last_name` – Contact last name *(required)*
+    - `email` – Email address *(optional)*
+    - `phone` – Phone number *(optional)*
+    - `job_title` – Job title *(optional)*
+    - `company_name` – Company name *(optional)*
+    - `address` – Contact address information *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Dynamics 365 integration*
+
+    **Use Cases:**
+    - Add new contacts to CRM
+    - Create individual contact records
+    - Track customer contacts
+    - Manage contact information
+
+  </Accordion>
+
+  <Accordion title="Create Invoice" icon="file-invoice">
+    Creates a new invoice entity record in Dynamics CRM using the Web API.
+
+    **Variables (Agent fills during call):**
+    - `invoice_number` – Invoice number *(required)*
+    - `customer_id` – ID of the customer account or contact *(required)*
+    - `total_amount` – Total invoice amount *(optional)*
+    - `due_date` – Invoice due date *(optional)*
+    - `status` – Invoice status *(optional)*
+    - `description` – Invoice description or notes *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Dynamics 365 integration*
+
+    **Use Cases:**
+    - Generate invoices
+    - Create billing records
+    - Track accounts receivable
+    - Manage invoice creation
+
+  </Accordion>
+
+  <Accordion title="Create Lead" icon="user-plus">
+    Creates a new lead entity record in Dynamics CRM using the Web API.
+
+    **Variables (Agent fills during call):**
+    - `first_name` – Lead first name *(optional)*
+    - `last_name` – Lead last name *(optional)*
+    - `company_name` – Company name *(optional)*
+    - `email` – Email address *(optional)*
+    - `phone` – Phone number *(optional)*
+    - `subject` – Lead subject or title *(optional)*
+    - `status` – Lead status *(optional)*
+    - `source` – Lead source *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Dynamics 365 integration*
+
+    **Use Cases:**
+    - Create new sales leads
+    - Add prospects to CRM
+    - Track potential customers
+    - Initialize lead records
+
+  </Accordion>
+
+  <Accordion title="Create Opportunity" icon="chart-line">
+    Creates a new opportunity entity record in Dynamics CRM using the Web API.
+
+    **Variables (Agent fills during call):**
+    - `name` – Opportunity name *(required)*
+    - `customer_id` – ID of the customer account or contact *(optional)*
+    - `estimated_value` – Estimated opportunity value *(optional)*
+    - `close_date` – Expected close date *(optional)*
+    - `stage` – Sales stage *(optional)*
+    - `probability` – Probability percentage *(optional)*
+    - `description` – Opportunity description *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Dynamics 365 integration*
+
+    **Use Cases:**
+    - Create sales opportunities
+    - Track potential deals
+    - Manage sales pipeline
+    - Record sales prospects
+
+  </Accordion>
+
+  <Accordion title="Create Sales Order" icon="shopping-cart">
+    Creates a new sales order entity record in Dynamics CRM using the Web API.
+
+    **Variables (Agent fills during call):**
+    - `order_number` – Sales order number *(required)*
+    - `customer_id` – ID of the customer account or contact *(required)*
+    - `total_amount` – Total order amount *(optional)*
+    - `order_date` – Order date *(optional)*
+    - `status` – Order status *(optional)*
+    - `description` – Order description or notes *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Dynamics 365 integration*
+
+    **Use Cases:**
+    - Create sales orders
+    - Process customer orders
+    - Track order fulfillment
+    - Manage sales transactions
+
+  </Accordion>
+
+  <Accordion title="Get A Invoice" icon="file-invoice-dollar">
+    Retrieves a specific invoice from Dynamics CRM by its ID.
+
+    **Variables (Agent fills during call):**
+    - `invoice_id` – The ID of the invoice to retrieve *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Dynamics 365 integration*
+
+    **Use Cases:**
+    - Retrieve invoice details
+    - View invoice information
+    - Check invoice status
+    - Access invoice records
+
+  </Accordion>
+
+  <Accordion title="Get A Lead" icon="user-check">
+    Retrieves a specific lead from Dynamics CRM by its ID.
+
+    **Variables (Agent fills during call):**
+    - `lead_id` – The ID of the lead to retrieve *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Dynamics 365 integration*
+
+    **Use Cases:**
+    - Retrieve lead details
+    - View lead information
+    - Check lead status
+    - Access lead records
+
+  </Accordion>
+
+  <Accordion title="Get All Leads" icon="users">
+    Retrieves all lead records from Dynamics CRM.
+
+    **Variables (Agent fills during call):**
+    - `filter` – Optional filter criteria *(optional)*
+    - `limit` – Maximum number of leads to return *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Dynamics 365 integration*
+
+    **Use Cases:**
+    - List all leads
+    - View lead database
+    - Export lead information
+    - Review lead pipeline
+
+  </Accordion>
+
+  <Accordion title="Get All Invoices" icon="file-invoice-dollar">
+    Retrieves all invoice records from Dynamics CRM.
+
+    **Variables (Agent fills during call):**
+    - `filter` – Optional filter criteria *(optional)*
+    - `limit` – Maximum number of invoices to return *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Dynamics 365 integration*
+
+    **Use Cases:**
+    - List all invoices
+    - View invoice database
+    - Export invoice information
+    - Review billing records
+
+  </Accordion>
+
+  <Accordion title="Update Case" icon="pen">
+    Updates an existing case (incident) entity record in Dynamics CRM using the Web API.
+
+    **Variables (Agent fills during call):**
+    - `case_id` – The ID of the case to update *(required)*
+    - `title` – Updated case title *(optional)*
+    - `description` – Updated case description *(optional)*
+    - `priority` – Updated priority level *(optional)*
+    - `status` – Updated case status *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Dynamics 365 integration*
+
+    **Use Cases:**
+    - Update support ticket status
+    - Modify case information
+    - Change case priority
+    - Update case details
+
+  </Accordion>
+
+  <Accordion title="Update Invoice" icon="pen">
+    Updates an existing invoice entity record in Dynamics CRM using the Web API.
+
+    **Variables (Agent fills during call):**
+    - `invoice_id` – The ID of the invoice to update *(required)*
+    - `total_amount` – Updated total amount *(optional)*
+    - `due_date` – Updated due date *(optional)*
+    - `status` – Updated invoice status *(optional)*
+    - `description` – Updated description *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Dynamics 365 integration*
+
+    **Use Cases:**
+    - Update invoice amounts
+    - Change invoice status
+    - Modify invoice details
+    - Update billing information
+
+  </Accordion>
+
+  <Accordion title="Update Lead" icon="pen">
+    Updates an existing lead entity record in Dynamics CRM using the Web API.
+
+    **Variables (Agent fills during call):**
+    - `lead_id` – The ID of the lead to update *(required)*
+    - `first_name` – Updated first name *(optional)*
+    - `last_name` – Updated last name *(optional)*
+    - `email` – Updated email address *(optional)*
+    - `phone` – Updated phone number *(optional)*
+    - `status` – Updated lead status *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Dynamics 365 integration*
+
+    **Use Cases:**
+    - Update lead information
+    - Change lead status
+    - Modify contact details
+    - Update lead records
+
+  </Accordion>
+
+  <Accordion title="Update Opportunity" icon="pen">
+    Updates an existing opportunity entity record in Dynamics CRM using the Web API.
+
+    **Variables (Agent fills during call):**
+    - `opportunity_id` – The ID of the opportunity to update *(required)*
+    - `name` – Updated opportunity name *(optional)*
+    - `estimated_value` – Updated estimated value *(optional)*
+    - `close_date` – Updated close date *(optional)*
+    - `stage` – Updated sales stage *(optional)*
+    - `probability` – Updated probability percentage *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Dynamics 365 integration*
+
+    **Use Cases:**
+    - Update opportunity value
+    - Change sales stage
+    - Modify close dates
+    - Update opportunity details
+
+  </Accordion>
+
+  <Accordion title="Update Sales Order" icon="pen">
+    Updates an existing sales order entity record in Dynamics CRM using the Web API.
+
+    **Variables (Agent fills during call):**
+    - `sales_order_id` – The ID of the sales order to update *(required)*
+    - `total_amount` – Updated total amount *(optional)*
+    - `order_date` – Updated order date *(optional)*
+    - `status` – Updated order status *(optional)*
+    - `description` – Updated description *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Dynamics 365 integration*
+
+    **Use Cases:**
+    - Update order amounts
+    - Change order status
+    - Modify order details
+    - Update sales order information
+
+  </Accordion>
+</AccordionGroup>
 
 ---
 
@@ -8717,7 +10085,148 @@ Freshdesk provides customer support software with ticketing, knowledge base, and
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Create Ticket" icon="ticket">
+    Creates a new ticket in Freshdesk.
+
+    **Variables (Agent fills during call):**
+    - `subject` – Ticket subject or title *(required)*
+    - `description` – Ticket description or details *(required)*
+    - `email` – Requester's email address *(optional)*
+    - `priority` – Ticket priority level (1-4) *(optional)*
+    - `status` – Ticket status (e.g., "open", "pending", "resolved") *(optional)*
+    - `type` – Ticket type (e.g., "question", "incident", "problem") *(optional)*
+    - `tags` – Array of tags for the ticket *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Freshdesk integration*
+
+    **Use Cases:**
+    - Create support tickets from customer inquiries
+    - Log customer service requests
+    - Track support issues
+    - Initialize helpdesk tickets
+
+  </Accordion>
+
+  <Accordion title="View Ticket" icon="eye">
+    Views an existing ticket in Freshdesk.
+
+    **Variables (Agent fills during call):**
+    - `ticket_id` – The ID of the ticket to view *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Freshdesk integration*
+
+    **Use Cases:**
+    - Retrieve ticket details
+    - View ticket information
+    - Check ticket status
+    - Access ticket history
+
+  </Accordion>
+
+  <Accordion title="Get Tickets" icon="list">
+    Retrieves a list of tickets from Freshdesk.
+
+    **Variables (Agent fills during call):**
+    - `filter` – Filter criteria (e.g., status, priority, requester) *(optional)*
+    - `limit` – Maximum number of tickets to return *(optional)*
+    - `page` – Page number for pagination *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Freshdesk integration*
+
+    **Use Cases:**
+    - List filtered tickets
+    - Search for specific tickets
+    - Retrieve tickets by criteria
+    - Get paginated ticket lists
+
+  </Accordion>
+
+  <Accordion title="List All Tickets" icon="list-check">
+    Lists all tickets in Freshdesk.
+
+    **Variables (Agent fills during call):**
+    - `limit` – Maximum number of tickets to return *(optional)*
+    - `page` – Page number for pagination *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Freshdesk integration*
+
+    **Use Cases:**
+    - View all tickets
+    - Export ticket database
+    - Review complete ticket list
+    - Access all helpdesk tickets
+
+  </Accordion>
+
+  <Accordion title="Update Ticket" icon="pen">
+    Updates an existing ticket in Freshdesk.
+
+    **Variables (Agent fills during call):**
+    - `ticket_id` – The ID of the ticket to update *(required)*
+    - `subject` – Updated ticket subject *(optional)*
+    - `description` – Updated ticket description *(optional)*
+    - `priority` – Updated priority level *(optional)*
+    - `status` – Updated ticket status *(optional)*
+    - `tags` – Updated tags array *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Freshdesk integration*
+
+    **Use Cases:**
+    - Update ticket status
+    - Modify ticket information
+    - Change ticket priority
+    - Update ticket details
+
+  </Accordion>
+
+  <Accordion title="Reply Ticket" icon="reply">
+    Replies to an existing ticket in Freshdesk.
+
+    **Variables (Agent fills during call):**
+    - `ticket_id` – The ID of the ticket to reply to *(required)*
+    - `body` – Reply message content *(required)*
+    - `cc_emails` – Array of CC email addresses *(optional)*
+    - `private` – Whether the reply is private/internal *(optional)*
+    - `attachments` – Array of attachment file IDs *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Freshdesk integration*
+
+    **Use Cases:**
+    - Respond to customer tickets
+    - Add updates to tickets
+    - Provide ticket responses
+    - Communicate with ticket requesters
+
+  </Accordion>
+
+  <Accordion title="Delete Ticket" icon="trash">
+    Deletes an existing ticket in Freshdesk.
+
+    **Variables (Agent fills during call):**
+    - `ticket_id` – The ID of the ticket to delete *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Freshdesk integration*
+
+    **Use Cases:**
+    - Remove duplicate tickets
+    - Delete test tickets
+    - Clean up ticket database
+    - Remove invalid tickets
+
+    <Warning>
+      **Irreversible:** This action permanently deletes the ticket and cannot be undone.
+    </Warning>
+
+  </Accordion>
+</AccordionGroup>
 
 ---
 
@@ -8741,7 +10250,343 @@ Gmail is Google's email service, featuring spam protection, search functions, an
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Send Email" icon="envelope">
+    Sends an email via Gmail API using the authenticated user's Google profile display name.
+
+    **Variables (Agent fills during call):**
+    - `recipient_email` – Recipient email address(es) *(required if cc/bcc not provided)*
+    - `cc` – CC email address(es) *(optional)*
+    - `bcc` – BCC email address(es) *(optional)*
+    - `subject` – Email subject line *(required if body not provided)*
+    - `body` – Email body content *(required if subject not provided)*
+    - `is_html` – Whether the body contains HTML content *(optional)*
+    - `attachments` – Array of attachment objects with s3key, mimetype, and name *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Gmail integration*
+
+    **Use Cases:**
+    - Send emails to customers
+    - Send notifications
+    - Send HTML formatted emails
+    - Include attachments
+
+    <Warning>
+      At least one of recipient_email, cc, or bcc must be provided. At least one of subject or body must be provided. Set `is_html=True` if the body contains HTML.
+    </Warning>
+
+  </Accordion>
+
+  <Accordion title="Create Email Draft" icon="file-pen">
+    Creates a Gmail email draft without sending it.
+
+    **Variables (Agent fills during call):**
+    - `recipient_email` – Recipient email address(es) *(required if cc/bcc not provided)*
+    - `cc` – CC email address(es) *(optional)*
+    - `bcc` – BCC email address(es) *(optional)*
+    - `subject` – Email subject line *(required if body not provided)*
+    - `body` – Email body content *(required if subject not provided)*
+    - `is_html` – Whether the body contains HTML content *(optional)*
+    - `attachments` – Array of attachment objects *(optional)*
+    - `thread_id` – Thread ID for threading replies *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Gmail integration*
+
+    **Use Cases:**
+    - Create draft emails for review
+    - Prepare emails before sending
+    - Save email templates
+    - Draft threaded replies
+
+    <Warning>
+      At least one of recipient_email, cc, or bcc must be provided. At least one of subject or body must be provided. Set `is_html=True` for HTML content.
+    </Warning>
+
+  </Accordion>
+
+  <Accordion title="Send Draft" icon="paper-plane">
+    Sends an existing draft email to its recipients.
+
+    **Variables (Agent fills during call):**
+    - `draft_id` – The ID of the draft to send *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Gmail integration*
+
+    **Use Cases:**
+    - Send saved drafts
+    - Complete draft emails
+    - Send pre-written emails
+
+  </Accordion>
+
+  <Accordion title="Fetch Emails" icon="inbox">
+    Fetches a list of email messages from a Gmail account, supporting filtering, pagination, and optional full content retrieval.
+
+    **Variables (Agent fills during call):**
+    - `query` – Gmail search query (e.g., "from:example@gmail.com") *(optional)*
+    - `max_results` – Maximum number of emails to return *(optional)*
+    - `page_token` – Token for pagination *(optional)*
+    - `include_body` – Whether to include full email body content *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Gmail integration*
+
+    **Use Cases:**
+    - Retrieve email lists
+    - Search for specific emails
+    - Get paginated email results
+    - Fetch email metadata
+
+  </Accordion>
+
+  <Accordion title="Fetch Message By Message Id" icon="envelope-open">
+    Fetches a specific email message by its ID.
+
+    **Variables (Agent fills during call):**
+    - `message_id` – The ID of the message to retrieve *(required)*
+    - `format` – Format to return (full, metadata, minimal) *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Gmail integration*
+
+    **Use Cases:**
+    - Retrieve specific email details
+    - View full email content
+    - Access email by ID
+    - Get email metadata
+
+  </Accordion>
+
+  <Accordion title="Fetch Message By Thread Id" icon="comments">
+    Retrieves messages from a Gmail thread using its thread ID.
+
+    **Variables (Agent fills during call):**
+    - `thread_id` – The ID of the thread to retrieve *(required)*
+    - `format` – Format to return (full, metadata, minimal) *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Gmail integration*
+
+    **Use Cases:**
+    - View entire email threads
+    - Retrieve conversation history
+    - Access thread messages
+    - Get thread context
+
+  </Accordion>
+
+  <Accordion title="Reply To Thread" icon="reply">
+    Sends a reply within a specific Gmail thread using the original thread's subject.
+
+    **Variables (Agent fills during call):**
+    - `thread_id` – The ID of the thread to reply to *(required)*
+    - `recipient_email` – Recipient email address(es) *(required if cc/bcc not provided)*
+    - `cc` – CC email address(es) *(optional)*
+    - `bcc` – BCC email address(es) *(optional)*
+    - `body` – Reply message content *(required)*
+    - `attachments` – Array of attachment objects with s3key, mimetype, and name *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Gmail integration*
+
+    **Use Cases:**
+    - Reply to email threads
+    - Continue conversations
+    - Respond to customer emails
+    - Thread email replies
+
+    <Warning>
+      At least one of recipient_email, cc, or bcc must be provided.
+    </Warning>
+
+  </Accordion>
+
+  <Accordion title="Forward Message" icon="share">
+    Forwards an existing Gmail message to specified recipients, preserving original body and attachments.
+
+    **Variables (Agent fills during call):**
+    - `message_id` – The ID of the message to forward *(required)*
+    - `recipient_email` – Forward recipient email address(es) *(required)*
+    - `cc` – CC email address(es) *(optional)*
+    - `bcc` – BCC email address(es) *(optional)*
+    - `body` – Additional message to include with forward *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Gmail integration*
+
+    **Use Cases:**
+    - Forward emails to others
+    - Share email content
+    - Forward with context
+    - Distribute information
+
+  </Accordion>
+
+  <Accordion title="List Threads" icon="list">
+    Retrieves a list of email threads from a Gmail account, supporting filtering and pagination.
+
+    **Variables (Agent fills during call):**
+    - `query` – Gmail search query for filtering threads *(optional)*
+    - `max_results` – Maximum number of threads to return *(optional)*
+    - `page_token` – Token for pagination *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Gmail integration*
+
+    **Use Cases:**
+    - List email conversations
+    - Search for threads
+    - Get paginated thread lists
+    - View thread overviews
+
+  </Accordion>
+
+  <Accordion title="List Drafts" icon="file-lines">
+    Retrieves a paginated list of email drafts from a user's Gmail account.
+
+    **Variables (Agent fills during call):**
+    - `max_results` – Maximum number of drafts to return *(optional)*
+    - `page_token` – Token for pagination *(optional)*
+    - `verbose` – Whether to get full draft details including subject, body, sender, and timestamp *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Gmail integration*
+
+    **Use Cases:**
+    - View all drafts
+    - List saved drafts
+    - Retrieve draft information
+    - Access draft emails
+
+    <Tip>
+      Use `verbose=true` to get full draft details including subject, body, sender, and timestamp.
+    </Tip>
+
+  </Accordion>
+
+  <Accordion title="List Labels" icon="tags">
+    Retrieves a list of all system and user-created labels for the specified Gmail account.
+
+    **Variables (Agent fills during call):**
+    *None required*
+
+    **Configurations (You set once):**
+    *None required—uses your Gmail integration*
+
+    **Use Cases:**
+    - View all available labels
+    - Get label IDs for use with other tools
+    - List custom labels
+    - Check label configuration
+
+  </Accordion>
+
+  <Accordion title="Add Label To Email" icon="tag">
+    Adds and/or removes specified Gmail labels for a message.
+
+    **Variables (Agent fills during call):**
+    - `message_id` – The ID of the message to label *(required)*
+    - `add_label_ids` – Array of label IDs to add *(optional)*
+    - `remove_label_ids` – Array of label IDs to remove *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Gmail integration*
+
+    **Use Cases:**
+    - Organize emails with labels
+    - Categorize messages
+    - Apply custom labels
+    - Remove labels from emails
+
+    <Note>
+      Ensure `message_id` and all `label_ids` are valid. Use 'List Labels' for custom label IDs.
+    </Note>
+
+  </Accordion>
+
+  <Accordion title="Modify Thread Labels" icon="tags">
+    Adds or removes specified existing label IDs from a Gmail thread, affecting all its messages.
+
+    **Variables (Agent fills during call):**
+    - `thread_id` – The ID of the thread to modify *(required)*
+    - `add_label_ids` – Array of label IDs to add *(optional)*
+    - `remove_label_ids` – Array of label IDs to remove *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Gmail integration*
+
+    **Use Cases:**
+    - Label entire threads
+    - Organize conversations
+    - Apply labels to all messages in thread
+    - Remove thread labels
+
+    <Note>
+      Ensure the thread ID is valid. This affects all messages in the thread.
+    </Note>
+
+  </Accordion>
+
+  <Accordion title="Get Contacts" icon="address-book">
+    Fetches contacts (connections) for the authenticated Google account, allowing selection of specific data fields and pagination.
+
+    **Variables (Agent fills during call):**
+    - `page_size` – Number of contacts to return per page *(optional)*
+    - `page_token` – Token for pagination *(optional)*
+    - `person_fields` – Comma-separated list of fields to return (e.g., "names,emailAddresses") *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Gmail integration*
+
+    **Use Cases:**
+    - Retrieve contact list
+    - Get contact information
+    - Export contacts
+    - Access Google contacts
+
+  </Accordion>
+
+  <Accordion title="Get People" icon="user">
+    Retrieves either a specific person's details or lists 'Other Contacts', with person_fields specifying the data to return.
+
+    **Variables (Agent fills during call):**
+    - `resource_name` – Resource name of the person to retrieve (e.g., "people/123456789") *(optional)*
+    - `other_contacts` – Whether to list 'Other Contacts' instead *(optional)*
+    - `person_fields` – Comma-separated list of fields to return *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Gmail integration*
+
+    **Use Cases:**
+    - Get specific contact details
+    - Retrieve person information
+    - Access other contacts
+    - View contact profiles
+
+  </Accordion>
+
+  <Accordion title="Search People" icon="search">
+    Searches contacts by matching the query against names, nicknames, emails, phone numbers, and organizations.
+
+    **Variables (Agent fills during call):**
+    - `query` – Search query string *(required)*
+    - `read_mask` – Comma-separated list of fields to return *(optional)*
+    - `include_other_contacts` – Whether to include 'Other Contacts' in search *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Gmail integration*
+
+    **Use Cases:**
+    - Search for contacts
+    - Find people by name or email
+    - Locate contact information
+    - Search contact database
+
+  </Accordion>
+</AccordionGroup>
 
 ---
 
@@ -8765,7 +10610,347 @@ Google Calendar is a time management tool providing scheduling features, event r
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Create Event" icon="calendar-plus">
+    Create a Google Calendar event using start_datetime plus duration fields to derive the end time.
+
+    **Variables (Agent fills during call):**
+    - `calendar_id` – The ID of the calendar (use "primary" for main calendar) *(required)*
+    - `start_datetime` – Start date and time in ISO 8601 format (e.g., "2025-01-16T13:00:00") *(required)*
+    - `timezone` – Timezone in IANA format (e.g., "America/New_York") *(required)*
+    - `event_duration_hour` – Duration hours *(optional)*
+    - `event_duration_minutes` – Duration minutes *(optional)*
+    - `summary` – Event title or summary *(required)*
+    - `description` – Event description *(optional)*
+    - `location` – Event location *(optional)*
+    - `attendees` – Array of attendee objects with email addresses *(optional)*
+    - `exclude_organizer` – Whether to exclude organizer from attendees *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Google Calendar integration*
+
+    **Use Cases:**
+    - Schedule meetings and appointments
+    - Create calendar events
+    - Add events with attendees
+    - Set up recurring meetings
+
+    <Tip>
+      Example: Create a 1 hour 30 minute event: `{"calendar_id": "primary", "start_datetime": "2025-01-16T13:00:00", "timezone": "America/New_York", "event_duration_hour": 1, "event_duration_minutes": 30, "summary": "Client sync", "attendees": [{"email": "guest@example.com"}]}`
+    </Tip>
+
+    <Warning>
+      Requires calendar write access. The organizer is added as an attendee unless `exclude_organizer` is True.
+    </Warning>
+
+  </Accordion>
+
+  <Accordion title="Quick Add" icon="bolt">
+    Parses natural language text to quickly create a basic Google Calendar event with its title, date, and time.
+
+    **Variables (Agent fills during call):**
+    - `calendar_id` – The ID of the calendar (use "primary" for main calendar) *(optional)*
+    - `text` – Natural language text describing the event (e.g., "Meeting tomorrow at 2pm") *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Google Calendar integration*
+
+    **Use Cases:**
+    - Quick event creation from natural language
+    - Simple scheduling from text
+    - Fast event entry
+    - Parse event descriptions
+
+    <Note>
+      Suitable for simple scheduling only. Does not support direct attendee addition or recurring events. Calendar ID must be valid if not 'primary'.
+    </Note>
+
+  </Accordion>
+
+  <Accordion title="Update Event" icon="pen">
+    Updates an existing event by event_id in a Google Calendar using full PUT replacement.
+
+    **Variables (Agent fills during call):**
+    - `calendar_id` – The ID of the calendar containing the event *(required)*
+    - `event_id` – The ID of the event to update *(required)*
+    - `start_datetime` – Updated start date and time *(optional)*
+    - `end_datetime` – Updated end date and time *(optional)*
+    - `summary` – Updated event title *(optional)*
+    - `description` – Updated event description *(optional)*
+    - `location` – Updated event location *(optional)*
+    - `attendees` – Updated array of attendees *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Google Calendar integration*
+
+    **Use Cases:**
+    - Modify event details
+    - Change event time
+    - Update event information
+    - Edit calendar events
+
+    <Warning>
+      This is a full PUT replacement—provide all desired fields as unspecified ones may be cleared or reset.
+    </Warning>
+
+  </Accordion>
+
+  <Accordion title="Patch Event" icon="pen">
+    Update specified fields of an existing event in a Google Calendar using patch semantics.
+
+    **Variables (Agent fills during call):**
+    - `calendar_id` – The ID of the calendar containing the event *(required)*
+    - `event_id` – The ID of the event to patch *(required)*
+    - `summary` – Updated event title *(optional)*
+    - `description` – Updated event description *(optional)*
+    - `location` – Updated event location *(optional)*
+    - `start_datetime` – Updated start date and time *(optional)*
+    - `end_datetime` – Updated end date and time *(optional)*
+    - `attendees` – Updated array of attendees *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Google Calendar integration*
+
+    **Use Cases:**
+    - Update specific event fields
+    - Modify partial event information
+    - Change individual properties
+    - Patch event details
+
+    <Warning>
+      Array fields like `attendees` are fully replaced if provided. Ensure calendar_id and event_id are valid and user has write access.
+    </Warning>
+
+  </Accordion>
+
+  <Accordion title="Delete Event" icon="trash">
+    Deletes a specified event by event_id from a Google Calendar.
+
+    **Variables (Agent fills during call):**
+    - `calendar_id` – The ID of the calendar containing the event *(required)*
+    - `event_id` – The ID of the event to delete *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Google Calendar integration*
+
+    **Use Cases:**
+    - Cancel events
+    - Remove calendar events
+    - Delete scheduled meetings
+    - Clean up calendar
+
+    <Warning>
+      **Irreversible:** This action permanently deletes the event. This action is idempotent and raises a 404 error if the event is not found.
+    </Warning>
+
+  </Accordion>
+
+  <Accordion title="Events List" icon="list">
+    Returns events on the specified calendar.
+
+    **Variables (Agent fills during call):**
+    - `calendar_id` – The ID of the calendar to list events from *(required)*
+    - `time_min` – Lower bound (exclusive) for an event's start time *(optional)*
+    - `time_max` – Upper bound (exclusive) for an event's end time *(optional)*
+    - `max_results` – Maximum number of events to return *(optional)*
+    - `page_token` – Token for pagination *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Google Calendar integration*
+
+    **Use Cases:**
+    - List calendar events
+    - View scheduled meetings
+    - Get event listings
+    - Retrieve calendar entries
+
+  </Accordion>
+
+  <Accordion title="Find Event" icon="search">
+    Finds events in a specified Google Calendar using text query, time ranges, and event types.
+
+    **Variables (Agent fills during call):**
+    - `calendar_id` – The ID of the calendar to search *(required)*
+    - `query` – Text query to search for in event titles and descriptions *(optional)*
+    - `time_min` – Lower bound for event start time *(optional)*
+    - `time_max` – Upper bound for event end time *(optional)*
+    - `updated_min` – Lower bound for last modification time *(optional)*
+    - `event_types` – Array of event types to filter by *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Google Calendar integration*
+
+    **Use Cases:**
+    - Search for specific events
+    - Find events by keyword
+    - Filter events by time range
+    - Locate calendar entries
+
+    <Warning>
+      Ensure `timeMin` is not chronologically after `timeMax` if both are provided.
+    </Warning>
+
+  </Accordion>
+
+  <Accordion title="Events Instances" icon="repeat">
+    Returns instances of the specified recurring event.
+
+    **Variables (Agent fills during call):**
+    - `calendar_id` – The ID of the calendar containing the recurring event *(required)*
+    - `event_id` – The ID of the recurring event master *(required)*
+    - `time_min` – Lower bound for instance start time *(optional)*
+    - `time_max` – Upper bound for instance start time *(optional)*
+    - `max_results` – Maximum number of instances to return *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Google Calendar integration*
+
+    **Use Cases:**
+    - View recurring event instances
+    - Get event series occurrences
+    - List recurring meeting dates
+    - Access recurring event details
+
+  </Accordion>
+
+  <Accordion title="Events Move" icon="arrows-rotate">
+    Moves an event to another calendar, i.e., changes an event's organizer.
+
+    **Variables (Agent fills during call):**
+    - `calendar_id` – The ID of the source calendar *(required)*
+    - `event_id` – The ID of the event to move *(required)*
+    - `destination_calendar_id` – The ID of the destination calendar *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Google Calendar integration*
+
+    **Use Cases:**
+    - Transfer events between calendars
+    - Change event organizer
+    - Move events to different calendars
+    - Reassign calendar events
+
+  </Accordion>
+
+  <Accordion title="Remove Attendee" icon="user-minus">
+    Removes an attendee from a specified event in a Google Calendar.
+
+    **Variables (Agent fills during call):**
+    - `calendar_id` – The ID of the calendar containing the event *(required)*
+    - `event_id` – The ID of the event *(required)*
+    - `attendee_email` – Email address of the attendee to remove *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Google Calendar integration*
+
+    **Use Cases:**
+    - Remove attendees from events
+    - Uninvite participants
+    - Update event attendance
+    - Manage event participants
+
+  </Accordion>
+
+  <Accordion title="Find Free Slots" icon="clock">
+    Finds both free and busy time slots in Google Calendars for specified calendars within a defined time range.
+
+    **Variables (Agent fills during call):**
+    - `calendar_ids` – Array of calendar IDs to check *(required)*
+    - `time_min` – Start of time range in ISO 8601 format *(optional)*
+    - `time_max` – End of time range in ISO 8601 format *(optional)*
+    - `timezone` – Timezone for the time range *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Google Calendar integration*
+
+    **Use Cases:**
+    - Find available meeting times
+    - Check calendar availability
+    - Identify free time slots
+    - Schedule around busy periods
+
+    <Tip>
+      Returns busy intervals enriched with event details and calculates free slots by finding gaps between busy periods. Defaults to the current day UTC if time_min/time_max are omitted.
+    </Tip>
+
+    <Warning>
+      `time_min` must precede `time_max` if both are provided.
+    </Warning>
+
+  </Accordion>
+
+  <Accordion title="Free Busy Query" icon="calendar-check">
+    Returns free/busy information for a set of calendars.
+
+    **Variables (Agent fills during call):**
+    - `calendar_ids` – Array of calendar IDs to query *(required)*
+    - `time_min` – Start of time range in ISO 8601 format *(required)*
+    - `time_max` – End of time range in ISO 8601 format *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Google Calendar integration*
+
+    **Use Cases:**
+    - Check calendar availability
+    - Query busy times
+    - Get free/busy status
+    - Check multiple calendars
+
+  </Accordion>
+
+  <Accordion title="List Calendars" icon="calendar">
+    Retrieves a paginated list of calendars from the user's calendar list.
+
+    **Variables (Agent fills during call):**
+    - `min_access_role` – Minimum access role to filter by *(optional)*
+    - `page_token` – Token for pagination *(optional)*
+    - `sync_token` – Token for incremental sync *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Google Calendar integration*
+
+    **Use Cases:**
+    - View all calendars
+    - List available calendars
+    - Get calendar list
+    - Access calendar information
+
+  </Accordion>
+
+  <Accordion title="Get Calendar" icon="calendar-days">
+    Retrieves a specific Google Calendar, identified by calendar_id.
+
+    **Variables (Agent fills during call):**
+    - `calendar_id` – The ID of the calendar to retrieve *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Google Calendar integration*
+
+    **Use Cases:**
+    - Get calendar details
+    - Retrieve calendar information
+    - View calendar settings
+    - Access calendar metadata
+
+  </Accordion>
+
+  <Accordion title="Get Current Date Time" icon="clock">
+    Gets the current date and time, allowing for a specific timezone offset.
+
+    **Variables (Agent fills during call):**
+    - `timezone` – Timezone in IANA format (e.g., "America/New_York") *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Google Calendar integration*
+
+    **Use Cases:**
+    - Get current time
+    - Check current date/time
+    - Verify timezone
+    - Access current timestamp
+
+  </Accordion>
+</AccordionGroup>
 
 ---
 

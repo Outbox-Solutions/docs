@@ -255,9 +255,46 @@ Give your voice agent superpowers by connecting it to external services and auto
   </Accordion>
 
   <Accordion title="MCP Server" icon="server">
-    Connect to Model Context Protocol (MCP) servers for advanced integrations with 8,000+ apps via Zapier.
+    Connect to Model Context Protocol (MCP) servers for advanced integrations with thousands of apps and services.
 
-    **Step-by-Step Setup:**
+    **Two Setup Options:**
+
+    When you choose the MCP Server tool type, you'll be prompted with two options:
+
+    **Option 1: Custom MCP Server**  
+    Connect to your own custom MCP server (like Zapier MCP). Perfect for advanced users who want full control over their integrations.
+
+    **Option 2: Preset MCP Applications**  
+    Choose from our curated list of preset MCP application servers. Quick setup with popular applications like Gmail, Google Sheets, Slack, and more.
+
+    **Using Preset MCP Applications:**
+
+    <Steps>
+      <Step title="1. Select an Application">
+        Choose an application from the preset MCP Application list (e.g., Gmail, Google Sheets, Slack, HubSpot, Salesforce, Airtable).
+      </Step>
+
+      <Step title="2. Authenticate Your Account">
+        Connect and authenticate your account with the selected application. Outbox AI will guide you through the OAuth flow.
+      </Step>
+
+      <Step title="3. Choose Specific Tools">
+        Select which specific tools from the application you want your agent to have access to. You have granular control over permissions.
+
+        **Example:** For Gmail, you can give your agent access to:
+        - ✅ Create draft emails
+        - ❌ Send emails
+        - ❌ Read emails
+
+        This allows you to control exactly what actions your agent can perform during calls.
+      </Step>
+
+      <Step title="4. Agent Can Use Tools">
+        Once configured, your agent can perform the selected tasks through the MCP server during live calls.
+      </Step>
+    </Steps>
+
+    **Using Custom MCP Server (Zapier):**
 
     <Steps>
       <Step title="1. Visit Zapier MCP">
@@ -299,7 +336,7 @@ Give your voice agent superpowers by connecting it to external services and auto
       </Step>
 
       <Step title="6. Add to Outbox AI">
-        Paste the server URL into the **MCP Server** field in your voice agent settings.
+        Select **"Custom MCP Server"** and paste the server URL into the MCP Server field in your voice agent settings.
 
         <Frame>
           <img src="/images/chat-tool-mcp-server.png" alt="MCP Server in Outbox" />
@@ -352,7 +389,7 @@ Give your voice agent superpowers by connecting it to external services and auto
     </Tip>
 
     <Note>
-      MCP servers provide a standardized way for AI agents to interact with external tools and data sources during live calls. Zapier's MCP integration gives you access to 8,000+ apps without custom development.
+      MCP servers provide a standardized way for AI agents to interact with external tools and data sources during live calls. With preset MCP applications, you can quickly connect popular services with granular tool selection. For advanced integrations, custom MCP servers like Zapier give you access to 8,000+ apps without custom development.
     </Note>
 
   </Accordion>

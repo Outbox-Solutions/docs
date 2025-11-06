@@ -154,9 +154,46 @@ Tools give your chat agent superpowers—the ability to book appointments, send 
   </Accordion>
 
   <Accordion title="MCP Server" icon="server">
-    Connect to Model Context Protocol (MCP) servers for advanced integrations with 8,000+ apps via Zapier.
+    Connect to Model Context Protocol (MCP) servers for advanced integrations with thousands of apps and services.
 
-    **Step-by-Step Setup:**
+    **Two Setup Options:**
+
+    When you choose the MCP Server tool type, you'll be prompted with two options:
+
+    **Option 1: Custom MCP Server**
+    Connect to your own custom MCP server (like Zapier MCP). Perfect for advanced users who want full control over their integrations.
+
+    **Option 2: Preset MCP Applications**
+    Choose from our curated list of preset MCP application servers. Quick setup with popular applications like Gmail, Google Sheets, Slack, and more.
+
+    **Using Preset MCP Applications:**
+
+    <Steps>
+      <Step title="1. Select an Application">
+        Choose an application from the preset MCP Application list (e.g., Gmail, Google Sheets, Slack, HubSpot, Salesforce, Airtable).
+      </Step>
+
+      <Step title="2. Authenticate Your Account">
+        Connect and authenticate your account with the selected application. Outbox AI will guide you through the OAuth flow.
+      </Step>
+
+      <Step title="3. Choose Specific Tools">
+        Select which specific tools from the application you want your agent to have access to. You have granular control over permissions.
+
+        **Example:** For Gmail, you can give your agent access to:
+        - ✅ Create draft emails
+        - ❌ Send emails
+        - ❌ Read emails
+
+        This allows you to control exactly what actions your agent can perform.
+      </Step>
+
+      <Step title="4. Agent Can Use Tools">
+        Once configured, your agent can perform the selected tasks through the MCP server during conversations.
+      </Step>
+    </Steps>
+
+    **Using Custom MCP Server (Zapier):**
 
     <Steps>
       <Step title="1. Visit Zapier MCP">
@@ -198,7 +235,7 @@ Tools give your chat agent superpowers—the ability to book appointments, send 
       </Step>
 
       <Step title="6. Add to Outbox AI">
-        Paste the server URL into the **MCP Server** field in your chat agent settings.
+        Select **"Custom MCP Server"** and paste the server URL into the MCP Server field in your chat agent settings.
 
         <Frame>
           <img src="/images/chat-tool-mcp-server.png" alt="MCP Server in Outbox" />
@@ -251,7 +288,7 @@ Tools give your chat agent superpowers—the ability to book appointments, send 
     </Tip>
 
     <Note>
-      MCP servers provide a standardized way for AI agents to interact with external tools and data sources. Zapier's MCP integration gives you access to 8,000+ apps without custom development.
+      MCP servers provide a standardized way for AI agents to interact with external tools and data sources. With preset MCP applications, you can quickly connect popular services with granular tool selection. For advanced integrations, custom MCP servers like Zapier give you access to 8,000+ apps without custom development.
     </Note>
 
   </Accordion>
@@ -607,11 +644,13 @@ Customize your chat widget's accent color to match your brand identity directly 
 5. Copy the updated code and paste it into your website
 
 <Tip>
-  **Brand Consistency:** Match your chat widget accent color to your website's primary color scheme for a seamless, professional appearance.
+  **Brand Consistency:** Match your chat widget accent color to your website's
+  primary color scheme for a seamless, professional appearance.
 </Tip>
 
 <Note>
-  Branding changes are applied instantly to the embed code. You can update the accent color at any time without needing to regenerate the embed code.
+  Branding changes are applied instantly to the embed code. You can update the
+  accent color at any time without needing to regenerate the embed code.
 </Note>
 
 ---
@@ -642,11 +681,16 @@ The chat widget demo includes an optional **Website Embed** field that allows yo
 4. This gives clients a preview of how the chat agent will look and function on their actual site
 
 <Note>
-  **Website Compatibility:** The Website Embed feature may not work on all websites due to website security settings, Content Security Policy (CSP) restrictions, or iframe blocking. If the embed doesn't load, try the Chat Window Demo instead or contact support for assistance.
+  **Website Compatibility:** The Website Embed feature may not work on all
+  websites due to website security settings, Content Security Policy (CSP)
+  restrictions, or iframe blocking. If the embed doesn't load, try the Chat
+  Window Demo instead or contact support for assistance.
 </Note>
 
 <Tip>
-  **Best Practice:** Use the Website Embed demo to show clients exactly how the chat agent will appear on their site before they commit to implementation. This helps with client buy-in and reduces setup questions.
+  **Best Practice:** Use the Website Embed demo to show clients exactly how the
+  chat agent will appear on their site before they commit to implementation.
+  This helps with client buy-in and reduces setup questions.
 </Tip>
 
 ---

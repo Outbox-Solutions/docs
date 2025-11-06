@@ -3217,8 +3217,22 @@
             "description": "System prompt for the agent"
           },
           "model": {
-            "type": "string",
-            "description": "AI model used by the agent"
+            "type": "object",
+            "description": "AI model configuration",
+            "properties": {
+              "model": {
+                "type": "string",
+                "description": "AI model name (e.g., 'gpt-4.1-mini', 'gpt-4.1', 'gpt-4o', 'gpt-5')"
+              },
+              "max_tokens": {
+                "type": "integer",
+                "description": "Maximum number of tokens in the model's response"
+              },
+              "temperature": {
+                "type": "number",
+                "description": "Controls randomness and creativity of responses (0.0 to 1.0). Lower values make responses more focused and deterministic, while higher values allow for more varied responses."
+              }
+            }
           },
           "first_message": {
             "type": "string",
@@ -3407,25 +3421,65 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "Unique identifier for the voice"
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "Name of the voice"
           },
           "description": {
-            "type": "string"
+            "type": "string",
+            "description": "Description of the voice characteristics"
           },
           "provider": {
-            "type": "string"
+            "type": "string",
+            "description": "Voice provider (e.g., '11labs')"
           },
           "accent": {
-            "type": "string"
+            "type": "string",
+            "description": "Voice accent (e.g., 'australian', 'american', 'british')"
           },
           "gender": {
-            "type": "string"
+            "type": "string",
+            "description": "Voice gender (e.g., 'male', 'female')"
           },
           "previewUrl": {
-            "type": "string"
+            "type": "string",
+            "format": "uri",
+            "description": "URL to preview the voice"
+          },
+          "style": {
+            "type": "number",
+            "description": "Style exaggeration (default: 0.00). High values exaggerate the style compared to uploaded audio but can lead to instability. Setting to 0.0 greatly increases generation speed."
+          },
+          "speed": {
+            "type": "number",
+            "description": "Speed of speech generation (default: 1.00)"
+          },
+          "stability": {
+            "type": "number",
+            "description": "Stability control (default: 0.45). Increasing variability makes speech more expressive with output varying between re-generations, but can lead to instabilities."
+          },
+          "similarityBoost": {
+            "type": "number",
+            "description": "Clarity + Similarity (default: 0.65). Low values are recommended if background artifacts are present in generated speech."
+          },
+          "useSpeakerBoost": {
+            "type": "boolean",
+            "description": "Boost the similarity of synthesized speech and the voice at the cost of some generation speed"
+          },
+          "optimizeStreamingLatency": {
+            "type": "integer",
+            "description": "Controls streaming latency optimization level (0-4, default: 1)"
+          },
+          "autoMode": {
+            "type": "boolean",
+            "description": "Reduces latency for complete sentences but may affect quality with partial phrases"
+          },
+          "model": {
+            "type": "string",
+            "description": "ElevenLabs voice model (e.g., 'eleven_turbo_v2', 'eleven_turbo_v2_5', 'eleven_multilingual_v1', 'eleven_multilingual_v2', 'eleven_english_v1')"
           }
         }
       },
@@ -3563,23 +3617,88 @@
             "description": "System prompt"
           },
           "model": {
-            "type": "string",
-            "description": "AI model to use"
+            "type": "object",
+            "description": "AI model configuration",
+            "properties": {
+              "model": {
+                "type": "string",
+                "description": "AI model name (e.g., 'gpt-4.1-mini', 'gpt-4.1', 'gpt-4o', 'gpt-5')"
+              },
+              "max_tokens": {
+                "type": "integer",
+                "description": "Maximum number of tokens in the model's response"
+              },
+              "temperature": {
+                "type": "number",
+                "description": "Controls randomness and creativity of responses (0.0 to 1.0). Lower values make responses more focused and deterministic, while higher values allow for more varied responses."
+              }
+            }
           },
           "voice": {
             "type": "object",
             "description": "Voice settings (voicebot only)",
             "properties": {
               "id": {
-                "type": "string"
+                "type": "string",
+                "description": "Unique identifier for the voice"
+              },
+              "name": {
+                "type": "string",
+                "description": "Name of the voice"
+              },
+              "description": {
+                "type": "string",
+                "description": "Description of the voice characteristics"
               },
               "provider": {
                 "type": "string",
-                "enum": ["11labs", "playht", "openai"]
+                "enum": ["11labs", "playht", "openai"],
+                "description": "Voice provider"
+              },
+              "accent": {
+                "type": "string",
+                "description": "Voice accent (e.g., 'australian', 'american', 'british')"
               },
               "gender": {
                 "type": "string",
-                "description": "Optional, for playht provider"
+                "description": "Voice gender (e.g., 'male', 'female')"
+              },
+              "previewUrl": {
+                "type": "string",
+                "format": "uri",
+                "description": "URL to preview the voice"
+              },
+              "style": {
+                "type": "number",
+                "description": "Style exaggeration (default: 0.00). High values exaggerate the style compared to uploaded audio but can lead to instability. Setting to 0.0 greatly increases generation speed."
+              },
+              "speed": {
+                "type": "number",
+                "description": "Speed of speech generation (default: 1.00)"
+              },
+              "stability": {
+                "type": "number",
+                "description": "Stability control (default: 0.45). Increasing variability makes speech more expressive with output varying between re-generations, but can lead to instabilities."
+              },
+              "similarityBoost": {
+                "type": "number",
+                "description": "Clarity + Similarity (default: 0.65). Low values are recommended if background artifacts are present in generated speech."
+              },
+              "useSpeakerBoost": {
+                "type": "boolean",
+                "description": "Boost the similarity of synthesized speech and the voice at the cost of some generation speed"
+              },
+              "optimizeStreamingLatency": {
+                "type": "integer",
+                "description": "Controls streaming latency optimization level (0-4, default: 1)"
+              },
+              "autoMode": {
+                "type": "boolean",
+                "description": "Reduces latency for complete sentences but may affect quality with partial phrases"
+              },
+              "model": {
+                "type": "string",
+                "description": "ElevenLabs voice model (e.g., 'eleven_turbo_v2', 'eleven_turbo_v2_5', 'eleven_multilingual_v1', 'eleven_multilingual_v2', 'eleven_english_v1')"
               }
             }
           },

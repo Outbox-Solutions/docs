@@ -20271,7 +20271,2455 @@ Pipedrive is a sales management tool built around pipeline visualization, lead t
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Add A Call Log" icon="phone">
+    Add a new call log.
+
+    **Description:**
+    Adds a new call log.
+
+    **Variables (Agent fills during call):**
+    - `user_id` – User ID *(required)*
+    - `deal_id` – Deal ID *(optional)*
+    - `person_id` – Person ID *(optional)*
+    - `org_id` – Organization ID *(optional)*
+    - `duration` – Call duration in seconds *(optional)*
+    - `outcome` – Call outcome *(optional)*
+    - Additional call log fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Log phone calls
+    - Record call details
+    - Track call outcomes
+    - Document call activities
+
+  </Accordion>
+
+  <Accordion title="Add A Comment To A Note" icon="comment">
+    Add a new comment to a note.
+
+    **Description:**
+    Adds a new comment to a note.
+
+    **Variables (Agent fills during call):**
+    - `note_id` – The note ID *(required)*
+    - `content` – Comment content *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Add comments to notes
+    - Comment on notes
+    - Provide note feedback
+    - Add note discussions
+
+  </Accordion>
+
+  <Accordion title="Add A Deal" icon="plus">
+    Add a new deal to Pipedrive.
+
+    **Description:**
+    Add a new deal to Pipedrive with any custom fields, which vary by account and are identified by long hash keys. Check dealFields for existing custom fields. For details, visit the tutorial on adding a deal.
+
+    **Variables (Agent fills during call):**
+    - `title` – Deal title *(required)*
+    - `person_id` – Person ID *(optional)*
+    - `org_id` – Organization ID *(optional)*
+    - `stage_id` – Stage ID *(optional)*
+    - `value` – Deal value *(optional)*
+    - `currency` – Currency code *(optional)*
+    - Custom fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Create new deals
+    - Add deals to pipeline
+    - Track sales opportunities
+    - Create deal records
+
+  </Accordion>
+
+  <Accordion title="Add A Follower To A Deal" icon="user-plus">
+    Add a follower to a deal.
+
+    **Description:**
+    Adds a follower to a deal.
+
+    **Variables (Agent fills during call):**
+    - `deal_id` – The deal ID *(required)*
+    - `user_id` – The user ID to add as follower *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Add deal followers
+    - Notify team members
+    - Share deal updates
+    - Add deal watchers
+
+  </Accordion>
+
+  <Accordion title="Add A Follower To An Organization" icon="user-plus">
+    Add a follower to an organization.
+
+    **Description:**
+    Adds a follower to an organization.
+
+    **Variables (Agent fills during call):**
+    - `org_id` – The organization ID *(required)*
+    - `user_id` – The user ID to add as follower *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Add organization followers
+    - Notify team members
+    - Share organization updates
+    - Add organization watchers
+
+  </Accordion>
+
+  <Accordion title="Add A Follower To A Person" icon="user-plus">
+    Add a follower to a person.
+
+    **Description:**
+    Adds a follower to a person.
+
+    **Variables (Agent fills during call):**
+    - `person_id` – The person ID *(required)*
+    - `user_id` – The user ID to add as follower *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Add person followers
+    - Notify team members
+    - Share person updates
+    - Add person watchers
+
+  </Accordion>
+
+  <Accordion title="Add A Follower To A Product" icon="user-plus">
+    Add a follower to a product.
+
+    **Description:**
+    Adds a follower to a product.
+
+    **Variables (Agent fills during call):**
+    - `product_id` – The product ID *(required)*
+    - `user_id` – The user ID to add as follower *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Add product followers
+    - Notify team members
+    - Share product updates
+    - Add product watchers
+
+  </Accordion>
+
+  <Accordion title="Add A Lead" icon="plus">
+    Add a new lead to Pipedrive.
+
+    **Description:**
+    Pipedrive API lets you add leads linked to people or organizations and tags them with 'API' source. Custom fields from deals apply to leads and appear in responses if set. Details are in the tutorials for adding and updating leads.
+
+    **Variables (Agent fills during call):**
+    - `title` – Lead title *(required)*
+    - `person_id` – Person ID *(optional)*
+    - `org_id` – Organization ID *(optional)*
+    - `label_ids` – Lead label IDs *(optional)*
+    - Custom fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Create new leads
+    - Add leads to pipeline
+    - Track lead sources
+    - Create lead records
+
+  </Accordion>
+
+  <Accordion title="Add An Activity" icon="calendar-plus">
+    Add a new activity.
+
+    **Description:**
+    New activity added. Response includes `more_activities_scheduled_in_context` to show if more are planned with the same entity. See tutorial on adding activities [here](https://pipedrive.readme.io/docs/adding-an-activity).
+
+    **Variables (Agent fills during call):**
+    - `type` – Activity type *(required)*
+    - `subject` – Activity subject *(required)*
+    - `due_date` – Due date *(optional)*
+    - `due_time` – Due time *(optional)*
+    - `deal_id` – Deal ID *(optional)*
+    - `person_id` – Person ID *(optional)*
+    - `org_id` – Organization ID *(optional)*
+    - Additional activity fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Create activities
+    - Schedule tasks
+    - Add reminders
+    - Track activities
+
+  </Accordion>
+
+  <Accordion title="Add An Installment Subscription" icon="plus">
+    Add a new installment subscription.
+
+    **Description:**
+    Adds a new installment subscription. Note: Subscriptions endpoints may not be available on the company-specific base URL. To avoid 404s, this action overrides the default request behavior and uses the public API host (api.pipedrive.com) explicitly.
+
+    **Variables (Agent fills during call):**
+    - `deal_id` – Deal ID *(required)*
+    - `installments` – Installment details *(required)*
+    - `start_date` – Start date *(required)*
+    - Additional subscription fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Create installment subscriptions
+    - Add payment plans
+    - Set up installments
+    - Create subscription plans
+
+  </Accordion>
+
+  <Accordion title="Add An Organization" icon="plus">
+    Add a new organization to Pipedrive.
+
+    **Description:**
+    Set up a new Pipedrive organization using custom fields with unique key hashes. Retrieve `organizationFields` for configuration. Check the linked tutorial for guidance.
+
+    **Variables (Agent fills during call):**
+    - `name` – Organization name *(required)*
+    - `owner_id` – Owner user ID *(optional)*
+    - `address` – Organization address *(optional)*
+    - `phone` – Phone number *(optional)*
+    - `email` – Email address *(optional)*
+    - Custom fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Create organizations
+    - Add companies
+    - Create company records
+    - Add business entities
+
+  </Accordion>
+
+  <Accordion title="Add A Note" icon="note-sticky">
+    Add a note to a deal, person, organization, lead, or project.
+
+    **Description:**
+    Add a note to a deal, person, organization, lead, or project in Pipedrive. At least one of deal_id, person_id, org_id, lead_id, or project_id must be provided.
+
+    **Variables (Agent fills during call):**
+    - `content` – Note content *(required)*
+    - `deal_id` – Deal ID *(optional)*
+    - `person_id` – Person ID *(optional)*
+    - `org_id` – Organization ID *(optional)*
+    - `lead_id` – Lead ID *(optional)*
+    - `project_id` – Project ID *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Add notes to deals
+    - Create person notes
+    - Add organization notes
+    - Document information
+
+  </Accordion>
+
+  <Accordion title="Add A Participant To A Deal" icon="user-plus">
+    Add a participant to a deal.
+
+    **Description:**
+    Adds a participant to a deal.
+
+    **Variables (Agent fills during call):**
+    - `deal_id` – The deal ID *(required)*
+    - `person_id` – The person ID to add as participant *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Add deal participants
+    - Include team members
+    - Add contacts to deals
+    - Share deal access
+
+  </Accordion>
+
+  <Accordion title="Add A Person" icon="user-plus">
+    Add a new contact in Pipedrive.
+
+    **Description:**
+    Add a new contact in Pipedrive with optional custom fields unique to each account found using the `personFields` endpoint. The endpoint also handles `data.marketing_status` for Campaigns product users.
+
+    **Variables (Agent fills during call):**
+    - `name` – Person name *(required)*
+    - `email` – Email address *(optional)*
+    - `phone` – Phone number *(optional)*
+    - `org_id` – Organization ID *(optional)*
+    - `owner_id` – Owner user ID *(optional)*
+    - Custom fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Create contacts
+    - Add new people
+    - Create person records
+    - Add contacts to CRM
+
+  </Accordion>
+
+  <Accordion title="Add A Product" icon="plus">
+    Add a new product to the Products inventory.
+
+    **Description:**
+    Adds a new product to the Products inventory. For more information, see the tutorial for <a href="https://pipedrive.readme.io/docs/adding-a-product" target="_blank" rel="noopener noreferrer">adding a product</a>.
+
+    **Variables (Agent fills during call):**
+    - `name` – Product name *(required)*
+    - `code` – Product code *(optional)*
+    - `unit` – Unit of measurement *(optional)*
+    - `tax` – Tax percentage *(optional)*
+    - `prices` – Product prices *(optional)*
+    - Custom fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Create products
+    - Add to inventory
+    - Create product catalog
+    - Add product records
+
+  </Accordion>
+
+  <Accordion title="Add A Product To A Deal" icon="plus">
+    Add a product to a deal.
+
+    **Description:**
+    Adds a product to a deal, creating a new item called a deal-product.
+
+    **Variables (Agent fills during call):**
+    - `deal_id` – The deal ID *(required)*
+    - `product_id` – The product ID *(required)*
+    - `item_price` – Item price *(optional)*
+    - `quantity` – Quantity *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Add products to deals
+    - Attach products
+    - Include products in deals
+    - Link products to deals
+
+  </Accordion>
+
+  <Accordion title="Add A Project" icon="plus">
+    Add a new project.
+
+    **Description:**
+    Adds a new project. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys.
+
+    **Variables (Agent fills during call):**
+    - `title` – Project title *(required)*
+    - `board_id` – Board ID *(optional)*
+    - `owner_id` – Owner user ID *(optional)*
+    - Custom fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Create projects
+    - Add new projects
+    - Create project records
+    - Start new projects
+
+  </Accordion>
+
+  <Accordion title="Add A Recurring Subscription" icon="plus">
+    Add a new recurring subscription.
+
+    **Description:**
+    Adds a new recurring subscription.
+
+    **Variables (Agent fills during call):**
+    - `deal_id` – Deal ID *(required)*
+    - `cycle_amount` – Cycle amount *(required)*
+    - `cycle_unit` – Cycle unit (day, week, month, year) *(required)*
+    - `start_date` – Start date *(required)*
+    - Additional subscription fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Create recurring subscriptions
+    - Add subscription plans
+    - Set up recurring payments
+    - Create subscription records
+
+  </Accordion>
+
+  <Accordion title="Add A Task" icon="plus">
+    Add a new task.
+
+    **Description:**
+    Adds a new task.
+
+    **Variables (Agent fills during call):**
+    - `text` – Task text *(required)*
+    - `due_date` – Due date *(optional)*
+    - `project_id` – Project ID *(optional)*
+    - `assignee_id` – Assignee user ID *(optional)*
+    - Additional task fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Create tasks
+    - Add to-do items
+    - Create task records
+    - Add project tasks
+
+  </Accordion>
+
+  <Accordion title="Archive A Project" icon="archive">
+    Archive a project.
+
+    **Description:**
+    Archives a project.
+
+    **Variables (Agent fills during call):**
+    - `project_id` – The project ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Archive projects
+    - Move projects to archive
+    - Complete projects
+    - Archive completed work
+
+  </Accordion>
+
+  <Accordion title="Cancel A Recurring Subscription" icon="xmark">
+    Cancel a recurring subscription.
+
+    **Description:**
+    Cancels a recurring subscription. This action attempts to cancel a recurring subscription via Subscriptions API. If Subscriptions endpoints are unavailable (404), it gracefully falls back to disabling all product attachments on the given deal (interpreting `id` as `deal_id`) to mimic cancellation behavior.
+
+    **Variables (Agent fills during call):**
+    - `subscription_id` – The subscription ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Cancel subscriptions
+    - Stop recurring payments
+    - End subscriptions
+    - Cancel subscription plans
+
+  </Accordion>
+
+  <Accordion title="Create An Organization Relationship" icon="link">
+    Create an organization relationship.
+
+    **Description:**
+    Creates and returns an organization relationship.
+
+    **Variables (Agent fills during call):**
+    - `org_id` – Organization ID *(required)*
+    - `type` – Relationship type *(required)*
+    - `related_org_id` – Related organization ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Link organizations
+    - Create relationships
+    - Connect companies
+    - Establish organization links
+
+  </Accordion>
+
+  <Accordion title="Delete A Call Log" icon="trash">
+    Delete a call log.
+
+    **Description:**
+    Deletes a call log. If there is an audio recording attached to it, it will also be deleted. The related activity will not be removed by this request. If you want to remove the related activities, please use the endpoint which is specific for activities.
+
+    **Variables (Agent fills during call):**
+    - `call_log_id` – The call log ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Remove call logs
+    - Delete call records
+    - Clean up call history
+    - Remove call entries
+
+  </Accordion>
+
+  <Accordion title="Delete A Comment Related To A Note" icon="trash">
+    Delete a comment.
+
+    **Description:**
+    Deletes a comment.
+
+    **Variables (Agent fills during call):**
+    - `comment_id` – The comment ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Remove comments
+    - Delete note comments
+    - Clean up comments
+    - Remove comment entries
+
+  </Accordion>
+
+  <Accordion title="Delete A Deal" icon="trash">
+    Mark a deal as deleted.
+
+    **Description:**
+    Marks a deal as deleted. After 30 days, the deal will be permanently deleted.
+
+    **Variables (Agent fills during call):**
+    - `deal_id` – The deal ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Delete deals
+    - Remove deals
+    - Mark deals as deleted
+    - Clean up deal records
+
+  </Accordion>
+
+  <Accordion title="Delete A Lead" icon="trash">
+    Delete a specific lead.
+
+    **Description:**
+    Deletes a specific lead.
+
+    **Variables (Agent fills during call):**
+    - `lead_id` – The lead ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Remove leads
+    - Delete lead records
+    - Clean up leads
+    - Remove lead entries
+
+  </Accordion>
+
+  <Accordion title="Delete An Activity" icon="trash">
+    Mark an activity as deleted.
+
+    **Description:**
+    Marks an activity as deleted. After 30 days, the activity will be permanently deleted.
+
+    **Variables (Agent fills during call):**
+    - `activity_id` – The activity ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Delete activities
+    - Remove activities
+    - Mark activities as deleted
+    - Clean up activity records
+
+  </Accordion>
+
+  <Accordion title="Delete An Attached Product From A Deal" icon="trash">
+    Delete a product attachment from a deal.
+
+    **Description:**
+    Deletes a product attachment from a deal, using the `product_attachment_id`.
+
+    **Variables (Agent fills during call):**
+    - `product_attachment_id` – The product attachment ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Remove products from deals
+    - Delete product attachments
+    - Unlink products
+    - Remove deal products
+
+  </Accordion>
+
+  <Accordion title="Delete An Organization" icon="trash">
+    Mark an organization as deleted.
+
+    **Description:**
+    Marks an organization as deleted. After 30 days, the organization will be permanently deleted.
+
+    **Variables (Agent fills during call):**
+    - `org_id` – The organization ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Delete organizations
+    - Remove organizations
+    - Mark organizations as deleted
+    - Clean up organization records
+
+  </Accordion>
+
+  <Accordion title="Delete An Organization Relationship" icon="trash">
+    Delete an organization relationship.
+
+    **Description:**
+    Deletes an organization relationship and returns the deleted ID.
+
+    **Variables (Agent fills during call):**
+    - `relationship_id` – The relationship ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Remove organization relationships
+    - Delete relationship links
+    - Unlink organizations
+    - Remove relationship connections
+
+  </Accordion>
+
+  <Accordion title="Delete A Note" icon="trash">
+    Delete a specific note.
+
+    **Description:**
+    Deletes a specific note.
+
+    **Variables (Agent fills during call):**
+    - `note_id` – The note ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Remove notes
+    - Delete note records
+    - Clean up notes
+    - Remove note entries
+
+  </Accordion>
+
+  <Accordion title="Delete A Participant From A Deal" icon="trash">
+    Delete a participant from a deal.
+
+    **Description:**
+    Deletes a participant from a deal.
+
+    **Variables (Agent fills during call):**
+    - `deal_id` – The deal ID *(required)*
+    - `person_id` – The person ID to remove *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Remove deal participants
+    - Delete participants
+    - Unlink people from deals
+    - Remove participant access
+
+  </Accordion>
+
+  <Accordion title="Delete A Person" icon="trash">
+    Mark a person as deleted.
+
+    **Description:**
+    Marks a person as deleted. After 30 days, the person will be permanently deleted.
+
+    **Variables (Agent fills during call):**
+    - `person_id` – The person ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Delete contacts
+    - Remove people
+    - Mark people as deleted
+    - Clean up person records
+
+  </Accordion>
+
+  <Accordion title="Delete A Product" icon="trash">
+    Mark a product as deleted.
+
+    **Description:**
+    Marks a product as deleted. After 30 days, the product will be permanently deleted.
+
+    **Variables (Agent fills during call):**
+    - `product_id` – The product ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Delete products
+    - Remove products
+    - Mark products as deleted
+    - Clean up product records
+
+  </Accordion>
+
+  <Accordion title="Delete A Project" icon="trash">
+    Mark a project as deleted.
+
+    **Description:**
+    Marks a project as deleted.
+
+    **Variables (Agent fills during call):**
+    - `project_id` – The project ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Delete projects
+    - Remove projects
+    - Mark projects as deleted
+    - Clean up project records
+
+  </Accordion>
+
+  <Accordion title="Delete A Subscription" icon="trash">
+    Mark a subscription as deleted.
+
+    **Description:**
+    Marks an installment or a recurring subscription as deleted.
+
+    **Variables (Agent fills during call):**
+    - `subscription_id` – The subscription ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Delete subscriptions
+    - Remove subscriptions
+    - Mark subscriptions as deleted
+    - Clean up subscription records
+
+  </Accordion>
+
+  <Accordion title="Delete A Task" icon="trash">
+    Mark a task as deleted.
+
+    **Description:**
+    Marks a task as deleted. If the task has subtasks then those will also be deleted.
+
+    **Variables (Agent fills during call):**
+    - `task_id` – The task ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Delete tasks
+    - Remove tasks
+    - Mark tasks as deleted
+    - Clean up task records
+
+  </Accordion>
+
+  <Accordion title="Duplicate Deal" icon="copy">
+    Duplicate a deal.
+
+    **Description:**
+    Duplicates a deal.
+
+    **Variables (Agent fills during call):**
+    - `deal_id` – The deal ID to duplicate *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Clone deals
+    - Duplicate deal records
+    - Copy deals
+    - Create deal copies
+
+  </Accordion>
+
+  <Accordion title="Find Users By Name" icon="magnifying-glass">
+    Find users by their name.
+
+    **Description:**
+    Finds users by their name.
+
+    **Variables (Agent fills during call):**
+    - `term` – Search term *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Search users
+    - Find team members
+    - Look up users
+    - Search by name
+
+  </Accordion>
+
+  <Accordion title="Get All Call Logs Assigned To A Particular User" icon="phone">
+    Get all call logs assigned to a user.
+
+    **Description:**
+    Returns all call logs assigned to a particular user.
+
+    **Variables (Agent fills during call):**
+    - `user_id` – The user ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View user call logs
+    - Get call history
+    - Retrieve call records
+    - Access call logs
+
+  </Accordion>
+
+  <Accordion title="Get All Comments For A Note" icon="comments">
+    Get all comments for a note.
+
+    **Description:**
+    Returns all comments associated with a note.
+
+    **Variables (Agent fills during call):**
+    - `note_id` – The note ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View note comments
+    - Get comment history
+    - Retrieve comments
+    - Access comment threads
+
+  </Accordion>
+
+  <Accordion title="Get All Lead Labels" icon="tags">
+    Get all lead labels.
+
+    **Description:**
+    Returns details of all lead labels. This endpoint does not support pagination and all labels are always returned.
+
+    **Variables (Agent fills during call):**
+    *None—returns all lead labels*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - List lead labels
+    - View all labels
+    - Get label options
+    - Access label configuration
+
+  </Accordion>
+
+  <Accordion title="Get All Payments Of A Subscription" icon="dollar-sign">
+    Get all payments of a subscription.
+
+    **Description:**
+    Returns all payments of an installment or recurring subscription.
+
+    **Variables (Agent fills during call):**
+    - `subscription_id` – The subscription ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View subscription payments
+    - Get payment history
+    - Retrieve payment records
+    - Access payment information
+
+  </Accordion>
+
+  <Accordion title="Get All Projects" icon="list">
+    Get all projects.
+
+    **Description:**
+    Returns all projects. This is a cursor-paginated endpoint. For more information, please refer to our documentation on <a href="https://pipedrive.readme.io/docs/core-api-concepts-pagination" target="_blank" rel="noopener noreferrer">pagination</a>.
+
+    **Variables (Agent fills during call):**
+    - `cursor` – Pagination cursor *(optional)*
+    - `limit` – Number of results per page *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - List all projects
+    - View project list
+    - Get project directory
+    - Access all projects
+
+  </Accordion>
+
+  <Accordion title="Get All Relationships For Organization" icon="link">
+    Get all relationships for an organization.
+
+    **Description:**
+    Gets all of the relationships for a supplied organization ID.
+
+    **Variables (Agent fills during call):**
+    - `org_id` – The organization ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View organization relationships
+    - Get relationship links
+    - Retrieve relationships
+    - Access relationship data
+
+  </Accordion>
+
+  <Accordion title="Get All Tasks" icon="list">
+    Get all tasks.
+
+    **Description:**
+    Returns all tasks. This is a cursor-paginated endpoint. For more information, please refer to our documentation on <a href="https://pipedrive.readme.io/docs/core-api-concepts-pagination" target="_blank" rel="noopener noreferrer">pagination</a>.
+
+    **Variables (Agent fills during call):**
+    - `cursor` – Pagination cursor *(optional)*
+    - `limit` – Number of results per page *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - List all tasks
+    - View task list
+    - Get task directory
+    - Access all tasks
+
+  </Accordion>
+
+  <Accordion title="Get All Users" icon="users">
+    Get all users.
+
+    **Description:**
+    Returns data about all users within the company.
+
+    **Variables (Agent fills during call):**
+    *None—returns all users*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - List all users
+    - View team members
+    - Get user directory
+    - Access user list
+
+  </Accordion>
+
+  <Accordion title="Get Deals Where A Product Is Attached To" icon="list">
+    Get deals with a product attached.
+
+    **Description:**
+    Returns data about deals that have a product attached to it.
+
+    **Variables (Agent fills during call):**
+    - `product_id` – The product ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Find deals with product
+    - View product deals
+    - Get related deals
+    - Access product associations
+
+  </Accordion>
+
+  <Accordion title="Get Details Of A Call Log" icon="phone">
+    Get details of a specific call log.
+
+    **Description:**
+    Returns details of a specific call log.
+
+    **Variables (Agent fills during call):**
+    - `call_log_id` – The call log ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View call log details
+    - Get call information
+    - Retrieve call data
+    - Access call log information
+
+  </Accordion>
+
+  <Accordion title="Get Details Of A Deal" icon="file-lines">
+    Get detailed information about a specific deal.
+
+    **Description:**
+    Fetches specific deal details, including exclusive fields like deal age and pipeline stage duration. Custom fields show up as hashes, which can be matched using the 'key' from dealFields. See the deal details tutorial for more.
+
+    **Variables (Agent fills during call):**
+    - `deal_id` – The deal ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View deal details
+    - Get deal information
+    - Retrieve deal data
+    - Access deal properties
+
+  </Accordion>
+
+  <Accordion title="Get Details Of An Activity" icon="file-lines">
+    Get details of a specific activity.
+
+    **Description:**
+    Returns the details of a specific activity.
+
+    **Variables (Agent fills during call):**
+    - `activity_id` – The activity ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View activity details
+    - Get activity information
+    - Retrieve activity data
+    - Access activity properties
+
+  </Accordion>
+
+  <Accordion title="Get Details Of An Organization" icon="file-lines">
+    Get detailed information about an organization.
+
+    **Description:**
+    Provides detailed information about an organization, including additional fields not shown when listing all organizations, and maps custom fields as long hashes to the 'key' value in organizationFields.
+
+    **Variables (Agent fills during call):**
+    - `org_id` – The organization ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View organization details
+    - Get organization information
+    - Retrieve organization data
+    - Access organization properties
+
+  </Accordion>
+
+  <Accordion title="Get Details Of A Person" icon="file-lines">
+    Get detailed information about a person.
+
+    **Description:**
+    The text describes an API endpoint that returns detailed person information, including extra fields and custom fields as hashes. It also provides `data.marketing_status` if the Campaigns product is used.
+
+    **Variables (Agent fills during call):**
+    - `person_id` – The person ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View person details
+    - Get contact information
+    - Retrieve person data
+    - Access person properties
+
+  </Accordion>
+
+  <Accordion title="Get Details Of A Phase" icon="file-lines">
+    Get details of a specific project phase.
+
+    **Description:**
+    Returns the details of a specific project phase.
+
+    **Variables (Agent fills during call):**
+    - `phase_id` – The phase ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View phase details
+    - Get phase information
+    - Retrieve phase data
+    - Access phase properties
+
+  </Accordion>
+
+  <Accordion title="Get Details Of A Project" icon="file-lines">
+    Get details of a specific project.
+
+    **Description:**
+    Returns the details of a specific project. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of project fields.
+
+    **Variables (Agent fills during call):**
+    - `project_id` – The project ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View project details
+    - Get project information
+    - Retrieve project data
+    - Access project properties
+
+  </Accordion>
+
+  <Accordion title="Get Details Of A Subscription" icon="file-lines">
+    Get details of a subscription.
+
+    **Description:**
+    Returns details of an installment or a recurring subscription. Note: Subscriptions endpoints may not be available on the company-specific base URL. This action tries multiple hosts and gracefully falls back to Installments (v2) and Deal Products (v1).
+
+    **Variables (Agent fills during call):**
+    - `subscription_id` – The subscription ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View subscription details
+    - Get subscription information
+    - Retrieve subscription data
+    - Access subscription properties
+
+  </Accordion>
+
+  <Accordion title="Get Details Of A Task" icon="file-lines">
+    Get details of a specific task.
+
+    **Description:**
+    Returns the details of a specific task.
+
+    **Variables (Agent fills during call):**
+    - `task_id` – The task ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View task details
+    - Get task information
+    - Retrieve task data
+    - Access task properties
+
+  </Accordion>
+
+  <Accordion title="Get Mail Threads" icon="envelope">
+    Get mail threads in a folder.
+
+    **Description:**
+    Returns mail threads in a specified folder ordered by the most recent message within.
+
+    **Variables (Agent fills during call):**
+    - `folder` – Mail folder *(optional)*
+    - `limit` – Number of results to return *(optional)*
+    - `start` – Pagination start *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View mail threads
+    - Get email threads
+    - Retrieve mail conversations
+    - Access mail threads
+
+  </Accordion>
+
+  <Accordion title="Get One Comment" icon="comment">
+    Get details of a comment.
+
+    **Description:**
+    Returns the details of a comment.
+
+    **Variables (Agent fills during call):**
+    - `comment_id` – The comment ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View comment details
+    - Get comment information
+    - Retrieve comment data
+    - Access comment content
+
+  </Accordion>
+
+  <Accordion title="Get One Lead" icon="file-lines">
+    Get details of a specific lead.
+
+    **Description:**
+    API returns specific lead details with custom field values in the Deals format. Unset custom fields are omitted. Leads share custom fields with deals, not having a unique set.
+
+    **Variables (Agent fills during call):**
+    - `lead_id` – The lead ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View lead details
+    - Get lead information
+    - Retrieve lead data
+    - Access lead properties
+
+  </Accordion>
+
+  <Accordion title="Get One Mail Message" icon="envelope">
+    Get data about a specific mail message.
+
+    **Description:**
+    Returns data about a specific mail message.
+
+    **Variables (Agent fills during call):**
+    - `message_id` – The message ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View mail message
+    - Get email content
+    - Retrieve message data
+    - Access message details
+
+  </Accordion>
+
+  <Accordion title="Get One Mail Thread" icon="envelope">
+    Get a specific mail thread.
+
+    **Description:**
+    Returns a specific mail thread.
+
+    **Variables (Agent fills during call):**
+    - `thread_id` – The thread ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View mail thread
+    - Get email conversation
+    - Retrieve thread data
+    - Access thread details
+
+  </Accordion>
+
+  <Accordion title="Get One Note" icon="note-sticky">
+    Get details about a specific note.
+
+    **Description:**
+    Returns details about a specific note.
+
+    **Variables (Agent fills during call):**
+    - `note_id` – The note ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View note details
+    - Get note information
+    - Retrieve note content
+    - Access note data
+
+  </Accordion>
+
+  <Accordion title="Get One Organization Relationship" icon="link">
+    Get an organization relationship by ID.
+
+    **Description:**
+    Finds and returns an organization relationship from its ID.
+
+    **Variables (Agent fills during call):**
+    - `relationship_id` – The relationship ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View relationship details
+    - Get relationship information
+    - Retrieve relationship data
+    - Access relationship properties
+
+  </Accordion>
+
+  <Accordion title="Get One Product" icon="file-lines">
+    Get data about a specific product.
+
+    **Description:**
+    Returns data about a specific product.
+
+    **Variables (Agent fills during call):**
+    - `product_id` – The product ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View product details
+    - Get product information
+    - Retrieve product data
+    - Access product properties
+
+  </Accordion>
+
+  <Accordion title="Get One User" icon="user">
+    Get data about a specific user.
+
+    **Description:**
+    Returns data about a specific user within the company.
+
+    **Variables (Agent fills during call):**
+    - `user_id` – The user ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View user details
+    - Get user information
+    - Retrieve user data
+    - Access user properties
+
+  </Accordion>
+
+  <Accordion title="Get Project Phases" icon="list">
+    Get all active project phases under a board.
+
+    **Description:**
+    Returns all active project phases under a specific board.
+
+    **Variables (Agent fills during call):**
+    - `board_id` – The board ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View project phases
+    - Get phase list
+    - Retrieve phases
+    - Access phase information
+
+  </Accordion>
+
+  <Accordion title="List Activities Associated With A Deal" icon="list">
+    List activities associated with a deal.
+
+    **Description:**
+    Lists activities associated with a deal.
+
+    **Variables (Agent fills during call):**
+    - `deal_id` – The deal ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View deal activities
+    - Get activity list
+    - Retrieve deal activities
+    - Access activity history
+
+  </Accordion>
+
+  <Accordion title="List Activities Associated With An Organization" icon="list">
+    List activities associated with an organization.
+
+    **Description:**
+    Lists activities associated with an organization.
+
+    **Variables (Agent fills during call):**
+    - `org_id` – The organization ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View organization activities
+    - Get activity list
+    - Retrieve organization activities
+    - Access activity history
+
+  </Accordion>
+
+  <Accordion title="List Activities Associated With A Person" icon="list">
+    List activities associated with a person.
+
+    **Description:**
+    Lists activities associated with a person.
+
+    **Variables (Agent fills during call):**
+    - `person_id` – The person ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View person activities
+    - Get activity list
+    - Retrieve person activities
+    - Access activity history
+
+  </Accordion>
+
+  <Accordion title="List All Persons Associated With A Deal" icon="users">
+    List all persons linked to a deal.
+
+    **Description:**
+    The endpoint lists every person linked to a deal, including primary contacts and participants, and provides a `data.marketing_status` field for users of the Campaigns product.
+
+    **Variables (Agent fills during call):**
+    - `deal_id` – The deal ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View deal contacts
+    - Get person list
+    - Retrieve associated people
+    - Access contact information
+
+  </Accordion>
+
+  <Accordion title="List Deals Associated With An Organization" icon="list">
+    List deals associated with an organization.
+
+    **Description:**
+    Lists deals associated with an organization.
+
+    **Variables (Agent fills during call):**
+    - `org_id` – The organization ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View organization deals
+    - Get deal list
+    - Retrieve organization deals
+    - Access deal history
+
+  </Accordion>
+
+  <Accordion title="List Deals Associated With A Person" icon="list">
+    List deals associated with a person.
+
+    **Description:**
+    Lists deals associated with a person.
+
+    **Variables (Agent fills during call):**
+    - `person_id` – The person ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View person deals
+    - Get deal list
+    - Retrieve person deals
+    - Access deal history
+
+  </Accordion>
+
+  <Accordion title="List Followers Of A Deal" icon="users">
+    List the followers of a deal.
+
+    **Description:**
+    Lists the followers of a deal.
+
+    **Variables (Agent fills during call):**
+    - `deal_id` – The deal ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View deal followers
+    - Get follower list
+    - Retrieve followers
+    - Access follower information
+
+  </Accordion>
+
+  <Accordion title="List Followers Of An Organization" icon="users">
+    List the followers of an organization.
+
+    **Description:**
+    Lists the followers of an organization.
+
+    **Variables (Agent fills during call):**
+    - `org_id` – The organization ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View organization followers
+    - Get follower list
+    - Retrieve followers
+    - Access follower information
+
+  </Accordion>
+
+  <Accordion title="List Followers Of A Person" icon="users">
+    List the followers of a person.
+
+    **Description:**
+    Lists the followers of a person.
+
+    **Variables (Agent fills during call):**
+    - `person_id` – The person ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View person followers
+    - Get follower list
+    - Retrieve followers
+    - Access follower information
+
+  </Accordion>
+
+  <Accordion title="List Followers Of A Product" icon="users">
+    List the followers of a product.
+
+    **Description:**
+    Lists the followers of a product.
+
+    **Variables (Agent fills during call):**
+    - `product_id` – The product ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View product followers
+    - Get follower list
+    - Retrieve followers
+    - Access follower information
+
+  </Accordion>
+
+  <Accordion title="List Mail Messages Associated With A Deal" icon="envelope">
+    List mail messages associated with a deal.
+
+    **Description:**
+    Lists mail messages associated with a deal.
+
+    **Variables (Agent fills during call):**
+    - `deal_id` – The deal ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View deal emails
+    - Get mail list
+    - Retrieve mail messages
+    - Access email history
+
+  </Accordion>
+
+  <Accordion title="List Mail Messages Associated With An Organization" icon="envelope">
+    List mail messages associated with an organization.
+
+    **Description:**
+    Lists mail messages associated with an organization.
+
+    **Variables (Agent fills during call):**
+    - `org_id` – The organization ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View organization emails
+    - Get mail list
+    - Retrieve mail messages
+    - Access email history
+
+  </Accordion>
+
+  <Accordion title="List Mail Messages Associated With A Person" icon="envelope">
+    List mail messages associated with a person.
+
+    **Description:**
+    Lists mail messages associated with a person.
+
+    **Variables (Agent fills during call):**
+    - `person_id` – The person ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View person emails
+    - Get mail list
+    - Retrieve mail messages
+    - Access email history
+
+  </Accordion>
+
+  <Accordion title="List Participants Of A Deal" icon="users">
+    List participants associated with a deal.
+
+    **Description:**
+    Lists the participants associated with a deal.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
+
+    **Variables (Agent fills during call):**
+    - `deal_id` – The deal ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View deal participants
+    - Get participant list
+    - Retrieve participants
+    - Access participant information
+
+  </Accordion>
+
+  <Accordion title="List Persons Of An Organization" icon="users">
+    List persons associated with an organization.
+
+    **Description:**
+    Lists persons associated with an organization.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
+
+    **Variables (Agent fills during call):**
+    - `org_id` – The organization ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View organization contacts
+    - Get person list
+    - Retrieve associated people
+    - Access contact information
+
+  </Accordion>
+
+  <Accordion title="List Products Associated With A Person" icon="list">
+    List products associated with a person.
+
+    **Description:**
+    Lists products associated with a person.
+
+    **Variables (Agent fills during call):**
+    - `person_id` – The person ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View person products
+    - Get product list
+    - Retrieve associated products
+    - Access product information
+
+  </Accordion>
+
+  <Accordion title="List Products Attached To A Deal" icon="list">
+    List products attached to a deal.
+
+    **Description:**
+    Lists products attached to a deal.
+
+    **Variables (Agent fills during call):**
+    - `deal_id` – The deal ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View deal products
+    - Get product list
+    - Retrieve attached products
+    - Access product information
+
+  </Accordion>
+
+  <Accordion title="List Updates About A Deal" icon="list">
+    List updates about a deal.
+
+    **Description:**
+    Lists updates about a deal.
+
+    **Variables (Agent fills during call):**
+    - `deal_id` – The deal ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View deal updates
+    - Get update history
+    - Retrieve updates
+    - Access update feed
+
+  </Accordion>
+
+  <Accordion title="List Updates About An Organization" icon="list">
+    List updates about an organization.
+
+    **Description:**
+    Lists updates about an organization.
+
+    **Variables (Agent fills during call):**
+    - `org_id` – The organization ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View organization updates
+    - Get update history
+    - Retrieve updates
+    - Access update feed
+
+  </Accordion>
+
+  <Accordion title="List Updates About A Person" icon="list">
+    List updates about a person.
+
+    **Description:**
+    Lists updates about a person.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint's response will also include updates for the `marketing_status` field.
+
+    **Variables (Agent fills during call):**
+    - `person_id` – The person ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View person updates
+    - Get update history
+    - Retrieve updates
+    - Access update feed
+
+  </Accordion>
+
+  <Accordion title="List Updates About Participants Of A Deal" icon="list">
+    List updates on deal participants.
+
+    **Description:**
+    This endpoint provides cursor-paginated updates on deal participants. For pagination details, see the Pipedrive documentation.
+
+    **Variables (Agent fills during call):**
+    - `deal_id` – The deal ID *(required)*
+    - `cursor` – Pagination cursor *(optional)*
+    - `limit` – Number of results per page *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View participant updates
+    - Get update history
+    - Retrieve updates
+    - Access update feed
+
+  </Accordion>
+
+  <Accordion title="Perform A Search From Multiple Item Types" icon="magnifying-glass">
+    Perform a search across multiple item types.
+
+    **Description:**
+    Performs a search from your choice of item types and fields.
+
+    **Variables (Agent fills during call):**
+    - `term` – Search term *(required)*
+    - `item_types` – Item types to search *(optional)*
+    - `fields` – Fields to search *(optional)*
+    - `exact_match` – Exact match flag *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Search across items
+    - Multi-type search
+    - Find items
+    - Search multiple entities
+
+  </Accordion>
+
+  <Accordion title="Returns Project Activities" icon="list">
+    Get activities linked to a project.
+
+    **Description:**
+    Returns activities linked to a specific project.
+
+    **Variables (Agent fills during call):**
+    - `project_id` – The project ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View project activities
+    - Get activity list
+    - Retrieve project activities
+    - Access activity history
+
+  </Accordion>
+
+  <Accordion title="Returns Project Groups" icon="list">
+    Get all active groups under a project.
+
+    **Description:**
+    Returns all active groups under a specific project.
+
+    **Variables (Agent fills during call):**
+    - `project_id` – The project ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View project groups
+    - Get group list
+    - Retrieve groups
+    - Access group information
+
+  </Accordion>
+
+  <Accordion title="Returns Project Plan" icon="list">
+    Get information about items in a project plan.
+
+    **Description:**
+    Returns information about items in a project plan. Items consists of tasks and activities and are linked to specific project phase and group.
+
+    **Variables (Agent fills during call):**
+    - `project_id` – The project ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View project plan
+    - Get plan items
+    - Retrieve plan information
+    - Access project structure
+
+  </Accordion>
+
+  <Accordion title="Returns Project Tasks" icon="list">
+    Get tasks linked to a project.
+
+    **Description:**
+    Returns tasks linked to a specific project.
+
+    **Variables (Agent fills during call):**
+    - `project_id` – The project ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - View project tasks
+    - Get task list
+    - Retrieve project tasks
+    - Access task information
+
+  </Accordion>
+
+  <Accordion title="Search Deals" icon="magnifying-glass">
+    Search deals by title, notes, and custom fields.
+
+    **Description:**
+    This API endpoint searches deals by title, notes, and custom fields, filters results by person or organization ID, and is a specific use case of /v1/itemSearch with limited OAuth scope.
+
+    **Variables (Agent fills during call):**
+    - `term` – Search term *(required)*
+    - `person_id` – Filter by person ID *(optional)*
+    - `org_id` – Filter by organization ID *(optional)*
+    - `fields` – Fields to search *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Search deals
+    - Find deals by term
+    - Filter deals
+    - Search deal content
+
+  </Accordion>
+
+  <Accordion title="Search Item By Field" icon="magnifying-glass">
+    Search by field values.
+
+    **Description:**
+    Performs a search from the values of a specific field. Results can either be the distinct values of the field (useful for searching autocomplete field values), or the IDs of actual items (deals, leads, persons, organizations or products).
+
+    **Variables (Agent fills during call):**
+    - `field_key` – Field key to search *(required)*
+    - `term` – Search term *(required)*
+    - `return_item_ids` – Return item IDs flag *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Search field values
+    - Find field options
+    - Autocomplete search
+    - Search by field
+
+  </Accordion>
+
+  <Accordion title="Search Leads" icon="magnifying-glass">
+    Search leads by title, notes, and custom fields.
+
+    **Description:**
+    Endpoint searches leads by title, notes, custom fields, with options to filter by person and organization IDs, and is a more specific use of the /v1/itemSearch with limited OAuth scope.
+
+    **Variables (Agent fills during call):**
+    - `term` – Search term *(required)*
+    - `person_id` – Filter by person ID *(optional)*
+    - `org_id` – Filter by organization ID *(optional)*
+    - `fields` – Fields to search *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Search leads
+    - Find leads by term
+    - Filter leads
+    - Search lead content
+
+  </Accordion>
+
+  <Accordion title="Search Organizations" icon="magnifying-glass">
+    Search organizations by name, address, notes, and custom fields.
+
+    **Description:**
+    Searches all organizations by name, address, notes and/or custom fields. This endpoint is a wrapper of <a href="https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem">/v1/itemSearch</a> with a narrower OAuth scope.
+
+    **Variables (Agent fills during call):**
+    - `term` – Search term *(required)*
+    - `fields` – Fields to search *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Search organizations
+    - Find organizations by term
+    - Filter organizations
+    - Search organization content
+
+  </Accordion>
+
+  <Accordion title="Search Persons" icon="magnifying-glass">
+    Search for individuals by various identifiers.
+
+    **Description:**
+    This endpoint searches for individuals by various identifiers and is a specific use case of /v1/itemSearch with limited OAuth scope, allowing results filtering by organization ID.
+
+    **Variables (Agent fills during call):**
+    - `term` – Search term *(required)*
+    - `org_id` – Filter by organization ID *(optional)*
+    - `fields` – Fields to search *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Search persons
+    - Find contacts by term
+    - Filter persons
+    - Search person content
+
+  </Accordion>
+
+  <Accordion title="Search Products" icon="magnifying-glass">
+    Search products by name, code, and custom fields.
+
+    **Description:**
+    Searches all products by name, code and/or custom fields. This endpoint is a wrapper of <a href="https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem">/v1/itemSearch</a> with a narrower OAuth scope.
+
+    **Variables (Agent fills during call):**
+    - `term` – Search term *(required)*
+    - `fields` – Fields to search *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Search products
+    - Find products by term
+    - Filter products
+    - Search product content
+
+  </Accordion>
+
+  <Accordion title="Update A Comment Related To A Note" icon="pencil">
+    Update a comment related to a note.
+
+    **Description:**
+    Updates a comment related to a note.
+
+    **Variables (Agent fills during call):**
+    - `comment_id` – The comment ID *(required)*
+    - `content` – Updated comment content *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Edit comments
+    - Update comment content
+    - Modify comments
+    - Change comment text
+
+  </Accordion>
+
+  <Accordion title="Update Activity In Project Plan" icon="pencil">
+    Update an activity phase or group in a project.
+
+    **Description:**
+    Updates an activity phase or group in a project.
+
+    **Variables (Agent fills during call):**
+    - `activity_id` – The activity ID *(required)*
+    - `phase_id` – Phase ID *(optional)*
+    - `group_id` – Group ID *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Move activities
+    - Update activity position
+    - Change activity phase
+    - Reorganize activities
+
+  </Accordion>
+
+  <Accordion title="Update A Deal" icon="pencil">
+    Update the properties of a deal.
+
+    **Description:**
+    Updates the properties of a deal. For more information, see the tutorial for <a href="https://pipedrive.readme.io/docs/updating-a-deal" target="_blank" rel="noopener noreferrer">updating a deal</a>.
+
+    **Variables (Agent fills during call):**
+    - `deal_id` – The deal ID *(required)*
+    - `title` – Updated title *(optional)*
+    - `value` – Updated value *(optional)*
+    - `stage_id` – Updated stage ID *(optional)*
+    - `status` – Updated status *(optional)*
+    - Custom fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Update deal properties
+    - Change deal stage
+    - Modify deal value
+    - Update deal information
+
+  </Accordion>
+
+  <Accordion title="Update A Lead" icon="pencil">
+    Update lead properties.
+
+    **Description:**
+    Updating lead properties modifies only specified fields; use `null` to unset. Custom field data matches `Deals`. Unset fields are omitted. Leads share deals' custom fields. For examples, refer to the tutorial.
+
+    **Variables (Agent fills during call):**
+    - `lead_id` – The lead ID *(required)*
+    - `title` – Updated title *(optional)*
+    - `label_ids` – Updated label IDs *(optional)*
+    - `person_id` – Updated person ID *(optional)*
+    - `org_id` – Updated organization ID *(optional)*
+    - Custom fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Update lead properties
+    - Change lead labels
+    - Modify lead information
+    - Update lead data
+
+  </Accordion>
+
+  <Accordion title="Update An Activity" icon="pencil">
+    Update an activity.
+
+    **Description:**
+    Updates an activity. Includes `more_activities_scheduled_in_context` property in response's `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data).
+
+    **Variables (Agent fills during call):**
+    - `activity_id` – The activity ID *(required)*
+    - `subject` – Updated subject *(optional)*
+    - `due_date` – Updated due date *(optional)*
+    - `due_time` – Updated due time *(optional)*
+    - `type` – Updated activity type *(optional)*
+    - Additional activity fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Update activity details
+    - Change activity schedule
+    - Modify activity information
+    - Update activity properties
+
+  </Accordion>
+
+  <Accordion title="Update An Installment Subscription" icon="pencil">
+    Update an installment subscription.
+
+    **Description:**
+    Updates an installment subscription. Note: Subscriptions endpoints may not be available on the company-specific base URL. To avoid 404s, this action overrides the default request behavior and uses multiple hosts along with a practical fallback to Deal Products when Subscriptions/Installments features are not accessible.
+
+    **Variables (Agent fills during call):**
+    - `subscription_id` – The subscription ID *(required)*
+    - `installments` – Updated installment details *(optional)*
+    - `start_date` – Updated start date *(optional)*
+    - Additional subscription fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Update subscription details
+    - Modify installment plan
+    - Change subscription information
+    - Update subscription properties
+
+  </Accordion>
+
+  <Accordion title="Update An Organization" icon="pencil">
+    Update the properties of an organization.
+
+    **Description:**
+    Updates the properties of an organization.
+
+    **Variables (Agent fills during call):**
+    - `org_id` – The organization ID *(required)*
+    - `name` – Updated name *(optional)*
+    - `address` – Updated address *(optional)*
+    - `phone` – Updated phone *(optional)*
+    - `email` – Updated email *(optional)*
+    - Custom fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Update organization properties
+    - Change organization details
+    - Modify organization information
+    - Update organization data
+
+  </Accordion>
+
+  <Accordion title="Update An Organization Relationship" icon="pencil">
+    Update an organization relationship.
+
+    **Description:**
+    Updates and returns an organization relationship.
+
+    **Variables (Agent fills during call):**
+    - `relationship_id` – The relationship ID *(required)*
+    - `type` – Updated relationship type *(optional)*
+    - `related_org_id` – Updated related organization ID *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Update relationship details
+    - Change relationship type
+    - Modify relationship information
+    - Update relationship properties
+
+  </Accordion>
+
+  <Accordion title="Update A Note" icon="pencil">
+    Update a note.
+
+    **Description:**
+    Updates a note.
+
+    **Variables (Agent fills during call):**
+    - `note_id` – The note ID *(required)*
+    - `content` – Updated note content *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Edit notes
+    - Update note content
+    - Modify notes
+    - Change note text
+
+  </Accordion>
+
+  <Accordion title="Update A Person" icon="pencil">
+    Modify a person's details in Pipedrive.
+
+    **Description:**
+    Modifies a person's details in Pipedrive. See the linked tutorial for guidance. If utilizing Campaigns, the endpoint also handles `data.marketing_status`.
+
+    **Variables (Agent fills during call):**
+    - `person_id` – The person ID *(required)*
+    - `name` – Updated name *(optional)*
+    - `email` – Updated email *(optional)*
+    - `phone` – Updated phone *(optional)*
+    - `org_id` – Updated organization ID *(optional)*
+    - Custom fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Update contact details
+    - Change person information
+    - Modify contact data
+    - Update person properties
+
+  </Accordion>
+
+  <Accordion title="Update A Product" icon="pencil">
+    Update product data.
+
+    **Description:**
+    Updates product data.
+
+    **Variables (Agent fills during call):**
+    - `product_id` – The product ID *(required)*
+    - `name` – Updated name *(optional)*
+    - `code` – Updated code *(optional)*
+    - `unit` – Updated unit *(optional)*
+    - `tax` – Updated tax percentage *(optional)*
+    - `prices` – Updated prices *(optional)*
+    - Custom fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Update product details
+    - Change product information
+    - Modify product data
+    - Update product properties
+
+  </Accordion>
+
+  <Accordion title="Update A Project" icon="pencil">
+    Update a project.
+
+    **Description:**
+    Updates a project.
+
+    **Variables (Agent fills during call):**
+    - `project_id` – The project ID *(required)*
+    - `title` – Updated title *(optional)*
+    - `board_id` – Updated board ID *(optional)*
+    - `owner_id` – Updated owner ID *(optional)*
+    - Custom fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Update project details
+    - Change project information
+    - Modify project data
+    - Update project properties
+
+  </Accordion>
+
+  <Accordion title="Update A Recurring Subscription" icon="pencil">
+    Update a recurring subscription.
+
+    **Description:**
+    Updates a recurring subscription. Note: Some company hosts may not expose Subscriptions endpoints. This action will attempt multiple hosts and gracefully fall back to updating the product attached to a deal (v1) when applicable. In the fallback path, the request `id` is treated as the `product_attachment_id` and we locate the corresponding deal by scanning deal products.
+
+    **Variables (Agent fills during call):**
+    - `subscription_id` – The subscription ID *(required)*
+    - `cycle_amount` – Updated cycle amount *(optional)*
+    - `cycle_unit` – Updated cycle unit *(optional)*
+    - `start_date` – Updated start date *(optional)*
+    - Additional subscription fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Update subscription details
+    - Modify recurring plan
+    - Change subscription information
+    - Update subscription properties
+
+  </Accordion>
+
+  <Accordion title="Update A Task" icon="pencil">
+    Update a task.
+
+    **Description:**
+    Updates a task.
+
+    **Variables (Agent fills during call):**
+    - `task_id` – The task ID *(required)*
+    - `text` – Updated task text *(optional)*
+    - `due_date` – Updated due date *(optional)*
+    - `assignee_id` – Updated assignee ID *(optional)*
+    - `done` – Completion status *(optional)*
+    - Additional task fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Update task details
+    - Change task information
+    - Modify task data
+    - Update task properties
+
+  </Accordion>
+
+  <Accordion title="Update Task In Project Plan" icon="pencil">
+    Update a task phase or group in a project.
+
+    **Description:**
+    Updates a task phase or group in a project.
+
+    **Variables (Agent fills during call):**
+    - `task_id` – The task ID *(required)*
+    - `phase_id` – Phase ID *(optional)*
+    - `group_id` – Group ID *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Move tasks
+    - Update task position
+    - Change task phase
+    - Reorganize tasks
+
+  </Accordion>
+
+  <Accordion title="Update The Product Attached To A Deal" icon="pencil">
+    Update the details of a product attached to a deal.
+
+    **Description:**
+    Updates the details of the product that has been attached to a deal.
+
+    **Variables (Agent fills during call):**
+    - `product_attachment_id` – The product attachment ID *(required)*
+    - `item_price` – Updated item price *(optional)*
+    - `quantity` – Updated quantity *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Pipedrive integration*
+
+    **Use Cases:**
+    - Update deal product details
+    - Change product price
+    - Modify product quantity
+    - Update product attachment
+
+  </Accordion>
+
+</AccordionGroup>
 
 ---
 

@@ -22743,7 +22743,185 @@ The universal API for sending emails.
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Cancel Email" icon="xmark">
+    Cancel a scheduled email.
+
+    **Description:**
+    Cancel a scheduled email.
+
+    **Variables (Agent fills during call):**
+    - `email_id` – The email ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Resend integration*
+
+    **Use Cases:**
+    - Cancel scheduled emails
+    - Stop email delivery
+    - Cancel pending emails
+    - Remove scheduled sends
+
+  </Accordion>
+
+  <Accordion title="Create Contact" icon="user-plus">
+    Create a contact in Resend.
+
+    **Description:**
+    Create a contact in Resend.
+
+    **Variables (Agent fills during call):**
+    - `email` – Contact email address *(required)*
+    - `first_name` – First name *(optional)*
+    - `last_name` – Last name *(optional)*
+    - `unsubscribed` – Unsubscribed status *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Resend integration*
+
+    **Use Cases:**
+    - Add new contacts
+    - Create contact records
+    - Save contact information
+    - Build contact database
+
+  </Accordion>
+
+  <Accordion title="Delete Contact" icon="trash">
+    Delete a contact in Resend.
+
+    **Description:**
+    Delete a contact in Resend.
+
+    **Variables (Agent fills during call):**
+    - `contact_id` – The contact ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Resend integration*
+
+    **Use Cases:**
+    - Remove contacts
+    - Delete contact records
+    - Clean up contacts
+    - Remove outdated contacts
+
+  </Accordion>
+
+  <Accordion title="List Contacts" icon="users">
+    List contacts in Resend.
+
+    **Description:**
+    List contacts in Resend.
+
+    **Variables (Agent fills during call):**
+    - `limit` – Number of results to return *(optional)*
+    - `page` – Page number for pagination *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Resend integration*
+
+    **Use Cases:**
+    - List all contacts
+    - View contact directory
+    - Retrieve contacts
+    - Access contact list
+
+  </Accordion>
+
+  <Accordion title="Retrieve Contact" icon="user">
+    Retrieve a contact in Resend.
+
+    **Description:**
+    Retrieve a contact in Resend.
+
+    **Variables (Agent fills during call):**
+    - `contact_id` – The contact ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Resend integration*
+
+    **Use Cases:**
+    - View contact details
+    - Get contact information
+    - Retrieve contact data
+    - Access contact records
+
+  </Accordion>
+
+  <Accordion title="Retrieve Email" icon="envelope">
+    Retrieve a single email.
+
+    **Description:**
+    Retrieve a single email.
+
+    **Variables (Agent fills during call):**
+    - `email_id` – The email ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Resend integration*
+
+    **Use Cases:**
+    - View email details
+    - Get email information
+    - Retrieve email data
+    - Access email status
+
+  </Accordion>
+
+  <Accordion title="Send Email" icon="paper-plane">
+    Send an email using Resend.
+
+    **Description:**
+    Send an email using Resend.
+
+    **Variables (Agent fills during call):**
+    - `to` – Recipient email address(es) *(required)*
+    - `from` – Sender email address *(required)*
+    - `subject` – Email subject *(required)*
+    - `html` – HTML email content *(optional)*
+    - `text` – Plain text email content *(optional)*
+    - `cc` – CC recipients *(optional)*
+    - `bcc` – BCC recipients *(optional)*
+    - `reply_to` – Reply-to address *(optional)*
+    - `scheduled_at` – Scheduled send time *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Resend integration*
+
+    **Use Cases:**
+    - Send emails
+    - Send transactional emails
+    - Schedule emails
+    - Send to multiple recipients
+
+  </Accordion>
+
+  <Accordion title="Update Email" icon="pencil">
+    Update a scheduled email.
+
+    **Description:**
+    Update a scheduled email.
+
+    **Variables (Agent fills during call):**
+    - `email_id` – The email ID *(required)*
+    - `scheduled_at` – Updated scheduled time *(optional)*
+    - `to` – Updated recipient(s) *(optional)*
+    - `subject` – Updated subject *(optional)*
+    - `html` – Updated HTML content *(optional)*
+    - `text` – Updated text content *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Resend integration*
+
+    **Use Cases:**
+    - Update scheduled emails
+    - Change send time
+    - Modify email content
+    - Update email recipients
+
+  </Accordion>
+
+</AccordionGroup>
 
 ---
 
@@ -22767,7 +22945,933 @@ Salesforce is a leading CRM platform integrating sales, service, marketing, and 
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Add Opportunity Line Item" icon="plus">
+    Add a product (line item) to an opportunity.
+
+    **Description:**
+    Adds a product (line item) to an opportunity. The product must exist in a pricebook entry that's associated with the opportunity's pricebook.
+
+    **Variables (Agent fills during call):**
+    - `opportunity_id` – The opportunity ID *(required)*
+    - `pricebook_entry_id` – The pricebook entry ID *(required)*
+    - `quantity` – Product quantity *(required)*
+    - `unit_price` – Unit price *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Add products to opportunities
+    - Attach products to deals
+    - Include products in opportunities
+    - Link products to opportunities
+
+  </Accordion>
+
+  <Accordion title="Associate Contact To Account" icon="link">
+    Associate a contact with an account.
+
+    **Description:**
+    Associates a contact with an account by updating the contact's AccountId field.
+
+    **Variables (Agent fills during call):**
+    - `contact_id` – The contact ID *(required)*
+    - `account_id` – The account ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Link contacts to accounts
+    - Associate contacts with companies
+    - Connect contacts to accounts
+    - Update contact account relationship
+
+  </Accordion>
+
+  <Accordion title="Clone Opportunity With Products" icon="copy">
+    Clone an opportunity and optionally its products.
+
+    **Description:**
+    Clones an opportunity and optionally its products (line items). Creates a new opportunity with the same field values and products as the original.
+
+    **Variables (Agent fills during call):**
+    - `opportunity_id` – The opportunity ID to clone *(required)*
+    - `include_products` – Include products in clone *(optional)*
+    - `field_updates` – Field values to override *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Clone opportunities
+    - Duplicate deals with products
+    - Copy opportunity structure
+    - Create opportunity copies
+
+  </Accordion>
+
+  <Accordion title="Clone Record" icon="copy">
+    Create a copy of an existing Salesforce record.
+
+    **Description:**
+    Creates a copy of an existing Salesforce record by reading its data, removing system fields, and creating a new record. Optionally apply field updates to the clone.
+
+    **Variables (Agent fills during call):**
+    - `record_id` – The record ID to clone *(required)*
+    - `object_type` – Salesforce object type *(required)*
+    - `field_updates` – Field values to override *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Clone records
+    - Duplicate Salesforce records
+    - Copy record data
+    - Create record copies
+
+  </Accordion>
+
+  <Accordion title="Complete Task" icon="check">
+    Mark a task as completed.
+
+    **Description:**
+    Marks a task as completed with optional completion notes. This is a convenience action that updates the task status to 'Completed'.
+
+    **Variables (Agent fills during call):**
+    - `task_id` – The task ID *(required)*
+    - `comments` – Completion notes *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Complete tasks
+    - Mark tasks as done
+    - Finish task items
+    - Update task status
+
+  </Accordion>
+
+  <Accordion title="Create Account" icon="plus">
+    Create a new account in Salesforce.
+
+    **Description:**
+    Creates a new account in Salesforce with the specified information.
+
+    **Variables (Agent fills during call):**
+    - `name` – Account name *(required)*
+    - `type` – Account type *(optional)*
+    - `industry` – Industry *(optional)*
+    - `phone` – Phone number *(optional)*
+    - `website` – Website URL *(optional)*
+    - `billing_address` – Billing address *(optional)*
+    - Additional account fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Create accounts
+    - Add companies
+    - Create account records
+    - Add business entities
+
+  </Accordion>
+
+  <Accordion title="Create Contact" icon="user-plus">
+    Create a new contact in Salesforce.
+
+    **Description:**
+    Creates a new contact in Salesforce with the specified information.
+
+    **Variables (Agent fills during call):**
+    - `last_name` – Last name *(required)*
+    - `first_name` – First name *(optional)*
+    - `email` – Email address *(optional)*
+    - `phone` – Phone number *(optional)*
+    - `account_id` – Account ID *(optional)*
+    - `title` – Job title *(optional)*
+    - Additional contact fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Create contacts
+    - Add new people
+    - Create contact records
+    - Add contacts to CRM
+
+  </Accordion>
+
+  <Accordion title="Create Lead" icon="plus">
+    Create a new lead in Salesforce.
+
+    **Description:**
+    Creates a new lead in Salesforce with the specified information.
+
+    **Variables (Agent fills during call):**
+    - `last_name` – Last name *(required)*
+    - `company` – Company name *(required)*
+    - `first_name` – First name *(optional)*
+    - `email` – Email address *(optional)*
+    - `phone` – Phone number *(optional)*
+    - `status` – Lead status *(optional)*
+    - `lead_source` – Lead source *(optional)*
+    - Additional lead fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Create leads
+    - Add new leads
+    - Create lead records
+    - Track lead sources
+
+  </Accordion>
+
+  <Accordion title="Create Note" icon="note-sticky">
+    Create a new note attached to a Salesforce record.
+
+    **Description:**
+    Creates a new note attached to a Salesforce record with the specified title and content.
+
+    **Variables (Agent fills during call):**
+    - `title` – Note title *(required)*
+    - `body` – Note content *(required)*
+    - `parent_id` – Parent record ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Add notes to records
+    - Create record notes
+    - Document information
+    - Attach notes to records
+
+  </Accordion>
+
+  <Accordion title="Create Opportunity" icon="plus">
+    Create a new opportunity in Salesforce.
+
+    **Description:**
+    Creates a new opportunity in Salesforce with the specified information.
+
+    **Variables (Agent fills during call):**
+    - `name` – Opportunity name *(required)*
+    - `stage_name` – Stage name *(required)*
+    - `close_date` – Close date *(required)*
+    - `amount` – Opportunity amount *(optional)*
+    - `account_id` – Account ID *(optional)*
+    - `probability` – Probability percentage *(optional)*
+    - Additional opportunity fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Create opportunities
+    - Add deals
+    - Create opportunity records
+    - Track sales opportunities
+
+  </Accordion>
+
+  <Accordion title="Create Task" icon="plus">
+    Create a new task in Salesforce.
+
+    **Description:**
+    Creates a new task in Salesforce to track activities, to-dos, and follow-ups related to contacts, leads, or other records.
+
+    **Variables (Agent fills during call):**
+    - `subject` – Task subject *(required)*
+    - `status` – Task status *(optional)*
+    - `priority` – Task priority *(optional)*
+    - `due_date` – Due date *(optional)*
+    - `what_id` – Related record ID *(optional)*
+    - `who_id` – Contact/Lead ID *(optional)*
+    - Additional task fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Create tasks
+    - Add to-do items
+    - Create task records
+    - Track activities
+
+  </Accordion>
+
+  <Accordion title="Delete Account" icon="trash">
+    Permanently delete an account from Salesforce.
+
+    **Description:**
+    Permanently deletes an account from Salesforce. This action cannot be undone.
+
+    **Variables (Agent fills during call):**
+    - `account_id` – The account ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Delete accounts
+    - Remove accounts
+    - Clean up account records
+    - Remove outdated accounts
+
+  </Accordion>
+
+  <Accordion title="Delete Contact" icon="trash">
+    Permanently delete a contact from Salesforce.
+
+    **Description:**
+    Permanently deletes a contact from Salesforce. This action cannot be undone.
+
+    **Variables (Agent fills during call):**
+    - `contact_id` – The contact ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Delete contacts
+    - Remove contacts
+    - Clean up contact records
+    - Remove outdated contacts
+
+  </Accordion>
+
+  <Accordion title="Delete Lead" icon="trash">
+    Permanently delete a lead from Salesforce.
+
+    **Description:**
+    Permanently deletes a lead from Salesforce. This action cannot be undone.
+
+    **Variables (Agent fills during call):**
+    - `lead_id` – The lead ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Delete leads
+    - Remove leads
+    - Clean up lead records
+    - Remove outdated leads
+
+  </Accordion>
+
+  <Accordion title="Delete Note" icon="trash">
+    Permanently delete a note from Salesforce.
+
+    **Description:**
+    Permanently deletes a note from Salesforce. This action cannot be undone.
+
+    **Variables (Agent fills during call):**
+    - `note_id` – The note ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Delete notes
+    - Remove notes
+    - Clean up note records
+    - Remove outdated notes
+
+  </Accordion>
+
+  <Accordion title="Delete Opportunity" icon="trash">
+    Permanently delete an opportunity from Salesforce.
+
+    **Description:**
+    Permanently deletes an opportunity from Salesforce. This action cannot be undone.
+
+    **Variables (Agent fills during call):**
+    - `opportunity_id` – The opportunity ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Delete opportunities
+    - Remove opportunities
+    - Clean up opportunity records
+    - Remove outdated opportunities
+
+  </Accordion>
+
+  <Accordion title="Get Account" icon="file-lines">
+    Retrieve a specific account by ID.
+
+    **Description:**
+    Retrieves a specific account by ID from Salesforce, returning all available fields.
+
+    **Variables (Agent fills during call):**
+    - `account_id` – The account ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - View account details
+    - Get account information
+    - Retrieve account data
+    - Access account properties
+
+  </Accordion>
+
+  <Accordion title="Get Contact" icon="file-lines">
+    Retrieve a specific contact by ID.
+
+    **Description:**
+    Retrieves a specific contact by ID from Salesforce, returning all available fields.
+
+    **Variables (Agent fills during call):**
+    - `contact_id` – The contact ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - View contact details
+    - Get contact information
+    - Retrieve contact data
+    - Access contact properties
+
+  </Accordion>
+
+  <Accordion title="Get Lead" icon="file-lines">
+    Retrieve a specific lead by ID.
+
+    **Description:**
+    Retrieves a specific lead by ID from Salesforce, returning all available fields.
+
+    **Variables (Agent fills during call):**
+    - `lead_id` – The lead ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - View lead details
+    - Get lead information
+    - Retrieve lead data
+    - Access lead properties
+
+  </Accordion>
+
+  <Accordion title="Get Note" icon="file-lines">
+    Retrieve a specific note by ID.
+
+    **Description:**
+    Retrieves a specific note by ID from Salesforce, returning all available fields.
+
+    **Variables (Agent fills during call):**
+    - `note_id` – The note ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - View note details
+    - Get note information
+    - Retrieve note content
+    - Access note data
+
+  </Accordion>
+
+  <Accordion title="Get Opportunity" icon="file-lines">
+    Retrieve a specific opportunity by ID.
+
+    **Description:**
+    Retrieves a specific opportunity by ID from Salesforce, returning all available fields.
+
+    **Variables (Agent fills during call):**
+    - `opportunity_id` – The opportunity ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - View opportunity details
+    - Get opportunity information
+    - Retrieve opportunity data
+    - Access opportunity properties
+
+  </Accordion>
+
+  <Accordion title="List Accounts" icon="list">
+    List accounts from Salesforce using SOQL query.
+
+    **Description:**
+    Lists accounts from Salesforce using SOQL query, allowing flexible filtering, sorting, and field selection.
+
+    **Variables (Agent fills during call):**
+    - `soql_query` – SOQL query string *(optional)*
+    - `fields` – Fields to retrieve *(optional)*
+    - `limit` – Number of results to return *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - List all accounts
+    - Query accounts with filters
+    - Retrieve account list
+    - Access account directory
+
+  </Accordion>
+
+  <Accordion title="List Contacts" icon="list">
+    List contacts from Salesforce using SOQL query.
+
+    **Description:**
+    Lists contacts from Salesforce using SOQL query, allowing flexible filtering, sorting, and field selection.
+
+    **Variables (Agent fills during call):**
+    - `soql_query` – SOQL query string *(optional)*
+    - `fields` – Fields to retrieve *(optional)*
+    - `limit` – Number of results to return *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - List all contacts
+    - Query contacts with filters
+    - Retrieve contact list
+    - Access contact directory
+
+  </Accordion>
+
+  <Accordion title="List Leads" icon="list">
+    List leads from Salesforce using SOQL query.
+
+    **Description:**
+    Lists leads from Salesforce using SOQL query, allowing flexible filtering, sorting, and field selection.
+
+    **Variables (Agent fills during call):**
+    - `soql_query` – SOQL query string *(optional)*
+    - `fields` – Fields to retrieve *(optional)*
+    - `limit` – Number of results to return *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - List all leads
+    - Query leads with filters
+    - Retrieve lead list
+    - Access lead directory
+
+  </Accordion>
+
+  <Accordion title="List Notes" icon="list">
+    List notes from Salesforce using SOQL query.
+
+    **Description:**
+    Lists notes from Salesforce using SOQL query, allowing flexible filtering, sorting, and field selection.
+
+    **Variables (Agent fills during call):**
+    - `soql_query` – SOQL query string *(optional)*
+    - `fields` – Fields to retrieve *(optional)*
+    - `limit` – Number of results to return *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - List all notes
+    - Query notes with filters
+    - Retrieve note list
+    - Access note directory
+
+  </Accordion>
+
+  <Accordion title="List Opportunities" icon="list">
+    List opportunities from Salesforce using SOQL query.
+
+    **Description:**
+    Lists opportunities from Salesforce using SOQL query, allowing flexible filtering, sorting, and field selection.
+
+    **Variables (Agent fills during call):**
+    - `soql_query` – SOQL query string *(optional)*
+    - `fields` – Fields to retrieve *(optional)*
+    - `limit` – Number of results to return *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - List all opportunities
+    - Query opportunities with filters
+    - Retrieve opportunity list
+    - Access opportunity directory
+
+  </Accordion>
+
+  <Accordion title="Log Call" icon="phone">
+    Log a completed phone call as a task.
+
+    **Description:**
+    Logs a completed phone call as a task in Salesforce with call-specific details like duration, type, and disposition.
+
+    **Variables (Agent fills during call):**
+    - `who_id` – Contact or Lead ID *(required)*
+    - `subject` – Call subject *(required)*
+    - `call_duration` – Call duration in minutes *(optional)*
+    - `call_type` – Type of call *(optional)*
+    - `call_disposition` – Call disposition *(optional)*
+    - `description` – Call description *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Log phone calls
+    - Record call details
+    - Track call activities
+    - Document call outcomes
+
+  </Accordion>
+
+  <Accordion title="Log Email Activity" icon="envelope">
+    Create an EmailMessage record to log email activity.
+
+    **Description:**
+    Creates an EmailMessage record to log email activity in Salesforce, associating it with related records.
+
+    **Variables (Agent fills during call):**
+    - `to_addresses` – Recipient email addresses *(required)*
+    - `from_address` – Sender email address *(required)*
+    - `subject` – Email subject *(required)*
+    - `text_body` – Plain text body *(optional)*
+    - `html_body` – HTML body *(optional)*
+    - `related_to_id` – Related record ID *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Log email activity
+    - Record email communications
+    - Track email interactions
+    - Document email history
+
+  </Accordion>
+
+  <Accordion title="Search Accounts" icon="magnifying-glass">
+    Search for Salesforce accounts using multiple criteria.
+
+    **Description:**
+    Search for Salesforce accounts using multiple criteria like name, industry, type, location, or contact information.
+
+    **Variables (Agent fills during call):**
+    - `search_term` – Search term *(optional)*
+    - `name` – Account name filter *(optional)*
+    - `industry` – Industry filter *(optional)*
+    - `type` – Account type filter *(optional)*
+    - Additional search criteria *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Search accounts
+    - Find accounts by name
+    - Filter accounts by criteria
+    - Search account information
+
+  </Accordion>
+
+  <Accordion title="Search Contacts" icon="magnifying-glass">
+    Search for Salesforce contacts using multiple criteria.
+
+    **Description:**
+    Search for Salesforce contacts using multiple criteria like name, email, phone, account, or title.
+
+    **Variables (Agent fills during call):**
+    - `search_term` – Search term *(optional)*
+    - `name` – Name filter *(optional)*
+    - `email` – Email filter *(optional)*
+    - `phone` – Phone filter *(optional)*
+    - `account_id` – Account ID filter *(optional)*
+    - Additional search criteria *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Search contacts
+    - Find contacts by email
+    - Filter contacts by criteria
+    - Search contact information
+
+  </Accordion>
+
+  <Accordion title="Search Leads" icon="magnifying-glass">
+    Search for Salesforce leads using multiple criteria.
+
+    **Description:**
+    Search for Salesforce leads using multiple criteria like name, email, phone, company, title, status, or lead source.
+
+    **Variables (Agent fills during call):**
+    - `search_term` – Search term *(optional)*
+    - `name` – Name filter *(optional)*
+    - `email` – Email filter *(optional)*
+    - `phone` – Phone filter *(optional)*
+    - `company` – Company filter *(optional)*
+    - `status` – Status filter *(optional)*
+    - Additional search criteria *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Search leads
+    - Find leads by company
+    - Filter leads by criteria
+    - Search lead information
+
+  </Accordion>
+
+  <Accordion title="Search Notes" icon="magnifying-glass">
+    Search for Salesforce notes using multiple criteria.
+
+    **Description:**
+    Search for Salesforce notes using multiple criteria like title, body content, parent record, owner, or creation date.
+
+    **Variables (Agent fills during call):**
+    - `search_term` – Search term *(optional)*
+    - `title` – Title filter *(optional)*
+    - `parent_id` – Parent record ID filter *(optional)*
+    - `owner_id` – Owner ID filter *(optional)*
+    - Additional search criteria *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Search notes
+    - Find notes by content
+    - Filter notes by criteria
+    - Search note information
+
+  </Accordion>
+
+  <Accordion title="Search Opportunities" icon="magnifying-glass">
+    Search for Salesforce opportunities using multiple criteria.
+
+    **Description:**
+    Search for Salesforce opportunities using multiple criteria like name, account, stage, amount, close date, or status.
+
+    **Variables (Agent fills during call):**
+    - `search_term` – Search term *(optional)*
+    - `name` – Name filter *(optional)*
+    - `account_id` – Account ID filter *(optional)*
+    - `stage` – Stage filter *(optional)*
+    - `amount_min` – Minimum amount *(optional)*
+    - `amount_max` – Maximum amount *(optional)*
+    - Additional search criteria *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Search opportunities
+    - Find opportunities by stage
+    - Filter opportunities by criteria
+    - Search opportunity information
+
+  </Accordion>
+
+  <Accordion title="Search Tasks" icon="magnifying-glass">
+    Search for Salesforce tasks using multiple criteria.
+
+    **Description:**
+    Search for Salesforce tasks using multiple criteria like subject, status, priority, assigned user, related records, or dates.
+
+    **Variables (Agent fills during call):**
+    - `search_term` – Search term *(optional)*
+    - `subject` – Subject filter *(optional)*
+    - `status` – Status filter *(optional)*
+    - `priority` – Priority filter *(optional)*
+    - `assigned_to_id` – Assigned user ID filter *(optional)*
+    - Additional search criteria *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Search tasks
+    - Find tasks by status
+    - Filter tasks by criteria
+    - Search task information
+
+  </Accordion>
+
+  <Accordion title="Update Account" icon="pencil">
+    Update an existing account in Salesforce.
+
+    **Description:**
+    Updates an existing account in Salesforce with the specified changes. Only provided fields will be updated.
+
+    **Variables (Agent fills during call):**
+    - `account_id` – The account ID *(required)*
+    - `name` – Updated name *(optional)*
+    - `type` – Updated type *(optional)*
+    - `industry` – Updated industry *(optional)*
+    - `phone` – Updated phone *(optional)*
+    - `website` – Updated website *(optional)*
+    - Additional account fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Update account details
+    - Change account information
+    - Modify account data
+    - Update account properties
+
+  </Accordion>
+
+  <Accordion title="Update Contact" icon="pencil">
+    Update an existing contact in Salesforce.
+
+    **Description:**
+    Updates an existing contact in Salesforce with the specified changes. Only provided fields will be updated.
+
+    **Variables (Agent fills during call):**
+    - `contact_id` – The contact ID *(required)*
+    - `first_name` – Updated first name *(optional)*
+    - `last_name` – Updated last name *(optional)*
+    - `email` – Updated email *(optional)*
+    - `phone` – Updated phone *(optional)*
+    - `title` – Updated title *(optional)*
+    - Additional contact fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Update contact details
+    - Change contact information
+    - Modify contact data
+    - Update contact properties
+
+  </Accordion>
+
+  <Accordion title="Update Lead" icon="pencil">
+    Update an existing lead in Salesforce.
+
+    **Description:**
+    Updates an existing lead in Salesforce with the specified changes. Only provided fields will be updated.
+
+    **Variables (Agent fills during call):**
+    - `lead_id` – The lead ID *(required)*
+    - `first_name` – Updated first name *(optional)*
+    - `last_name` – Updated last name *(optional)*
+    - `company` – Updated company *(optional)*
+    - `email` – Updated email *(optional)*
+    - `phone` – Updated phone *(optional)*
+    - `status` – Updated status *(optional)*
+    - Additional lead fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Update lead details
+    - Change lead information
+    - Modify lead data
+    - Update lead properties
+
+  </Accordion>
+
+  <Accordion title="Update Note" icon="pencil">
+    Update an existing note in Salesforce.
+
+    **Description:**
+    Updates an existing note in Salesforce with the specified changes. Only provided fields will be updated.
+
+    **Variables (Agent fills during call):**
+    - `note_id` – The note ID *(required)*
+    - `title` – Updated title *(optional)*
+    - `body` – Updated content *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Edit notes
+    - Update note content
+    - Modify notes
+    - Change note text
+
+  </Accordion>
+
+  <Accordion title="Update Opportunity" icon="pencil">
+    Update an existing opportunity in Salesforce.
+
+    **Description:**
+    Updates an existing opportunity in Salesforce with the specified changes. Only provided fields will be updated.
+
+    **Variables (Agent fills during call):**
+    - `opportunity_id` – The opportunity ID *(required)*
+    - `name` – Updated name *(optional)*
+    - `stage_name` – Updated stage *(optional)*
+    - `amount` – Updated amount *(optional)*
+    - `close_date` – Updated close date *(optional)*
+    - `probability` – Updated probability *(optional)*
+    - Additional opportunity fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Update opportunity details
+    - Change opportunity stage
+    - Modify opportunity information
+    - Update opportunity properties
+
+  </Accordion>
+
+  <Accordion title="Update Task" icon="pencil">
+    Update an existing task in Salesforce.
+
+    **Description:**
+    Updates an existing task in Salesforce with new information. Only provided fields will be updated.
+
+    **Variables (Agent fills during call):**
+    - `task_id` – The task ID *(required)*
+    - `subject` – Updated subject *(optional)*
+    - `status` – Updated status *(optional)*
+    - `priority` – Updated priority *(optional)*
+    - `due_date` – Updated due date *(optional)*
+    - `description` – Updated description *(optional)*
+    - Additional task fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Salesforce integration*
+
+    **Use Cases:**
+    - Update task details
+    - Change task status
+    - Modify task information
+    - Update task properties
+
+  </Accordion>
+
+</AccordionGroup>
 
 ---
 
@@ -22815,7 +23919,340 @@ Shopify is an e-commerce platform enabling merchants to create online stores, ma
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Create Customer" icon="user-plus">
+    Create a new customer in Shopify.
+
+    **Description:**
+    Tool to create a new customer in Shopify. Use when you need to add a new customer record to the store.
+
+    **Variables (Agent fills during call):**
+    - `email` – Customer email address *(required)*
+    - `first_name` – First name *(optional)*
+    - `last_name` – Last name *(optional)*
+    - `phone` – Phone number *(optional)*
+    - `addresses` – Customer addresses *(optional)*
+    - Additional customer fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Shopify integration*
+
+    **Use Cases:**
+    - Add new customers
+    - Create customer accounts
+    - Register customers
+    - Add customer records
+
+  </Accordion>
+
+  <Accordion title="Create Order" icon="plus">
+    Create a new order in Shopify.
+
+    **Description:**
+    Creates a new order in Shopify, typically requiring line items; if `customer_id` is provided, it must correspond to an existing customer.
+
+    **Variables (Agent fills during call):**
+    - `line_items` – Order line items *(required)*
+    - `customer_id` – Customer ID *(optional)*
+    - `email` – Customer email *(optional)*
+    - `shipping_address` – Shipping address *(optional)*
+    - `billing_address` – Billing address *(optional)*
+    - `financial_status` – Financial status *(optional)*
+    - Additional order fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Shopify integration*
+
+    **Use Cases:**
+    - Create orders
+    - Place orders
+    - Add new orders
+    - Process orders
+
+  </Accordion>
+
+  <Accordion title="Get All Customers" icon="users">
+    Retrieve customer records from a Shopify store.
+
+    **Description:**
+    Retrieves customer records from a Shopify store, with options for filtering, selecting specific fields, and paginating through the results.
+
+    **Variables (Agent fills during call):**
+    - `limit` – Number of results to return *(optional)*
+    - `fields` – Fields to retrieve *(optional)*
+    - `since_id` – Return customers after this ID *(optional)*
+    - `created_at_min` – Filter by minimum creation date *(optional)*
+    - `created_at_max` – Filter by maximum creation date *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Shopify integration*
+
+    **Use Cases:**
+    - List all customers
+    - Retrieve customer directory
+    - Get customer list
+    - Access customer records
+
+  </Accordion>
+
+  <Accordion title="Get Collection By Id" icon="file-lines">
+    Retrieve a specific Shopify collection by ID.
+
+    **Description:**
+    Retrieves a specific Shopify collection by its `collection_id`, optionally filtering returned data to specified `fields`.
+
+    **Variables (Agent fills during call):**
+    - `collection_id` – The collection ID *(required)*
+    - `fields` – Fields to retrieve *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Shopify integration*
+
+    **Use Cases:**
+    - View collection details
+    - Get collection information
+    - Retrieve collection data
+    - Access collection properties
+
+  </Accordion>
+
+  <Accordion title="Get Custom Collections" icon="list">
+    Retrieve a list of custom collections.
+
+    **Description:**
+    Retrieves a list of custom collections from a Shopify store, optionally filtered by IDs, product ID, or handle.
+
+    **Variables (Agent fills during call):**
+    - `ids` – Collection IDs to filter *(optional)*
+    - `product_id` – Filter by product ID *(optional)*
+    - `handle` – Filter by handle *(optional)*
+    - `limit` – Number of results to return *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Shopify integration*
+
+    **Use Cases:**
+    - List custom collections
+    - Get collection list
+    - Retrieve collections
+    - Access collection directory
+
+  </Accordion>
+
+  <Accordion title="Get Customer" icon="user">
+    Retrieve detailed information for a specific customer.
+
+    **Description:**
+    Retrieves detailed information for a specific customer from a Shopify store, provided their valid and existing `customer_id`.
+
+    **Variables (Agent fills during call):**
+    - `customer_id` – The customer ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Shopify integration*
+
+    **Use Cases:**
+    - View customer details
+    - Get customer information
+    - Retrieve customer data
+    - Access customer profile
+
+  </Accordion>
+
+  <Accordion title="Get Customer Orders" icon="list">
+    Retrieve all orders for a specific customer.
+
+    **Description:**
+    Retrieves all orders for a specific, existing customer in Shopify using their unique customer ID.
+
+    **Variables (Agent fills during call):**
+    - `customer_id` – The customer ID *(required)*
+    - `limit` – Number of results to return *(optional)*
+    - `status` – Filter by order status *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Shopify integration*
+
+    **Use Cases:**
+    - View customer order history
+    - Get customer orders
+    - Retrieve order list for customer
+    - Access customer purchase history
+
+  </Accordion>
+
+  <Accordion title="Get Order List" icon="list">
+    Retrieve a list of orders from Shopify.
+
+    **Description:**
+    Retrieves a list of orders from Shopify using default API settings and filters.
+
+    **Variables (Agent fills during call):**
+    - `limit` – Number of results to return *(optional)*
+    - `status` – Filter by order status *(optional)*
+    - `financial_status` – Filter by financial status *(optional)*
+    - `created_at_min` – Filter by minimum creation date *(optional)*
+    - `created_at_max` – Filter by maximum creation date *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Shopify integration*
+
+    **Use Cases:**
+    - List all orders
+    - Get order list
+    - Retrieve orders
+    - Access order directory
+
+  </Accordion>
+
+  <Accordion title="Get Ordersby Id" icon="file-lines">
+    Retrieve a specific Shopify order by ID.
+
+    **Description:**
+    Retrieves a specific Shopify order by its unique ID, which must correspond to an existing order.
+
+    **Variables (Agent fills during call):**
+    - `order_id` – The order ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Shopify integration*
+
+    **Use Cases:**
+    - View order details
+    - Get order information
+    - Retrieve order data
+    - Access order properties
+
+  </Accordion>
+
+  <Accordion title="Get Product" icon="file-lines">
+    Retrieve details for an existing Shopify product.
+
+    **Description:**
+    Retrieves details for an existing Shopify product using its unique product ID.
+
+    **Variables (Agent fills during call):**
+    - `product_id` – The product ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Shopify integration*
+
+    **Use Cases:**
+    - View product details
+    - Get product information
+    - Retrieve product data
+    - Access product properties
+
+  </Accordion>
+
+  <Accordion title="Get Product Images" icon="image">
+    Retrieve all images for a Shopify product.
+
+    **Description:**
+    Retrieves all images for a Shopify product, specified by its `product_id` which must correspond to an existing product.
+
+    **Variables (Agent fills during call):**
+    - `product_id` – The product ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Shopify integration*
+
+    **Use Cases:**
+    - View product images
+    - Get product photos
+    - Retrieve product image URLs
+    - Access product media
+
+  </Accordion>
+
+  <Accordion title="Get Products" icon="list">
+    Retrieve a list of products from a Shopify store.
+
+    **Description:**
+    Retrieves a list of products from a Shopify store.
+
+    **Variables (Agent fills during call):**
+    - `limit` – Number of results to return *(optional)*
+    - `fields` – Fields to retrieve *(optional)*
+    - `vendor` – Filter by vendor *(optional)*
+    - `product_type` – Filter by product type *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Shopify integration*
+
+    **Use Cases:**
+    - List all products
+    - Get product catalog
+    - Retrieve product list
+    - Access product directory
+
+  </Accordion>
+
+  <Accordion title="Get Products In Collection" icon="list">
+    Retrieve all products within a specified Shopify collection.
+
+    **Description:**
+    Retrieves all products within a specified Shopify collection, requiring a valid `collection_id`.
+
+    **Variables (Agent fills during call):**
+    - `collection_id` – The collection ID *(required)*
+    - `limit` – Number of results to return *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Shopify integration*
+
+    **Use Cases:**
+    - View collection products
+    - Get products in collection
+    - Retrieve collection items
+    - Access collection catalog
+
+  </Accordion>
+
+  <Accordion title="Get Products Paginated" icon="list">
+    List products with Shopify cursor-based pagination.
+
+    **Description:**
+    Tool to list products with Shopify cursor-based pagination. Use when iterating over large product catalogs via the Link header.
+
+    **Variables (Agent fills during call):**
+    - `limit` – Number of results per page *(optional)*
+    - `cursor` – Pagination cursor *(optional)*
+    - `fields` – Fields to retrieve *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Shopify integration*
+
+    **Use Cases:**
+    - Paginate through products
+    - Handle large product catalogs
+    - Iterate over products
+    - Process products in batches
+
+  </Accordion>
+
+  <Accordion title="Update Order" icon="pencil">
+    Update the phone number for an existing Shopify order.
+
+    **Description:**
+    Updates the phone number for an existing Shopify order, identified by its ID; pass `phone=None` to remove the current phone number.
+
+    **Variables (Agent fills during call):**
+    - `order_id` – The order ID *(required)*
+    - `phone` – Updated phone number *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Shopify integration*
+
+    **Use Cases:**
+    - Update order phone number
+    - Change order contact information
+    - Modify order details
+    - Update order properties
+
+  </Accordion>
+
+</AccordionGroup>
 
 ---
 
@@ -22839,7 +24276,532 @@ Slack is a channel-based messaging platform. With Slack, people can work togethe
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Create A Reminder" icon="bell">
+    Create a Slack reminder with specified text and time.
+
+    **Description:**
+    Creates a Slack reminder with specified text and time; time accepts Unix timestamps, seconds from now, or natural language (e.g., 'in 15 minutes', 'every Thursday at 2pm').
+
+    **Variables (Agent fills during call):**
+    - `text` – Reminder text *(required)*
+    - `time` – Reminder time (Unix timestamp, seconds from now, or natural language) *(required)*
+    - `user` – User ID to create reminder for *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Slack integration*
+
+    **Use Cases:**
+    - Set reminders
+    - Create scheduled reminders
+    - Schedule notifications
+    - Set task reminders
+
+  </Accordion>
+
+  <Accordion title="Delete A Slack Reminder" icon="trash">
+    Delete an existing Slack reminder.
+
+    **Description:**
+    Deletes an existing Slack reminder, typically when it is no longer relevant or a task is completed; this operation is irreversible.
+
+    **Variables (Agent fills during call):**
+    - `reminder_id` – The reminder ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Slack integration*
+
+    **Use Cases:**
+    - Remove reminders
+    - Delete completed reminders
+    - Cancel reminders
+    - Clean up reminders
+
+  </Accordion>
+
+  <Accordion title="Fetch Conversation History" icon="clock-rotate-left">
+    Fetch messages and events from a Slack conversation.
+
+    **Description:**
+    Fetches a chronological list of messages and events from a specified Slack conversation, accessible by the authenticated user/bot, with options for pagination and time range filtering.
+
+    **Variables (Agent fills during call):**
+    - `channel` – Channel ID *(required)*
+    - `oldest` – Oldest message timestamp to include *(optional)*
+    - `latest` – Latest message timestamp to include *(optional)*
+    - `limit` – Number of messages to return *(optional)*
+    - `cursor` – Pagination cursor *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Slack integration*
+
+    **Use Cases:**
+    - View conversation history
+    - Retrieve channel messages
+    - Get message history
+    - Access conversation logs
+
+  </Accordion>
+
+  <Accordion title="Fetch Message Thread From A Conversation" icon="comments">
+    Retrieve replies to a specific parent message.
+
+    **Description:**
+    Retrieves replies to a specific parent message in a Slack conversation, using the channel ID and the parent message's timestamp (`ts`).
+
+    **Variables (Agent fills during call):**
+    - `channel` – Channel ID *(required)*
+    - `ts` – Parent message timestamp *(required)*
+    - `limit` – Number of replies to return *(optional)*
+    - `cursor` – Pagination cursor *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Slack integration*
+
+    **Use Cases:**
+    - View thread replies
+    - Get message thread
+    - Retrieve thread conversation
+    - Access thread messages
+
+  </Accordion>
+
+  <Accordion title="Find Channels" icon="magnifying-glass">
+    Find channels in a Slack workspace.
+
+    **Description:**
+    Find channels in a Slack workspace by any criteria - name, topic, purpose, or description.
+
+    **Variables (Agent fills during call):**
+    - `query` – Search query *(optional)*
+    - `name` – Channel name filter *(optional)*
+    - `topic` – Topic filter *(optional)*
+    - `purpose` – Purpose filter *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Slack integration*
+
+    **Use Cases:**
+    - Search channels
+    - Find channels by name
+    - Filter channels by criteria
+    - Discover channels
+
+  </Accordion>
+
+  <Accordion title="Find User By Email Address" icon="envelope">
+    Retrieve Slack user by email address.
+
+    **Description:**
+    Retrieves the Slack user object for an active user by their registered email address; fails with 'users_not_found' if the email is unregistered or the user is inactive.
+
+    **Variables (Agent fills during call):**
+    - `email` – Email address *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Slack integration*
+
+    **Use Cases:**
+    - Find user by email
+    - Look up user by email
+    - Get user from email
+    - Search user by email address
+
+  </Accordion>
+
+  <Accordion title="Find Users" icon="magnifying-glass">
+    Find users in a Slack workspace.
+
+    **Description:**
+    Find users in a Slack workspace by any criteria - email, name, display name, or other text. Includes optimized email lookup for exact email matches.
+
+    **Variables (Agent fills during call):**
+    - `query` – Search query *(optional)*
+    - `email` – Email filter *(optional)*
+    - `name` – Name filter *(optional)*
+    - `display_name` – Display name filter *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Slack integration*
+
+    **Use Cases:**
+    - Search users
+    - Find users by name
+    - Filter users by criteria
+    - Discover users
+
+  </Accordion>
+
+  <Accordion title="Get Canvas" icon="file-lines">
+    Retrieve a specific Slack Canvas by ID.
+
+    **Description:**
+    Retrieves a specific Slack Canvas by its ID, including its content and metadata.
+
+    **Variables (Agent fills during call):**
+    - `canvas_id` – The Canvas ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Slack integration*
+
+    **Use Cases:**
+    - View Canvas content
+    - Get Canvas information
+    - Retrieve Canvas data
+    - Access Canvas details
+
+  </Accordion>
+
+  <Accordion title="Get Reminder Information" icon="file-lines">
+    Retrieve detailed information for an existing Slack reminder.
+
+    **Description:**
+    Retrieves detailed information for an existing Slack reminder specified by its ID; this is a read-only operation.
+
+    **Variables (Agent fills during call):**
+    - `reminder_id` – The reminder ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Slack integration*
+
+    **Use Cases:**
+    - View reminder details
+    - Get reminder information
+    - Retrieve reminder data
+    - Check reminder status
+
+  </Accordion>
+
+  <Accordion title="Get Team Dnd Status" icon="moon">
+    Retrieve a user's current Do Not Disturb status.
+
+    **Description:**
+    Retrieves a user's current Do Not Disturb status.
+
+    **Variables (Agent fills during call):**
+    - `user` – User ID *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Slack integration*
+
+    **Use Cases:**
+    - Check DND status
+    - Get user availability
+    - View DND settings
+    - Check if user is available
+
+  </Accordion>
+
+  <Accordion title="Get User Presence Info" icon="circle-check">
+    Retrieve a Slack user's current real-time presence.
+
+    **Description:**
+    Retrieves a Slack user's current real-time presence (e.g., 'active', 'away') to determine their availability, noting this action does not provide historical data or status reasons.
+
+    **Variables (Agent fills during call):**
+    - `user` – User ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Slack integration*
+
+    **Use Cases:**
+    - Check user presence
+    - Get user availability
+    - View user status
+    - Check if user is online
+
+  </Accordion>
+
+  <Accordion title="List All Channels" icon="list">
+    List conversations available to the user.
+
+    **Description:**
+    Lists conversations available to the user with various filters and search options.
+
+    **Variables (Agent fills during call):**
+    - `types` – Conversation types to include *(optional)*
+    - `exclude_archived` – Exclude archived channels *(optional)*
+    - `limit` – Number of results to return *(optional)*
+    - `cursor` – Pagination cursor *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Slack integration*
+
+    **Use Cases:**
+    - List all channels
+    - Get channel directory
+    - Retrieve channel list
+    - Access available channels
+
+  </Accordion>
+
+  <Accordion title="List All Users" icon="users">
+    Retrieve a paginated list of all users in a Slack workspace.
+
+    **Description:**
+    Retrieves a paginated list of all users, including comprehensive details, profile information, status, and team memberships, in a Slack workspace; data may not be real-time.
+
+    **Variables (Agent fills during call):**
+    - `limit` – Number of results to return *(optional)*
+    - `cursor` – Pagination cursor *(optional)*
+    - `include_locale` – Include locale information *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Slack integration*
+
+    **Use Cases:**
+    - List all users
+    - Get user directory
+    - Retrieve user list
+    - Access workspace members
+
+  </Accordion>
+
+  <Accordion title="List Canvases" icon="list">
+    List Slack Canvases with filtering options.
+
+    **Description:**
+    Lists Slack Canvases with filtering by channel, user, timestamp, and page-based pagination. Uses Slack's files.list API with types=canvas filter.
+
+    **Variables (Agent fills during call):**
+    - `channel` – Filter by channel ID *(optional)*
+    - `user` – Filter by user ID *(optional)*
+    - `ts_from` – Filter by minimum timestamp *(optional)*
+    - `ts_to` – Filter by maximum timestamp *(optional)*
+    - `limit` – Number of results to return *(optional)*
+    - `page` – Page number *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Slack integration*
+
+    **Use Cases:**
+    - List all Canvases
+    - Get Canvas directory
+    - Retrieve Canvas list
+    - Access available Canvases
+
+  </Accordion>
+
+  <Accordion title="List Conversations" icon="list">
+    List conversations accessible to a specified user.
+
+    **Description:**
+    List conversations (channels/DMs) accessible to a specified user (or the authenticated user if no user ID is provided), respecting shared membership for non-public channels.
+
+    **Variables (Agent fills during call):**
+    - `user` – User ID *(optional)*
+    - `types` – Conversation types to include *(optional)*
+    - `exclude_archived` – Exclude archived conversations *(optional)*
+    - `limit` – Number of results to return *(optional)*
+    - `cursor` – Pagination cursor *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Slack integration*
+
+    **Use Cases:**
+    - List user conversations
+    - Get accessible channels
+    - Retrieve conversation list
+    - Access user's conversations
+
+  </Accordion>
+
+  <Accordion title="List Reminders" icon="list">
+    List all reminders for the authenticated user.
+
+    **Description:**
+    Lists all reminders with their details for the authenticated Slack user; returns an empty list if no reminders exist.
+
+    **Variables (Agent fills during call):**
+    *None required*
+
+    **Configurations (You set once):**
+    *None required—uses your Slack integration*
+
+    **Use Cases:**
+    - View all reminders
+    - Get reminder list
+    - Retrieve reminders
+    - Access user reminders
+
+  </Accordion>
+
+  <Accordion title="Lists Pinned Items In A Channel" icon="thumbtack">
+    Retrieve all messages and files pinned to a channel.
+
+    **Description:**
+    Retrieves all messages and files pinned to a specified channel; the caller must have access to this channel.
+
+    **Variables (Agent fills during call):**
+    - `channel` – Channel ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Slack integration*
+
+    **Use Cases:**
+    - View pinned messages
+    - Get pinned items
+    - Retrieve pinned content
+    - Access channel pins
+
+  </Accordion>
+
+  <Accordion title="Retrieve Conversation Members List" icon="users">
+    Retrieve a paginated list of active member IDs for a conversation.
+
+    **Description:**
+    Retrieves a paginated list of active member IDs for a specified Slack public channel, private channel, direct message (DM), or multi-person direct message (MPIM).
+
+    **Variables (Agent fills during call):**
+    - `channel` – Channel ID *(required)*
+    - `limit` – Number of results to return *(optional)*
+    - `cursor` – Pagination cursor *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Slack integration*
+
+    **Use Cases:**
+    - View channel members
+    - Get conversation members
+    - Retrieve member list
+    - Access channel participants
+
+  </Accordion>
+
+  <Accordion title="Retrieve Current User Dnd Status" icon="moon">
+    Retrieve a Slack user's current Do Not Disturb status.
+
+    **Description:**
+    Retrieves a Slack user's current Do Not Disturb (DND) status to determine their availability before interaction; any specified user ID must be a valid Slack user ID.
+
+    **Variables (Agent fills during call):**
+    - `user` – User ID *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Slack integration*
+
+    **Use Cases:**
+    - Check DND status
+    - Get user availability
+    - View DND settings
+    - Check if user is available
+
+  </Accordion>
+
+  <Accordion title="Retrieve Detailed User Information" icon="user">
+    Retrieve comprehensive information for a Slack user.
+
+    **Description:**
+    Retrieves comprehensive information for a valid Slack user ID, excluding message history and channel memberships.
+
+    **Variables (Agent fills during call):**
+    - `user` – User ID *(required)*
+    - `include_locale` – Include locale information *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Slack integration*
+
+    **Use Cases:**
+    - View user details
+    - Get user information
+    - Retrieve user data
+    - Access user profile
+
+  </Accordion>
+
+  <Accordion title="Retrieve User Profile Information" icon="user">
+    Retrieve profile information for a specified Slack user.
+
+    **Description:**
+    Retrieves profile information for a specified Slack user (defaults to the authenticated user if `user` ID is omitted); a provided `user` ID must be valid.
+
+    **Variables (Agent fills during call):**
+    - `user` – User ID *(optional)*
+    - `include_labels` – Include labels *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Slack integration*
+
+    **Use Cases:**
+    - View user profile
+    - Get profile information
+    - Retrieve profile data
+    - Access user details
+
+  </Accordion>
+
+  <Accordion title="Search All" icon="magnifying-glass">
+    Search all messages and files in Slack.
+
+    **Description:**
+    Tool to search all messages and files. Use when you need unified content search across channels and files in one call.
+
+    **Variables (Agent fills during call):**
+    - `query` – Search query *(required)*
+    - `sort` – Sort order *(optional)*
+    - `count` – Number of results per page *(optional)*
+    - `page` – Page number *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Slack integration*
+
+    **Use Cases:**
+    - Search across all content
+    - Find messages and files
+    - Unified content search
+    - Search workspace content
+
+  </Accordion>
+
+  <Accordion title="Search Messages" icon="magnifying-glass">
+    Workspace-wide Slack message search with filters.
+
+    **Description:**
+    Workspace‑wide Slack message search with date ranges and filters. Use `query` modifiers (e.g., in:#channel, from:@user, before/after:YYYY-MM-DD), sorting (score/timestamp), and pagination.
+
+    **Variables (Agent fills during call):**
+    - `query` – Search query with modifiers *(required)*
+    - `sort` – Sort order (score or timestamp) *(optional)*
+    - `sort_dir` – Sort direction *(optional)*
+    - `count` – Number of results per page *(optional)*
+    - `page` – Page number *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Slack integration*
+
+    **Use Cases:**
+    - Search messages
+    - Find messages by content
+    - Filter messages by criteria
+    - Search workspace messages
+
+  </Accordion>
+
+  <Accordion title="Send Message" icon="paper-plane">
+    Post a message to a Slack channel, DM, or private group.
+
+    **Description:**
+    Posts a message to a Slack channel, direct message, or private group; requires content via `text`, `blocks`, or `attachments`.
+
+    **Variables (Agent fills during call):**
+    - `channel` – Channel ID *(required)*
+    - `text` – Message text *(optional)*
+    - `blocks` – Message blocks *(optional)*
+    - `attachments` – Message attachments *(optional)*
+    - `thread_ts` – Thread timestamp for replies *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Slack integration*
+
+    **Use Cases:**
+    - Send messages
+    - Post to channels
+    - Send DMs
+    - Reply to threads
+
+  </Accordion>
+
+</AccordionGroup>
 
 ---
 
@@ -22863,7 +24825,669 @@ Stripe offers online payment infrastructure, fraud prevention, and APIs enabling
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Cancel Subscription" icon="xmark">
+    Cancel a customer's active Stripe subscription.
+
+    **Description:**
+    Cancels a customer's active Stripe subscription at the end of the current billing period, with options to invoice immediately for metered usage and prorate charges for unused time.
+
+    **Variables (Agent fills during call):**
+    - `subscription_id` – The subscription ID *(required)*
+    - `invoice_now` – Invoice immediately for metered usage *(optional)*
+    - `prorate` – Prorate charges for unused time *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Stripe integration*
+
+    **Use Cases:**
+    - Cancel subscriptions
+    - End customer subscriptions
+    - Stop recurring billing
+    - Cancel active subscriptions
+
+  </Accordion>
+
+  <Accordion title="Confirm Payment Intent" icon="check">
+    Confirm a Stripe PaymentIntent to finalize a payment.
+
+    **Description:**
+    Confirms a Stripe PaymentIntent to finalize a payment; a `return_url` is necessary if the payment method requires customer redirection.
+
+    **Variables (Agent fills during call):**
+    - `payment_intent_id` – The PaymentIntent ID *(required)*
+    - `return_url` – Return URL for customer redirection *(optional)*
+    - `payment_method` – Payment method ID *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Stripe integration*
+
+    **Use Cases:**
+    - Confirm payments
+    - Finalize payment transactions
+    - Complete payment processing
+    - Process payment intents
+
+  </Accordion>
+
+  <Accordion title="Create Checkout Session" icon="plus">
+    Create a Stripe Checkout Session.
+
+    **Description:**
+    Tool to create a Stripe Checkout Session. Use when you need a secure, hosted URL to collect payments or subscriptions via Stripe Checkout.
+
+    **Variables (Agent fills during call):**
+    - `success_url` – Success redirect URL *(required)*
+    - `cancel_url` – Cancel redirect URL *(required)*
+    - `line_items` – Line items for checkout *(optional)*
+    - `mode` – Checkout mode (payment or subscription) *(optional)*
+    - `customer` – Customer ID *(optional)*
+    - Additional checkout options *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Stripe integration*
+
+    **Use Cases:**
+    - Create checkout sessions
+    - Generate payment URLs
+    - Set up subscription checkout
+    - Create hosted payment pages
+
+  </Accordion>
+
+  <Accordion title="Create Customer" icon="user-plus">
+    Create a new customer in Stripe.
+
+    **Description:**
+    Creates a new customer in Stripe, required for creating charges or subscriptions; an email is highly recommended for customer communications.
+
+    **Variables (Agent fills during call):**
+    - `email` – Customer email address *(optional)*
+    - `name` – Customer name *(optional)*
+    - `phone` – Phone number *(optional)*
+    - `description` – Customer description *(optional)*
+    - `metadata` – Additional metadata *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Stripe integration*
+
+    **Use Cases:**
+    - Create customers
+    - Add new customers
+    - Register customers
+    - Create customer records
+
+  </Accordion>
+
+  <Accordion title="Create Invoice" icon="file-invoice">
+    Create a new draft Stripe invoice.
+
+    **Description:**
+    Creates a new draft Stripe invoice for a customer; use to revise an existing invoice, bill for a specific subscription (which must belong to the customer), or apply detailed customizations.
+
+    **Variables (Agent fills during call):**
+    - `customer` – Customer ID *(required)*
+    - `subscription` – Subscription ID *(optional)*
+    - `description` – Invoice description *(optional)*
+    - `line_items` – Invoice line items *(optional)*
+    - `auto_advance` – Auto-finalize invoice *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Stripe integration*
+
+    **Use Cases:**
+    - Create invoices
+    - Generate invoices
+    - Bill customers
+    - Create invoice drafts
+
+  </Accordion>
+
+  <Accordion title="Create Payment Intent" icon="plus">
+    Create a Stripe PaymentIntent to initiate payment processing.
+
+    **Description:**
+    Creates a Stripe PaymentIntent to initiate and process a customer's payment; using `application_fee_amount` for a connected account requires the `Stripe-Account` header.
+
+    **Variables (Agent fills during call):**
+    - `amount` – Payment amount in cents *(required)*
+    - `currency` – Currency code *(required)*
+    - `payment_method_types` – Payment method types *(optional)*
+    - `customer` – Customer ID *(optional)*
+    - `application_fee_amount` – Application fee amount *(optional)*
+    - Additional payment options *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Stripe integration*
+
+    **Use Cases:**
+    - Create payment intents
+    - Initiate payments
+    - Process payments
+    - Set up payment processing
+
+  </Accordion>
+
+  <Accordion title="Create Refund" icon="rotate-left">
+    Create a full or partial refund in Stripe.
+
+    **Description:**
+    Creates a full or partial refund in Stripe, targeting either a specific charge ID or a payment intent ID.
+
+    **Variables (Agent fills during call):**
+    - `charge` – Charge ID *(optional)*
+    - `payment_intent` – PaymentIntent ID *(optional)*
+    - `amount` – Refund amount in cents *(optional)*
+    - `reason` – Refund reason *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Stripe integration*
+
+    **Use Cases:**
+    - Process refunds
+    - Issue refunds
+    - Refund charges
+    - Create refund transactions
+
+  </Accordion>
+
+  <Accordion title="Create Subscription" icon="plus">
+    Create a new subscription for an existing Stripe customer.
+
+    **Description:**
+    Creates a new, highly configurable subscription for an existing Stripe customer, supporting multiple items, trials, discounts, and various billing/payment options.
+
+    **Variables (Agent fills during call):**
+    - `customer` – Customer ID *(required)*
+    - `items` – Subscription items *(required)*
+    - `trial_period_days` – Trial period days *(optional)*
+    - `coupon` – Coupon ID *(optional)*
+    - `payment_behavior` – Payment behavior *(optional)*
+    - Additional subscription options *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Stripe integration*
+
+    **Use Cases:**
+    - Create subscriptions
+    - Set up recurring billing
+    - Start subscriptions
+    - Create customer subscriptions
+
+  </Accordion>
+
+  <Accordion title="Delete Customer" icon="trash">
+    Permanently delete an existing Stripe customer.
+
+    **Description:**
+    Permanently deletes an existing Stripe customer; this irreversible action also cancels their active subscriptions and removes all associated data.
+
+    **Variables (Agent fills during call):**
+    - `customer_id` – The customer ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Stripe integration*
+
+    **Use Cases:**
+    - Delete customers
+    - Remove customer records
+    - Clean up customer data
+    - Remove outdated customers
+
+  </Accordion>
+
+  <Accordion title="List Charges" icon="list">
+    Retrieve a list of Stripe charges.
+
+    **Description:**
+    Retrieves a list of Stripe charges with filtering and pagination; use valid cursor IDs from previous responses for pagination, and note that charges are typically returned in reverse chronological order.
+
+    **Variables (Agent fills during call):**
+    - `limit` – Number of results to return *(optional)*
+    - `starting_after` – Cursor for pagination *(optional)*
+    - `ending_before` – Cursor for pagination *(optional)*
+    - `customer` – Filter by customer ID *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Stripe integration*
+
+    **Use Cases:**
+    - List all charges
+    - View charge history
+    - Retrieve charges
+    - Access charge records
+
+  </Accordion>
+
+  <Accordion title="List Coupons" icon="list">
+    Retrieve a list of discount coupons.
+
+    **Description:**
+    Retrieves a list of discount coupons from a Stripe account, supporting pagination via `limit`, `starting_after`, and `ending_before`.
+
+    **Variables (Agent fills during call):**
+    - `limit` – Number of results to return *(optional)*
+    - `starting_after` – Cursor for pagination *(optional)*
+    - `ending_before` – Cursor for pagination *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Stripe integration*
+
+    **Use Cases:**
+    - List all coupons
+    - View available coupons
+    - Retrieve coupons
+    - Access coupon directory
+
+  </Accordion>
+
+  <Accordion title="List Customer Payment Methods" icon="credit-card">
+    Retrieve payment methods for a given customer.
+
+    **Description:**
+    Retrieves a list of payment methods for a given customer, supporting type filtering and pagination.
+
+    **Variables (Agent fills during call):**
+    - `customer` – Customer ID *(required)*
+    - `type` – Payment method type filter *(optional)*
+    - `limit` – Number of results to return *(optional)*
+    - `starting_after` – Cursor for pagination *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Stripe integration*
+
+    **Use Cases:**
+    - View customer payment methods
+    - Get saved payment methods
+    - Retrieve payment cards
+    - Access payment methods
+
+  </Accordion>
+
+  <Accordion title="List Customers" icon="users">
+    Retrieve a list of Stripe customers.
+
+    **Description:**
+    Retrieves a list of Stripe customers, with options to filter by email, creation date, or test clock, and support for pagination.
+
+    **Variables (Agent fills during call):**
+    - `limit` – Number of results to return *(optional)*
+    - `starting_after` – Cursor for pagination *(optional)*
+    - `ending_before` – Cursor for pagination *(optional)*
+    - `email` – Filter by email *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Stripe integration*
+
+    **Use Cases:**
+    - List all customers
+    - View customer directory
+    - Retrieve customers
+    - Access customer list
+
+  </Accordion>
+
+  <Accordion title="List Invoices" icon="list">
+    Retrieve a list of Stripe invoices.
+
+    **Description:**
+    Retrieves a list of Stripe invoices, filterable by various criteria and paginatable using invoice ID cursors obtained from previous responses.
+
+    **Variables (Agent fills during call):**
+    - `limit` – Number of results to return *(optional)*
+    - `starting_after` – Cursor for pagination *(optional)*
+    - `ending_before` – Cursor for pagination *(optional)*
+    - `customer` – Filter by customer ID *(optional)*
+    - `status` – Filter by status *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Stripe integration*
+
+    **Use Cases:**
+    - List all invoices
+    - View invoice history
+    - Retrieve invoices
+    - Access invoice records
+
+  </Accordion>
+
+  <Accordion title="List Payment Intents" icon="list">
+    Retrieve a list of Stripe PaymentIntents.
+
+    **Description:**
+    Retrieves a list of Stripe PaymentIntents, optionally filtered and paginated using PaymentIntent IDs as cursors.
+
+    **Variables (Agent fills during call):**
+    - `limit` – Number of results to return *(optional)*
+    - `starting_after` – Cursor for pagination *(optional)*
+    - `ending_before` – Cursor for pagination *(optional)*
+    - `customer` – Filter by customer ID *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Stripe integration*
+
+    **Use Cases:**
+    - List all payment intents
+    - View payment intent history
+    - Retrieve payment intents
+    - Access payment intent records
+
+  </Accordion>
+
+  <Accordion title="List Payment Links" icon="list">
+    Retrieve a list of payment links from Stripe.
+
+    **Description:**
+    Retrieves a list of payment links from Stripe, sorted by creation date in descending order by default.
+
+    **Variables (Agent fills during call):**
+    - `limit` – Number of results to return *(optional)*
+    - `starting_after` – Cursor for pagination *(optional)*
+    - `ending_before` – Cursor for pagination *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Stripe integration*
+
+    **Use Cases:**
+    - List all payment links
+    - View payment links
+    - Retrieve payment links
+    - Access payment link directory
+
+  </Accordion>
+
+  <Accordion title="List Products" icon="list">
+    Retrieve a list of Stripe products.
+
+    **Description:**
+    Retrieves a list of Stripe products, with optional filtering and pagination; `starting_after`/`ending_before` cursors must be valid product IDs from a previous response.
+
+    **Variables (Agent fills during call):**
+    - `limit` – Number of results to return *(optional)*
+    - `starting_after` – Cursor for pagination *(optional)*
+    - `ending_before` – Cursor for pagination *(optional)*
+    - `active` – Filter by active status *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Stripe integration*
+
+    **Use Cases:**
+    - List all products
+    - View product catalog
+    - Retrieve products
+    - Access product directory
+
+  </Accordion>
+
+  <Accordion title="List Refunds" icon="list">
+    List Stripe refunds with filtering and pagination.
+
+    **Description:**
+    Lists Stripe refunds, sorted by creation date descending (newest first), with optional filtering by charge or payment_intent and pagination support.
+
+    **Variables (Agent fills during call):**
+    - `limit` – Number of results to return *(optional)*
+    - `starting_after` – Cursor for pagination *(optional)*
+    - `ending_before` – Cursor for pagination *(optional)*
+    - `charge` – Filter by charge ID *(optional)*
+    - `payment_intent` – Filter by PaymentIntent ID *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Stripe integration*
+
+    **Use Cases:**
+    - List all refunds
+    - View refund history
+    - Retrieve refunds
+    - Access refund records
+
+  </Accordion>
+
+  <Accordion title="List Shipping Rates" icon="truck">
+    Retrieve a list of Stripe shipping rates.
+
+    **Description:**
+    Retrieves a list of Stripe shipping rates, filterable by active status, creation date, and currency; useful for managing or displaying shipping options.
+
+    **Variables (Agent fills during call):**
+    - `limit` – Number of results to return *(optional)*
+    - `starting_after` – Cursor for pagination *(optional)*
+    - `ending_before` – Cursor for pagination *(optional)*
+    - `active` – Filter by active status *(optional)*
+    - `currency` – Filter by currency *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Stripe integration*
+
+    **Use Cases:**
+    - List all shipping rates
+    - View shipping options
+    - Retrieve shipping rates
+    - Access shipping rate directory
+
+  </Accordion>
+
+  <Accordion title="List Subscriptions" icon="list">
+    Retrieve a list of Stripe subscriptions.
+
+    **Description:**
+    Retrieves a list of Stripe subscriptions, optionally filtered by various criteria such as customer, price, status, collection method, and date ranges, with support for pagination.
+
+    **Variables (Agent fills during call):**
+    - `limit` – Number of results to return *(optional)*
+    - `starting_after` – Cursor for pagination *(optional)*
+    - `ending_before` – Cursor for pagination *(optional)*
+    - `customer` – Filter by customer ID *(optional)*
+    - `status` – Filter by status *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Stripe integration*
+
+    **Use Cases:**
+    - List all subscriptions
+    - View subscription directory
+    - Retrieve subscriptions
+    - Access subscription records
+
+  </Accordion>
+
+  <Accordion title="Retrieve Charge" icon="file-lines">
+    Retrieve full details for an existing Stripe charge.
+
+    **Description:**
+    Retrieves full details for an existing Stripe charge using its unique ID.
+
+    **Variables (Agent fills during call):**
+    - `charge_id` – The charge ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Stripe integration*
+
+    **Use Cases:**
+    - View charge details
+    - Get charge information
+    - Retrieve charge data
+    - Access charge properties
+
+  </Accordion>
+
+  <Accordion title="Retrieve Customer" icon="user">
+    Retrieve detailed information for an existing Stripe customer.
+
+    **Description:**
+    Retrieves detailed information for an existing Stripe customer using their unique customer ID.
+
+    **Variables (Agent fills during call):**
+    - `customer_id` – The customer ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Stripe integration*
+
+    **Use Cases:**
+    - View customer details
+    - Get customer information
+    - Retrieve customer data
+    - Access customer profile
+
+  </Accordion>
+
+  <Accordion title="Retrieve Payment Intent" icon="file-lines">
+    Retrieve a PaymentIntent by its ID.
+
+    **Description:**
+    Retrieves a PaymentIntent by its ID; `client_secret` is required if a publishable API key is used.
+
+    **Variables (Agent fills during call):**
+    - `payment_intent_id` – The PaymentIntent ID *(required)*
+    - `client_secret` – Client secret (if using publishable key) *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Stripe integration*
+
+    **Use Cases:**
+    - View payment intent details
+    - Get payment intent information
+    - Retrieve payment intent data
+    - Access payment intent properties
+
+  </Accordion>
+
+  <Accordion title="Retrieve Refund" icon="file-lines">
+    Retrieve details for an existing Stripe refund.
+
+    **Description:**
+    Retrieves details for an existing Stripe refund using its unique `refund_id`.
+
+    **Variables (Agent fills during call):**
+    - `refund_id` – The refund ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Stripe integration*
+
+    **Use Cases:**
+    - View refund details
+    - Get refund information
+    - Retrieve refund data
+    - Access refund properties
+
+  </Accordion>
+
+  <Accordion title="Retrieve Subscription" icon="file-lines">
+    Retrieve detailed information for an existing Stripe subscription.
+
+    **Description:**
+    Retrieves detailed information for an existing Stripe subscription using its unique ID.
+
+    **Variables (Agent fills during call):**
+    - `subscription_id` – The subscription ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Stripe integration*
+
+    **Use Cases:**
+    - View subscription details
+    - Get subscription information
+    - Retrieve subscription data
+    - Access subscription properties
+
+  </Accordion>
+
+  <Accordion title="Search Customers" icon="magnifying-glass">
+    Retrieve customers matching a search query.
+
+    **Description:**
+    Retrieves a list of Stripe customers matching a search query that adheres to Stripe's Search Query Language.
+
+    **Variables (Agent fills during call):**
+    - `query` – Search query *(required)*
+    - `limit` – Number of results to return *(optional)*
+    - `page` – Page number *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Stripe integration*
+
+    **Use Cases:**
+    - Search customers
+    - Find customers by criteria
+    - Filter customers
+    - Query customer database
+
+  </Accordion>
+
+  <Accordion title="Update Customer" icon="pencil">
+    Update an existing Stripe customer.
+
+    **Description:**
+    Updates an existing Stripe customer, identified by customer_id, with only the provided details; unspecified fields remain unchanged.
+
+    **Variables (Agent fills during call):**
+    - `customer_id` – The customer ID *(required)*
+    - `email` – Updated email *(optional)*
+    - `name` – Updated name *(optional)*
+    - `phone` – Updated phone *(optional)*
+    - `description` – Updated description *(optional)*
+    - `metadata` – Updated metadata *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Stripe integration*
+
+    **Use Cases:**
+    - Update customer details
+    - Change customer information
+    - Modify customer data
+    - Update customer properties
+
+  </Accordion>
+
+  <Accordion title="Update Payment Intent" icon="pencil">
+    Update a Stripe PaymentIntent with new values.
+
+    **Description:**
+    Updates a Stripe PaymentIntent with new values for specified parameters; note that if `currency` is updated, `amount` might also be required, and certain updates (e.g., to `payment_method`) can necessitate re-confirmation by the customer.
+
+    **Variables (Agent fills during call):**
+    - `payment_intent_id` – The PaymentIntent ID *(required)*
+    - `amount` – Updated amount *(optional)*
+    - `currency` – Updated currency *(optional)*
+    - `payment_method` – Updated payment method *(optional)*
+    - `metadata` – Updated metadata *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Stripe integration*
+
+    **Use Cases:**
+    - Update payment intents
+    - Modify payment details
+    - Change payment amount
+    - Update payment information
+
+  </Accordion>
+
+  <Accordion title="Update Subscription" icon="pencil">
+    Update an existing Stripe subscription.
+
+    **Description:**
+    Updates an existing, non-canceled Stripe subscription by its ID, ensuring all referenced entity IDs (e.g., prices, coupons) are valid and automatic tax liability is correctly specified if enabled.
+
+    **Variables (Agent fills during call):**
+    - `subscription_id` – The subscription ID *(required)*
+    - `items` – Updated subscription items *(optional)*
+    - `coupon` – Updated coupon *(optional)*
+    - `proration_behavior` – Proration behavior *(optional)*
+    - `metadata` – Updated metadata *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Stripe integration*
+
+    **Use Cases:**
+    - Update subscription details
+    - Change subscription plan
+    - Modify subscription items
+    - Update subscription properties
+
+  </Accordion>
+
+</AccordionGroup>
 
 ---
 
@@ -22887,7 +25511,111 @@ SurveyMonkey is an online survey development platform that enables users to crea
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Get Collectors" icon="list">
+    Retrieve a list of collectors for a specific survey.
+
+    **Description:**
+    Tool to retrieve a list of collectors for a specific survey. Use when you need collector URLs, counts, and statuses.
+
+    **Variables (Agent fills during call):**
+    - `survey_id` – The survey ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your SurveyMonkey integration*
+
+    **Use Cases:**
+    - View survey collectors
+    - Get collector URLs
+    - Check collector statuses
+    - Retrieve collector information
+
+  </Accordion>
+
+  <Accordion title="Get Contacts" icon="users">
+    Retrieve a list of contacts.
+
+    **Description:**
+    Tool to retrieve a list of contacts. Use after authenticating with SurveyMonkey. Call this to fetch all contacts associated with your account.
+
+    **Variables (Agent fills during call):**
+    *None required*
+
+    **Configurations (You set once):**
+    *None required—uses your SurveyMonkey integration*
+
+    **Use Cases:**
+    - List all contacts
+    - View contact directory
+    - Retrieve contacts
+    - Access contact list
+
+  </Accordion>
+
+  <Accordion title="Get Responses" icon="list">
+    Retrieve a list of responses for a specific survey.
+
+    **Description:**
+    Tool to retrieve a list of responses for a specific survey. Use when you need to browse or filter responses after confirming the survey ID.
+
+    **Variables (Agent fills during call):**
+    - `survey_id` – The survey ID *(required)*
+    - `page` – Page number for pagination *(optional)*
+    - `per_page` – Number of results per page *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your SurveyMonkey integration*
+
+    **Use Cases:**
+    - View survey responses
+    - Get response data
+    - Retrieve response list
+    - Access survey answers
+
+  </Accordion>
+
+  <Accordion title="Get Survey Details" icon="file-lines">
+    Retrieve metadata and counts for a specific survey.
+
+    **Description:**
+    Tool to retrieve metadata and counts for a specific survey. Use after confirming the survey ID.
+
+    **Variables (Agent fills during call):**
+    - `survey_id` – The survey ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your SurveyMonkey integration*
+
+    **Use Cases:**
+    - View survey details
+    - Get survey information
+    - Retrieve survey metadata
+    - Access survey properties
+
+  </Accordion>
+
+  <Accordion title="Get Surveys" icon="list">
+    Retrieve a list of surveys.
+
+    **Description:**
+    Tool to retrieve a list of surveys. Use when you need to enumerate or paginate through all surveys.
+
+    **Variables (Agent fills during call):**
+    - `page` – Page number for pagination *(optional)*
+    - `per_page` – Number of results per page *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your SurveyMonkey integration*
+
+    **Use Cases:**
+    - List all surveys
+    - View survey directory
+    - Retrieve surveys
+    - Access survey list
+
+  </Accordion>
+
+</AccordionGroup>
 
 ---
 
@@ -22911,7 +25639,31 @@ Telegram is a cloud-based messaging app with a focus on security and speed. Buil
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Send Message" icon="paper-plane">
+    Send a text message to a Telegram chat.
+
+    **Description:**
+    Send a text message to a Telegram chat using the Bot API.
+
+    **Variables (Agent fills during call):**
+    - `chat_id` – Chat ID or username *(required)*
+    - `text` – Message text *(required)*
+    - `parse_mode` – Parse mode (HTML, Markdown, or MarkdownV2) *(optional)*
+    - `reply_to_message_id` – Reply to message ID *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Telegram integration*
+
+    **Use Cases:**
+    - Send messages
+    - Send notifications
+    - Send alerts
+    - Communicate via Telegram
+
+  </Accordion>
+
+</AccordionGroup>
 
 ---
 
@@ -22935,7 +25687,1234 @@ A web-based, kanban-style, list-making application.
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Add Cards" icon="plus">
+    Create a new card in a Trello list.
+
+    **Description:**
+    Creates a new card in a Trello list; `idList` is required, and if `idCardSource` is used, the source card must be accessible.
+
+    **Variables (Agent fills during call):**
+    - `idList` – List ID *(required)*
+    - `name` – Card name *(required)*
+    - `desc` – Card description *(optional)*
+    - `due` – Due date *(optional)*
+    - `idCardSource` – Source card ID to copy from *(optional)*
+    - Additional card fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Create cards
+    - Add new cards
+    - Create task cards
+    - Add cards to lists
+
+  </Accordion>
+
+  <Accordion title="Add Cards Actions Comments By Id Card" icon="comment">
+    Add a new text comment to a Trello card.
+
+    **Description:**
+    Adds a new text comment, which can include @mentions, to a Trello card specified by its ID; file attachments are not supported via this action.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `text` – Comment text *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Add comments to cards
+    - Comment on cards
+    - Provide card feedback
+    - Add card discussions
+
+  </Accordion>
+
+  <Accordion title="Add Cards Checklist Check Item By Id Card By Id Checklist" icon="check">
+    Add a new check item to an existing checklist.
+
+    **Description:**
+    Adds a new check item to an existing checklist on a specific Trello card.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `idChecklist` – The checklist ID *(required)*
+    - `name` – Check item name *(required)*
+    - `checked` – Checked status *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Add checklist items
+    - Add tasks to checklist
+    - Create check items
+    - Add items to checklist
+
+  </Accordion>
+
+  <Accordion title="Add Cards Checklists By Id Card" icon="list-check">
+    Add a checklist to a Trello card.
+
+    **Description:**
+    Adds a checklist to a Trello card: use `value` to add a specific existing checklist, `idChecklistSource` to create a new checklist by copying an existing one (optionally using `name` for the new checklist's name), or `name` to create a new empty checklist from scratch.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `name` – Checklist name *(optional)*
+    - `idChecklistSource` – Source checklist ID to copy *(optional)*
+    - `value` – Existing checklist ID *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Add checklists to cards
+    - Create checklists
+    - Copy checklists
+    - Attach checklists
+
+  </Accordion>
+
+  <Accordion title="Add Cards Id Labels By Id Card" icon="tag">
+    Add an existing label to a Trello card.
+
+    **Description:**
+    Adds an existing label to a Trello card; `idCard` identifies the card and `value` is the ID of the label to add. Both card and label must already exist.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `value` – Label ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Add labels to cards
+    - Tag cards
+    - Apply labels
+    - Categorize cards
+
+  </Accordion>
+
+  <Accordion title="Add Cards Id Members By Id Card" icon="user-plus">
+    Assign a Trello member to a card.
+
+    **Description:**
+    Assigns a Trello member to a specific Trello card by card ID (or short link) and member ID.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `value` – Member ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Assign members to cards
+    - Add card members
+    - Assign tasks
+    - Add card assignees
+
+  </Accordion>
+
+  <Accordion title="Add Cards Labels By Id Card" icon="tag">
+    Add a label to an existing Trello card.
+
+    **Description:**
+    Adds a label to an existing Trello card (specified by `idCard`), defining the label by `name` and either `color` or the overriding `value` (which specifies color by name); a new label is created on the board if a matching one (by name/color combination) doesn't already exist.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `name` – Label name *(optional)*
+    - `color` – Label color *(optional)*
+    - `value` – Label color name *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Add labels to cards
+    - Create and add labels
+    - Tag cards with labels
+    - Categorize cards
+
+  </Accordion>
+
+  <Accordion title="Add Checklists" icon="plus">
+    Create a new checklist on a Trello card.
+
+    **Description:**
+    Creates a new checklist on a Trello card, either by name or by copying from `idChecklistSource`, targeting an `idCard` or `idBoard`; this action creates only the checklist structure, not its items.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – Card ID *(optional)*
+    - `idBoard` – Board ID *(optional)*
+    - `name` – Checklist name *(required)*
+    - `idChecklistSource` – Source checklist ID to copy *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Create checklists
+    - Add checklists to cards
+    - Copy checklists
+    - Create checklist templates
+
+  </Accordion>
+
+  <Accordion title="Add Checklists Check Items By Id Checklist" icon="check">
+    Add a new check item to a checklist.
+
+    **Description:**
+    Adds a new check item to a specified Trello checklist; this action does not update existing check items.
+
+    **Variables (Agent fills during call):**
+    - `idChecklist` – The checklist ID *(required)*
+    - `name` – Check item name *(required)*
+    - `checked` – Checked status *(optional)*
+    - `pos` – Position *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Add checklist items
+    - Create check items
+    - Add tasks to checklist
+    - Populate checklists
+
+  </Accordion>
+
+  <Accordion title="Add Lists Cards By Id List" icon="plus">
+    Create a new card in a Trello list.
+
+    **Description:**
+    Creates a new card in a Trello list, which must be specified by an existing and accessible `idList`.
+
+    **Variables (Agent fills during call):**
+    - `idList` – The list ID *(required)*
+    - `name` – Card name *(required)*
+    - `desc` – Card description *(optional)*
+    - `due` – Due date *(optional)*
+    - Additional card fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Create cards in lists
+    - Add cards to lists
+    - Create new cards
+    - Add task cards
+
+  </Accordion>
+
+  <Accordion title="Convert Checklist Item To Card" icon="arrow-right">
+    Convert a checklist item into a new card.
+
+    **Description:**
+    Converts a checklist item into a new card (useful for promoting a subtask), which inherits some properties from the item; this is irreversible via the API and offers no customization during conversion.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `idChecklist` – The checklist ID *(required)*
+    - `idCheckItem` – The check item ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Convert checklist items to cards
+    - Promote subtasks
+    - Create cards from items
+    - Expand checklist items
+
+  </Accordion>
+
+  <Accordion title="Delete Cards Actions Comments By Id Card By Id Action" icon="trash">
+    Delete a specific comment from a Trello card.
+
+    **Description:**
+    Deletes a specific comment action (identified by `idAction`) from a Trello card (identified by `idCard`); this operation is irreversible and only affects comments.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `idAction` – The action/comment ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Delete comments
+    - Remove comments
+    - Clean up comments
+    - Delete card comments
+
+  </Accordion>
+
+  <Accordion title="Delete Cards Checklists By Id Card By Id Checklist" icon="trash">
+    Permanently delete a checklist from a Trello card.
+
+    **Description:**
+    Permanently deletes a specific checklist from a Trello card.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `idChecklist` – The checklist ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Delete checklists
+    - Remove checklists
+    - Clean up checklists
+    - Delete card checklists
+
+  </Accordion>
+
+  <Accordion title="Delete Cards Id Labels By Id Card By Id Label" icon="trash">
+    Remove a specific label from a Trello card.
+
+    **Description:**
+    Removes a specific label from a Trello card; the label itself is not deleted from the board, only its association with the card.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `idLabel` – The label ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Remove labels from cards
+    - Delete card labels
+    - Unlabel cards
+    - Remove card tags
+
+  </Accordion>
+
+  <Accordion title="Delete Cards Id Members By Id Card By Id Member" icon="user-minus">
+    Remove a member from a Trello card.
+
+    **Description:**
+    Removes a currently assigned member from a Trello card, affecting only the card's member list and not the member's board membership or overall permissions.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `idMember` – The member ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Remove card members
+    - Unassign members
+    - Remove assignees
+    - Delete card assignments
+
+  </Accordion>
+
+  <Accordion title="Delete Checklist Item" icon="trash">
+    Permanently delete a check item from a checklist.
+
+    **Description:**
+    Permanently deletes a specific check item from a checklist on a Trello card; this operation is irreversible and only affects the specified item, not the entire checklist.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `idChecklist` – The checklist ID *(required)*
+    - `idCheckItem` – The check item ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Delete checklist items
+    - Remove check items
+    - Clean up checklist items
+    - Delete items from checklist
+
+  </Accordion>
+
+  <Accordion title="Delete Checklists By Id Checklist" icon="trash">
+    Permanently delete a Trello checklist.
+
+    **Description:**
+    Permanently and irreversibly deletes a Trello checklist and all its items using the `idChecklist`.
+
+    **Variables (Agent fills during call):**
+    - `idChecklist` – The checklist ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Delete checklists
+    - Remove checklists
+    - Clean up checklists
+    - Delete checklist data
+
+  </Accordion>
+
+  <Accordion title="Get Boards By Id Board" icon="file-lines">
+    Fetch comprehensive details for a specific Trello board.
+
+    **Description:**
+    Fetches comprehensive details for a specific Trello board by its ID; this is a read-only action.
+
+    **Variables (Agent fills during call):**
+    - `idBoard` – The board ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - View board details
+    - Get board information
+    - Retrieve board data
+    - Access board properties
+
+  </Accordion>
+
+  <Accordion title="Get Boards Cards By Id Board" icon="list">
+    Retrieve cards from an existing Trello board.
+
+    **Description:**
+    Retrieves cards from an existing Trello board, allowing filtering and customization of fields for cards, attachments, and members.
+
+    **Variables (Agent fills during call):**
+    - `idBoard` – The board ID *(required)*
+    - `filter` – Filter cards *(optional)*
+    - `fields` – Fields to return *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - List board cards
+    - View board cards
+    - Retrieve cards
+    - Access card directory
+
+  </Accordion>
+
+  <Accordion title="Get Boards Cards By Id Board By Filter" icon="list">
+    Retrieve cards from a board filtered by status.
+
+    **Description:**
+    Retrieves cards from a specified Trello board, filtered by 'all', 'closed', 'none', 'open', or 'visible'.
+
+    **Variables (Agent fills during call):**
+    - `idBoard` – The board ID *(required)*
+    - `filter` – Filter type (all, closed, none, open, visible) *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Filter board cards
+    - View open cards
+    - Get closed cards
+    - Filter cards by status
+
+  </Accordion>
+
+  <Accordion title="Get Boards Cards By Id Board By Id Card" icon="file-lines">
+    Retrieve details for a specific Trello card.
+
+    **Description:**
+    Retrieves details for a specific Trello card by its ID and its parent board's ID, with options to customize returned fields for the card and associated data like attachments, actions, members, and checklists.
+
+    **Variables (Agent fills during call):**
+    - `idBoard` – The board ID *(required)*
+    - `idCard` – The card ID *(required)*
+    - `fields` – Fields to return *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - View card details
+    - Get card information
+    - Retrieve card data
+    - Access card properties
+
+  </Accordion>
+
+  <Accordion title="Get Boards Labels By Id Board" icon="tags">
+    Fetch labels for a specified Trello board.
+
+    **Description:**
+    Fetches labels for a specified Trello board, aiding in its organization or label management; this action does not detail per-card label usage.
+
+    **Variables (Agent fills during call):**
+    - `idBoard` – The board ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - View board labels
+    - Get label list
+    - Retrieve labels
+    - Access label directory
+
+  </Accordion>
+
+  <Accordion title="Get Boards Lists By Id Board" icon="list">
+    Retrieve lists from a specified Trello board.
+
+    **Description:**
+    Retrieves lists from a specified Trello board, with options to filter lists and include card details.
+
+    **Variables (Agent fills during call):**
+    - `idBoard` – The board ID *(required)*
+    - `filter` – Filter lists *(optional)*
+    - `cards` – Include card details *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - List board lists
+    - View board lists
+    - Retrieve lists
+    - Access list directory
+
+  </Accordion>
+
+  <Accordion title="Get Boards Members By Id Board" icon="users">
+    Retrieve members of a Trello board.
+
+    **Description:**
+    Retrieves members of a Trello board, with options to filter the list and select specific member fields to return.
+
+    **Variables (Agent fills during call):**
+    - `idBoard` – The board ID *(required)*
+    - `filter` – Filter members *(optional)*
+    - `fields` – Fields to return *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - View board members
+    - Get member list
+    - Retrieve members
+    - Access member directory
+
+  </Accordion>
+
+  <Accordion title="Get Boards Members Cards By Id Board By Id Member" icon="list">
+    Retrieve cards for a member on a board.
+
+    **Description:**
+    Retrieves cards for a member on a board, with options to customize returned fields and related data; member must have board access.
+
+    **Variables (Agent fills during call):**
+    - `idBoard` – The board ID *(required)*
+    - `idMember` – The member ID *(required)*
+    - `filter` – Filter cards *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - View member cards
+    - Get member's cards
+    - Retrieve assigned cards
+    - Access member card list
+
+  </Accordion>
+
+  <Accordion title="Get Cards Actions By Id Card" icon="clock-rotate-left">
+    Retrieve the history of actions for a Trello card.
+
+    **Description:**
+    Retrieves the history of actions (e.g., comments, updates, moves) for a Trello card specified by `idCard`; the card must exist and very old actions might not be available.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `filter` – Filter actions *(optional)*
+    - `limit` – Number of results to return *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - View card history
+    - Get card actions
+    - Retrieve activity log
+    - Access card timeline
+
+  </Accordion>
+
+  <Accordion title="Get Cards By Id Card" icon="file-lines">
+    Retrieve a Trello card by its ID.
+
+    **Description:**
+    Retrieves a Trello card by its ID or shortlink, with options to include related data like actions, attachments, members, and checklists.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `fields` – Fields to return *(optional)*
+    - `actions` – Include actions *(optional)*
+    - `attachments` – Include attachments *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - View card details
+    - Get card information
+    - Retrieve card data
+    - Access card properties
+
+  </Accordion>
+
+  <Accordion title="Get Cards Check Item States By Id Card" icon="list-check">
+    Get the states of checklist items on a Trello card.
+
+    **Description:**
+    Gets the states (e.g., 'complete', 'incomplete') of checklist items on a Trello card; returns only item states, not full checklist or card details.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - View checklist item states
+    - Check item completion
+    - Get item status
+    - View checklist progress
+
+  </Accordion>
+
+  <Accordion title="Get Cards Checklists By Id Card" icon="list-check">
+    Retrieve all checklists for a Trello card.
+
+    **Description:**
+    Retrieves all checklists, including their check items, for a Trello card specified by its ID or shortlink, if the card exists and is accessible.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `fields` – Fields to return *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - View card checklists
+    - Get checklist data
+    - Retrieve checklists
+    - Access checklist information
+
+  </Accordion>
+
+  <Accordion title="Get Cards List By Id Card" icon="list">
+    Get the Trello list to which a card belongs.
+
+    **Description:**
+    Gets the Trello list to which a specified card (which must exist) belongs.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Get card list
+    - View card location
+    - Retrieve list information
+    - Find card list
+
+  </Accordion>
+
+  <Accordion title="Get Cards Members By Id Card" icon="users">
+    Retrieve members of a Trello card.
+
+    **Description:**
+    Retrieves members of a Trello card, identified by its ID or shortLink, allowing customization of which member fields are returned.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `fields` – Fields to return *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - View card members
+    - Get card assignees
+    - Retrieve members
+    - Access member list
+
+  </Accordion>
+
+  <Accordion title="Get Lists By Id List" icon="file-lines">
+    Retrieve a Trello list by its unique ID.
+
+    **Description:**
+    Retrieves a Trello list by its unique ID, optionally including details for its cards and parent board.
+
+    **Variables (Agent fills during call):**
+    - `idList` – The list ID *(required)*
+    - `cards` – Include card details *(optional)*
+    - `fields` – Fields to return *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - View list details
+    - Get list information
+    - Retrieve list data
+    - Access list properties
+
+  </Accordion>
+
+  <Accordion title="Get Lists Cards By Id List" icon="list">
+    Fetch cards from a Trello list.
+
+    **Description:**
+    Fetches cards from a Trello list by its ID, with options to filter and customize the returned card data.
+
+    **Variables (Agent fills during call):**
+    - `idList` – The list ID *(required)*
+    - `filter` – Filter cards *(optional)*
+    - `fields` – Fields to return *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - List cards in list
+    - View list cards
+    - Retrieve cards
+    - Access card directory
+
+  </Accordion>
+
+  <Accordion title="Get Lists Cards By Id List By Filter" icon="list">
+    Retrieve cards from a list filtered by criteria.
+
+    **Description:**
+    Retrieves cards from a specific Trello list, filtered by criteria like 'open', 'closed', or 'all'.
+
+    **Variables (Agent fills during call):**
+    - `idList` – The list ID *(required)*
+    - `filter` – Filter type (open, closed, all) *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Filter list cards
+    - View open cards
+    - Get closed cards
+    - Filter cards by status
+
+  </Accordion>
+
+  <Accordion title="Get Members Boards By Id Member By Filter" icon="list">
+    Retrieve boards for a specific Trello member.
+
+    **Description:**
+    Retrieves a list of boards for a specific Trello member, applying a filter such as 'open', 'starred', or 'all'.
+
+    **Variables (Agent fills during call):**
+    - `idMember` – The member ID *(required)*
+    - `filter` – Filter type (open, starred, all) *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - View member boards
+    - Get member's boards
+    - Filter boards
+    - Access board list
+
+  </Accordion>
+
+  <Accordion title="Get Members Cards By Id Member" icon="list">
+    Retrieve cards for a Trello member.
+
+    **Description:**
+    Retrieves cards for a Trello member, specified by ID or username, with options to filter cards and include related data like actions, attachments, and checklists.
+
+    **Variables (Agent fills during call):**
+    - `idMember` – The member ID *(required)*
+    - `filter` – Filter cards *(optional)*
+    - `fields` – Fields to return *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - View member cards
+    - Get member's cards
+    - Retrieve assigned cards
+    - Access card list
+
+  </Accordion>
+
+  <Accordion title="Get Search" icon="magnifying-glass">
+    Search Trello content within specified organizations.
+
+    **Description:**
+    Searches Trello content (e.g., boards, cards, members) within specified organizations using a query and customizable result fields.
+
+    **Variables (Agent fills during call):**
+    - `query` – Search query *(required)*
+    - `idOrganizations` – Organization IDs to search *(optional)*
+    - `modelTypes` – Model types to search *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Search Trello content
+    - Find boards and cards
+    - Search across organizations
+    - Query Trello data
+
+  </Accordion>
+
+  <Accordion title="Get Search Members" icon="magnifying-glass">
+    Search Trello members by name, username, or email.
+
+    **Description:**
+    Searches Trello members by name, username, or email, optionally scoped to a board or organization.
+
+    **Variables (Agent fills during call):**
+    - `query` – Search query *(required)*
+    - `idBoard` – Board ID to scope search *(optional)*
+    - `idOrganization` – Organization ID to scope search *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Search members
+    - Find members
+    - Look up users
+    - Search member directory
+
+  </Accordion>
+
+  <Accordion title="Remove Checklist Item From Card By Ids" icon="trash">
+    Permanently delete a checklist item from a card.
+
+    **Description:**
+    Permanently deletes a specific checklist item from a checklist on a Trello card using their respective IDs.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `idChecklist` – The checklist ID *(required)*
+    - `idCheckItem` – The check item ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Delete checklist items
+    - Remove check items
+    - Clean up checklist items
+    - Delete items from checklist
+
+  </Accordion>
+
+  <Accordion title="Update Card Checklist Item Position" icon="arrows-up-down">
+    Update the position of a check item within a checklist.
+
+    **Description:**
+    Updates the position of a check item within a checklist on a Trello card; the new position can be 'top', 'bottom', or a positive integer.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `idChecklist` – The checklist ID *(required)*
+    - `idCheckItem` – The check item ID *(required)*
+    - `value` – New position (top, bottom, or integer) *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Reorder checklist items
+    - Move items in checklist
+    - Update item position
+    - Change item order
+
+  </Accordion>
+
+  <Accordion title="Update Card Checklist Item State By Ids" icon="check">
+    Update the state of a check item on a card's checklist.
+
+    **Description:**
+    Updates the state of a specific check item on a Trello card's checklist, only affecting its completion status and no other properties.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `idChecklist` – The checklist ID *(required)*
+    - `idCheckItem` – The check item ID *(required)*
+    - `state` – New state (complete or incomplete) *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Mark items complete
+    - Update item status
+    - Check/uncheck items
+    - Toggle item state
+
+  </Accordion>
+
+  <Accordion title="Update Card Comment" icon="pencil">
+    Update the text for a comment on a card.
+
+    **Description:**
+    Updates the text for a given comment action (`idAction`) on a specified card (`idCard`), affecting only the text content.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `idAction` – The action/comment ID *(required)*
+    - `text` – Updated comment text *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Edit comments
+    - Update comment text
+    - Modify comments
+    - Change comment content
+
+  </Accordion>
+
+  <Accordion title="Update Cards By Id Card" icon="pencil">
+    Update an existing Trello card's attributes.
+
+    **Description:**
+    Updates an existing Trello card's attributes like name, description, due date, members, labels, position, or archives/unarchives it, attaches files, or changes its cover.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `name` – Updated name *(optional)*
+    - `desc` – Updated description *(optional)*
+    - `due` – Updated due date *(optional)*
+    - `closed` – Archive/unarchive status *(optional)*
+    - Additional card fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Update card details
+    - Modify card information
+    - Change card properties
+    - Edit card attributes
+
+  </Accordion>
+
+  <Accordion title="Update Cards Closed By Id Card" icon="archive">
+    Update the 'closed' status of a Trello card.
+
+    **Description:**
+    Updates the 'closed' status of an existing Trello card.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `value` – Closed status (true or false) *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Archive cards
+    - Unarchive cards
+    - Close cards
+    - Open cards
+
+  </Accordion>
+
+  <Accordion title="Update Cards Desc By Id Card" icon="pencil">
+    Update or clear the description of a Trello card.
+
+    **Description:**
+    Updates or clears the entire description of an existing Trello card; use an empty string for `value` to clear.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `value` – Updated description (empty string to clear) *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Update card description
+    - Edit description
+    - Clear description
+    - Modify card text
+
+  </Accordion>
+
+  <Accordion title="Update Cards Due By Id Card" icon="calendar">
+    Update the due date of a Trello card.
+
+    **Description:**
+    Updates the due date of a specific Trello card; the card identified by `idCard` must exist.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `value` – Updated due date *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Update due dates
+    - Change deadlines
+    - Set due dates
+    - Modify card dates
+
+  </Accordion>
+
+  <Accordion title="Update Cards Id Board By Id Card" icon="arrows-up-down">
+    Move a Trello card to a different board.
+
+    **Description:**
+    Moves a Trello card to a different board and, optionally, to a specific list on that new board, useful for reorganizing across projects or workflows.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `value` – New board ID *(required)*
+    - `idList` – Target list ID *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Move cards between boards
+    - Transfer cards
+    - Reorganize cards
+    - Change card board
+
+  </Accordion>
+
+  <Accordion title="Update Cards Id List By Id Card" icon="arrows-up-down">
+    Move a Trello card to a different list.
+
+    **Description:**
+    Moves a Trello card to a different list on the same Trello board; this operation is idempotent and only updates the card's list ID.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `value` – New list ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Move cards between lists
+    - Transfer cards
+    - Reorganize cards
+    - Change card list
+
+  </Accordion>
+
+  <Accordion title="Update Cards Id Members By Id Card" icon="user-plus">
+    Add a member to a Trello card.
+
+    **Description:**
+    Adds a member to a Trello card, appending their ID to the card's list of member IDs; the card must exist and the member must have board permissions.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `value` – Member ID to add *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Add members to cards
+    - Assign members
+    - Add card assignees
+    - Update card members
+
+  </Accordion>
+
+  <Accordion title="Update Cards Labels By Id Card" icon="tag">
+    Update labels on an existing Trello card.
+
+    **Description:**
+    Updates labels on an existing Trello card; use `value` with a color list (e.g., 'red,blue') or 'all' to replace all labels, or `color` and `name` to add/update a specific label (created if new on board with given attributes).
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `value` – Label colors or 'all' *(optional)*
+    - `name` – Label name *(optional)*
+    - `color` – Label color *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Update card labels
+    - Add labels
+    - Replace labels
+    - Modify card tags
+
+  </Accordion>
+
+  <Accordion title="Update Cards Name By Id Card" icon="pencil">
+    Update the name of an existing Trello card.
+
+    **Description:**
+    Updates the name of an existing Trello card, identified by its ID or shortLink; other card properties remain unchanged.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `value` – Updated card name *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Update card name
+    - Rename cards
+    - Change card title
+    - Modify card name
+
+  </Accordion>
+
+  <Accordion title="Update Checklist Item By Ids" icon="pencil">
+    Update a check item's attributes or move it to a different checklist.
+
+    **Description:**
+    Updates a check item's attributes (name, position, state) or moves it to a different checklist on the same card, requiring the card ID, current checklist ID, and check item ID.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `idChecklist` – The checklist ID *(required)*
+    - `idCheckItem` – The check item ID *(required)*
+    - `name` – Updated name *(optional)*
+    - `pos` – Updated position *(optional)*
+    - `state` – Updated state *(optional)*
+    - `idChecklist` – Target checklist ID for move *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Update checklist items
+    - Modify item attributes
+    - Move items between checklists
+    - Change item properties
+
+  </Accordion>
+
+  <Accordion title="Update Checklist Item Name In Card" icon="pencil">
+    Update the name of a check item on a checklist.
+
+    **Description:**
+    Updates the name of a specific check item on a checklist within a Trello card, provided the card, checklist, and check item all exist.
+
+    **Variables (Agent fills during call):**
+    - `idCard` – The card ID *(required)*
+    - `idChecklist` – The checklist ID *(required)*
+    - `idCheckItem` – The check item ID *(required)*
+    - `value` – Updated item name *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Update item names
+    - Rename checklist items
+    - Change item text
+    - Modify item names
+
+  </Accordion>
+
+  <Accordion title="Update Checklists By Id Checklist" icon="pencil">
+    Update an existing Trello checklist.
+
+    **Description:**
+    Updates an existing Trello checklist, allowing modification of its name, position, associated card/board, or copying items from a source checklist.
+
+    **Variables (Agent fills during call):**
+    - `idChecklist` – The checklist ID *(required)*
+    - `name` – Updated name *(optional)*
+    - `pos` – Updated position *(optional)*
+    - `idCard` – Updated card ID *(optional)*
+    - `idBoard` – Updated board ID *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Update checklists
+    - Modify checklist properties
+    - Change checklist details
+    - Edit checklist information
+
+  </Accordion>
+
+  <Accordion title="Update Checklists Name By Id Checklist" icon="pencil">
+    Update the name of an existing Trello checklist.
+
+    **Description:**
+    Updates the name of an existing Trello checklist.
+
+    **Variables (Agent fills during call):**
+    - `idChecklist` – The checklist ID *(required)*
+    - `value` – Updated checklist name *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Update checklist name
+    - Rename checklists
+    - Change checklist title
+    - Modify checklist name
+
+  </Accordion>
+
+  <Accordion title="Update Checklists Pos By Id Checklist" icon="arrows-up-down">
+    Update the position of a checklist on a Trello card.
+
+    **Description:**
+    Updates the position of an existing checklist on a Trello card.
+
+    **Variables (Agent fills during call):**
+    - `idChecklist` – The checklist ID *(required)*
+    - `value` – New position (top, bottom, or integer) *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Trello integration*
+
+    **Use Cases:**
+    - Reorder checklists
+    - Move checklists
+    - Update checklist position
+    - Change checklist order
+
+  </Accordion>
+
+</AccordionGroup>
 
 ---
 
@@ -22959,7 +26938,20 @@ Enables interaction with customers through the WhatsApp Business API for messagi
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Send Message" icon="paper-plane">
+    Send a text message to a WhatsApp number.
+
+    **Description:**
+    Send a text message to a WhatsApp number. Note: The message will reflect on the recipient's phone number only if they have texted first.
+
+    **Variables (Agent fills during call):**
+    - `to` – Recipient phone number *(required)*
+    - `message` – Message text *(required)*
+
+  </Accordion>
+
+</AccordionGroup>
 
 ---
 
@@ -22983,7 +26975,310 @@ Xero is a cloud-based accounting software for small businesses, providing invoic
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Create Contact" icon="user-plus">
+    Create a new contact in Xero.
+
+    **Description:**
+    Create a new contact in Xero. Contacts can be customers, suppliers, or both.
+
+    **Variables (Agent fills during call):**
+    - `name` – Contact name *(required)*
+    - `email` – Email address *(optional)*
+    - `phone` – Phone number *(optional)*
+    - `is_customer` – Is customer flag *(optional)*
+    - `is_supplier` – Is supplier flag *(optional)*
+    - Additional contact fields *(optional)*
+
+  </Accordion>
+
+  <Accordion title="Create Invoice" icon="file-invoice">
+    Create a new invoice in Xero.
+
+    **Description:**
+    Create a new invoice in Xero. Supports both sales invoices (ACCREC) and bills (ACCPAY).
+
+    **Variables (Agent fills during call):**
+    - `type` – Invoice type (ACCREC or ACCPAY) *(required)*
+    - `contact_id` – Contact ID *(required)*
+    - `line_items` – Invoice line items *(required)*
+    - `date` – Invoice date *(optional)*
+    - `due_date` – Due date *(optional)*
+    - `invoice_number` – Invoice number *(optional)*
+    - Additional invoice fields *(optional)*
+
+  </Accordion>
+
+  <Accordion title="Create Item" icon="plus">
+    Create an inventory item in Xero.
+
+    **Description:**
+    Create an inventory item in Xero. Items can be tracked for sales and/or purchases.
+
+    **Variables (Agent fills during call):**
+    - `code` – Item code *(required)*
+    - `name` – Item name *(required)*
+    - `description` – Item description *(optional)*
+    - `unit_price` – Unit price *(optional)*
+    - `purchase_price` – Purchase price *(optional)*
+    - `is_tracked` – Track inventory flag *(optional)*
+    - Additional item fields *(optional)*
+
+  </Accordion>
+
+  <Accordion title="Create Payment" icon="plus">
+    Create a payment in Xero.
+
+    **Description:**
+    Create a payment in Xero to link an invoice with a bank account transaction.
+
+    **Variables (Agent fills during call):**
+    - `invoice_id` – Invoice ID *(required)*
+    - `account_id` – Bank account ID *(required)*
+    - `amount` – Payment amount *(required)*
+    - `date` – Payment date *(optional)*
+    - `reference` – Payment reference *(optional)*
+
+  </Accordion>
+
+  <Accordion title="Create Purchase Order" icon="plus">
+    Create a purchase order in Xero.
+
+    **Description:**
+    Create a purchase order in Xero to order goods/services from suppliers.
+
+    **Variables (Agent fills during call):**
+    - `contact_id` – Supplier contact ID *(required)*
+    - `line_items` – Purchase order line items *(required)*
+    - `date` – Purchase order date *(optional)*
+    - `delivery_date` – Delivery date *(optional)*
+    - Additional purchase order fields *(optional)*
+
+  </Accordion>
+
+  <Accordion title="Get Contact" icon="user">
+    Retrieve a specific contact by ID from Xero.
+
+    **Description:**
+    Retrieve a specific contact by ID from Xero. Returns full contact details including addresses and phone numbers.
+
+    **Variables (Agent fills during call):**
+    - `contact_id` – The contact ID *(required)*
+
+  </Accordion>
+
+  <Accordion title="Get Contacts" icon="users">
+    Retrieve a list of contacts.
+
+    **Description:**
+    Tool to retrieve a list of contacts. Use when you need up-to-date contact information with filtering, paging, or incremental updates.
+
+    **Variables (Agent fills during call):**
+    - `where` – Filter criteria *(optional)*
+    - `order` – Sort order *(optional)*
+    - `page` – Page number *(optional)*
+    - `include_archived` – Include archived contacts *(optional)*
+
+  </Accordion>
+
+  <Accordion title="Get Invoice" icon="file-lines">
+    Retrieve a specific invoice by ID from Xero.
+
+    **Description:**
+    Retrieve a specific invoice by ID from Xero. Returns full invoice details including line items and status.
+
+    **Variables (Agent fills during call):**
+    - `invoice_id` – The invoice ID *(required)*
+
+  </Accordion>
+
+  <Accordion title="Get Item" icon="file-lines">
+    Retrieve a specific item by ID from Xero.
+
+    **Description:**
+    Retrieve a specific item by ID from Xero. Returns item code, name, pricing, and tax details.
+
+    **Variables (Agent fills during call):**
+    - `item_id` – The item ID *(required)*
+
+  </Accordion>
+
+  <Accordion title="Get Project" icon="file-lines">
+    Retrieve a specific project by ID from Xero.
+
+    **Description:**
+    Retrieve a specific project by ID from Xero. Returns project details, deadlines, and status.
+
+    **Variables (Agent fills during call):**
+    - `project_id` – The project ID *(required)*
+
+  </Accordion>
+
+  <Accordion title="Get Purchase Order" icon="file-lines">
+    Retrieve a specific purchase order by ID from Xero.
+
+    **Description:**
+    Retrieve a specific purchase order by ID from Xero. Returns full details including line items and status.
+
+    **Variables (Agent fills during call):**
+    - `purchase_order_id` – The purchase order ID *(required)*
+
+  </Accordion>
+
+  <Accordion title="Get Quotes" icon="list">
+    Retrieve a list of quotes.
+
+    **Description:**
+    Tool to retrieve a list of quotes. Use when you need to list, filter, or page through sales quotes. Use after obtaining the tenant ID via connections.
+
+    **Variables (Agent fills during call):**
+    - `where` – Filter criteria *(optional)*
+    - `order` – Sort order *(optional)*
+    - `page` – Page number *(optional)*
+    - `include_archived` – Include archived quotes *(optional)*
+
+  </Accordion>
+
+  <Accordion title="List Bank Transactions" icon="list">
+    Retrieve bank transactions from Xero.
+
+    **Description:**
+    Retrieve bank transactions from Xero. Includes spend (payments) and receive (receipts) transactions.
+
+    **Variables (Agent fills during call):**
+    - `account_id` – Bank account ID *(optional)*
+    - `where` – Filter criteria *(optional)*
+    - `order` – Sort order *(optional)*
+    - `page` – Page number *(optional)*
+
+  </Accordion>
+
+  <Accordion title="List Credit Notes" icon="list">
+    Retrieve list of credit notes from Xero.
+
+    **Description:**
+    Retrieve list of credit notes from Xero. Credit notes are issued to reduce amounts owed by customers.
+
+    **Variables (Agent fills during call):**
+    - `where` – Filter criteria *(optional)*
+    - `order` – Sort order *(optional)*
+    - `page` – Page number *(optional)*
+    - `include_archived` – Include archived credit notes *(optional)*
+
+  </Accordion>
+
+  <Accordion title="List Invoices" icon="list">
+    Retrieve a list of invoices from Xero.
+
+    **Description:**
+    Retrieve a list of invoices from Xero. Supports filtering by status, contact, date range, and pagination.
+
+    **Variables (Agent fills during call):**
+    - `where` – Filter criteria *(optional)*
+    - `order` – Sort order *(optional)*
+    - `page` – Page number *(optional)*
+    - `include_archived` – Include archived invoices *(optional)*
+
+  </Accordion>
+
+  <Accordion title="List Items" icon="list">
+    Retrieve items (inventory/products) from Xero.
+
+    **Description:**
+    Retrieve items (inventory/products) from Xero. Items can be tracked for sales and/or purchases.
+
+    **Variables (Agent fills during call):**
+    - `where` – Filter criteria *(optional)*
+    - `order` – Sort order *(optional)*
+    - `page` – Page number *(optional)*
+    - `include_archived` – Include archived items *(optional)*
+
+  </Accordion>
+
+  <Accordion title="List Payments" icon="list">
+    Retrieve list of payments from Xero.
+
+    **Description:**
+    Retrieve list of payments from Xero. Payments link invoices to bank transactions.
+
+    **Variables (Agent fills during call):**
+    - `where` – Filter criteria *(optional)*
+    - `order` – Sort order *(optional)*
+    - `page` – Page number *(optional)*
+
+  </Accordion>
+
+  <Accordion title="List Projects" icon="list">
+    Retrieve projects from Xero.
+
+    **Description:**
+    Retrieve projects from Xero. Projects track time and costs for client work.
+
+    **Variables (Agent fills during call):**
+    - `where` – Filter criteria *(optional)*
+    - `order` – Sort order *(optional)*
+    - `page` – Page number *(optional)*
+    - `include_archived` – Include archived projects *(optional)*
+
+  </Accordion>
+
+  <Accordion title="List Purchase Orders" icon="list">
+    Retrieve list of purchase orders from Xero.
+
+    **Description:**
+    Retrieve list of purchase orders from Xero. Purchase orders track goods/services ordered from suppliers.
+
+    **Variables (Agent fills during call):**
+    - `where` – Filter criteria *(optional)*
+    - `order` – Sort order *(optional)*
+    - `page` – Page number *(optional)*
+    - `include_archived` – Include archived purchase orders *(optional)*
+
+  </Accordion>
+
+  <Accordion title="List Tax Rates" icon="list">
+    Retrieve tax rates from Xero.
+
+    **Description:**
+    Retrieve tax rates from Xero. Shows available tax codes and rates for the organization.
+
+    **Variables (Agent fills during call):**
+    - `where` – Filter criteria *(optional)*
+    - `order` – Sort order *(optional)*
+
+  </Accordion>
+
+  <Accordion title="Post Invoice Update" icon="pencil">
+    Update an existing invoice.
+
+    **Description:**
+    Tool to update an existing invoice. Use when you need to modify the details of an invoice after it's been created.
+
+    **Variables (Agent fills during call):**
+    - `invoice_id` – The invoice ID *(required)*
+    - `line_items` – Updated line items *(optional)*
+    - `date` – Updated date *(optional)*
+    - `due_date` – Updated due date *(optional)*
+    - Additional invoice fields *(optional)*
+
+  </Accordion>
+
+  <Accordion title="Update Contact" icon="pencil">
+    Update an existing contact in Xero.
+
+    **Description:**
+    Update an existing contact in Xero. Only provided fields will be updated.
+
+    **Variables (Agent fills during call):**
+    - `contact_id` – The contact ID *(required)*
+    - `name` – Updated name *(optional)*
+    - `email` – Updated email *(optional)*
+    - `phone` – Updated phone *(optional)*
+    - Additional contact fields *(optional)*
+
+  </Accordion>
+
+</AccordionGroup>
 
 ---
 
@@ -23007,7 +27302,126 @@ Zendesk provides customer support software with ticketing, live chat, and knowle
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Create Zendesk Organization" icon="plus">
+    Create an organization in Zendesk.
+
+    **Description:**
+    Create an organization in Zendesk.
+
+    **Variables (Agent fills during call):**
+    - `name` – Organization name *(required)*
+    - `domain_names` – Domain names *(optional)*
+    - `tags` – Organization tags *(optional)*
+    - Additional organization fields *(optional)*
+
+  </Accordion>
+
+  <Accordion title="Create Zendesk Ticket" icon="plus">
+    Create a ticket in Zendesk.
+
+    **Description:**
+    Create a ticket in Zendesk.
+
+    **Variables (Agent fills during call):**
+    - `subject` – Ticket subject *(required)*
+    - `comment` – Ticket comment/description *(required)*
+    - `requester_id` – Requester user ID *(optional)*
+    - `assignee_id` – Assignee user ID *(optional)*
+    - `priority` – Ticket priority *(optional)*
+    - `status` – Ticket status *(optional)*
+    - Additional ticket fields *(optional)*
+
+  </Accordion>
+
+  <Accordion title="Get All Zendesk Organizations" icon="list">
+    Get all organizations in Zendesk.
+
+    **Description:**
+    Get all organizations in Zendesk.
+
+    **Variables (Agent fills during call):**
+    - `page` – Page number for pagination *(optional)*
+    - `per_page` – Number of results per page *(optional)*
+
+  </Accordion>
+
+  <Accordion title="Get Zendesk Organization" icon="file-lines">
+    Get information about a specific organization in Zendesk.
+
+    **Description:**
+    Get information about a specific organization in Zendesk.
+
+    **Variables (Agent fills during call):**
+    - `organization_id` – The organization ID *(required)*
+
+  </Accordion>
+
+  <Accordion title="Get Zendesk Ticket By Id" icon="file-lines">
+    Get ticket details from Zendesk.
+
+    **Description:**
+    Get ticket details from Zendesk.
+
+    **Variables (Agent fills during call):**
+    - `ticket_id` – The ticket ID *(required)*
+
+  </Accordion>
+
+  <Accordion title="List Zendesk Tickets" icon="list">
+    List Zendesk tickets with pagination and filtering.
+
+    **Description:**
+    List Zendesk tickets with pagination and filtering.
+
+    **Variables (Agent fills during call):**
+    - `status` – Filter by status *(optional)*
+    - `assignee_id` – Filter by assignee *(optional)*
+    - `page` – Page number for pagination *(optional)*
+    - `per_page` – Number of results per page *(optional)*
+
+  </Accordion>
+
+  <Accordion title="Reply Zendesk Ticket" icon="comment">
+    Reply to a Zendesk ticket by adding a comment.
+
+    **Description:**
+    Action to reply to a Zendesk ticket by adding a comment.
+
+    **Variables (Agent fills during call):**
+    - `ticket_id` – The ticket ID *(required)*
+    - `comment` – Reply comment text *(required)*
+    - `public` – Make comment public *(optional)*
+
+  </Accordion>
+
+  <Accordion title="Search Zendesk Users" icon="magnifying-glass">
+    Search Zendesk users by email or name.
+
+    **Description:**
+    Tool to search Zendesk users by email or name. Use after confirming user identity before ticket creation.
+
+    **Variables (Agent fills during call):**
+    - `query` – Search query (email or name) *(required)*
+
+  </Accordion>
+
+  <Accordion title="Update Zendesk Organization" icon="pencil">
+    Update an organization in Zendesk.
+
+    **Description:**
+    Update an organization in Zendesk.
+
+    **Variables (Agent fills during call):**
+    - `organization_id` – The organization ID *(required)*
+    - `name` – Updated name *(optional)*
+    - `domain_names` – Updated domain names *(optional)*
+    - `tags` – Updated tags *(optional)*
+    - Additional organization fields *(optional)*
+
+  </Accordion>
+
+</AccordionGroup>
 
 ---
 
@@ -23031,7 +27445,77 @@ Zoho is a suite of cloud applications including CRM, email marketing, and collab
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Convert Zoho Lead" icon="arrow-right">
+    Convert a lead into a contact, account, and optionally a deal.
+
+    **Description:**
+    Converts a lead into a contact, account, and optionally a deal in Zoho CRM.
+
+    **Variables (Agent fills during call):**
+    - `lead_id` – The lead ID *(required)*
+    - `create_deal` – Create deal flag *(optional)*
+    - `deal_fields` – Deal field values *(optional)*
+
+  </Accordion>
+
+  <Accordion title="Create Zoho Record" icon="plus">
+    Create new records in a specified module.
+
+    **Description:**
+    Creates new records in a specified module in Zoho CRM.
+
+    **Variables (Agent fills during call):**
+    - `module` – Module name (e.g., Leads, Contacts, Accounts) *(required)*
+    - `data` – Record data fields *(required)*
+
+  </Accordion>
+
+  <Accordion title="Get Zoho Records" icon="list">
+    Retrieve records from a specified module.
+
+    **Description:**
+    Retrieves records from a specified module in Zoho CRM. Notes: - Discrete (page/per_page) pagination is limited to the first 2,000 records. To retrieve records beyond this, use token-based pagination via page_token from the previous response's info.next_page_token. - Do not use page together with page_token. - You cannot use cvid together with sort_by.
+
+    **Variables (Agent fills during call):**
+    - `module` – Module name (e.g., Leads, Contacts, Accounts) *(required)*
+    - `page` – Page number *(optional)*
+    - `per_page` – Records per page *(optional)*
+    - `page_token` – Pagination token *(optional)*
+    - `sort_by` – Sort field *(optional)*
+    - `sort_order` – Sort order *(optional)*
+    - `fields` – Fields to retrieve *(optional)*
+
+  </Accordion>
+
+  <Accordion title="Update Related Records" icon="link">
+    Associate or update relationships between records.
+
+    **Description:**
+    Associates or updates relationships between records across different modules in Zoho CRM.
+
+    **Variables (Agent fills during call):**
+    - `module` – Source module name *(required)*
+    - `record_id` – Source record ID *(required)*
+    - `related_module` – Related module name *(required)*
+    - `related_record_id` – Related record ID *(required)*
+
+  </Accordion>
+
+  <Accordion title="Update Zoho Record" icon="pencil">
+    Update existing records in a specified module.
+
+    **Description:**
+    Updates existing records in a specified module in Zoho CRM.
+
+    **Variables (Agent fills during call):**
+    - `module` – Module name (e.g., Leads, Contacts, Accounts) *(required)*
+    - `record_id` – The record ID *(required)*
+    - `data` – Updated record data fields *(required)*
+
+  </Accordion>
+
+</AccordionGroup>
 
 ---
 
@@ -23055,7 +27539,75 @@ Zoho Bigin is a simplified CRM solution from Zoho tailored for small businesses,
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Add Records" icon="plus">
+    Add new records to a module.
+
+    **Description:**
+    Tool to add new records to a module. Use when you need to programmatically insert one or more records into Bigin after confirming module name and field API names. Provide required fields per module (e.g., Contacts requires Last_Name).
+
+    **Variables (Agent fills during call):**
+    - `module` – Module name *(required)*
+    - `data` – Record data fields *(required)*
+
+  </Accordion>
+
+  <Accordion title="Add Tags To Records" icon="tag">
+    Add tags to a specific record in a module.
+
+    **Description:**
+    Tool to add tags to a specific record in a module. Use when you need to categorize or label a record after creation or update.
+
+    **Variables (Agent fills during call):**
+    - `module` – Module name *(required)*
+    - `record_id` – The record ID *(required)*
+    - `tags` – Tags to add *(required)*
+
+  </Accordion>
+
+  <Accordion title="Delete Records" icon="trash">
+    Delete records from a module.
+
+    **Description:**
+    Tool to delete records from a module. Use when removing one or multiple records after confirming their IDs.
+
+    **Variables (Agent fills during call):**
+    - `module` – Module name *(required)*
+    - `record_ids` – Record IDs to delete *(required)*
+
+  </Accordion>
+
+  <Accordion title="Get Records" icon="list">
+    Retrieve records from a Bigin module.
+
+    **Description:**
+    Tool to retrieve records from a Bigin module. Use when listing or querying module data with specific fields, sorting, filtering, and pagination.
+
+    **Variables (Agent fills during call):**
+    - `module` – Module name *(required)*
+    - `fields` – Fields to retrieve *(optional)*
+    - `sort_by` – Sort field *(optional)*
+    - `sort_order` – Sort order *(optional)*
+    - `page` – Page number *(optional)*
+    - `per_page` – Records per page *(optional)*
+
+  </Accordion>
+
+  <Accordion title="Update Records" icon="pencil">
+    Update existing records in a module.
+
+    **Description:**
+    Tool to update existing records in a module. Use when you need to modify one or multiple records after confirming their IDs and field API names. Supports up to 100 records per call; specify an optional trigger to control workflow execution.
+
+    **Variables (Agent fills during call):**
+    - `module` – Module name *(required)*
+    - `record_ids` – Record IDs to update *(required)*
+    - `data` – Updated record data fields *(required)*
+    - `trigger` – Workflow trigger flag *(optional)*
+
+  </Accordion>
+
+</AccordionGroup>
 
 ---
 
@@ -23079,7 +27631,190 @@ Zoom is a video conferencing and online meeting platform featuring breakout room
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Add A Meeting Registrant" icon="user-plus">
+    Create and customize a user's registration for a Zoom meeting.
+
+    **Description:**
+    This text guides on creating and customizing a user's registration for a Zoom meeting, with a max of 4,999 registrants. Preconditions include the host being licensed. API scopes and a light rate limit apply.
+
+    **Variables (Agent fills during call):**
+    - `meeting_id` – The meeting ID *(required)*
+    - `email` – Registrant email *(required)*
+    - `first_name` – First name *(required)*
+    - `last_name` – Last name *(required)*
+    - `custom_questions` – Custom questions *(optional)*
+
+  </Accordion>
+
+  <Accordion title="Add A Webinar Registrant" icon="user-plus">
+    Create and manage webinar registration.
+
+    **Description:**
+    Zoom users with a Webinar plan can create and manage webinars, broadcasting to up to 10,000 attendees. Registration requires a Pro plan, specific permissions, and is governed by a "LIGHT" rate limit.
+
+    **Variables (Agent fills during call):**
+    - `webinar_id` – The webinar ID *(required)*
+    - `email` – Registrant email *(required)*
+    - `first_name` – First name *(required)*
+    - `last_name` – Last name *(required)*
+    - `custom_questions` – Custom questions *(optional)*
+
+  </Accordion>
+
+  <Accordion title="Create A Meeting" icon="plus">
+    Enable Zoom meeting creation via user-level apps.
+
+    **Description:**
+    Enable Zoom meeting creation via user-level apps with "me". "Start_url" for hosts expires in 2 hours, or 90 days for "custCreate" users. Renew via API, capped at 100 requests/day. Requires "meeting:write" permission, subject to medium rate limit.
+
+    **Variables (Agent fills during call):**
+    - `topic` – Meeting topic *(required)*
+    - `type` – Meeting type *(optional)*
+    - `start_time` – Start time *(optional)*
+    - `duration` – Duration in minutes *(optional)*
+    - `timezone` – Timezone *(optional)*
+    - `password` – Meeting password *(optional)*
+    - Additional meeting settings *(optional)*
+
+  </Accordion>
+
+  <Accordion title="Delete Meeting Recordings" icon="trash">
+    Delete all meeting recordings.
+
+    **Description:**
+    Summary: To delete all meeting recordings, ensure the user's account has Cloud Recording enabled. Required permissions include `recording:write:admin` and `recording:write` with a `Light` rate limit label.
+
+    **Variables (Agent fills during call):**
+    - `meeting_id` – The meeting ID *(required)*
+
+  </Accordion>
+
+  <Accordion title="Get A Meeting" icon="file-lines">
+    Read meeting information.
+
+    **Description:**
+    The text provides details on API permissions for reading meeting information, categorizing permissions into general and granular scopes, and labels the rate limit as 'LIGHT'.
+
+    **Variables (Agent fills during call):**
+    - `meeting_id` – The meeting ID *(required)*
+
+  </Accordion>
+
+  <Accordion title="Get A Meeting Summary" icon="file-lines">
+    Get meeting summary information.
+
+    **Description:**
+    Meeting summary info requires a Pro+ host plan, AI Companion enabled, excluding E2ee meetings. Scopes include meeting_summary:read and admin versions. Rate limit: LIGHT.
+
+    **Variables (Agent fills during call):**
+    - `meeting_id` – The meeting ID *(required)*
+
+  </Accordion>
+
+  <Accordion title="Get A Webinar" icon="file-lines">
+    Access Zoom Webinar details.
+
+    **Description:**
+    Access Zoom Webinar details requires Pro or higher plan and Webinar add-on. Scopes include `webinar:read:admin` and `webinar:read`. Granular scopes and a 'LIGHT' rate limit also apply.
+
+    **Variables (Agent fills during call):**
+    - `webinar_id` – The webinar ID *(required)*
+
+  </Accordion>
+
+  <Accordion title="Get Meeting Recordings" icon="video">
+    Download meeting recordings.
+
+    **Description:**
+    To download meeting recordings, use `download_url`. Include OAuth token in the header for passcode-protected ones. Supports `recording:read` and `phone_recording:read:admin` scopes, with a `LIGHT` rate limit.
+
+    **Variables (Agent fills during call):**
+    - `meeting_id` – The meeting ID *(required)*
+
+  </Accordion>
+
+  <Accordion title="Get Past Meeting Participants" icon="users">
+    Fetch past meeting attendee information.
+
+    **Description:**
+    API allows paid users (Pro+) to fetch past meeting attendee info, excluding solo participants. Requires double encoding for certain UUIDs, with `meeting:read` scope and others. Rate limit is medium.
+
+    **Variables (Agent fills during call):**
+    - `meeting_id` – The meeting ID *(required)*
+
+  </Accordion>
+
+  <Accordion title="List All Recordings" icon="list">
+    List Zoom cloud recordings for a user.
+
+    **Description:**
+    This text details how to list Zoom cloud recordings for a user, notably by using "me" for user-level apps and requiring an OAuth token for access. It requires a Pro plan, Cloud Recording enabled, and has a MEDIUM rate limit.
+
+    **Variables (Agent fills during call):**
+    - `user_id` – User ID (use "me" for authenticated user) *(optional)*
+    - `page_size` – Number of results per page *(optional)*
+    - `next_page_token` – Pagination token *(optional)*
+
+  </Accordion>
+
+  <Accordion title="List Meetings" icon="list">
+    List a user's scheduled meetings.
+
+    **Description:**
+    This Zoom API lists a user's scheduled meetings using the `me` value for user-level apps, excluding instant meetings and only showing unexpired ones. It requires specific scopes and has a `MEDIUM` rate limit.
+
+    **Variables (Agent fills during call):**
+    - `user_id` – User ID (use "me" for authenticated user) *(optional)*
+    - `type` – Meeting type filter *(optional)*
+    - `page_size` – Number of results per page *(optional)*
+    - `next_page_token` – Pagination token *(optional)*
+
+  </Accordion>
+
+  <Accordion title="List Webinar Participants" icon="users">
+    Get a list of past webinar participants.
+
+    **Description:**
+    Get a list of past webinar participants with a Pro plan or above plus an add-on. Requires specific scopes and has a medium rate limit.
+
+    **Variables (Agent fills during call):**
+    - `webinar_id` – The webinar ID *(required)*
+    - `page_size` – Number of results per page *(optional)*
+    - `next_page_token` – Pagination token *(optional)*
+
+  </Accordion>
+
+  <Accordion title="List Webinars" icon="list">
+    List all scheduled webinars for Zoom users.
+
+    **Description:**
+    The API lists all scheduled webinars for Zoom users with a webinar plan, using `me` for user-level apps. It only shows unexpired webinars for hosts broadcasting to up to 10,000 attendees. Requires Pro plan upwards and specific scopes. Rate limit: MEDIUM.
+
+    **Variables (Agent fills during call):**
+    - `user_id` – User ID (use "me" for authenticated user) *(optional)*
+    - `page_size` – Number of results per page *(optional)*
+    - `next_page_token` – Pagination token *(optional)*
+
+  </Accordion>
+
+  <Accordion title="Update A Meeting" icon="pencil">
+    Update a meeting via API.
+
+    **Description:**
+    To update a meeting via API, ensure `start_time` is future-dated; `recurrence` is needed. Limit: 100 requests/day, 100 updates/meeting in 24 hrs. Requires `meeting:write` and `meeting:write:admin` scopes, with a `LIGHT` rate limit.
+
+    **Variables (Agent fills during call):**
+    - `meeting_id` – The meeting ID *(required)*
+    - `topic` – Updated topic *(optional)*
+    - `start_time` – Updated start time *(optional)*
+    - `duration` – Updated duration *(optional)*
+    - `password` – Updated password *(optional)*
+    - Additional meeting settings *(optional)*
+
+  </Accordion>
+
+</AccordionGroup>
 
 <Note>
   **Authentication Required:** Most applications require OAuth2 or API key

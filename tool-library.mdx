@@ -335,213 +335,7 @@ Tools for managing appointments with Cal.com calendars.
 
 ---
 
-{/* ## Fitness Industry
-
-Specialized tools for gyms, studios, and fitness businesses using Mindbody or MyTime.
-
-<div
-  style={{
-    display: "flex",
-    alignItems: "center",
-    gap: "10px",
-    marginBottom: "-10px",
-  }}
->
-  <img
-    src="/images/mindbody.png"
-    alt="Mindbody"
-    style={{ width: "32px", height: "32px", borderRadius: "6px" }}
-  />
-  <h2 style={{ margin: 0 }}>Mindbody Integration</h2>
-</div>
-
-<AccordionGroup>
-  <Accordion title="Fetch Mindbody Classes" icon="dumbbell">
-    Find all classes and available slots in Mindbody for a specific day.
-
-    **Variables (Agent fills during call):**
-    - `date` – Date to fetch classes for in dd/mm/yyyy format *(required)*
-
-    **Configurations (You set once):**
-    - **MB Site ID** – Your Mindbody site identifier
-    - **MB API Key** – Your Mindbody API key *(secret)*
-    - **MB Email** – Mindbody account email
-    - **MB Password** – Mindbody account password *(secret)*
-
-    **Use Cases:**
-    - "What yoga classes do you have tomorrow?"
-    - Show class schedule for the week
-    - Check capacity before booking
-
-  </Accordion>
-
-  <Accordion title="Book Mindbody Class" icon="calendar-plus">
-    Book a new or existing user into a Mindbody class.
-
-    **Variables (Agent fills during call):**
-    - `class_id` – The class ID to book *(required)*
-    - `full_name` – Customer's full name *(optional)*
-    - `phone` – Customer's phone number *(optional)*
-    - `email` – Customer's email address *(optional)*
-
-    **Configurations (You set once):**
-    - **MB Site ID** – Your Mindbody site identifier
-    - **MB API Key** – Your Mindbody API key *(secret)*
-    - **MB Email** – Mindbody account email
-    - **MB Password** – Mindbody account password *(secret)*
-
-    **Use Cases:**
-    - Book into classes instantly over the phone
-    - Register new members during signup calls
-    - Reserve spots in popular classes
-
-  </Accordion>
-</AccordionGroup>
-
----
-
-<div
-  style={{
-    display: "flex",
-    alignItems: "center",
-    gap: "10px",
-    marginBottom: "-10px",
-  }}
->
-  <img
-    src="/images/mytime.png"
-    alt="MyTime"
-    style={{ width: "32px", height: "32px", borderRadius: "6px" }}
-  />
-  <h2 style={{ margin: 0 }}>MyTime Integration</h2>
-</div>
-
-<AccordionGroup>
-  <Accordion title="Find Or Create MyTime Client" icon="user-plus">
-    Find or create a client in your MyTime system.
-
-    **Variables (Agent fills during call):**
-    - `phone_number` – Phone in international format *(required)*
-    - `full_name` – Full name *(optional)*
-    - `email` – Email address *(optional)*
-
-    **Configurations (You set once):**
-    - **Partner API Key** – Your MyTime API key *(secret)*
-    - **Subdomain** – Your MyTime subdomain
-    - **Location MyTime ID** – Your location identifier
-
-    **Use Cases:**
-    - Look up existing clients
-    - Create new client records
-    - Get client ID for booking
-
-  </Accordion>
-
-  <Accordion title="Fetch MyTime Services" icon="list">
-    Fetch all services available at your MyTime location.
-
-    **Variables (Agent fills during call):**
-    *None—returns all services*
-
-    **Configurations (You set once):**
-    - **Partner API Key** – Your MyTime API key *(secret)*
-    - **Subdomain** – Your MyTime subdomain
-    - **Location MyTime ID** – Your location identifier
-
-    **Use Cases:**
-    - "What services do you offer?"
-    - List treatment options
-    - Display pricing for different services
-
-  </Accordion>
-
-  <Accordion title="Fetch MyTime Availabilities" icon="calendar-days">
-    Fetch available appointment times for a specific therapy at your MyTime location.
-
-    **Variables (Agent fills during call):**
-    - `therapy_id` – The service/therapy ID *(required)*
-    - `date` – Date to check in yyyy-mm-dd format *(required)*
-    - `employee_id` – Specific therapist *(optional)*
-
-    **Configurations (You set once):**
-    - **Partner API Key** – Your MyTime API key *(secret)*
-    - **Subdomain** – Your MyTime subdomain
-    - **Location MyTime ID** – Your location identifier
-    - **Timezone** – Your business timezone
-
-    **Use Cases:**
-    - "When can I get a massage?"
-    - Show available appointment times
-    - Check specific therapist availability
-
-  </Accordion>
-
-  <Accordion title="Book MyTime Appointment" icon="calendar-plus">
-    Book an appointment for a specific therapy in MyTime.
-
-    **Variables (Agent fills during call):**
-    - `client_id` – The MyTime client ID *(required)*
-    - `therapy_id` – The service/therapy ID *(required)*
-    - `begin_at` – Start time in local ISO8601 format *(required)*
-    - `employee_id` – Specific therapist *(optional)*
-
-    **Configurations (You set once):**
-    - **Partner API Key** – Your MyTime API key *(secret)*
-    - **Subdomain** – Your MyTime subdomain
-    - **Location MyTime ID** – Your location identifier
-    - **Timezone** – Your business timezone
-
-    **Use Cases:**
-    - Book massage appointments
-    - Schedule beauty treatments
-    - Reserve spa services
-
-  </Accordion>
-
-  <Accordion title="Fetch MyTime Appointments" icon="calendar-check">
-    Fetch all appointments for a client at your MyTime location.
-
-    **Variables (Agent fills during call):**
-    - `client_id` – The MyTime client ID *(required)*
-
-    **Configurations (You set once):**
-    - **Partner API Key** – Your MyTime API key *(secret)*
-    - **Subdomain** – Your MyTime subdomain
-    - **Location MyTime ID** – Your location identifier
-    - **Timezone** – Your business timezone
-
-    **Use Cases:**
-    - Check customer's booking history
-    - Verify upcoming appointments
-    - Find appointment ID for rescheduling
-
-  </Accordion>
-
-  <Accordion title="Cancel or Reschedule MyTime Appointment" icon="calendar-xmark">
-    Cancel or reschedule an appointment at your MyTime location.
-
-    **Variables (Agent fills during call):**
-    - `action` – Either "cancel" or "reschedule" *(required)*
-    - `appointment_id` – Appointment to modify *(required)*
-    - `begin_at` – New start time in ISO8601 format *(required for reschedule)*
-    - `employee_id` – Different therapist *(optional)*
-
-    **Configurations (You set once):**
-    - **Partner API Key** – Your MyTime API key *(secret)*
-    - **Subdomain** – Your MyTime subdomain
-    - **Timezone** – Your business timezone
-
-    **Use Cases:**
-    - Reschedule treatments
-    - Cancel appointments
-    - Switch to a different therapist
-
-  </Accordion>
-</AccordionGroup>
-
---- */}
-
-## MCP Application Integrations
+# MCP Application Integrations
 
 Connect to 60+ popular applications through MCP application integrations. These applications are available as preset MCP servers—simply authenticate and select which tools you want your agent to access.
 
@@ -552,8 +346,6 @@ Connect to 60+ popular applications through MCP application integrations. These 
   See the [MCP Server section](/chat-agents#mcp-server) for detailed setup
   instructions.
 </Tip>
-
-### Available Applications
 
 <div
   style={{
@@ -6073,6 +5865,203 @@ BambooHR is an American technology company that provides human resources softwar
   }}
 >
   <img
+    src="https://django-outbox-public.s3.amazonaws.com/app_icons/brevo.svg"
+    alt="Brevo"
+    style={{ width: "32px", height: "32px", borderRadius: "6px" }}
+  />
+  <h2 style={{ margin: 0 }}>Brevo</h2>
+</div>
+
+Brevo is an all-in-one marketing platform that helps businesses grow through email marketing, SMS, chat, and CRM tools.
+
+<AccordionGroup>
+  <Accordion title="Create A Company" icon="building">
+    Create a new company in your Brevo account.
+
+    **Description:**
+    This tool allows you to create a new company in your Brevo account.
+
+    **Variables (Agent fills during call):**
+    - Company information (name, industry, etc.) *(required)*
+    - Additional company attributes *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Brevo integration*
+
+    **Use Cases:**
+    - Create new company records
+    - Add companies to CRM
+    - Track company information
+    - Manage company data
+
+  </Accordion>
+
+  <Accordion title="Delete Company" icon="trash">
+    Delete a company from Brevo.
+
+    **Description:**
+    Deletes a company from Brevo using its unique identifier.
+
+    **Variables (Agent fills during call):**
+    - `company_id` – The company ID to delete *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Brevo integration*
+
+    **Use Cases:**
+    - Remove company records
+    - Delete obsolete companies
+    - Clean up company data
+    - Remove duplicate entries
+
+  </Accordion>
+
+  <Accordion title="Delete Contact" icon="trash">
+    Delete a contact from Brevo.
+
+    **Description:**
+    Deletes a contact from Brevo using its unique identifier.
+
+    **Variables (Agent fills during call):**
+    - `contact_id` – The contact ID to delete *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Brevo integration*
+
+    **Use Cases:**
+    - Remove contact records
+    - Delete obsolete contacts
+    - Clean up contact data
+    - Remove duplicate entries
+
+  </Accordion>
+
+  <Accordion title="Find Contact" icon="magnifying-glass">
+    Check if a contact exists in Brevo.
+
+    **Description:**
+    This tool checks if a contact exists in Brevo. It searches for a contact using either an email address or mobile number, with the email being prioritized if both are provided.
+
+    **Variables (Agent fills during call):**
+    - `email` – Contact's email address *(optional)*
+    - `mobile` – Contact's mobile number *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Brevo integration*
+
+    **Use Cases:**
+    - Check if contact exists
+    - Find contacts by email
+    - Find contacts by phone
+    - Verify contact presence
+
+  </Accordion>
+
+  <Accordion title="Get All Contacts" icon="users">
+    Retrieve all contacts from your Brevo account.
+
+    **Description:**
+    This tool retrieves all contacts from your Brevo account. It allows for pagination and filtering based on modification/creation dates, list IDs, segment IDs, and contact attributes.
+
+    **Variables (Agent fills during call):**
+    - `limit` – Number of contacts to retrieve *(optional)*
+    - `offset` – Pagination offset *(optional)*
+    - `modified_since` – Filter by modification date *(optional)*
+    - `created_since` – Filter by creation date *(optional)*
+    - `list_id` – Filter by list ID *(optional)*
+    - `segment_id` – Filter by segment ID *(optional)*
+    - Attribute filters *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Brevo integration*
+
+    **Use Cases:**
+    - List all contacts
+    - Filter contacts by list
+    - Filter contacts by segment
+    - Export contact data
+    - Search contacts by attributes
+
+  </Accordion>
+
+  <Accordion title="Get Company Details" icon="building">
+    Retrieve details of a specific company.
+
+    **Description:**
+    This tool retrieves the details of a specific company by its unique ID.
+
+    **Variables (Agent fills during call):**
+    - `company_id` – The company ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Brevo integration*
+
+    **Use Cases:**
+    - View company information
+    - Get company details
+    - Check company data
+    - Access company records
+
+  </Accordion>
+
+  <Accordion title="Get Contact Details" icon="user">
+    Retrieve detailed information about a specific contact.
+
+    **Description:**
+    This tool retrieves detailed information about a specific contact in Brevo. You can identify the contact using their email address (URL-encoded), their unique contact ID, or their SMS attribute value.
+
+    **Variables (Agent fills during call):**
+    - `email` – Contact's email address *(optional)*
+    - `contact_id` – The contact ID *(optional)*
+    - `sms` – SMS attribute value *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Brevo integration*
+
+    **Use Cases:**
+    - View contact information
+    - Get contact details
+    - Check contact data
+    - Access contact records
+
+  </Accordion>
+
+  <Accordion title="List All Companies" icon="list">
+    Retrieve a list of all companies in Brevo CRM.
+
+    **Description:**
+    This action retrieves a list of all companies stored in the Brevo CRM. It supports pagination and filtering by name and other attributes.
+
+    **Variables (Agent fills during call):**
+    - `limit` – Number of companies to retrieve *(optional)*
+    - `offset` – Pagination offset *(optional)*
+    - `name` – Filter by company name *(optional)*
+    - Attribute filters *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Brevo integration*
+
+    **Use Cases:**
+    - List all companies
+    - Filter companies by name
+    - Search companies
+    - Export company data
+    - Browse company directory
+
+  </Accordion>
+</AccordionGroup>
+
+---
+
+<div
+  style={{
+    display: "flex",
+    alignItems: "center",
+    gap: "10px",
+    marginBottom: "-40px",
+  }}
+>
+  <img
     src="https://django-outbox-public.s3.amazonaws.com/app_icons/app-bill.com"
     alt="BILL"
     style={{ width: "32px", height: "32px", borderRadius: "6px" }}
@@ -6470,30 +6459,6 @@ BILL is a leading provider of cloud-based software that simplifies, digitizes, a
   }}
 >
   <img
-    src="https://django-outbox-public.s3.amazonaws.com/app_icons/brevo.svg"
-    alt="Brevo"
-    style={{ width: "32px", height: "32px", borderRadius: "6px" }}
-  />
-  <h2 style={{ margin: 0 }}>Brevo</h2>
-</div>
-
-Brevo (formerly Sendinblue) is an all-in-one email and SMS marketing platform that provides transactional messaging, marketing automation, contact management, and CRM tools to help businesses communicate and engage with their customers.
-
-**Available Tools:**
-
-_Tools documentation will be added here._
-
----
-
-<div
-  style={{
-    display: "flex",
-    alignItems: "center",
-    gap: "10px",
-    marginBottom: "-40px",
-  }}
->
-  <img
     src="https://django-outbox-public.s3.amazonaws.com/app_icons/cal_vC2IAGj.com_N0Xu85Y.png"
     alt="Cal.com"
     style={{ width: "32px", height: "32px", borderRadius: "6px" }}
@@ -6503,9 +6468,178 @@ _Tools documentation will be added here._
 
 Cal simplifies meeting coordination by providing shareable booking pages, calendar syncing, and availability management to streamline the scheduling process.
 
-**Available Tools:**
+<AccordionGroup>
+  <Accordion title="Cancel Booking Via Uid" icon="calendar-xmark">
+    Cancel an existing booking in Cal.com.
 
-_Tools documentation will be added here._
+    **Description:**
+    Cancels an existing and active Cal.com booking using its unique identifier (UID).
+
+    **Variables (Agent fills during call):**
+    - `booking_uid` – The booking UID to cancel *(required)*
+    - `reason` – Reason for cancellation *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Cal.com integration*
+
+    **Use Cases:**
+    - Cancel appointments
+    - Remove bookings
+    - Handle cancellations
+    - Free up time slots
+
+  </Accordion>
+
+  <Accordion title="Check Calendar Version2" icon="calendar-check">
+    Check calendar availability.
+
+    **Description:**
+    Retrieves free/busy availability for a specified calendar to aid scheduling without revealing event details; requires an existing, accessible calendar, noting that data granularity can vary.
+
+    **Variables (Agent fills during call):**
+    - `calendar_id` – The calendar ID to check *(required)*
+    - `start_date` – Start date for availability check *(required)*
+    - `end_date` – End date for availability check *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Cal.com integration*
+
+    **Use Cases:**
+    - Check calendar availability
+    - Find free time slots
+    - Verify calendar status
+    - Plan scheduling
+
+  </Accordion>
+
+  <Accordion title="Create Phone Call Event" icon="phone">
+    Schedule a phone call event in Cal.com.
+
+    **Description:**
+    Schedules a phone call event in Cal.com using existing eventType, organization, and team IDs; this action only registers the event details and does not initiate the actual phone call.
+
+    **Variables (Agent fills during call):**
+    - `event_type_id` – The event type ID *(required)*
+    - `organization_id` – The organization ID *(optional)*
+    - `team_id` – The team ID *(optional)*
+    - `start_time` – Event start time *(required)*
+    - `attendee_email` – Attendee email address *(required)*
+    - `attendee_name` – Attendee name *(required)*
+    - `phone_number` – Phone number for the call *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Cal.com integration*
+
+    **Use Cases:**
+    - Schedule phone call appointments
+    - Create call events
+    - Book phone consultations
+    - Set up call meetings
+
+  </Accordion>
+
+  <Accordion title="Fetch All Bookings" icon="list">
+    Retrieve a list of bookings.
+
+    **Description:**
+    Fetches a list of bookings, optionally filtered by status, attendee, date range, or by event/team IDs (which must belong to/include the authenticated user respectively), with support for pagination and sorting.
+
+    **Variables (Agent fills during call):**
+    - `status` – Filter by booking status *(optional)*
+    - `attendee_email` – Filter by attendee email *(optional)*
+    - `start_date` – Filter by start date *(optional)*
+    - `end_date` – Filter by end date *(optional)*
+    - `event_type_id` – Filter by event type ID *(optional)*
+    - `team_id` – Filter by team ID *(optional)*
+    - `limit` – Number of results to return *(optional)*
+    - `offset` – Pagination offset *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Cal.com integration*
+
+    **Use Cases:**
+    - View all bookings
+    - Filter bookings by status
+    - Find bookings by attendee
+    - List upcoming appointments
+    - Export booking data
+
+  </Accordion>
+
+  <Accordion title="List Event Types" icon="list">
+    Retrieve Cal.com event types.
+
+    **Description:**
+    Retrieves Cal event types, filterable by `username` (required if `eventSlug` is provided), multiple `usernames`, or organization details (`orgSlug` or `orgId`).
+
+    **Variables (Agent fills during call):**
+    - `username` – Filter by username *(optional)*
+    - `event_slug` – Filter by event slug (requires username) *(optional)*
+    - `usernames` – Filter by multiple usernames *(optional)*
+    - `org_slug` – Filter by organization slug *(optional)*
+    - `org_id` – Filter by organization ID *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Cal.com integration*
+
+    **Use Cases:**
+    - View available event types
+    - List event types by user
+    - Find event types by organization
+    - Browse event options
+    - Check event configurations
+
+  </Accordion>
+
+  <Accordion title="Post New Booking Request" icon="calendar-plus">
+    Create a new booking in Cal.com.
+
+    **Description:**
+    Creates a new booking for an active event type, scheduling it for a specified start time (preferably in the future) with primary attendee details and optional customizations.
+
+    **Variables (Agent fills during call):**
+    - `event_type_id` – The event type ID *(required)*
+    - `start_time` – Booking start time *(required)*
+    - `attendee_email` – Primary attendee email *(required)*
+    - `attendee_name` – Primary attendee name *(required)*
+    - `timezone` – Timezone for the booking *(optional)*
+    - `notes` – Booking notes *(optional)*
+    - `metadata` – Additional metadata *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Cal.com integration*
+
+    **Use Cases:**
+    - Create new bookings
+    - Schedule appointments
+    - Book meetings
+    - Set up consultations
+
+  </Accordion>
+
+  <Accordion title="Reschedule Booking By Uid" icon="calendar">
+    Reschedule an existing booking.
+
+    **Description:**
+    Reschedules an existing booking (identified by `bookingUid`) to a new time, provided the new slot's availability is confirmed beforehand; all other rescheduling parameters (e.g., new date, time) must be sent in the POST request body, not via this action's direct parameters.
+
+    **Variables (Agent fills during call):**
+    - `booking_uid` – The booking UID to reschedule *(required)*
+    - `new_start_time` – New start time for the booking *(required)*
+    - `timezone` – Timezone for the new time *(optional)*
+    - `reschedule_reason` – Reason for rescheduling *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Cal.com integration*
+
+    **Use Cases:**
+    - Reschedule appointments
+    - Change booking times
+    - Update meeting schedules
+    - Modify appointment times
+
+  </Accordion>
+</AccordionGroup>
 
 ---
 
@@ -6527,9 +6661,267 @@ _Tools documentation will be added here._
 
 CalendarHero is a versatile scheduling tool designed to streamline and simplify your calendar management. It integrates seamlessly with your existing calendars, allowing you to efficiently schedule, reschedule, and manage meetings with ease.
 
-**Available Tools:**
+<AccordionGroup>
+  <Accordion title="Add Calendar Connection" icon="calendar-plus">
+    Add a calendar integration to a user's account.
 
-_Tools documentation will be added here._
+    **Description:**
+    Tool to add a calendar integration to a user's account. Use after gathering provider credentials.
+
+    **Variables (Agent fills during call):**
+    - `provider` – Calendar provider (Google, Outlook, etc.) *(required)*
+    - `credentials` – Provider credentials *(required)*
+    - Additional provider-specific settings *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your CalendarHero integration*
+
+    **Use Cases:**
+    - Connect Google Calendar
+    - Add Outlook calendar
+    - Integrate calendar providers
+    - Set up calendar connections
+
+  </Accordion>
+
+  <Accordion title="Create Contact" icon="user-plus">
+    Create a new contact in CalendarHero.
+
+    **Description:**
+    Tool to create a new contact. Use after confirming contact details before making the API call.
+
+    **Variables (Agent fills during call):**
+    - `name` – Contact name *(required)*
+    - `email` – Contact email address *(required)*
+    - `phone` – Contact phone number *(optional)*
+    - Additional contact details *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your CalendarHero integration*
+
+    **Use Cases:**
+    - Add new contacts
+    - Create contact records
+    - Store contact information
+    - Manage contact database
+
+  </Accordion>
+
+  <Accordion title="Create Meeting Request V2" icon="calendar-plus">
+    Create a new meeting request in CalendarHero.
+
+    **Description:**
+    Tool to create a new meeting request in CalendarHero. Use when scheduling a meeting with participants, time range, and additional details.
+
+    **Variables (Agent fills during call):**
+    - `participants` – Array of participant emails *(required)*
+    - `start_time` – Meeting start time *(required)*
+    - `end_time` – Meeting end time *(required)*
+    - `title` – Meeting title *(optional)*
+    - `description` – Meeting description *(optional)*
+    - `location` – Meeting location *(optional)*
+    - `timezone` – Timezone for the meeting *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your CalendarHero integration*
+
+    **Use Cases:**
+    - Schedule meetings
+    - Create meeting requests
+    - Book appointments
+    - Set up conference calls
+
+  </Accordion>
+
+  <Accordion title="Fetch Contact" icon="user">
+    Retrieve contact information.
+
+    **Description:**
+    Fetch Contact
+
+    **Variables (Agent fills during call):**
+    - `contact_id` – The contact ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your CalendarHero integration*
+
+    **Use Cases:**
+    - View contact details
+    - Get contact information
+    - Retrieve contact data
+    - Access contact records
+
+  </Accordion>
+
+  <Accordion title="Fetch Meeting Details" icon="calendar">
+    Fetch details for meetings within a timeframe.
+
+    **Description:**
+    Tool to fetch details for meetings within a specified timeframe. Use this after user provides start and end datetimes in ISO8601.
+
+    **Variables (Agent fills during call):**
+    - `start_time` – Start datetime in ISO8601 format *(required)*
+    - `end_time` – End datetime in ISO8601 format *(required)*
+    - `meeting_id` – Specific meeting ID *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your CalendarHero integration*
+
+    **Use Cases:**
+    - View meeting details
+    - Get meeting information
+    - Check meeting specifics
+    - Retrieve meeting data
+
+  </Accordion>
+
+  <Accordion title="List Meetings" icon="list">
+    Retrieve meetings within a timeframe.
+
+    **Description:**
+    Tool to retrieve the user's meetings within a specified timeframe. Use after confirming date range to fetch raw calendar data.
+
+    **Variables (Agent fills during call):**
+    - `start_time` – Start datetime *(required)*
+    - `end_time` – End datetime *(required)*
+    - `calendar_id` – Filter by calendar ID *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your CalendarHero integration*
+
+    **Use Cases:**
+    - View upcoming meetings
+    - List scheduled appointments
+    - Check calendar events
+    - Review meeting schedule
+
+  </Accordion>
+
+  <Accordion title="List Meeting Templates" icon="list">
+    List all available meeting templates.
+
+    **Description:**
+    Tool to list all meeting templates available for quick scheduling. Use after authenticating and when you need to retrieve available templates before scheduling.
+
+    **Variables (Agent fills during call):**
+    *None—returns all available templates*
+
+    **Configurations (You set once):**
+    *None required—uses your CalendarHero integration*
+
+    **Use Cases:**
+    - View meeting templates
+    - List available templates
+    - Check template options
+    - Browse template library
+
+  </Accordion>
+
+  <Accordion title="List Meeting Types" icon="list">
+    Retrieve user's configured meeting types.
+
+    **Description:**
+    Tool to retrieve the user's configured meeting types. Use after authenticating with CalendarHero.
+
+    **Variables (Agent fills during call):**
+    *None—returns all meeting types*
+
+    **Configurations (You set once):**
+    *None required—uses your CalendarHero integration*
+
+    **Use Cases:**
+    - View meeting types
+    - List configured types
+    - Check available types
+    - Review type settings
+
+  </Accordion>
+
+  <Accordion title="List User Calendars" icon="calendar">
+    List all calendar integrations for a user.
+
+    **Description:**
+    Tool to list all calendar integrations connected to a user's CalendarHero account. Use after authenticating when you need to retrieve available calendars for scheduling.
+
+    **Variables (Agent fills during call):**
+    *None—returns all connected calendars*
+
+    **Configurations (You set once):**
+    *None required—uses your CalendarHero integration*
+
+    **Use Cases:**
+    - View connected calendars
+    - List calendar integrations
+    - Check available calendars
+    - Review calendar connections
+
+  </Accordion>
+
+  <Accordion title="Search Contact" icon="magnifying-glass">
+    Search for existing contacts.
+
+    **Description:**
+    Tool to search for existing contacts. Use after confirming a need to find contacts by email or name.
+
+    **Variables (Agent fills during call):**
+    - `email` – Search by email address *(optional)*
+    - `name` – Search by name *(optional)*
+    - `query` – General search query *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your CalendarHero integration*
+
+    **Use Cases:**
+    - Find contacts by email
+    - Search contacts by name
+    - Locate contact records
+    - Look up contact information
+
+  </Accordion>
+
+  <Accordion title="Send Reminder" icon="bell">
+    Send a reminder to a contact about their meeting.
+
+    **Description:**
+    Tool to send a reminder to a contact about their scheduled meeting. Use after confirming the meeting task ID to notify participants.
+
+    **Variables (Agent fills during call):**
+    - `meeting_task_id` – The meeting task ID *(required)*
+    - `contact_id` – The contact ID to send reminder to *(required)*
+    - `message` – Custom reminder message *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your CalendarHero integration*
+
+    **Use Cases:**
+    - Send meeting reminders
+    - Notify participants
+    - Remind about appointments
+    - Alert meeting attendees
+
+  </Accordion>
+
+  <Accordion title="Update Contact" icon="pen">
+    Update details of an existing contact.
+
+    **Description:**
+    Tool to update details of an existing contact. Use when you have the contact's ID and want to apply changes. Example: 'Update contact 507f1f77bcf86cd799439011 with a new email.'
+
+    **Variables (Agent fills during call):**
+    - `contact_id` – The contact ID to update *(required)*
+    - Updated contact fields (name, email, phone, etc.) *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your CalendarHero integration*
+
+    **Use Cases:**
+    - Update contact information
+    - Change contact details
+    - Modify contact data
+    - Edit contact records
+
+  </Accordion>
+</AccordionGroup>
 
 ---
 
@@ -6551,9 +6943,455 @@ _Tools documentation will be added here._
 
 Calendly is an appointment scheduling tool that automates meeting invitations, availability checks, and reminders, helping individuals and teams avoid email back-and-forth.
 
-**Available Tools:**
+<AccordionGroup>
+  <Accordion title="Cancel Event" icon="calendar-xmark">
+    Cancel an existing scheduled event.
 
-_Tools documentation will be added here._
+    **Description:**
+    Permanently cancels an existing, active scheduled event by its `uuid`, optionally providing a `reason`, which may trigger notifications to invitees.
+
+    **Variables (Agent fills during call):**
+    - `event_uuid` – The event UUID to cancel *(required)*
+    - `reason` – Reason for cancellation *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Calendly integration*
+
+    **Use Cases:**
+    - Cancel scheduled events
+    - Remove appointments
+    - Handle cancellations
+    - Free up time slots
+
+  </Accordion>
+
+  <Accordion title="Create Invitee No Show" icon="user-xmark">
+    Mark an invitee as a no-show.
+
+    **Description:**
+    Marks an Invitee, identified by their existing and valid URI, as a "No Show" for a scheduled event.
+
+    **Variables (Agent fills during call):**
+    - `invitee_uri` – The invitee URI *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Calendly integration*
+
+    **Use Cases:**
+    - Mark no-shows
+    - Track attendance
+    - Record missed appointments
+    - Update invitee status
+
+  </Accordion>
+
+  <Accordion title="Create One Off Event Type" icon="calendar-plus">
+    Create a temporary one-off event type.
+
+    **Description:**
+    Creates a temporary Calendly one-off event type for unique meetings outside regular availability, requiring valid host/co-host URIs, a future date/range for `date_setting`, and a positive `duration`.
+
+    **Variables (Agent fills during call):**
+    - `host_uri` – Host URI *(required)*
+    - `co_host_uris` – Array of co-host URIs *(optional)*
+    - `date_setting` – Date range settings *(required)*
+    - `duration` – Event duration in minutes *(required)*
+    - `name` – Event type name *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Calendly integration*
+
+    **Use Cases:**
+    - Create temporary event types
+    - Schedule one-time meetings
+    - Set up unique appointments
+    - Create custom event types
+
+  </Accordion>
+
+  <Accordion title="Create Scheduling Link" icon="link">
+    Create a single-use scheduling link.
+
+    **Description:**
+    Create a single-use scheduling link. Creates a scheduling link that can be used to book an event. The link allows invitees to schedule up to the specified maximum number of events. Once the limit is reached, the link becomes inactive.
+
+    **Variables (Agent fills during call):**
+    - `event_type_uri` – The event type URI *(required)*
+    - `max_booking_count` – Maximum number of bookings *(required)*
+    - Additional link settings *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Calendly integration*
+
+    **Use Cases:**
+    - Create scheduling links
+    - Share booking links
+    - Generate one-time links
+    - Create limited-use links
+
+  </Accordion>
+
+  <Accordion title="Create Share" icon="share">
+    Create a customizable share link for an event type.
+
+    **Description:**
+    Creates a customizable, one-time share link for a Calendly event type, allowing specific overrides to its settings (e.g., duration, availability, location) without altering the original event type.
+
+    **Variables (Agent fills during call):**
+    - `event_type_uri` – The event type URI *(required)*
+    - `duration` – Override duration *(optional)*
+    - `availability` – Override availability *(optional)*
+    - `location` – Override location *(optional)*
+    - Additional override settings *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Calendly integration*
+
+    **Use Cases:**
+    - Create custom share links
+    - Override event settings
+    - Generate personalized links
+    - Share modified event types
+
+  </Accordion>
+
+  <Accordion title="Create Single Use Scheduling Link" icon="link">
+    Create a one-time scheduling link.
+
+    **Description:**
+    Creates a one-time, single-use scheduling link for an active Calendly event type, expiring after one booking.
+
+    **Variables (Agent fills during call):**
+    - `event_type_uri` – The event type URI *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Calendly integration*
+
+    **Use Cases:**
+    - Create single-use links
+    - Generate one-time booking links
+    - Share limited access links
+    - Create expiring links
+
+  </Accordion>
+
+  <Accordion title="Delete Invitee No Show" icon="trash">
+    Delete an invitee no-show record.
+
+    **Description:**
+    Deletes an Invitee No-Show record by its `uuid` to reverse an invitee's "no-show" status; the `uuid` must refer to an existing record.
+
+    **Variables (Agent fills during call):**
+    - `no_show_uuid` – The no-show record UUID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Calendly integration*
+
+    **Use Cases:**
+    - Remove no-show records
+    - Reverse no-show status
+    - Correct attendance records
+    - Update invitee status
+
+  </Accordion>
+
+  <Accordion title="Delete Scheduled Event Data" icon="trash">
+    Delete scheduled event data (Enterprise only).
+
+    **Description:**
+    For Enterprise users, initiates deletion of an organization's scheduled event data between a `start_time` and `end_time` (inclusive, where `start_time` must be less than or equal to `end_time`); actual data deletion may take up to 7 days to complete.
+
+    **Variables (Agent fills during call):**
+    - `start_time` – Start time for deletion range *(required)*
+    - `end_time` – End time for deletion range *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Calendly integration*
+
+    **Use Cases:**
+    - Delete event data
+    - Remove historical events
+    - Clean up event records
+    - Bulk delete events
+
+  </Accordion>
+
+  <Accordion title="Get Current User" icon="user">
+    Retrieve current authenticated user information.
+
+    **Description:**
+    Retrieves detailed information about the currently authenticated Calendly user.
+
+    **Variables (Agent fills during call):**
+    *None—returns current user information*
+
+    **Configurations (You set once):**
+    *None required—uses your Calendly integration*
+
+    **Use Cases:**
+    - Get user information
+    - View user profile
+    - Check authentication
+    - Access user details
+
+  </Accordion>
+
+  <Accordion title="Get Event" icon="calendar">
+    Retrieve a specific scheduled event.
+
+    **Description:**
+    Use to retrieve a specific Calendly scheduled event by its UUID, provided the event exists in the user's Calendly account.
+
+    **Variables (Agent fills during call):**
+    - `event_uuid` – The event UUID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Calendly integration*
+
+    **Use Cases:**
+    - View event details
+    - Get event information
+    - Check event status
+    - Access event data
+
+  </Accordion>
+
+  <Accordion title="Get Event Invitee" icon="user">
+    Retrieve invitee information for an event.
+
+    **Description:**
+    Retrieves detailed information about a specific invitee of a scheduled event, using their unique UUIDs.
+
+    **Variables (Agent fills during call):**
+    - `event_uuid` – The event UUID *(required)*
+    - `invitee_uuid` – The invitee UUID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Calendly integration*
+
+    **Use Cases:**
+    - View invitee details
+    - Get invitee information
+    - Check invitee status
+    - Access invitee data
+
+  </Accordion>
+
+  <Accordion title="Get Event Type" icon="calendar">
+    Retrieve details for a specific event type.
+
+    **Description:**
+    Retrieves details for a specific Calendly event type, identified by its UUID, which must be valid and correspond to an existing event type.
+
+    **Variables (Agent fills during call):**
+    - `event_type_uuid` – The event type UUID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Calendly integration*
+
+    **Use Cases:**
+    - View event type details
+    - Get event type information
+    - Check event type settings
+    - Access event type data
+
+  </Accordion>
+
+  <Accordion title="Get Invitee No Show" icon="user-xmark">
+    Retrieve invitee no-show record details.
+
+    **Description:**
+    Retrieves details for a specific Invitee No Show record by its UUID; an Invitee No Show is marked when an invitee does not attend a scheduled event.
+
+    **Variables (Agent fills during call):**
+    - `no_show_uuid` – The no-show record UUID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Calendly integration*
+
+    **Use Cases:**
+    - View no-show records
+    - Get no-show information
+    - Check attendance records
+    - Access no-show data
+
+  </Accordion>
+
+  <Accordion title="Get User" icon="user">
+    Retrieve comprehensive user details.
+
+    **Description:**
+    Retrieves comprehensive details for an existing Calendly user.
+
+    **Variables (Agent fills during call):**
+    - `user_uuid` – The user UUID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Calendly integration*
+
+    **Use Cases:**
+    - View user details
+    - Get user information
+    - Check user profile
+    - Access user data
+
+  </Accordion>
+
+  <Accordion title="Get User Availability Schedule" icon="calendar-check">
+    Retrieve user availability schedule.
+
+    **Description:**
+    Retrieves an existing user availability schedule by its UUID; this schedule defines the user's default hours of availability.
+
+    **Variables (Agent fills during call):**
+    - `schedule_uuid` – The schedule UUID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Calendly integration*
+
+    **Use Cases:**
+    - View availability schedule
+    - Get schedule details
+    - Check availability hours
+    - Access schedule data
+
+  </Accordion>
+
+  <Accordion title="List Event Invitees" icon="users">
+    Retrieve list of invitees for an event.
+
+    **Description:**
+    Retrieves a list of invitees for a specified Calendly event UUID, with options to filter by status or email, and sort by creation time.
+
+    **Variables (Agent fills during call):**
+    - `event_uuid` – The event UUID *(required)*
+    - `status` – Filter by invitee status *(optional)*
+    - `email` – Filter by email address *(optional)*
+    - `sort` – Sort order (creation_time) *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Calendly integration*
+
+    **Use Cases:**
+    - View event invitees
+    - List attendees
+    - Filter by status
+    - Check invitee list
+
+  </Accordion>
+
+  <Accordion title="List Events" icon="list">
+    Retrieve a list of scheduled events.
+
+    **Description:**
+    Retrieves a list of scheduled Calendly events; requires `user`, `organization`, `group`, or `invitee_email` for scope, and admin rights may be needed when filtering by `organization` or `group`.
+
+    **Variables (Agent fills during call):**
+    - `user` – Filter by user URI *(optional)*
+    - `organization` – Filter by organization URI *(optional)*
+    - `group` – Filter by group URI *(optional)*
+    - `invitee_email` – Filter by invitee email *(optional)*
+    - `count` – Number of results to return *(optional)*
+    - `page_token` – Pagination token *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Calendly integration*
+
+    **Use Cases:**
+    - View all events
+    - List scheduled events
+    - Filter by user or organization
+    - Check upcoming events
+
+  </Accordion>
+
+  <Accordion title="List Event Type Available Times" icon="clock">
+    Fetch available time slots for an event type.
+
+    **Description:**
+    Fetches available time slots for a Calendly event type within a specified time range; results are not paginated.
+
+    **Variables (Agent fills during call):**
+    - `event_type_uri` – The event type URI *(required)*
+    - `start_time` – Start time for availability check *(required)*
+    - `end_time` – End time for availability check *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Calendly integration*
+
+    **Use Cases:**
+    - Check available times
+    - Find free slots
+    - View availability
+    - Plan scheduling
+
+  </Accordion>
+
+  <Accordion title="List Event Type Hosts" icon="users">
+    Retrieve hosts for an event type.
+
+    **Description:**
+    Retrieves a list of hosts (users) assigned to a specific, existing Calendly event type, identified by its URI.
+
+    **Variables (Agent fills during call):**
+    - `event_type_uri` – The event type URI *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Calendly integration*
+
+    **Use Cases:**
+    - View event type hosts
+    - List assigned hosts
+    - Check host assignments
+    - Access host information
+
+  </Accordion>
+
+  <Accordion title="List User Busy Times" icon="calendar-xmark">
+    Fetch user's busy time intervals.
+
+    **Description:**
+    Fetches a user's busy time intervals (internal and external calendar events) in ascending order for a period up to 7 days; keyset pagination is not supported.
+
+    **Variables (Agent fills during call):**
+    - `user_uri` – The user URI *(required)*
+    - `start_time` – Start time for busy check *(required)*
+    - `end_time` – End time for busy check (max 7 days) *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Calendly integration*
+
+    **Use Cases:**
+    - Check busy times
+    - View unavailable slots
+    - Find occupied times
+    - Plan around conflicts
+
+  </Accordion>
+
+  <Accordion title="List User S Event Types" icon="list">
+    Retrieve event types for a user or organization.
+
+    **Description:**
+    Retrieves event types for a user or organization; requires either the `user` or `organization` URI.
+
+    **Variables (Agent fills during call):**
+    - `user` – Filter by user URI *(optional)*
+    - `organization` – Filter by organization URI *(optional)*
+    - `count` – Number of results to return *(optional)*
+    - `page_token` – Pagination token *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Calendly integration*
+
+    **Use Cases:**
+    - View event types
+    - List available event types
+    - Check user's event types
+    - Browse event options
+
+  </Accordion>
+</AccordionGroup>
 
 ---
 
@@ -6575,9 +7413,1191 @@ _Tools documentation will be added here._
 
 ClickUp unifies tasks, docs, goals, and chat in a single platform, allowing teams to plan, organize, and collaborate across projects with customizable workflows.
 
-**Available Tools:**
+<AccordionGroup>
+  <Accordion title="Add Tag To Task" icon="tag">
+    Add an existing tag to a task.
 
-_Tools documentation will be added here._
+    **Description:**
+    Adds an existing tag to a specified task; team_id is required if custom_task_ids is true.
+
+    **Variables (Agent fills during call):**
+    - `task_id` – The task ID *(required)*
+    - `tag_name` – The tag name to add *(required)*
+    - `team_id` – Team ID (required if custom_task_ids is true) *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Tag tasks for organization
+    - Categorize tasks
+    - Label tasks
+    - Organize task tags
+
+  </Accordion>
+
+  <Accordion title="Add Task To List" icon="list">
+    Add a task to an additional list.
+
+    **Description:**
+    Adds an existing task to an additional ClickUp List; the "Tasks in Multiple Lists" ClickApp must be enabled in the Workspace for this.
+
+    **Variables (Agent fills during call):**
+    - `task_id` – The task ID *(required)*
+    - `list_id` – The list ID to add the task to *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Add tasks to multiple lists
+    - Organize tasks across lists
+    - Share tasks between lists
+    - Cross-list task management
+
+  </Accordion>
+
+  <Accordion title="Create A Time Entry" icon="clock">
+    Create a new time entry for a team.
+
+    **Description:**
+    Creates a new time entry for a specified team.
+
+    **Variables (Agent fills during call):**
+    - `team_id` – The team ID *(required)*
+    - `task_id` – The task ID *(optional)*
+    - `start` – Start time *(required)*
+    - `duration` – Duration in milliseconds *(required)*
+    - `description` – Time entry description *(optional)*
+    - `billable` – Whether the entry is billable *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Log work time
+    - Track billable hours
+    - Record time entries
+    - Track time spent
+
+  </Accordion>
+
+  <Accordion title="Create Checklist" icon="list-check">
+    Create a new checklist in a task.
+
+    **Description:**
+    Creates a new checklist with a specified name within an existing task, which can be identified by its standard ID or a custom task ID (if `custom_task_ids` is true, `team_id` is also required).
+
+    **Variables (Agent fills during call):**
+    - `task_id` – The task ID *(required)*
+    - `name` – Checklist name *(required)*
+    - `team_id` – Team ID (required if custom_task_ids is true) *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Create task checklists
+    - Add checklists to tasks
+    - Organize task items
+    - Set up task breakdowns
+
+  </Accordion>
+
+  <Accordion title="Create Checklist Item" icon="list-check">
+    Create a new checklist item.
+
+    **Description:**
+    Creates a new checklist item within a specified, existing checklist, optionally setting the item's name and assigning it to a user.
+
+    **Variables (Agent fills during call):**
+    - `checklist_id` – The checklist ID *(required)*
+    - `name` – Item name *(required)*
+    - `assignee` – User ID to assign to *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Add items to checklists
+    - Create checklist tasks
+    - Assign checklist items
+    - Build checklist structure
+
+  </Accordion>
+
+  <Accordion title="Create List" icon="list">
+    Create a new list in a folder.
+
+    **Description:**
+    Creates a new list in ClickUp within a specified, existing folder.
+
+    **Variables (Agent fills during call):**
+    - `folder_id` – The folder ID *(required)*
+    - `name` – List name *(required)*
+    - Additional list settings *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Create new lists
+    - Organize projects
+    - Set up list structure
+    - Add lists to folders
+
+  </Accordion>
+
+  <Accordion title="Create List Comment" icon="comment">
+    Add a comment to a list.
+
+    **Description:**
+    Adds a new comment with specific text to an existing and accessible ClickUp List, assigns it to a user, and sets notification preferences for all list members.
+
+    **Variables (Agent fills during call):**
+    - `list_id` – The list ID *(required)*
+    - `comment_text` – Comment text *(required)*
+    - `assignee` – User ID to assign comment to *(optional)*
+    - `notify_all` – Notify all list members *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Add list comments
+    - Communicate about lists
+    - Share list information
+    - Notify list members
+
+  </Accordion>
+
+  <Accordion title="Create Task" icon="plus">
+    Create a new task in a list.
+
+    **Description:**
+    Creates a new ClickUp task in a specific list, optionally as a subtask if a `parent` task ID (which cannot be a subtask itself and must be in the same list) is provided.
+
+    **Variables (Agent fills during call):**
+    - `list_id` – The list ID *(required)*
+    - `name` – Task name *(required)*
+    - `parent` – Parent task ID for subtasks *(optional)*
+    - `description` – Task description *(optional)*
+    - `assignees` – Array of assignee user IDs *(optional)*
+    - `status` – Task status *(optional)*
+    - `priority` – Task priority *(optional)*
+    - `due_date` – Due date timestamp *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Create new tasks
+    - Add tasks to lists
+    - Create subtasks
+    - Set up task structure
+
+  </Accordion>
+
+  <Accordion title="Create Task Comment" icon="comment">
+    Add a comment to a task.
+
+    **Description:**
+    Adds a comment to a ClickUp task; `team_id` is required if `custom_task_ids` is true.
+
+    **Variables (Agent fills during call):**
+    - `task_id` – The task ID *(required)*
+    - `comment_text` – Comment text *(required)*
+    - `team_id` – Team ID (required if custom_task_ids is true) *(optional)*
+    - `assignee` – User ID to assign comment to *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Add task comments
+    - Provide task updates
+    - Communicate about tasks
+    - Document task progress
+
+  </Accordion>
+
+  <Accordion title="Create Task From Template" icon="file">
+    Create a task from a template.
+
+    **Description:**
+    Creates a new task in a specified ClickUp list from a task template, using the provided name for the new task.
+
+    **Variables (Agent fills during call):**
+    - `list_id` – The list ID *(required)*
+    - `template_id` – The template ID *(required)*
+    - `name` – Task name *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Create tasks from templates
+    - Use predefined task structures
+    - Standardize task creation
+    - Apply template formats
+
+  </Accordion>
+
+  <Accordion title="Delete A Time Entry" icon="trash">
+    Delete a time entry.
+
+    **Description:**
+    Deletes an existing time entry, specified by `timer_id`, from a Workspace identified by `team_id`.
+
+    **Variables (Agent fills during call):**
+    - `timer_id` – The time entry ID *(required)*
+    - `team_id` – The team ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Remove time entries
+    - Delete incorrect entries
+    - Clean up time data
+    - Remove erroneous records
+
+  </Accordion>
+
+  <Accordion title="Delete Checklist" icon="trash">
+    Delete a checklist.
+
+    **Description:**
+    Permanently deletes an existing checklist identified by its `checklist_id`.
+
+    **Variables (Agent fills during call):**
+    - `checklist_id` – The checklist ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Remove checklists
+    - Delete obsolete checklists
+    - Clean up task structure
+    - Remove unused checklists
+
+  </Accordion>
+
+  <Accordion title="Delete Checklist Item" icon="trash">
+    Delete a checklist item.
+
+    **Description:**
+    Permanently deletes an existing item, identified by `checklist_item_id`, from an existing checklist, identified by `checklist_id`.
+
+    **Variables (Agent fills during call):**
+    - `checklist_id` – The checklist ID *(required)*
+    - `checklist_item_id` – The checklist item ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Remove checklist items
+    - Delete completed items
+    - Clean up checklists
+    - Remove obsolete items
+
+  </Accordion>
+
+  <Accordion title="Delete Comment" icon="trash">
+    Delete a comment from a task.
+
+    **Description:**
+    Deletes an existing comment from a task using its `comment_id`.
+
+    **Variables (Agent fills during call):**
+    - `comment_id` – The comment ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Remove comments
+    - Delete outdated comments
+    - Clean up discussions
+    - Remove inappropriate comments
+
+  </Accordion>
+
+  <Accordion title="Delete Goal" icon="trash">
+    Delete a goal.
+
+    **Description:**
+    Permanently removes an existing Goal, identified by its `goal_id`, from the Workspace.
+
+    **Variables (Agent fills during call):**
+    - `goal_id` – The goal ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Remove goals
+    - Delete obsolete goals
+    - Clean up goal list
+    - Remove completed goals
+
+  </Accordion>
+
+  <Accordion title="Delete Task" icon="trash">
+    Delete a task.
+
+    **Description:**
+    Permanently deletes a task, using its standard ID or a custom task ID (requires `custom_task_ids=true` and `team_id`).
+
+    **Variables (Agent fills during call):**
+    - `task_id` – The task ID *(required)*
+    - `team_id` – Team ID (required if custom_task_ids is true) *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Remove tasks
+    - Delete completed tasks
+    - Clean up task list
+    - Remove obsolete tasks
+
+  </Accordion>
+
+  <Accordion title="Edit Checklist" icon="pen">
+    Update a checklist.
+
+    **Description:**
+    Updates an existing checklist's name or position, identified by its `checklist_id`.
+
+    **Variables (Agent fills during call):**
+    - `checklist_id` – The checklist ID *(required)*
+    - `name` – Updated checklist name *(optional)*
+    - `position` – Updated position *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Rename checklists
+    - Reorder checklists
+    - Update checklist details
+    - Modify checklist structure
+
+  </Accordion>
+
+  <Accordion title="Edit Checklist Item" icon="pen">
+    Update a checklist item.
+
+    **Description:**
+    Updates an existing checklist item, allowing modification of its name, assignee, resolution status, or parent item for nesting.
+
+    **Variables (Agent fills during call):**
+    - `checklist_id` – The checklist ID *(required)*
+    - `checklist_item_id` – The checklist item ID *(required)*
+    - `name` – Updated item name *(optional)*
+    - `assignee` – Updated assignee user ID *(optional)*
+    - `resolved` – Resolution status *(optional)*
+    - `parent` – Parent item ID for nesting *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Update checklist items
+    - Mark items as complete
+    - Change item assignees
+    - Nest checklist items
+
+  </Accordion>
+
+  <Accordion title="Get Accessible Custom Fields" icon="list">
+    Retrieve custom field definitions for a list.
+
+    **Description:**
+    Retrieves all accessible Custom Field definitions for a specified ClickUp List using its `list_id`.
+
+    **Variables (Agent fills during call):**
+    - `list_id` – The list ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - View custom fields
+    - Check available fields
+    - Review field definitions
+    - Access field structure
+
+  </Accordion>
+
+  <Accordion title="Get Filtered Team Tasks" icon="list">
+    Retrieve filtered tasks from a team.
+
+    **Description:**
+    Retrieves a paginated list of tasks (up to 100 per page) from a specified team (Workspace ID in `team_Id`) based on various filter criteria, respecting user access permissions.
+
+    **Variables (Agent fills during call):**
+    - `team_id` – The team ID *(required)*
+    - Filter criteria (status, assignee, due date, etc.) *(optional)*
+    - `page` – Page number for pagination *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Filter team tasks
+    - Search tasks by criteria
+    - Find specific tasks
+    - Query task database
+
+  </Accordion>
+
+  <Accordion title="Get Folder" icon="folder">
+    Retrieve folder details.
+
+    **Description:**
+    Retrieves detailed information about a specific folder in ClickUp.
+
+    **Variables (Agent fills during call):**
+    - `folder_id` – The folder ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - View folder details
+    - Get folder information
+    - Check folder structure
+    - Access folder data
+
+  </Accordion>
+
+  <Accordion title="Get Folderless Lists" icon="list">
+    Retrieve lists not in folders.
+
+    **Description:**
+    Retrieves all Lists within a specified Space that are not located in any Folder.
+
+    **Variables (Agent fills during call):**
+    - `space_id` – The space ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - View folderless lists
+    - List standalone lists
+    - Check list organization
+    - Access unorganized lists
+
+  </Accordion>
+
+  <Accordion title="Get Folders" icon="folders">
+    Retrieve folders in a space.
+
+    **Description:**
+    Retrieves Folders within a specified ClickUp Space, ensuring `space_id` is valid, with an option to filter by archived status.
+
+    **Variables (Agent fills during call):**
+    - `space_id` – The space ID *(required)*
+    - `archived` – Filter by archived status *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - View folders in space
+    - List all folders
+    - Check folder structure
+    - Access folder list
+
+  </Accordion>
+
+  <Accordion title="Get Goal" icon="target">
+    Retrieve goal details.
+
+    **Description:**
+    Retrieves detailed information for an existing ClickUp Goal, specified by its unique `goal_id`.
+
+    **Variables (Agent fills during call):**
+    - `goal_id` – The goal ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - View goal details
+    - Get goal information
+    - Check goal progress
+    - Access goal data
+
+  </Accordion>
+
+  <Accordion title="Get Goals" icon="target">
+    Retrieve goals for a workspace.
+
+    **Description:**
+    Retrieves goals for a specified ClickUp Workspace (Team); the `team_id` must be valid and accessible.
+
+    **Variables (Agent fills during call):**
+    - `team_id` – The team ID *(required)*
+    - `include_completed` – Include completed goals *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - View workspace goals
+    - List all goals
+    - Check goal list
+    - Access goal data
+
+  </Accordion>
+
+  <Accordion title="Get List" icon="list">
+    Retrieve list details.
+
+    **Description:**
+    Retrieves detailed information for an existing List in ClickUp, identified by its unique `list_id`.
+
+    **Variables (Agent fills during call):**
+    - `list_id` – The list ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - View list details
+    - Get list information
+    - Check list settings
+    - Access list data
+
+  </Accordion>
+
+  <Accordion title="Get List Comments" icon="comment">
+    Retrieve comments for a list.
+
+    **Description:**
+    Retrieves comments for a specific ClickUp List, supporting pagination using `start` (timestamp) and `start_id` (comment ID) to fetch earlier comments; omits them for the latest 25.
+
+    **Variables (Agent fills during call):**
+    - `list_id` – The list ID *(required)*
+    - `start` – Start timestamp for pagination *(optional)*
+    - `start_id` – Start comment ID for pagination *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - View list comments
+    - Check list discussions
+    - Review comment history
+    - Access comment data
+
+  </Accordion>
+
+  <Accordion title="Get List Members" icon="users">
+    Retrieve list members.
+
+    **Description:**
+    Retrieves all members of a specific, existing ClickUp List by its ID.
+
+    **Variables (Agent fills during call):**
+    - `list_id` – The list ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - View list members
+    - Check list access
+    - List team members
+    - Access member data
+
+  </Accordion>
+
+  <Accordion title="Get Lists" icon="list">
+    Retrieve lists in a folder.
+
+    **Description:**
+    Retrieves all lists within a specified, existing ClickUp folder, optionally filtering by archived status.
+
+    **Variables (Agent fills during call):**
+    - `folder_id` – The folder ID *(required)*
+    - `archived` – Filter by archived status *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - View folder lists
+    - List all lists
+    - Check list structure
+    - Access list data
+
+  </Accordion>
+
+  <Accordion title="Get Running Time Entry" icon="clock">
+    Retrieve the active time entry.
+
+    **Description:**
+    Retrieves the currently active time entry for a user in a Workspace; a negative 'duration' in its data indicates it's running, and the response may be empty if no entry is active.
+
+    **Variables (Agent fills during call):**
+    - `team_id` – The team ID *(required)*
+    - `user_id` – The user ID *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Check active timer
+    - View running time entry
+    - Monitor current time tracking
+    - Access active timer data
+
+  </Accordion>
+
+  <Accordion title="Get Singular Time Entry" icon="clock">
+    Retrieve a specific time entry.
+
+    **Description:**
+    Fetches a specific time entry by its ID for a given team; a negative duration in the response indicates an active timer.
+
+    **Variables (Agent fills during call):**
+    - `team_id` – The team ID *(required)*
+    - `timer_id` – The time entry ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - View time entry details
+    - Get time entry information
+    - Check time entry status
+    - Access time entry data
+
+  </Accordion>
+
+  <Accordion title="Get Space" icon="folder">
+    Retrieve space details.
+
+    **Description:**
+    Retrieves detailed information for an existing Space in a ClickUp Workspace, identified by its unique space_id.
+
+    **Variables (Agent fills during call):**
+    - `space_id` – The space ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - View space details
+    - Get space information
+    - Check space structure
+    - Access space data
+
+  </Accordion>
+
+  <Accordion title="Get Spaces" icon="folders">
+    Retrieve spaces for a team.
+
+    **Description:**
+    Retrieves Spaces for a Team ID; member information for private Spaces is returned only if the authenticated user is a member.
+
+    **Variables (Agent fills during call):**
+    - `team_id` – The team ID *(required)*
+    - `archived` – Filter by archived status *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - View team spaces
+    - List all spaces
+    - Check space list
+    - Access space data
+
+  </Accordion>
+
+  <Accordion title="Get Space Tags" icon="tags">
+    Retrieve tags for a space.
+
+    **Description:**
+    Retrieves all tags for tasks within a specified ClickUp Space, requiring a valid `space_id`.
+
+    **Variables (Agent fills during call):**
+    - `space_id` – The space ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - View space tags
+    - List all tags
+    - Check available tags
+    - Access tag data
+
+  </Accordion>
+
+  <Accordion title="Get Task" icon="file">
+    Retrieve task details.
+
+    **Description:**
+    Retrieves comprehensive details for a ClickUp task by its ID, supporting standard or custom task IDs (requires `team_id` for custom IDs).
+
+    **Variables (Agent fills during call):**
+    - `task_id` – The task ID *(required)*
+    - `team_id` – Team ID (required for custom task IDs) *(optional)*
+    - `include_subtasks` – Include subtasks *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - View task details
+    - Get task information
+    - Check task status
+    - Access task data
+
+  </Accordion>
+
+  <Accordion title="Get Task Comments" icon="comment">
+    Retrieve comments for a task.
+
+    **Description:**
+    Retrieves up to 25 comments for a specified task, supporting pagination using `start` and `start_id` to fetch older comments.
+
+    **Variables (Agent fills during call):**
+    - `task_id` – The task ID *(required)*
+    - `start` – Start timestamp for pagination *(optional)*
+    - `start_id` – Start comment ID for pagination *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - View task comments
+    - Check task discussions
+    - Review comment history
+    - Access comment data
+
+  </Accordion>
+
+  <Accordion title="Get Task Members" icon="users">
+    Retrieve task members.
+
+    **Description:**
+    Retrieves users with explicit access (directly assigned or shared) to a specific existing task, excluding users with inherited permissions.
+
+    **Variables (Agent fills during call):**
+    - `task_id` – The task ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - View task members
+    - Check task access
+    - List assigned users
+    - Access member data
+
+  </Accordion>
+
+  <Accordion title="Get Tasks" icon="list">
+    Retrieve tasks from a list.
+
+    **Description:**
+    Retrieves tasks from a specified ClickUp list; only tasks whose home is the given list_id are returned.
+
+    **Variables (Agent fills during call):**
+    - `list_id` – The list ID *(required)*
+    - `archived` – Filter by archived status *(optional)*
+    - `page` – Page number for pagination *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - View list tasks
+    - List all tasks
+    - Check task list
+    - Access task data
+
+  </Accordion>
+
+  <Accordion title="Get Task S Time In Status" icon="clock">
+    Retrieve time spent in each status.
+
+    **Description:**
+    Retrieves the duration a task has spent in each status, provided the "Total time in Status" ClickApp is enabled for the Workspace.
+
+    **Variables (Agent fills during call):**
+    - `task_id` – The task ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - View status duration
+    - Track time in status
+    - Analyze task flow
+    - Check status metrics
+
+  </Accordion>
+
+  <Accordion title="Get Task Templates" icon="file">
+    Retrieve task templates.
+
+    **Description:**
+    Retrieves task templates for a specified Workspace (Team ID), supporting pagination.
+
+    **Variables (Agent fills during call):**
+    - `team_id` – The team ID *(required)*
+    - `page` – Page number for pagination *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - View task templates
+    - List available templates
+    - Check template options
+    - Access template data
+
+  </Accordion>
+
+  <Accordion title="Get Time Entries Within A Date Range" icon="clock">
+    Retrieve time entries in a date range.
+
+    **Description:**
+    Retrieves time entries for a specified Team (Workspace ID) within a date range (defaults to the last 30 days for the authenticated user if dates are omitted); active timers are indicated by negative durations in the response.
+
+    **Variables (Agent fills during call):**
+    - `team_id` – The team ID *(required)*
+    - `start_date` – Start date timestamp *(optional)*
+    - `end_date` – End date timestamp *(optional)*
+    - `assignee` – Filter by assignee user ID *(optional)*
+    - `include_task_tags` – Include task tags *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - View time entries
+    - Track time by date range
+    - Generate time reports
+    - Analyze time data
+
+  </Accordion>
+
+  <Accordion title="Get Time Entry History" icon="clock">
+    Retrieve time entry modification history.
+
+    **Description:**
+    Retrieves the modification history for an existing time entry within a specific ClickUp Team (Workspace).
+
+    **Variables (Agent fills during call):**
+    - `team_id` – The team ID *(required)*
+    - `timer_id` – The time entry ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - View time entry history
+    - Check modification history
+    - Track time changes
+    - Access history data
+
+  </Accordion>
+
+  <Accordion title="Get View Tasks" icon="list">
+    Retrieve tasks from a view.
+
+    **Description:**
+    Retrieves all tasks visible in a specified ClickUp view, respecting its applied filters, sorting, and grouping.
+
+    **Variables (Agent fills during call):**
+    - `view_id` – The view ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - View filtered tasks
+    - Get view-specific tasks
+    - Check view results
+    - Access view data
+
+  </Accordion>
+
+  <Accordion title="Remove Custom Field Value" icon="trash">
+    Remove a custom field value from a task.
+
+    **Description:**
+    Removes an existing value from a Custom Field on a specific task; this does not delete the Custom Field definition or its predefined options.
+
+    **Variables (Agent fills during call):**
+    - `task_id` – The task ID *(required)*
+    - `field_id` – The custom field ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Clear custom field values
+    - Remove field data
+    - Reset field values
+    - Update field data
+
+  </Accordion>
+
+  <Accordion title="Remove Guest From Task" icon="user-minus">
+    Remove a guest from a task.
+
+    **Description:**
+    Revokes a guest's access to a specific task; only available for Workspaces on the ClickUp Enterprise Plan.
+
+    **Variables (Agent fills during call):**
+    - `task_id` – The task ID *(required)*
+    - `guest_id` – The guest user ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Remove guest access
+    - Revoke task permissions
+    - Manage guest access
+    - Update task access
+
+  </Accordion>
+
+  <Accordion title="Remove Tag From Task" icon="tag">
+    Remove a tag from a task.
+
+    **Description:**
+    Removes a tag from a specified task by disassociating it (does not delete the tag from Workspace), succeeding even if the tag is not on the task.
+
+    **Variables (Agent fills during call):**
+    - `task_id` – The task ID *(required)*
+    - `tag_name` – The tag name to remove *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Remove task tags
+    - Untag tasks
+    - Update tag associations
+    - Clean up tags
+
+  </Accordion>
+
+  <Accordion title="Remove Task From List" icon="list">
+    Remove a task from an additional list.
+
+    **Description:**
+    Removes a task from an extra list (not its home list); the "Tasks in Multiple Lists" ClickApp must be enabled.
+
+    **Variables (Agent fills during call):**
+    - `task_id` – The task ID *(required)*
+    - `list_id` – The list ID to remove from *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Remove tasks from lists
+    - Update list associations
+    - Manage multi-list tasks
+    - Organize task lists
+
+  </Accordion>
+
+  <Accordion title="Set Custom Field Value" icon="pen">
+    Set or update a custom field value.
+
+    **Description:**
+    Sets or updates a Custom Field's value for a task; the new value (with type-dependent structure, e.g., `{"value": "text"}` or `{"value": 123, "value_options": {"currency_type": "USD"}}`) is provided in the JSON request body.
+
+    **Variables (Agent fills during call):**
+    - `task_id` – The task ID *(required)*
+    - `field_id` – The custom field ID *(required)*
+    - `value` – The field value (structure depends on field type) *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Set custom field values
+    - Update field data
+    - Modify field values
+    - Change field content
+
+  </Accordion>
+
+  <Accordion title="Start A Time Entry" icon="play">
+    Start a new time entry timer.
+
+    **Description:**
+    Starts a new time entry (timer) in the specified Team (Workspace), optionally associating it with a task, adding a description, setting billable status, or applying tags (tags feature requires Business Plan or higher).
+
+    **Variables (Agent fills during call):**
+    - `team_id` – The team ID *(required)*
+    - `task_id` – The task ID *(optional)*
+    - `description` – Time entry description *(optional)*
+    - `billable` – Whether the entry is billable *(optional)*
+    - `tags` – Array of tag names *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Start time tracking
+    - Begin timer
+    - Track work time
+    - Log billable hours
+
+  </Accordion>
+
+  <Accordion title="Stop A Time Entry" icon="stop">
+    Stop the active time entry.
+
+    **Description:**
+    Stops the authenticated user's currently active time entry in the specified Team (Workspace), which requires an existing time entry to be running.
+
+    **Variables (Agent fills during call):**
+    - `team_id` – The team ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Stop time tracking
+    - End timer
+    - Finish time entry
+    - Complete time logging
+
+  </Accordion>
+
+  <Accordion title="Update A Time Entry" icon="pen">
+    Update an existing time entry.
+
+    **Description:**
+    Updates an existing ClickUp time entry; provide `start` and `end` times together, and include `team_id` as a query param (request field `team_id_1`) if `custom_task_ids` is true.
+
+    **Variables (Agent fills during call):**
+    - `timer_id` – The time entry ID *(required)*
+    - `team_id` – The team ID *(required)*
+    - `start` – Updated start time *(optional)*
+    - `end` – Updated end time *(optional)*
+    - `duration` – Updated duration *(optional)*
+    - `description` – Updated description *(optional)*
+    - `billable` – Updated billable status *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Update time entries
+    - Correct time records
+    - Modify time data
+    - Edit time entries
+
+  </Accordion>
+
+  <Accordion title="Update Comment" icon="pen">
+    Update a task comment.
+
+    **Description:**
+    Updates an existing task comment's text, assignee (who must be a valid workspace member), or resolution status, requiring a valid existing comment_id.
+
+    **Variables (Agent fills during call):**
+    - `comment_id` – The comment ID *(required)*
+    - `comment_text` – Updated comment text *(optional)*
+    - `assignee` – Updated assignee user ID *(optional)*
+    - `resolved` – Resolution status *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Update comment text
+    - Edit comments
+    - Change comment assignee
+    - Resolve comments
+
+  </Accordion>
+
+  <Accordion title="Update Goal" icon="pen">
+    Update a goal.
+
+    **Description:**
+    Updates attributes of an existing ClickUp goal, identified by its `goal_id`.
+
+    **Variables (Agent fills during call):**
+    - `goal_id` – The goal ID *(required)*
+    - Updated goal attributes (name, due_date, etc.) *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Update goal details
+    - Modify goal information
+    - Change goal progress
+    - Edit goal attributes
+
+  </Accordion>
+
+  <Accordion title="Update List" icon="pen">
+    Update list attributes.
+
+    **Description:**
+    Updates attributes of an existing ClickUp list, such as its name, content, due date, priority, assignee, or color status, identified by its `list_id`.
+
+    **Variables (Agent fills during call):**
+    - `list_id` – The list ID *(required)*
+    - Updated list attributes (name, due_date, priority, etc.) *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Update list details
+    - Modify list information
+    - Change list settings
+    - Edit list attributes
+
+  </Accordion>
+
+  <Accordion title="Update Task" icon="pen">
+    Update task attributes.
+
+    **Description:**
+    Updates attributes of an existing task; `team_id` is required if `custom_task_ids` is true, use a single space (" ") for `description` to clear it, and provide at least one modifiable field.
+
+    **Variables (Agent fills during call):**
+    - `task_id` – The task ID *(required)*
+    - `team_id` – Team ID (required if custom_task_ids is true) *(optional)*
+    - Updated task attributes (name, description, status, assignees, due_date, etc.) *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your ClickUp integration*
+
+    **Use Cases:**
+    - Update task details
+    - Modify task information
+    - Change task status
+    - Edit task attributes
+
+  </Accordion>
+</AccordionGroup>
 
 ---
 

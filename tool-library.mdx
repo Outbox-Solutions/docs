@@ -17438,7 +17438,233 @@ MailerLite is an email marketing service that offers tools for creating and mana
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Create Ecommerce Customer" icon="user-plus">
+    Create or update a customer record for a shop.
+
+    **Description:**
+    Tool to create or update a customer record for a shop. Use when syncing shop customers or onboarding new purchases.
+
+    **Variables (Agent fills during call):**
+    - `shop_id` – The shop ID *(required)*
+    - `customer_id` – The customer ID *(required)*
+    - `email` – Customer email address *(required)*
+    - `marketing_opt_in` – Marketing opt-in status *(optional)*
+    - `total_spent` – Total amount spent *(optional)*
+    - Additional customer fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your MailerLite integration*
+
+    **Use Cases:**
+    - Sync shop customers
+    - Onboard new purchases
+    - Create customer records
+    - Update customer information
+
+  </Accordion>
+
+  <Accordion title="Delete Ecommerce Customer" icon="trash">
+    Delete a customer from an e-commerce shop by IDs.
+
+    **Description:**
+    Tool to delete a customer from an e-commerce shop by IDs. Use when you need to remove a specific customer from your MailerLite store.
+
+    **Variables (Agent fills during call):**
+    - `shop_id` – The shop ID *(required)*
+    - `customer_id` – The customer ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your MailerLite integration*
+
+    **Use Cases:**
+    - Remove customers from store
+    - Delete customer records
+    - Clean up customer database
+    - Remove inactive customers
+
+  </Accordion>
+
+  <Accordion title="Delete Subscriber" icon="trash">
+    Delete a subscriber by ID.
+
+    **Description:**
+    Tool to delete a subscriber by ID. Use when you have the subscriber ID and want to remove them from your MailerLite account. Returns success=True on 204 No Content.
+
+    **Variables (Agent fills during call):**
+    - `subscriber_id` – The subscriber ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your MailerLite integration*
+
+    **Use Cases:**
+    - Remove subscribers
+    - Delete subscriber records
+    - Clean up subscriber database
+    - Comply with unsubscribe requests
+
+  </Accordion>
+
+  <Accordion title="Get Ecommerce Customer" icon="user">
+    Fetch details of a customer by shop and customer ID.
+
+    **Description:**
+    Tool to fetch details of a customer by shop and customer ID. Use after confirming shop_id and customer_id.
+
+    **Variables (Agent fills during call):**
+    - `shop_id` – The shop ID *(required)*
+    - `customer_id` – The customer ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your MailerLite integration*
+
+    **Use Cases:**
+    - View customer details
+    - Retrieve customer information
+    - Check customer status
+    - Access customer data
+
+  </Accordion>
+
+  <Accordion title="Get Ecommerce Customers" icon="users">
+    List customers for a specific shop.
+
+    **Description:**
+    Tool to list customers for a specific shop. Use when you need to retrieve and paginate ecommerce customers after you have a shop ID. Example: "List customers for shop 123".
+
+    **Variables (Agent fills during call):**
+    - `shop_id` – The shop ID *(required)*
+    - `limit` – Number of customers to retrieve *(optional)*
+    - `offset` – Pagination offset *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your MailerLite integration*
+
+    **Use Cases:**
+    - List shop customers
+    - Retrieve customer lists
+    - Paginate through customers
+    - View all customers for a shop
+
+  </Accordion>
+
+  <Accordion title="Get Subscribers" icon="users">
+    Retrieve all subscribers.
+
+    **Description:**
+    Tool to retrieve all subscribers. Use after connecting account and when listing subscribers by status or paginating. Limited by MailerLite Connect API quotas.
+
+    **Variables (Agent fills during call):**
+    - `status` – Filter by subscription status *(optional)*
+    - `limit` – Number of subscribers to retrieve *(optional)*
+    - `offset` – Pagination offset *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your MailerLite integration*
+
+    **Use Cases:**
+    - List all subscribers
+    - Filter subscribers by status
+    - Paginate through subscribers
+    - Retrieve subscriber database
+
+  </Accordion>
+
+  <Accordion title="Update Ecommerce Customer" icon="pencil">
+    Update a customer's data for a shop by IDs.
+
+    **Description:**
+    Tool to update a customer's data for a shop by IDs. Use when you need to change email, marketing opt-in, or spend totals for an existing customer.
+
+    **Variables (Agent fills during call):**
+    - `shop_id` – The shop ID *(required)*
+    - `customer_id` – The customer ID *(required)*
+    - `email` – Customer email address *(optional)*
+    - `marketing_opt_in` – Marketing opt-in status *(optional)*
+    - `total_spent` – Total amount spent *(optional)*
+    - Additional customer fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your MailerLite integration*
+
+    **Use Cases:**
+    - Update customer email
+    - Change marketing preferences
+    - Update spend totals
+    - Modify customer information
+
+  </Accordion>
+
+  <Accordion title="Update Ecommerce Shop" icon="gear">
+    Update settings of a connected e-commerce shop by ID.
+
+    **Description:**
+    Tool to update settings of a connected e-commerce shop by ID. Use when you need to modify shop details (name, URL, currency) or toggle features after verifying the shop exists.
+
+    **Variables (Agent fills during call):**
+    - `shop_id` – The shop ID *(required)*
+    - `name` – Shop name *(optional)*
+    - `url` – Shop URL *(optional)*
+    - `currency` – Shop currency *(optional)*
+    - Additional shop settings *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your MailerLite integration*
+
+    **Use Cases:**
+    - Update shop name
+    - Change shop URL
+    - Modify currency settings
+    - Toggle shop features
+
+  </Accordion>
+
+  <Accordion title="Update Group" icon="pencil">
+    Update a group's name by ID.
+
+    **Description:**
+    Tool to update a group's name by ID. Use when renaming an existing group after confirming its ID.
+
+    **Variables (Agent fills during call):**
+    - `group_id` – The group ID *(required)*
+    - `name` – New group name *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your MailerLite integration*
+
+    **Use Cases:**
+    - Rename groups
+    - Update group names
+    - Modify group settings
+    - Organize subscriber groups
+
+  </Accordion>
+
+  <Accordion title="Update Subscriber" icon="pencil">
+    Update an existing subscriber's information by ID.
+
+    **Description:**
+    Tool to update an existing subscriber's information by ID. Use when altering subscriber details.
+
+    **Variables (Agent fills during call):**
+    - `subscriber_id` – The subscriber ID *(required)*
+    - `email` – Subscriber email address *(optional)*
+    - `name` – Subscriber name *(optional)*
+    - `status` – Subscription status *(optional)*
+    - Additional subscriber fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your MailerLite integration*
+
+    **Use Cases:**
+    - Update subscriber email
+    - Change subscriber name
+    - Modify subscription status
+    - Update subscriber information
+
+  </Accordion>
+
+</AccordionGroup>
 
 ---
 
@@ -17462,7 +17688,368 @@ Microsoft Teams integrates chat, video meetings, and file storage within Microso
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Chats Get All Chats" icon="comments">
+    Retrieves all Microsoft Teams chats a specified user is part of.
+
+    **Description:**
+    Retrieves all Microsoft Teams chats a specified user is part of, supporting filtering, property selection, and pagination.
+
+    **Variables (Agent fills during call):**
+    - `user_id` – The user ID *(required)*
+    - `filter` – OData filter expression *(optional)*
+    - `select` – Property selection *(optional)*
+    - `top` – Number of results to return *(optional)*
+    - `skip` – Number of results to skip *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Microsoft Teams integration*
+
+    **Use Cases:**
+    - List all user chats
+    - Filter chats by criteria
+    - Retrieve chat information
+    - Access chat history
+
+  </Accordion>
+
+  <Accordion title="Chats Get All Messages" icon="message">
+    Retrieves all messages from a specified Microsoft Teams chat.
+
+    **Description:**
+    Retrieves all messages from a specified Microsoft Teams chat using the Microsoft Graph API, automatically handling pagination; ensure `chat_id` is valid and OData expressions in `filter` or `select` are correct.
+
+    **Variables (Agent fills during call):**
+    - `chat_id` – The chat ID *(required)*
+    - `filter` – OData filter expression *(optional)*
+    - `select` – Property selection *(optional)*
+    - `top` – Number of results to return *(optional)*
+    - `skip` – Number of results to skip *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Microsoft Teams integration*
+
+    **Use Cases:**
+    - Retrieve chat messages
+    - View conversation history
+    - Filter messages by criteria
+    - Access message details
+
+  </Accordion>
+
+  <Accordion title="Create Meeting" icon="video">
+    Schedule a new standalone Microsoft Teams online meeting.
+
+    **Description:**
+    Use to schedule a new standalone Microsoft Teams online meeting, i.e., one not linked to any calendar event.
+
+    **Variables (Agent fills during call):**
+    - `subject` – Meeting subject *(required)*
+    - `start_time` – Meeting start time *(required)*
+    - `end_time` – Meeting end time *(required)*
+    - `participants` – List of participant email addresses *(optional)*
+    - Additional meeting settings *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Microsoft Teams integration*
+
+    **Use Cases:**
+    - Schedule Teams meetings
+    - Create online meetings
+    - Set up video calls
+    - Organize virtual meetings
+
+  </Accordion>
+
+  <Accordion title="Get Chat Message" icon="message">
+    Get a specific chat message.
+
+    **Description:**
+    Tool to get a specific chat message. Use after confirming chat_id and message_id.
+
+    **Variables (Agent fills during call):**
+    - `chat_id` – The chat ID *(required)*
+    - `message_id` – The message ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Microsoft Teams integration*
+
+    **Use Cases:**
+    - Retrieve specific messages
+    - View message details
+    - Access message content
+    - Get message information
+
+  </Accordion>
+
+  <Accordion title="List Message Replies" icon="reply">
+    List replies to a channel message.
+
+    **Description:**
+    Tool to list replies to a channel message. Use after obtaining team, channel, and message IDs.
+
+    **Variables (Agent fills during call):**
+    - `team_id` – The team ID *(required)*
+    - `channel_id` – The channel ID *(required)*
+    - `message_id` – The message ID *(required)*
+    - `top` – Number of results to return *(optional)*
+    - `skip` – Number of results to skip *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Microsoft Teams integration*
+
+    **Use Cases:**
+    - View message replies
+    - Access conversation threads
+    - Retrieve reply history
+    - Track message responses
+
+  </Accordion>
+
+  <Accordion title="List Team Members" icon="users">
+    List members of a Microsoft Teams team.
+
+    **Description:**
+    Tool to list members of a Microsoft Teams team. Use when you need to retrieve the members of a specific team, for auditing or notifications.
+
+    **Variables (Agent fills during call):**
+    - `team_id` – The team ID *(required)*
+    - `top` – Number of results to return *(optional)*
+    - `skip` – Number of results to skip *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Microsoft Teams integration*
+
+    **Use Cases:**
+    - View team members
+    - Audit team membership
+    - Send team notifications
+    - Manage team access
+
+  </Accordion>
+
+  <Accordion title="List Users" icon="users">
+    List all users in the organization.
+
+    **Description:**
+    Tool to list all users in the organization. Use when you need to retrieve directory users with filtering, pagination, and field selection.
+
+    **Variables (Agent fills during call):**
+    - `filter` – OData filter expression *(optional)*
+    - `select` – Property selection *(optional)*
+    - `top` – Number of results to return *(optional)*
+    - `skip` – Number of results to skip *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Microsoft Teams integration*
+
+    **Use Cases:**
+    - List organization users
+    - Search directory users
+    - Filter users by criteria
+    - Access user directory
+
+  </Accordion>
+
+  <Accordion title="Search Messages" icon="magnifying-glass">
+    Search Microsoft Teams messages using powerful KQL syntax.
+
+    **Description:**
+    Search Microsoft Teams messages using powerful KQL syntax. Supports sender (from:), date filters (sent:), attachments, and boolean logic. Works across all Teams chats and channels the user has access to. Examples: 'from:user@example.com AND sent>=2024-10-01', 'punchlist OR termination', 'sent>today-30 AND hasattachment:yes'
+
+    **Variables (Agent fills during call):**
+    - `query` – KQL search query *(required)*
+    - `top` – Number of results to return *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Microsoft Teams integration*
+
+    **Use Cases:**
+    - Search message content
+    - Find messages by sender
+    - Filter by date range
+    - Search for attachments
+    - Use boolean search logic
+
+  </Accordion>
+
+  <Accordion title="Teams Create Chat" icon="message-plus">
+    Creates a new chat.
+
+    **Description:**
+    Creates a new chat; if a 'oneOnOne' chat with the specified members already exists, its details are returned, while 'group' chats are always newly created.
+
+    **Variables (Agent fills during call):**
+    - `chat_type` – Chat type (oneOnOne or group) *(required)*
+    - `members` – List of member email addresses or IDs *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Microsoft Teams integration*
+
+    **Use Cases:**
+    - Create new chats
+    - Start conversations
+    - Set up group chats
+    - Initiate one-on-one chats
+
+  </Accordion>
+
+  <Accordion title="Teams Get Message" icon="message">
+    Retrieves a specific message from a Microsoft Teams channel.
+
+    **Description:**
+    Retrieves a specific message from a Microsoft Teams channel using its Team, Channel, and Message IDs.
+
+    **Variables (Agent fills during call):**
+    - `team_id` – The team ID *(required)*
+    - `channel_id` – The channel ID *(required)*
+    - `message_id` – The message ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Microsoft Teams integration*
+
+    **Use Cases:**
+    - Retrieve channel messages
+    - View message details
+    - Access message content
+    - Get specific message information
+
+  </Accordion>
+
+  <Accordion title="Teams List Chat Messages" icon="comments">
+    Retrieves messages from an existing Microsoft Teams chat or channel thread.
+
+    **Description:**
+    Retrieves messages (newest first) from an existing and accessible Microsoft Teams one-on-one chat, group chat, or channel thread, specified by `chat_id`.
+
+    **Variables (Agent fills during call):**
+    - `chat_id` – The chat ID *(required)*
+    - `top` – Number of results to return *(optional)*
+    - `skip` – Number of results to skip *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Microsoft Teams integration*
+
+    **Use Cases:**
+    - View chat messages
+    - Access conversation history
+    - Retrieve thread messages
+    - Browse chat content
+
+  </Accordion>
+
+  <Accordion title="Teams List People" icon="users">
+    Retrieves a list of people relevant to a specified user.
+
+    **Description:**
+    Retrieves a list of people relevant to a specified user from Microsoft Graph, noting the `search` parameter is only effective if `user_id` is 'me'.
+
+    **Variables (Agent fills during call):**
+    - `user_id` – The user ID (use 'me' for current user) *(required)*
+    - `search` – Search query (only works if user_id is 'me') *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Microsoft Teams integration*
+
+    **Use Cases:**
+    - Find relevant people
+    - Search contacts
+    - Discover team members
+    - Access people directory
+
+  </Accordion>
+
+  <Accordion title="Teams Post Channel Message" icon="paper-plane">
+    Posts a new text or HTML message to a specified channel.
+
+    **Description:**
+    Posts a new text or HTML message to a specified channel in a Microsoft Teams team.
+
+    **Variables (Agent fills during call):**
+    - `team_id` – The team ID *(required)*
+    - `channel_id` – The channel ID *(required)*
+    - `content` – Message content *(required)*
+    - `content_type` – Content type (text or html) *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Microsoft Teams integration*
+
+    **Use Cases:**
+    - Send channel messages
+    - Post announcements
+    - Share updates
+    - Communicate with teams
+
+  </Accordion>
+
+  <Accordion title="Teams Post Chat Message" icon="paper-plane">
+    Sends a message to a specified Microsoft Teams chat.
+
+    **Description:**
+    Sends a non-empty message (text or HTML) to a specified, existing Microsoft Teams chat; content must be valid HTML if `content_type` is 'html'.
+
+    **Variables (Agent fills during call):**
+    - `chat_id` – The chat ID *(required)*
+    - `content` – Message content *(required)*
+    - `content_type` – Content type (text or html) *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Microsoft Teams integration*
+
+    **Use Cases:**
+    - Send chat messages
+    - Reply to conversations
+    - Share information
+    - Communicate in chats
+
+  </Accordion>
+
+  <Accordion title="Update Channel Message" icon="pencil">
+    Update a message in a channel.
+
+    **Description:**
+    Tool to update a message in a channel. Use when you need to modify an existing channel message after confirming channel and message IDs.
+
+    **Variables (Agent fills during call):**
+    - `team_id` – The team ID *(required)*
+    - `channel_id` – The channel ID *(required)*
+    - `message_id` – The message ID *(required)*
+    - `content` – Updated message content *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Microsoft Teams integration*
+
+    **Use Cases:**
+    - Edit channel messages
+    - Correct message content
+    - Update announcements
+    - Modify posted messages
+
+  </Accordion>
+
+  <Accordion title="Update Chat Message" icon="pencil">
+    Update a specific message in a chat.
+
+    **Description:**
+    Tool to update a specific message in a chat. Use when you need to correct or modify a sent chat message.
+
+    **Variables (Agent fills during call):**
+    - `chat_id` – The chat ID *(required)*
+    - `message_id` – The message ID *(required)*
+    - `content` – Updated message content *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Microsoft Teams integration*
+
+    **Use Cases:**
+    - Edit chat messages
+    - Correct sent messages
+    - Update message content
+    - Modify conversation messages
+
+  </Accordion>
+
+</AccordionGroup>
 
 ---
 
@@ -17486,7 +18073,431 @@ monday.com is a customizable work management platform for project planning, coll
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Archive Item" icon="archive">
+    Archive an existing Monday.com item.
+
+    **Description:**
+    Archives an existing Monday.com item, moving it from active board views to the archive where it can be potentially restored.
+
+    **Variables (Agent fills during call):**
+    - `item_id` – The item ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Monday.com integration*
+
+    **Use Cases:**
+    - Archive completed items
+    - Move items to archive
+    - Clean up active boards
+    - Organize board items
+
+  </Accordion>
+
+  <Accordion title="Change Simple Column Value" icon="pencil">
+    Change a specific column's value for a Monday.com item.
+
+    **Description:**
+    Changes a specific column's value for a Monday.com item using a simple string, suitable for Text, Status, or Dropdown columns; can create new labels if `create_labels_if_missing` is true for Status/Dropdown columns.
+
+    **Variables (Agent fills during call):**
+    - `item_id` – The item ID *(required)*
+    - `column_id` – The column ID *(required)*
+    - `value` – The new column value *(required)*
+    - `create_labels_if_missing` – Create labels if missing (for Status/Dropdown) *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Monday.com integration*
+
+    **Use Cases:**
+    - Update text columns
+    - Change status values
+    - Modify dropdown selections
+    - Update simple column values
+
+  </Accordion>
+
+  <Accordion title="Create Item" icon="plus">
+    Create a new item on a Monday.com board.
+
+    **Description:**
+    Creates a new item on a Monday.com board, optionally assigning it to a group and setting column values.
+
+    **Variables (Agent fills during call):**
+    - `board_id` – The board ID *(required)*
+    - `item_name` – The item name *(required)*
+    - `group_id` – The group ID *(optional)*
+    - `column_values` – Column values to set *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Monday.com integration*
+
+    **Use Cases:**
+    - Create new items
+    - Add tasks to boards
+    - Create project items
+    - Add board entries
+
+  </Accordion>
+
+  <Accordion title="Create Update" icon="note-sticky">
+    Create a new update for an item or reply to an existing update.
+
+    **Description:**
+    Tool to create a new update for an item or reply to an existing update. Use after determining the target item or update to comment on.
+
+    **Variables (Agent fills during call):**
+    - `item_id` – The item ID *(required)*
+    - `body` – Update content *(required)*
+    - `parent_update_id` – Parent update ID (for replies) *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Monday.com integration*
+
+    **Use Cases:**
+    - Add item updates
+    - Comment on items
+    - Reply to updates
+    - Create item notes
+
+  </Accordion>
+
+  <Accordion title="Delete Item" icon="trash">
+    Permanently delete an existing Monday.com item.
+
+    **Description:**
+    Permanently deletes an existing Monday.com item; this action is irreversible via the API.
+
+    **Variables (Agent fills during call):**
+    - `item_id` – The item ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Monday.com integration*
+
+    **Use Cases:**
+    - Remove items permanently
+    - Delete obsolete items
+    - Clean up boards
+    - Remove unwanted items
+
+  </Accordion>
+
+  <Accordion title="Delete Update" icon="trash">
+    Delete an update by its ID.
+
+    **Description:**
+    Tool to delete an update by its ID. Use when an update is no longer relevant. Use after confirming deletion is irreversible.
+
+    **Variables (Agent fills during call):**
+    - `update_id` – The update ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Monday.com integration*
+
+    **Use Cases:**
+    - Remove updates
+    - Delete comments
+    - Clean up item updates
+    - Remove outdated updates
+
+  </Accordion>
+
+  <Accordion title="Duplicate Item" icon="copy">
+    Duplicate an item on a Monday.com board.
+
+    **Description:**
+    Duplicates an item on a Monday.com board, optionally including its updates.
+
+    **Variables (Agent fills during call):**
+    - `item_id` – The item ID *(required)*
+    - `include_updates` – Include item updates in duplication *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Monday.com integration*
+
+    **Use Cases:**
+    - Clone items
+    - Duplicate tasks
+    - Copy item structure
+    - Create item templates
+
+  </Accordion>
+
+  <Accordion title="Get Me" icon="user">
+    Fetch the current authenticated user's profile and permissions.
+
+    **Description:**
+    Tool to fetch the current authenticated user's profile and permissions. Use when you need to retrieve user metadata before performing other operations.
+
+    **Variables (Agent fills during call):**
+    *None—returns current user information*
+
+    **Configurations (You set once):**
+    *None required—uses your Monday.com integration*
+
+    **Use Cases:**
+    - Get user profile
+    - Check permissions
+    - View user metadata
+    - Access user information
+
+  </Accordion>
+
+  <Accordion title="Get Tags" icon="tags">
+    Retrieve tags from the account.
+
+    **Description:**
+    Tool to retrieve tags from the account. Use when you need to list all tags or filter by specific IDs.
+
+    **Variables (Agent fills during call):**
+    - `tag_ids` – List of tag IDs to filter *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Monday.com integration*
+
+    **Use Cases:**
+    - List all tags
+    - Filter tags by ID
+    - Retrieve tag information
+    - Access tag database
+
+  </Accordion>
+
+  <Accordion title="Get Updates" icon="comments">
+    Retrieve updates for a specific item.
+
+    **Description:**
+    Tool to retrieve updates for a specific item. Use when you need to fetch the conversation history tied to an item.
+
+    **Variables (Agent fills during call):**
+    - `item_id` – The item ID *(required)*
+    - `limit` – Number of updates to retrieve *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Monday.com integration*
+
+    **Use Cases:**
+    - View item updates
+    - Read conversation history
+    - Access item comments
+    - Review item notes
+
+  </Accordion>
+
+  <Accordion title="List Board Items" icon="list">
+    Retrieve ID, name, and state for all items on a specified board.
+
+    **Description:**
+    Retrieves ID, name, and state for all items on a specified Monday.com board.
+
+    **Variables (Agent fills during call):**
+    - `board_id` – The board ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Monday.com integration*
+
+    **Use Cases:**
+    - List all board items
+    - View board contents
+    - Retrieve item list
+    - Access board items
+
+  </Accordion>
+
+  <Accordion title="List Boards" icon="table">
+    Retrieve a list of boards from a Monday.com account.
+
+    **Description:**
+    Retrieves a list of boards from a Monday.com account, supporting pagination and filtering by state.
+
+    **Variables (Agent fills during call):**
+    - `state` – Filter by board state *(optional)*
+    - `limit` – Number of boards to retrieve *(optional)*
+    - `page` – Page number for pagination *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Monday.com integration*
+
+    **Use Cases:**
+    - List all boards
+    - Filter boards by state
+    - View account boards
+    - Access board directory
+
+  </Accordion>
+
+  <Accordion title="List Groups" icon="layer-group">
+    Retrieve all groups of a specified board.
+
+    **Description:**
+    Tool to retrieve all groups of a specified board. Use when you need to list groups on a board after confirming its board ID.
+
+    **Variables (Agent fills during call):**
+    - `board_id` – The board ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Monday.com integration*
+
+    **Use Cases:**
+    - List board groups
+    - View group structure
+    - Access board groups
+    - Organize board sections
+
+  </Accordion>
+
+  <Accordion title="List Items" icon="list">
+    Retrieve specified subitems from Monday.com using their IDs.
+
+    **Description:**
+    Retrieves specified subitems from Monday.com using their IDs, returning the raw JSON response.
+
+    **Variables (Agent fills during call):**
+    - `item_ids` – List of item IDs *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Monday.com integration*
+
+    **Use Cases:**
+    - Retrieve specific items
+    - Get item details
+    - Fetch item data
+    - Access item information
+
+  </Accordion>
+
+  <Accordion title="List Users" icon="users">
+    Retrieve a list of users from Monday.com.
+
+    **Description:**
+    Retrieves a list of users from Monday.com; an empty user list in the response 'data' field does not signify action failure.
+
+    **Variables (Agent fills during call):**
+    - `limit` – Number of users to retrieve *(optional)*
+    - `page` – Page number for pagination *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Monday.com integration*
+
+    **Use Cases:**
+    - List all users
+    - View account users
+    - Access user directory
+    - Retrieve user list
+
+  </Accordion>
+
+  <Accordion title="Move Item To Board" icon="arrow-right">
+    Move a Monday.com item to a specified board and group.
+
+    **Description:**
+    Moves a Monday.com item to a specified board and group; requires the item, target board, and target group to exist.
+
+    **Variables (Agent fills during call):**
+    - `item_id` – The item ID *(required)*
+    - `board_id` – The target board ID *(required)*
+    - `group_id` – The target group ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Monday.com integration*
+
+    **Use Cases:**
+    - Move items between boards
+    - Transfer items
+    - Reorganize items
+    - Move items to different boards
+
+  </Accordion>
+
+  <Accordion title="Move Item To Group" icon="arrow-right">
+    Move an item to a different group on the same board.
+
+    **Description:**
+    Moves an item to a different group on the same Monday.com board; the item and group must exist.
+
+    **Variables (Agent fills during call):**
+    - `item_id` – The item ID *(required)*
+    - `group_id` – The target group ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Monday.com integration*
+
+    **Use Cases:**
+    - Move items between groups
+    - Reorganize board items
+    - Change item group
+    - Restructure board groups
+
+  </Accordion>
+
+  <Accordion title="Update Item" icon="pencil">
+    Update an existing item's column value on Monday.com.
+
+    **Description:**
+    Tool to update an existing item's column value on Monday.com. Use when setting complex column types like Timeline or People.
+
+    **Variables (Agent fills during call):**
+    - `item_id` – The item ID *(required)*
+    - `column_id` – The column ID *(required)*
+    - `value` – The column value (JSON format for complex types) *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Monday.com integration*
+
+    **Use Cases:**
+    - Update complex columns
+    - Set timeline values
+    - Update people columns
+    - Modify item properties
+
+  </Accordion>
+
+  <Accordion title="Update Update" icon="pencil">
+    Edit an existing update's content.
+
+    **Description:**
+    Tool to edit an existing update's content. Use when you need to correct or change a previously posted update.
+
+    **Variables (Agent fills during call):**
+    - `update_id` – The update ID *(required)*
+    - `body` – Updated content *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Monday.com integration*
+
+    **Use Cases:**
+    - Edit updates
+    - Correct update content
+    - Modify comments
+    - Update item notes
+
+  </Accordion>
+
+  <Accordion title="Update User" icon="user-pen">
+    Update a user on Monday.com.
+
+    **Description:**
+    Tool to update a user on Monday.com. Use when changing profile attributes like name, email, or department; ensure user ID is valid.
+
+    **Variables (Agent fills during call):**
+    - `user_id` – The user ID *(required)*
+    - `name` – User name *(optional)*
+    - `email` – User email *(optional)*
+    - `department` – User department *(optional)*
+    - Additional user attributes *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Monday.com integration*
+
+    **Use Cases:**
+    - Update user profile
+    - Change user name
+    - Modify user email
+    - Update user department
+
+  </Accordion>
+
+</AccordionGroup>
 
 ---
 
@@ -17510,7 +18521,441 @@ Notion centralizes notes, docs, wikis, and tasks in a unified workspace, letting
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Append Block Children" icon="plus">
+    Appends raw Notion API blocks to parent.
+
+    **Description:**
+    Appends raw Notion API blocks to parent. CRITICAL: Text content limited to 2000 chars per text.content field. Use for: Advanced blocks (tables, databases), pre-built block objects, complex nested structures. REQUIRES exact Notion block schema - each block MUST have 'object':'block' and 'type'. Text blocks MUST use rich_text arrays with type 'text' and content structure. Common errors include invalid content structure or missing required fields.
+
+    **Variables (Agent fills during call):**
+    - `block_id` – The parent block ID *(required)*
+    - `children` – Array of block objects *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Notion integration*
+
+    **Use Cases:**
+    - Add advanced blocks
+    - Append nested structures
+    - Insert complex block types
+    - Add pre-built block objects
+
+  </Accordion>
+
+  <Accordion title="Archive Notion Page" icon="archive">
+    Archive or unarchive a specified Notion page.
+
+    **Description:**
+    Archives (moves to trash) or unarchives (restores from trash) a specified Notion page.
+
+    **Variables (Agent fills during call):**
+    - `page_id` – The page ID *(required)*
+    - `archived` – Archive status (true to archive, false to unarchive) *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Notion integration*
+
+    **Use Cases:**
+    - Archive pages
+    - Move pages to trash
+    - Restore archived pages
+    - Manage page lifecycle
+
+  </Accordion>
+
+  <Accordion title="Create Comment" icon="comment">
+    Add a comment to a Notion page or discussion thread.
+
+    **Description:**
+    Adds a comment to a Notion page (via `parent_page_id`) OR to an existing discussion thread (via `discussion_id`); cannot create new discussion threads on specific blocks (inline comments).
+
+    **Variables (Agent fills during call):**
+    - `parent_page_id` – The page ID (for page comments) *(optional)*
+    - `discussion_id` – The discussion ID (for thread replies) *(optional)*
+    - `rich_text` – Comment content *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Notion integration*
+
+    **Use Cases:**
+    - Add page comments
+    - Reply to discussions
+    - Comment on pages
+    - Participate in threads
+
+  </Accordion>
+
+  <Accordion title="Create Notion Page" icon="file-plus">
+    Create a new empty page in a Notion workspace.
+
+    **Description:**
+    Creates a new empty page in a Notion workspace under a specified parent page or database. PREREQUISITES: - Parent page/database must exist and be accessible in your Notion workspace - Use search_pages or list_databases first to obtain valid parent IDs LIMITATIONS: - Cannot create root-level pages (must have a parent) - May encounter conflicts if creating pages too quickly - Title-based parent search is less reliable than using UUIDs
+
+    **Variables (Agent fills during call):**
+    - `parent_id` – The parent page or database ID *(required)*
+    - `title` – Page title *(optional)*
+    - `properties` – Page properties *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Notion integration*
+
+    **Use Cases:**
+    - Create new pages
+    - Add pages to databases
+    - Create nested pages
+    - Build page structure
+
+  </Accordion>
+
+  <Accordion title="Delete Block" icon="trash">
+    Archive a Notion block, page, or database.
+
+    **Description:**
+    Archives a Notion block, page, or database using its ID, which sets its 'archived' property to true (like moving to \"Trash\" in the UI) and allows it to be restored later.
+
+    **Variables (Agent fills during call):**
+    - `block_id` – The block, page, or database ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Notion integration*
+
+    **Use Cases:**
+    - Archive blocks
+    - Delete page content
+    - Remove database entries
+    - Clean up content
+
+  </Accordion>
+
+  <Accordion title="Duplicate Page" icon="copy">
+    Duplicate a Notion page with all its content.
+
+    **Description:**
+    Duplicates a Notion page, including all its content, properties, and nested blocks, under a specified parent page or workspace.
+
+    **Variables (Agent fills during call):**
+    - `page_id` – The page ID to duplicate *(required)*
+    - `parent_id` – The parent page ID *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Notion integration*
+
+    **Use Cases:**
+    - Clone pages
+    - Duplicate page structure
+    - Copy page templates
+    - Create page copies
+
+  </Accordion>
+
+  <Accordion title="Fetch Block Contents" icon="file-lines">
+    Retrieve child blocks for a given parent block or page.
+
+    **Description:**
+    Retrieves a paginated list of direct, first-level child block objects along with contents for a given parent Notion block or page ID; use block IDs from the response for subsequent calls to access deeply nested content.
+
+    **Variables (Agent fills during call):**
+    - `block_id` – The parent block or page ID *(required)*
+    - `page_size` – Number of results per page *(optional)*
+    - `start_cursor` – Pagination cursor *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Notion integration*
+
+    **Use Cases:**
+    - Retrieve page content
+    - Access block children
+    - Read nested blocks
+    - Fetch block structure
+
+  </Accordion>
+
+  <Accordion title="Fetch Data" icon="database">
+    Fetch Notion items (pages and/or databases) from the workspace.
+
+    **Description:**
+    Fetches Notion items (pages and/or databases) from the Notion workspace, use this to get minimal data about the items in the workspace with a query or list all items in the workspace with minimal data
+
+    **Variables (Agent fills during call):**
+    - `query` – Search query *(optional)*
+    - `filter` – Filter criteria *(optional)*
+    - `page_size` – Number of results per page *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Notion integration*
+
+    **Use Cases:**
+    - List workspace items
+    - Search pages and databases
+    - Query workspace content
+    - Discover available items
+
+  </Accordion>
+
+  <Accordion title="Fetch Database" icon="database">
+    Fetch a Notion database's structural metadata.
+
+    **Description:**
+    Fetches a Notion database's structural metadata (properties, title, etc.) via its `database_id`, not the data entries; `database_id` must reference an existing database.
+
+    **Variables (Agent fills during call):**
+    - `database_id` – The database ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Notion integration*
+
+    **Use Cases:**
+    - View database structure
+    - Get database properties
+    - Access database schema
+    - Retrieve database metadata
+
+  </Accordion>
+
+  <Accordion title="Fetch Row" icon="table">
+    Retrieve a Notion database row's properties and metadata.
+
+    **Description:**
+    Retrieves a Notion database row's properties and metadata; use fetch_block_contents for page content blocks.
+
+    **Variables (Agent fills during call):**
+    - `page_id` – The row (page) ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Notion integration*
+
+    **Use Cases:**
+    - Get row properties
+    - Retrieve database entry
+    - Access row metadata
+    - View row data
+
+  </Accordion>
+
+  <Accordion title="Get About User" icon="user">
+    Retrieve detailed information about a specific Notion user.
+
+    **Description:**
+    Retrieves detailed information about a specific Notion user, such as their name, avatar, and email, based on their unique user ID.
+
+    **Variables (Agent fills during call):**
+    - `user_id` – The user ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Notion integration*
+
+    **Use Cases:**
+    - Get user information
+    - View user profile
+    - Access user details
+    - Retrieve user metadata
+
+  </Accordion>
+
+  <Accordion title="Get Page Property Action" icon="file-lines">
+    Get a specific property from a Notion page.
+
+    **Description:**
+    Call this to get a specific property from a Notion page when you have a valid `page_id` and `property_id`; handles pagination for properties returning multiple items.
+
+    **Variables (Agent fills during call):**
+    - `page_id` – The page ID *(required)*
+    - `property_id` – The property ID *(required)*
+    - `start_cursor` – Pagination cursor *(optional)*
+    - `page_size` – Number of results per page *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Notion integration*
+
+    **Use Cases:**
+    - Get page properties
+    - Retrieve property values
+    - Access specific properties
+    - Read property data
+
+  </Accordion>
+
+  <Accordion title="Insert Row Database" icon="plus">
+    Create a new page (row) in a specified Notion database.
+
+    **Description:**
+    Creates a new page (row) in a specified Notion database.
+
+    **Variables (Agent fills during call):**
+    - `database_id` – The database ID *(required)*
+    - `properties` – Row properties *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Notion integration*
+
+    **Use Cases:**
+    - Add database rows
+    - Create new entries
+    - Insert database records
+    - Add rows to databases
+
+  </Accordion>
+
+  <Accordion title="List Users" icon="users">
+    Retrieve a paginated list of users from the Notion workspace.
+
+    **Description:**
+    Retrieves a paginated list of users (excluding guests) from the Notion workspace; the number of users returned per page may be less than the requested `page_size`.
+
+    **Variables (Agent fills during call):**
+    - `page_size` – Number of users per page *(optional)*
+    - `start_cursor` – Pagination cursor *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Notion integration*
+
+    **Use Cases:**
+    - List workspace users
+    - View team members
+    - Access user directory
+    - Retrieve user list
+
+  </Accordion>
+
+  <Accordion title="Query Database" icon="magnifying-glass">
+    Query a Notion database to retrieve pages (rows).
+
+    **Description:**
+    Queries a Notion database to retrieve pages (rows). In Notion, databases are collections where each row is a page and columns are properties. Returns paginated results with metadata.
+
+    **Variables (Agent fills during call):**
+    - `database_id` – The database ID *(required)*
+    - `page_size` – Number of results per page *(optional)*
+    - `start_cursor` – Pagination cursor *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Notion integration*
+
+    **Use Cases:**
+    - Query database rows
+    - Retrieve database entries
+    - List database pages
+    - Access database content
+
+  </Accordion>
+
+  <Accordion title="Query Database With Filter" icon="filter">
+    Query a Notion database with server-side filtering, sorting, and pagination.
+
+    **Description:**
+    Tool to query a Notion database with server-side filtering, sorting, and pagination. Use when you need to retrieve a subset of rows by property, date, status, or other conditions.
+
+    **Variables (Agent fills during call):**
+    - `database_id` – The database ID *(required)*
+    - `filter` – Filter criteria *(optional)*
+    - `sorts` – Sort criteria *(optional)*
+    - `page_size` – Number of results per page *(optional)*
+    - `start_cursor` – Pagination cursor *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Notion integration*
+
+    **Use Cases:**
+    - Filter database rows
+    - Sort database entries
+    - Query by property
+    - Filter by date or status
+
+  </Accordion>
+
+  <Accordion title="Search Notion Page" icon="magnifying-glass">
+    Search Notion pages and databases by title.
+
+    **Description:**
+    Searches Notion pages and databases by title; an empty query lists all accessible items, useful for discovering IDs or as a fallback when a specific query yields no results.
+
+    **Variables (Agent fills during call):**
+    - `query` – Search query (empty to list all) *(optional)*
+    - `filter` – Filter criteria *(optional)*
+    - `page_size` – Number of results per page *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Notion integration*
+
+    **Use Cases:**
+    - Search pages by title
+    - Find databases
+    - Discover page IDs
+    - List all accessible items
+
+  </Accordion>
+
+  <Accordion title="Update Block" icon="pencil">
+    Update existing Notion block's text content.
+
+    **Description:**
+    Updates existing Notion block's text content. ⚠️ CRITICAL: Content limited to 2000 chars. Cannot change block type or archive blocks. Content exceeding 2000 chars will fail with validation error. For longer content, split across multiple blocks using add_multiple_page_content.
+
+    **Variables (Agent fills during call):**
+    - `block_id` – The block ID *(required)*
+    - `rich_text` – Updated text content (max 2000 chars) *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Notion integration*
+
+    **Use Cases:**
+    - Update block text
+    - Edit block content
+    - Modify text blocks
+    - Change block text
+
+  </Accordion>
+
+  <Accordion title="Update Page" icon="pencil">
+    Update page properties, icon, cover, or archive status.
+
+    **Description:**
+    Update page properties, icon, cover, or archive status. Requires at least one update parameter.
+
+    **Variables (Agent fills during call):**
+    - `page_id` – The page ID *(required)*
+    - `properties` – Page properties to update *(optional)*
+    - `icon` – Page icon *(optional)*
+    - `cover` – Page cover *(optional)*
+    - `archived` – Archive status *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Notion integration*
+
+    **Use Cases:**
+    - Update page properties
+    - Change page icon
+    - Modify page cover
+    - Update page metadata
+
+  </Accordion>
+
+  <Accordion title="Update Row Database" icon="pencil">
+    Update a Notion database row (page) by its UUID.
+
+    **Description:**
+    Updates a Notion database row (page) by its UUID. Common issues: (1) Use UUID from page URL, not the full URL, (2) Ensure page is shared with integration, (3) Match property names exactly as in database, (4) Use 'status' type for Status properties, not 'select', (5) Retry on 409 Conflict errors (concurrent updates). Supports updating properties, icon, cover, or archiving the row.
+
+    **Variables (Agent fills during call):**
+    - `page_id` – The row (page) UUID *(required)*
+    - `properties` – Properties to update *(required)*
+    - `icon` – Row icon *(optional)*
+    - `cover` – Row cover *(optional)*
+    - `archived` – Archive status *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Notion integration*
+
+    **Use Cases:**
+    - Update database rows
+    - Modify row properties
+    - Change row data
+    - Update database entries
+
+  </Accordion>
+
+</AccordionGroup>
 
 ---
 
@@ -17534,7 +18979,575 @@ Outlook is Microsoft's email and calendaring platform integrating contacts, task
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Calendar Create Event" icon="calendar-plus">
+    Create a new Outlook calendar event.
+
+    **Description:**
+    Creates a new Outlook calendar event, ensuring `start_datetime` is chronologically before `end_datetime`.
+
+    **Variables (Agent fills during call):**
+    - `subject` – Event subject *(required)*
+    - `start_datetime` – Event start date and time *(required)*
+    - `end_datetime` – Event end date and time *(required)*
+    - `attendees` – List of attendee email addresses *(optional)*
+    - `location` – Event location *(optional)*
+    - `body` – Event description *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Outlook integration*
+
+    **Use Cases:**
+    - Schedule meetings
+    - Create calendar events
+    - Book appointments
+    - Plan events
+
+  </Accordion>
+
+  <Accordion title="Create Contact" icon="user-plus">
+    Create a new contact in Outlook.
+
+    **Description:**
+    Creates a new contact in a Microsoft Outlook user's contacts folder.
+
+    **Variables (Agent fills during call):**
+    - `given_name` – First name *(optional)*
+    - `surname` – Last name *(optional)*
+    - `email_addresses` – List of email addresses *(optional)*
+    - `phone_numbers` – List of phone numbers *(optional)*
+    - Additional contact fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Outlook integration*
+
+    **Use Cases:**
+    - Add new contacts
+    - Create contact records
+    - Save contact information
+    - Build contact database
+
+  </Accordion>
+
+  <Accordion title="Create Draft" icon="file-pen">
+    Create an Outlook email draft.
+
+    **Description:**
+    Creates an Outlook email draft with subject, body, recipients, and an optional attachment. Supports creating drafts as part of existing conversation threads by specifying a conversationId; attachments require a name, mimetype, and content.
+
+    **Variables (Agent fills during call):**
+    - `subject` – Email subject *(required)*
+    - `body` – Email body content *(required)*
+    - `to_email` – Recipient email addresses *(required)*
+    - `cc` – CC recipients *(optional)*
+    - `bcc` – BCC recipients *(optional)*
+    - `conversation_id` – Conversation ID for threading *(optional)*
+    - `attachments` – List of attachments *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Outlook integration*
+
+    **Use Cases:**
+    - Create email drafts
+    - Prepare messages
+    - Draft emails with attachments
+    - Create threaded replies
+
+  </Accordion>
+
+  <Accordion title="Create Draft Reply" icon="reply">
+    Create a draft reply to an existing message.
+
+    **Description:**
+    Creates a draft reply in the specified user's Outlook mailbox to an existing message (identified by a valid `message_id`), optionally including a `comment` and CC/BCC recipients.
+
+    **Variables (Agent fills during call):**
+    - `message_id` – The message ID to reply to *(required)*
+    - `comment` – Reply content *(optional)*
+    - `cc` – CC recipients *(optional)*
+    - `bcc` – BCC recipients *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Outlook integration*
+
+    **Use Cases:**
+    - Draft replies
+    - Prepare response messages
+    - Create reply drafts
+    - Compose threaded responses
+
+  </Accordion>
+
+  <Accordion title="Delete Contact" icon="trash">
+    Permanently delete an existing contact.
+
+    **Description:**
+    Permanently deletes an existing contact, using its `contact_id` (obtainable via 'List User Contacts' or 'Get Contact'), from the Outlook contacts of the user specified by `user_id`.
+
+    **Variables (Agent fills during call):**
+    - `contact_id` – The contact ID *(required)*
+    - `user_id` – The user ID (defaults to 'me') *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Outlook integration*
+
+    **Use Cases:**
+    - Remove contacts
+    - Delete contact records
+    - Clean up contacts
+    - Remove outdated contacts
+
+  </Accordion>
+
+  <Accordion title="Delete Event" icon="trash">
+    Delete an existing calendar event.
+
+    **Description:**
+    Deletes an existing calendar event, identified by its unique `event_id`, from a specified user's Microsoft Outlook calendar, with an option to send cancellation notifications to attendees.
+
+    **Variables (Agent fills during call):**
+    - `event_id` – The event ID *(required)*
+    - `send_cancellation` – Send cancellation to attendees *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Outlook integration*
+
+    **Use Cases:**
+    - Cancel events
+    - Delete calendar entries
+    - Remove meetings
+    - Cancel appointments
+
+  </Accordion>
+
+  <Accordion title="Get Calendar View" icon="calendar">
+    Get events active during a time window.
+
+    **Description:**
+    Get events ACTIVE during a time window (includes multi-day events). Use for \"what's on my calendar today/this week\" or availability checks. Returns events overlapping the time range. For keyword search or filters by category, use OUTLOOK_LIST_EVENTS instead.
+
+    **Variables (Agent fills during call):**
+    - `start_datetime` – Start of time window *(required)*
+    - `end_datetime` – End of time window *(required)*
+    - `calendar_id` – Calendar ID (defaults to primary) *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Outlook integration*
+
+    **Use Cases:**
+    - View calendar for time period
+    - Check availability
+    - See upcoming events
+    - View calendar schedule
+
+  </Accordion>
+
+  <Accordion title="Get Contact" icon="user">
+    Retrieve a specific Outlook contact.
+
+    **Description:**
+    Retrieves a specific Outlook contact by its `contact_id` from the contacts of a specified `user_id` (defaults to 'me' for the authenticated user).
+
+    **Variables (Agent fills during call):**
+    - `contact_id` – The contact ID *(required)*
+    - `user_id` – The user ID (defaults to 'me') *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Outlook integration*
+
+    **Use Cases:**
+    - View contact details
+    - Get contact information
+    - Retrieve contact data
+    - Access contact records
+
+  </Accordion>
+
+  <Accordion title="Get Event" icon="calendar">
+    Retrieve full details of a specific calendar event.
+
+    **Description:**
+    Retrieves the full details of a specific calendar event by its ID from a user's Outlook calendar, provided the event exists.
+
+    **Variables (Agent fills during call):**
+    - `event_id` – The event ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Outlook integration*
+
+    **Use Cases:**
+    - View event details
+    - Get event information
+    - Retrieve event data
+    - Access event properties
+
+  </Accordion>
+
+  <Accordion title="Get Message" icon="envelope">
+    Retrieve a specific email message by ID.
+
+    **Description:**
+    Retrieves a specific email message by its ID from the specified user's Outlook mailbox. Use the 'select' parameter to include specific fields like 'internetMessageHeaders' for filtering automated emails.
+
+    **Variables (Agent fills during call):**
+    - `message_id` – The message ID *(required)*
+    - `select` – Fields to include *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Outlook integration*
+
+    **Use Cases:**
+    - View email details
+    - Get message content
+    - Retrieve email information
+    - Access message headers
+
+  </Accordion>
+
+  <Accordion title="Get Schedule" icon="clock">
+    Retrieve free/busy schedule information.
+
+    **Description:**
+    Retrieves free/busy schedule information for specified email addresses within a defined time window.
+
+    **Variables (Agent fills during call):**
+    - `schedules` – List of email addresses *(required)*
+    - `start_time` – Start of time window *(required)*
+    - `end_time` – End of time window *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Outlook integration*
+
+    **Use Cases:**
+    - Check availability
+    - Find free time slots
+    - View schedules
+    - Check busy times
+
+  </Accordion>
+
+  <Accordion title="List Calendars" icon="calendar">
+    List calendars in the signed-in user's mailbox.
+
+    **Description:**
+    Tool to list calendars in the signed-in user's mailbox. Use when you need to retrieve calendars with optional OData queries.
+
+    **Variables (Agent fills during call):**
+    - `filter` – OData filter expression *(optional)*
+    - `select` – Property selection *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Outlook integration*
+
+    **Use Cases:**
+    - List all calendars
+    - View calendar list
+    - Access calendar information
+    - Retrieve calendar details
+
+  </Accordion>
+
+  <Accordion title="List Contacts" icon="users">
+    Retrieve a user's Microsoft Outlook contacts.
+
+    **Description:**
+    Retrieves a user's Microsoft Outlook contacts, from the default or a specified contact folder.
+
+    **Variables (Agent fills during call):**
+    - `folder_id` – Contact folder ID *(optional)*
+    - `top` – Number of results to return *(optional)*
+    - `skip` – Number of results to skip *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Outlook integration*
+
+    **Use Cases:**
+    - List all contacts
+    - View contact directory
+    - Retrieve contacts
+    - Access contact list
+
+  </Accordion>
+
+  <Accordion title="List Events" icon="calendar">
+    Retrieve events from a user's Outlook calendar.
+
+    **Description:**
+    Retrieves events from a user's Outlook calendar via Microsoft Graph API. Supports primary/secondary/shared calendars, pagination, filtering, property selection, sorting, and timezone specification. Use calendar_id to access non-primary calendars.
+
+    **Variables (Agent fills during call):**
+    - `calendar_id` – Calendar ID (defaults to primary) *(optional)*
+    - `filter` – OData filter expression *(optional)*
+    - `select` – Property selection *(optional)*
+    - `orderby` – Sort order *(optional)*
+    - `top` – Number of results to return *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Outlook integration*
+
+    **Use Cases:**
+    - List calendar events
+    - View event list
+    - Filter events
+    - Retrieve event calendar
+
+  </Accordion>
+
+  <Accordion title="List Messages" icon="envelope">
+    Retrieve a list of email messages from a mail folder.
+
+    **Description:**
+    Retrieves a list of email messages from a specified mail folder in an Outlook mailbox, with options for filtering (including by conversationId to get all messages in a thread), pagination, and sorting; ensure 'user_id' and 'folder' are valid, and all date/time strings are in ISO 8601 format.
+
+    **Variables (Agent fills during call):**
+    - `folder` – Mail folder (e.g., 'inbox', 'sentitems') *(optional)*
+    - `filter` – OData filter expression *(optional)*
+    - `conversation_id` – Filter by conversation ID *(optional)*
+    - `top` – Number of results to return *(optional)*
+    - `skip` – Number of results to skip *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Outlook integration*
+
+    **Use Cases:**
+    - List inbox messages
+    - View sent items
+    - Retrieve email list
+    - Get conversation threads
+
+  </Accordion>
+
+  <Accordion title="List Reminders" icon="bell">
+    Retrieve reminders for events within a time range.
+
+    **Description:**
+    Tool to retrieve reminders for events occurring within a specified time range. Use when you need to see upcoming reminders between two datetimes.
+
+    **Variables (Agent fills during call):**
+    - `start_datetime` – Start of time range *(required)*
+    - `end_datetime` – End of time range *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Outlook integration*
+
+    **Use Cases:**
+    - View upcoming reminders
+    - Check event reminders
+    - Get reminder list
+    - See scheduled reminders
+
+  </Accordion>
+
+  <Accordion title="Move Message" icon="arrow-right">
+    Move a message to another folder.
+
+    **Description:**
+    Move a message to another folder within the specified user's mailbox. This creates a new copy of the message in the destination folder and removes the original message.
+
+    **Variables (Agent fills during call):**
+    - `message_id` – The message ID *(required)*
+    - `destination_folder_id` – The destination folder ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Outlook integration*
+
+    **Use Cases:**
+    - Organize emails
+    - Move messages to folders
+    - Archive messages
+    - Organize mailbox
+
+  </Accordion>
+
+  <Accordion title="Query Emails" icon="magnifying-glass">
+    Query Outlook emails with custom OData filters.
+
+    **Description:**
+    Primary tool for querying Outlook emails with custom OData filters. Build precise server-side filters for dates, read status, importance, subjects, attachments, and conversations. Best for structured queries on message metadata. Returns up to 100 messages per request with pagination support. Server-side filters include: dates, importance, isRead, hasAttachments, subjects, conversationId. CRITICAL: Always check response pagination metadata for additional results.
+
+    **Variables (Agent fills during call):**
+    - `filter` – OData filter expression *(required)*
+    - `select` – Property selection *(optional)*
+    - `top` – Number of results to return *(optional)*
+    - `skip` – Number of results to skip *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Outlook integration*
+
+    **Use Cases:**
+    - Query emails by date
+    - Filter by read status
+    - Search by importance
+    - Find emails with attachments
+
+  </Accordion>
+
+  <Accordion title="Reply Email" icon="reply">
+    Send a plain text reply to an Outlook email.
+
+    **Description:**
+    Sends a plain text reply to an Outlook email message, identified by `message_id`, allowing optional CC and BCC recipients.
+
+    **Variables (Agent fills during call):**
+    - `message_id` – The message ID to reply to *(required)*
+    - `comment` – Reply content *(required)*
+    - `cc` – CC recipients *(optional)*
+    - `bcc` – BCC recipients *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Outlook integration*
+
+    **Use Cases:**
+    - Reply to emails
+    - Send email responses
+    - Respond to messages
+    - Answer emails
+
+  </Accordion>
+
+  <Accordion title="Search Messages" icon="magnifying-glass">
+    Search Outlook messages using powerful KQL syntax.
+
+    **Description:**
+    Search Outlook messages using powerful KQL syntax. Supports sender (from:), recipient (to:, cc:), subject, date filters (received:, sent:), attachments, and boolean logic. Only works with Microsoft 365/Enterprise accounts (no @hotmail.com/@outlook.com). Examples: 'from:user@example.com AND received>=2025-10-01', 'to:info@jcdn.nl AND subject:invoice', 'received>today-30 AND hasattachment:yes'
+
+    **Variables (Agent fills during call):**
+    - `query` – KQL search query *(required)*
+    - `top` – Number of results to return *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Outlook integration*
+
+    **Use Cases:**
+    - Search email content
+    - Find messages by sender
+    - Filter by date range
+    - Search for attachments
+    - Use boolean search logic
+
+  </Accordion>
+
+  <Accordion title="Send Draft" icon="paper-plane">
+    Send an existing draft message.
+
+    **Description:**
+    Tool to send an existing draft message. Use after creating a draft when you want to deliver it to recipients immediately. Example: Send a draft message with ID 'AAMkAG…'.
+
+    **Variables (Agent fills during call):**
+    - `message_id` – The draft message ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your Outlook integration*
+
+    **Use Cases:**
+    - Send draft emails
+    - Deliver prepared messages
+    - Send saved drafts
+    - Send draft messages
+
+  </Accordion>
+
+  <Accordion title="Send Email" icon="paper-plane">
+    Send an email with subject, body, and recipients.
+
+    **Description:**
+    Sends an email with subject, body, recipients, and an optional attachment via Microsoft Graph API. Supports comma-separated email addresses in the to_email field for multiple recipients. Attachments require a non-empty file with valid name and mimetype.
+
+    **Variables (Agent fills during call):**
+    - `subject` – Email subject *(required)*
+    - `body` – Email body content *(required)*
+    - `to_email` – Recipient email addresses (comma-separated) *(required)*
+    - `cc` – CC recipients *(optional)*
+    - `bcc` – BCC recipients *(optional)*
+    - `attachments` – List of attachments *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Outlook integration*
+
+    **Use Cases:**
+    - Send emails
+    - Send messages with attachments
+    - Send to multiple recipients
+    - Deliver email messages
+
+  </Accordion>
+
+  <Accordion title="Update Calendar Event" icon="pencil">
+    Update specified fields of an existing calendar event.
+
+    **Description:**
+    Updates specified fields of an existing Outlook calendar event.
+
+    **Variables (Agent fills during call):**
+    - `event_id` – The event ID *(required)*
+    - `subject` – Updated subject *(optional)*
+    - `start_datetime` – Updated start time *(optional)*
+    - `end_datetime` – Updated end time *(optional)*
+    - `location` – Updated location *(optional)*
+    - `body` – Updated description *(optional)*
+    - Additional event fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Outlook integration*
+
+    **Use Cases:**
+    - Update event details
+    - Change event time
+    - Modify event location
+    - Update event information
+
+  </Accordion>
+
+  <Accordion title="Update Contact" icon="pencil">
+    Update an existing Outlook contact.
+
+    **Description:**
+    Updates an existing Outlook contact, identified by `contact_id` for the specified `user_id`, requiring at least one other field to be modified.
+
+    **Variables (Agent fills during call):**
+    - `contact_id` – The contact ID *(required)*
+    - `given_name` – Updated first name *(optional)*
+    - `surname` – Updated last name *(optional)*
+    - `email_addresses` – Updated email addresses *(optional)*
+    - `phone_numbers` – Updated phone numbers *(optional)*
+    - Additional contact fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Outlook integration*
+
+    **Use Cases:**
+    - Update contact information
+    - Modify contact details
+    - Change contact data
+    - Update contact records
+
+  </Accordion>
+
+  <Accordion title="Update Email" icon="pencil">
+    Update specified properties of an existing email message.
+
+    **Description:**
+    Updates specified properties of an existing email message; `message_id` must identify a valid message within the specified `user_id`'s mailbox.
+
+    **Variables (Agent fills during call):**
+    - `message_id` – The message ID *(required)*
+    - `is_read` – Read status *(optional)*
+    - `flag` – Flag status *(optional)*
+    - `categories` – Message categories *(optional)*
+    - Additional message properties *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Outlook integration*
+
+    **Use Cases:**
+    - Mark emails as read
+    - Update message flags
+    - Change message categories
+    - Modify email properties
+
+  </Accordion>
+
+</AccordionGroup>
 
 ---
 
@@ -17558,7 +19571,515 @@ Integrate PagerDuty to manage incidents, schedules, and alerts directly from you
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Create Incident Record" icon="plus">
+    Create a new incident in PagerDuty.
+
+    **Description:**
+    Creates a new incident in PagerDuty with specified details and assignments. Use this endpoint when an event requires immediate attention from on-call teams. It supports comprehensive incident documentation, including priority, urgency, and conference bridge information. The 'incident_key' parameter helps prevent duplicate incidents, crucial for maintaining a clean incident list.
+
+    **Variables (Agent fills during call):**
+    - `title` – Incident title *(required)*
+    - `service_id` – Service ID *(required)*
+    - `priority_id` – Priority ID *(optional)*
+    - `urgency` – Urgency level *(optional)*
+    - `incident_key` – Unique key to prevent duplicates *(optional)*
+    - `body` – Incident description *(optional)*
+    - `assignments` – List of assignments *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your PagerDuty integration*
+
+    **Use Cases:**
+    - Create new incidents
+    - Report critical issues
+    - Trigger incident response
+    - Document incidents
+
+  </Accordion>
+
+  <Accordion title="Fetch Incident List" icon="list">
+    Retrieve a list of incidents from PagerDuty.
+
+    **Description:**
+    Retrieves a list of incidents from PagerDuty based on specified criteria. This endpoint allows users to fetch multiple incidents, making it useful for incident management, reporting, and analysis. It supports filtering by status and date range, as well as pagination for handling large result sets. The endpoint is particularly valuable for obtaining an overview of recent or ongoing incidents, tracking incident trends, or integrating PagerDuty incident data into external systems or dashboards.
+
+    **Variables (Agent fills during call):**
+    - `statuses` – Filter by status *(optional)*
+    - `since` – Start date for filtering *(optional)*
+    - `until` – End date for filtering *(optional)*
+    - `limit` – Number of results to return *(optional)*
+    - `offset` – Pagination offset *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your PagerDuty integration*
+
+    **Use Cases:**
+    - List all incidents
+    - Filter incidents by status
+    - View recent incidents
+    - Generate incident reports
+
+  </Accordion>
+
+  <Accordion title="Fetch Priorities List" icon="list">
+    Retrieve a list of existing priorities in PagerDuty.
+
+    **Description:**
+    Retrieves a list of existing priorities in the PagerDuty system, ordered from most severe to least severe. This endpoint should be used when you need to obtain information about the current priority levels configured in your PagerDuty account. It's particularly useful for integrations that need to reference or display priority information, or for administrators who want to review the existing priority structure.
+
+    **Variables (Agent fills during call):**
+    *None—returns all priorities*
+
+    **Configurations (You set once):**
+    *None required—uses your PagerDuty integration*
+
+    **Use Cases:**
+    - List all priorities
+    - View priority structure
+    - Reference priority levels
+    - Review priority configuration
+
+  </Accordion>
+
+  <Accordion title="Fetch Related Change Events For Incident" icon="clock">
+    Retrieve change events related to a specific incident.
+
+    **Description:**
+    Retrieves a list of change events related to a specific incident in PagerDuty. This endpoint is used to gather contextual information about changes or updates associated with an incident, which can be crucial for understanding its progression and resolution. It provides insights into actions taken, system modifications, or other relevant events that occurred in connection with the incident.
+
+    **Variables (Agent fills during call):**
+    - `incident_id` – The incident ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your PagerDuty integration*
+
+    **Use Cases:**
+    - View related changes
+    - Track incident context
+    - Understand incident progression
+    - Review change history
+
+  </Accordion>
+
+  <Accordion title="Fetch Related Incidents By Id" icon="link">
+    Retrieve incidents potentially related to a specified incident.
+
+    **Description:**
+    Retrieves a list of incidents that are potentially related to a specified incident in PagerDuty. This endpoint utilizes machine learning algorithms to identify and return incidents that may be connected or similar to the given incident. It's particularly useful for incident management teams to gain a broader context of ongoing issues, identify patterns, and potentially streamline resolution processes.
+
+    **Variables (Agent fills during call):**
+    - `incident_id` – The incident ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your PagerDuty integration*
+
+    **Use Cases:**
+    - Find related incidents
+    - Identify incident patterns
+    - Discover similar issues
+    - Analyze incident relationships
+
+  </Accordion>
+
+  <Accordion title="Get Alerts By Incident Id" icon="bell">
+    Retrieve all alerts associated with a specific incident.
+
+    **Description:**
+    Retrieves all alerts associated with a specific incident in PagerDuty. This endpoint allows users to fetch detailed information about the notifications and alerts that were triggered as part of an incident's lifecycle. It is particularly useful for incident postmortems, auditing purposes, or understanding the notification flow during an incident.
+
+    **Variables (Agent fills during call):**
+    - `incident_id` – The incident ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your PagerDuty integration*
+
+    **Use Cases:**
+    - View incident alerts
+    - Review notification history
+    - Audit alert triggers
+    - Analyze alert patterns
+
+  </Accordion>
+
+  <Accordion title="Get Incident Log Entries By Id" icon="file-lines">
+    Retrieve all log entries associated with a specific incident.
+
+    **Description:**
+    Retrieves all log entries associated with a specific incident in PagerDuty. This endpoint provides a comprehensive history of actions, notifications, and status changes related to the incident. It should be used when detailed information about the lifecycle of an incident is needed, such as for post-incident reviews, auditing, or tracking the incident resolution process. The endpoint returns log entries in chronological order, allowing users to trace the incident's progression from creation to resolution.
+
+    **Variables (Agent fills during call):**
+    - `incident_id` – The incident ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your PagerDuty integration*
+
+    **Use Cases:**
+    - View incident history
+    - Track incident lifecycle
+    - Review incident logs
+    - Audit incident actions
+
+  </Accordion>
+
+  <Accordion title="Post Incident Note Using Id" icon="note-sticky">
+    Add a new note to an existing incident.
+
+    **Description:**
+    Adds a new note to an existing incident in PagerDuty. This endpoint allows users to append additional information, updates, or comments to a specific incident identified by its unique ID. It's particularly useful for documenting the progress of incident resolution, sharing important observations, or recording actions taken. The note content can include any text relevant to the incident management process, helping teams collaborate and maintain a clear record of the incident's timeline and handling.
+
+    **Variables (Agent fills during call):**
+    - `incident_id` – The incident ID *(required)*
+    - `content` – Note content *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your PagerDuty integration*
+
+    **Use Cases:**
+    - Add incident notes
+    - Document progress
+    - Share observations
+    - Record actions taken
+
+  </Accordion>
+
+  <Accordion title="Post Incident Status Update" icon="message">
+    Post a status update for a specific incident.
+
+    **Description:**
+    Posts a status update for a specific incident in PagerDuty. This endpoint allows you to add new information or progress reports to an ongoing incident, keeping stakeholders informed about the current state of the issue. It supports both simple text updates and more detailed custom HTML email updates. Use this when you need to communicate important changes, actions taken, or any relevant information about the incident to the team or stakeholders.
+
+    **Variables (Agent fills during call):**
+    - `incident_id` – The incident ID *(required)*
+    - `message` – Status update message *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your PagerDuty integration*
+
+    **Use Cases:**
+    - Update incident status
+    - Communicate progress
+    - Notify stakeholders
+    - Share status updates
+
+  </Accordion>
+
+  <Accordion title="Retrieve Business Service Impacts" icon="chart-line">
+    Retrieve the impacts of an incident on business services.
+
+    **Description:**
+    Retrieves the impacts of a specific incident on business services within PagerDuty. This endpoint allows users to assess the scope and severity of an ongoing incident by providing detailed information about which business services are affected and to what extent. It should be used when there's a need to understand the broader implications of an incident across the organization's critical operations.
+
+    **Variables (Agent fills during call):**
+    - `incident_id` – The incident ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your PagerDuty integration*
+
+    **Use Cases:**
+    - Assess service impacts
+    - Understand incident scope
+    - Evaluate business impact
+    - Review affected services
+
+  </Accordion>
+
+  <Accordion title="Retrieve Incident By Incident Id" icon="file-lines">
+    Retrieve detailed information about a specific incident.
+
+    **Description:**
+    Retrieves detailed information about a specific incident in PagerDuty using its unique identifier. This endpoint allows users to access comprehensive data about an individual incident, including its current status, assigned responders, and related metadata. It is particularly useful for tracking the progress of an ongoing incident, reviewing historical incident data, or integrating incident details into external systems or reports.
+
+    **Variables (Agent fills during call):**
+    - `incident_id` – The incident ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your PagerDuty integration*
+
+    **Use Cases:**
+    - View incident details
+    - Get incident information
+    - Track incident status
+    - Access incident metadata
+
+  </Accordion>
+
+  <Accordion title="Retrieve Incident Custom Fields" icon="list">
+    Retrieve a list of custom fields associated with incidents.
+
+    **Description:**
+    Retrieves a list of custom fields associated with incidents in PagerDuty. Custom fields are additional data points that can be added to incidents to provide more detailed information tailored to specific organizational needs. This endpoint allows you to fetch all defined custom fields, which can be useful for understanding the structure of incident data, preparing for incident creation or updates, or auditing the current custom field configuration.
+
+    **Variables (Agent fills during call):**
+    *None—returns all custom fields*
+
+    **Configurations (You set once):**
+    *None required—uses your PagerDuty integration*
+
+    **Use Cases:**
+    - List custom fields
+    - View field structure
+    - Review field configuration
+    - Understand incident schema
+
+  </Accordion>
+
+  <Accordion title="Retrieve Incident Custom Field Values" icon="list">
+    Retrieve custom field values for a specific incident.
+
+    **Description:**
+    Retrieves the custom field values associated with a specific incident in PagerDuty. This endpoint allows users to access additional metadata that has been added to an incident, providing more context and enabling better incident management. It should be used when detailed information about an incident's custom fields is needed, such as for reporting, analysis, or integration with other systems. The endpoint returns only the custom field values and does not modify the incident or its fields.
+
+    **Variables (Agent fills during call):**
+    - `incident_id` – The incident ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your PagerDuty integration*
+
+    **Use Cases:**
+    - Get custom field values
+    - Access incident metadata
+    - View additional context
+    - Retrieve field data
+
+  </Accordion>
+
+  <Accordion title="Retrieve Incident Field Options" icon="list">
+    Retrieve available field options for a specific custom field.
+
+    **Description:**
+    Retrieves the available field options for a specific custom field associated with incidents in PagerDuty. This endpoint allows users to fetch the predefined set of values that can be assigned to a particular custom field, enabling efficient incident management and customization. Use this endpoint when you need to populate dropdowns, validate input, or understand the possible values for a custom field in your incident management workflow.
+
+    **Variables (Agent fills during call):**
+    - `field_id` – The custom field ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your PagerDuty integration*
+
+    **Use Cases:**
+    - Get field options
+    - View available values
+    - Populate dropdowns
+    - Validate field input
+
+  </Accordion>
+
+  <Accordion title="Retrieve List Of Services" icon="list">
+    Retrieve a list of services configured in PagerDuty.
+
+    **Description:**
+    Retrieves a list of services configured in the PagerDuty account. This endpoint allows you to fetch details about various services set up for incident management and alerting. It's particularly useful for getting an overview of all services, their configurations, and associated teams or escalation policies. The endpoint supports filtering, sorting, and pagination to manage large sets of services efficiently.
+
+    **Variables (Agent fills during call):**
+    - `limit` – Number of results to return *(optional)*
+    - `offset` – Pagination offset *(optional)*
+    - `query` – Search query *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your PagerDuty integration*
+
+    **Use Cases:**
+    - List all services
+    - View service configurations
+    - Get service details
+    - Access service information
+
+  </Accordion>
+
+  <Accordion title="Retrieve Maintenance Windows" icon="calendar">
+    Retrieve a list of maintenance windows.
+
+    **Description:**
+    Retrieves a list of maintenance windows from the PagerDuty incident management platform. Maintenance windows are scheduled periods during which alerts and notifications for specified services are suppressed to allow for system maintenance or updates without triggering unnecessary incidents. This endpoint should be used to get an overview of all maintenance windows, their schedules, and affected services.
+
+    **Variables (Agent fills during call):**
+    - `limit` – Number of results to return *(optional)*
+    - `offset` – Pagination offset *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your PagerDuty integration*
+
+    **Use Cases:**
+    - List maintenance windows
+    - View scheduled maintenance
+    - Check maintenance schedules
+    - Review maintenance plans
+
+  </Accordion>
+
+  <Accordion title="Retrieve Notes For Incident" icon="note-sticky">
+    Retrieve all notes associated with a specific incident.
+
+    **Description:**
+    Retrieves all notes associated with a specific incident in PagerDuty. This endpoint allows users to access the complete history of comments, updates, and additional information added to an incident throughout its lifecycle. It is particularly useful for reviewing the incident's progress, understanding the actions taken, and gathering context for post-incident analysis.
+
+    **Variables (Agent fills during call):**
+    - `incident_id` – The incident ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your PagerDuty integration*
+
+    **Use Cases:**
+    - View incident notes
+    - Review comment history
+    - Access incident updates
+    - Read incident documentation
+
+  </Accordion>
+
+  <Accordion title="Retrieve Oncall List" icon="users">
+    Retrieve the current on-call information.
+
+    **Description:**
+    Retrieves the current on-call information for your PagerDuty account. This endpoint provides a comprehensive view of who is currently on-call across various schedules and escalation policies. It's particularly useful for getting an overview of your organization's current on-call status, identifying who is responsible for incident response at any given time, and planning team availability.
+
+    **Variables (Agent fills during call):**
+    - `schedule_ids` – Filter by schedule IDs *(optional)*
+    - `escalation_policy_ids` – Filter by escalation policy IDs *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your PagerDuty integration*
+
+    **Use Cases:**
+    - View on-call schedules
+    - Check current on-call
+    - Identify responders
+    - Plan team availability
+
+  </Accordion>
+
+  <Accordion title="Retrieve Past Incidents" icon="clock-rotate-left">
+    Retrieve a list of past incidents related to a specific incident.
+
+    **Description:**
+    Retrieves a list of past incidents related to a specific incident in PagerDuty. This endpoint allows users to explore the historical context of an incident by fetching previous occurrences or related issues. It's particularly useful for identifying recurring problems, analyzing incident patterns, and improving overall incident management processes. The endpoint should be used when investigating the root cause of an incident or when compiling reports on incident history.
+
+    **Variables (Agent fills during call):**
+    - `incident_id` – The incident ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your PagerDuty integration*
+
+    **Use Cases:**
+    - View past incidents
+    - Identify recurring issues
+    - Analyze incident patterns
+    - Review incident history
+
+  </Accordion>
+
+  <Accordion title="Retrieve Service By Id" icon="gear">
+    Retrieve detailed information about a specific service.
+
+    **Description:**
+    Retrieves detailed information about a specific PagerDuty service using its unique identifier. This endpoint allows users to access configuration details, integration settings, and other relevant information for a particular service within their PagerDuty account. It's essential for managing and monitoring the status of individual services, which are core components in PagerDuty's incident management system.
+
+    **Variables (Agent fills during call):**
+    - `service_id` – The service ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your PagerDuty integration*
+
+    **Use Cases:**
+    - View service details
+    - Get service configuration
+    - Access service information
+    - Review service settings
+
+  </Accordion>
+
+  <Accordion title="Send Responder Requests For Incidents" icon="user-plus">
+    Send responder requests for a specific incident.
+
+    **Description:**
+    This endpoint allows you to send responder requests for a specific incident in PagerDuty. It is used to request additional help or notify specific users or escalation policies about an ongoing incident that requires attention. The endpoint creates a new responder request associated with the incident identified by the {id} path parameter. It's particularly useful when you need to quickly engage additional resources or escalate an incident to ensure timely resolution.
+
+    **Variables (Agent fills during call):**
+    - `incident_id` – The incident ID *(required)*
+    - `message` – Request message *(optional)*
+    - `requester_id` – Requester user ID *(optional)*
+    - `responders` – List of responder requests *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your PagerDuty integration*
+
+    **Use Cases:**
+    - Request additional responders
+    - Escalate incidents
+    - Engage team members
+    - Notify responders
+
+  </Accordion>
+
+  <Accordion title="Update Alert In Incident" icon="pencil">
+    Update the status of a specific alert within an incident.
+
+    **Description:**
+    Updates the status of a specific alert within an incident in PagerDuty. This endpoint allows you to modify an alert's status, primarily to mark it as resolved. It's crucial for managing the lifecycle of alerts and incidents in PagerDuty's incident management system. Use this when you need to programmatically update the state of an alert, typically as part of an automated incident resolution process or when integrating external systems with PagerDuty.
+
+    **Variables (Agent fills during call):**
+    - `incident_id` – The incident ID *(required)*
+    - `alert_id` – The alert ID *(required)*
+    - `status` – Alert status *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your PagerDuty integration*
+
+    **Use Cases:**
+    - Update alert status
+    - Resolve alerts
+    - Manage alert lifecycle
+    - Mark alerts as resolved
+
+  </Accordion>
+
+  <Accordion title="Update Incident By Id" icon="pencil">
+    Modify various attributes of an existing incident.
+
+    **Description:**
+    The UpdateIncident endpoint allows you to modify various attributes of an existing incident in PagerDuty's incident management system. This PUT operation enables users to update incident status, priority, assignments, escalation levels, and other key properties. It's particularly useful for reflecting the current state of an incident, reassigning responsibilities, or adjusting the incident's urgency and escalation path.
+
+    **Variables (Agent fills during call):**
+    - `incident_id` – The incident ID *(required)*
+    - `status` – Incident status *(optional)*
+    - `priority_id` – Priority ID *(optional)*
+    - `urgency` – Urgency level *(optional)*
+    - `assignments` – List of assignments *(optional)*
+    - Additional incident fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your PagerDuty integration*
+
+    **Use Cases:**
+    - Update incident status
+    - Change priority
+    - Reassign incidents
+    - Modify incident properties
+
+  </Accordion>
+
+  <Accordion title="Update Incident Custom Field Values" icon="pencil">
+    Update custom field values for a specific incident.
+
+    **Description:**
+    This endpoint updates custom field values for a specific incident in PagerDuty. It allows you to modify or add custom fields to provide additional context or information about the incident. The endpoint is particularly useful when you need to update incident metadata dynamically, such as changing the environment, priority, or any other custom attributes associated with the incident.
+
+    **Variables (Agent fills during call):**
+    - `incident_id` – The incident ID *(required)*
+    - `custom_fields` – Custom field values to update *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your PagerDuty integration*
+
+    **Use Cases:**
+    - Update custom fields
+    - Modify incident metadata
+    - Change field values
+    - Update incident attributes
+
+  </Accordion>
+
+</AccordionGroup>
 
 ---
 
@@ -17582,7 +20103,102 @@ PandaDoc offers document creation, e-signatures, and workflow automation, helpin
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Create Contact" icon="user-plus">
+    Create a new contact in PandaDoc.
+
+    **Description:**
+    This tool creates a new contact in PandaDoc. It allows you to add a new contact with their personal and professional information to your PandaDoc account. The tool is completely independent and doesn't require any external resource IDs or dependencies.
+
+    **Variables (Agent fills during call):**
+    - `email` – Contact email address *(required)*
+    - `first_name` – First name *(optional)*
+    - `last_name` – Last name *(optional)*
+    - `company` – Company name *(optional)*
+    - `phone` – Phone number *(optional)*
+    - Additional contact fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your PandaDoc integration*
+
+    **Use Cases:**
+    - Add new contacts
+    - Create contact records
+    - Save contact information
+    - Build contact database
+
+  </Accordion>
+
+  <Accordion title="Create Or Update Contact" icon="user-pen">
+    Create a new contact or update an existing one based on email.
+
+    **Description:**
+    This tool creates a new contact or updates an existing one in PandaDoc based on the email address. If a contact with the provided email exists, it will be updated; otherwise, a new contact will be created.
+
+    **Variables (Agent fills during call):**
+    - `email` – Contact email address *(required)*
+    - `first_name` – First name *(optional)*
+    - `last_name` – Last name *(optional)*
+    - `company` – Company name *(optional)*
+    - `phone` – Phone number *(optional)*
+    - Additional contact fields *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your PandaDoc integration*
+
+    **Use Cases:**
+    - Upsert contacts
+    - Update existing contacts
+    - Create or update contacts
+    - Sync contact information
+
+  </Accordion>
+
+  <Accordion title="Delete Contact" icon="trash">
+    Delete a contact from PandaDoc.
+
+    **Description:**
+    This tool allows you to delete a contact from your PandaDoc account. The action is permanent and cannot be undone.
+
+    **Variables (Agent fills during call):**
+    - `contact_id` – The contact ID *(required)*
+
+    **Configurations (You set once):**
+    *None required—uses your PandaDoc integration*
+
+    **Use Cases:**
+    - Remove contacts
+    - Delete contact records
+    - Clean up contacts
+    - Remove outdated contacts
+
+  </Accordion>
+
+  <Accordion title="List Contacts" icon="users">
+    List and search contacts in PandaDoc.
+
+    **Description:**
+    A tool to list and search contacts in PandaDoc. It retrieves a list of contacts with various options including filtering by email, search query, pagination, and shared status. All parameters are optional and it supports flexible queries to get contacts.
+
+    **Variables (Agent fills during call):**
+    - `email` – Filter by email address *(optional)*
+    - `search` – Search query *(optional)*
+    - `page` – Page number for pagination *(optional)*
+    - `count` – Number of results per page *(optional)*
+    - `shared` – Filter by shared status *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your PandaDoc integration*
+
+    **Use Cases:**
+    - List all contacts
+    - Search contacts
+    - Filter contacts by email
+    - View contact directory
+
+  </Accordion>
+
+</AccordionGroup>
 
 ---
 
@@ -17606,7 +20222,32 @@ Perplexity AI provides conversational AI models for generating human-like text r
 
 **Available Tools:**
 
-_Tools documentation will be added here._
+<AccordionGroup>
+  <Accordion title="Perplexity Ai Search" icon="magnifying-glass">
+    Perform search queries using Perplexity AI.
+
+    **Description:**
+    Perplexity Ai Search interfaces with Perplexity AI to perform search queries and return responses from a range of models. This action manages requests to Perplexity AI and processes the resulting completions, which may include text, citations, and images based on selected models and settings.
+
+    **Variables (Agent fills during call):**
+    - `query` – Search query *(required)*
+    - `model` – AI model to use *(optional)*
+    - `search_domain` – Search domain filter *(optional)*
+    - `return_images` – Include images in response *(optional)*
+    - `return_related_questions` – Include related questions *(optional)*
+
+    **Configurations (You set once):**
+    *None required—uses your Perplexity AI integration*
+
+    **Use Cases:**
+    - Perform AI-powered searches
+    - Get answers with citations
+    - Search with AI assistance
+    - Retrieve information with sources
+
+  </Accordion>
+
+</AccordionGroup>
 
 ---
 

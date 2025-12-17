@@ -408,66 +408,133 @@ Control how the agent structures its responses and manages the conversation flow
 
 ## Dynamic Variables
 
-Dynamic variables let your agent personalize every outbound call without hard-coding details. They behave like mail-merge tags: write the variable once, and Outbox AI swaps in the live value when the call is placed.
+Dynamic variables let your agent personalize every conversation without hard-coding details. They behave like mail-merge tags: write the variable once, and Outbox AI swaps in the live value when the conversation starts.
 
-### What the Agent Already Knows
-
-Before you add anything, remember the voice agent automatically has:
-
-- **Current time** – Pulled from the time-zone you set under Advanced Settings
-- **Caller's number** – The phone number it is dialing
-
-That alone covers most "good morning" or "local time" references.
+Dynamic variables work in both **chat and voice agents**, allowing you to reference contact information, company details, and custom data throughout your prompts.
 
 ---
 
-### Injecting Extra Details
+### Variable Structure
 
-Use double curly braces in your prompt or first message:
+Dynamic variables use a structured format organized by category:
 
-```
-Hi {{first_name}}, thanks for calling!
-```
+**Contact Variables:**
+- Access information about the current contact
+- Format: `{{contact.field_name}}`
+- Includes custom fields assigned to contacts
 
-**Syntax Rules:**
-
-- **Format:** `{{variable_name}}`
-- **Case:** Keep names all lower-case
-- **Spaces:** Use underscores (e.g., `{{first_name}}`, not `{{First Name}}`)
-- **Instant preview:** Once you type the tag and click Save, it appears in the Agent Context panel
+**Company Variables:**
+- Access company-specific information
+- Format: `{{company.field_name}}`
+- Includes custom values set at the company level
 
 ---
 
-### Popular Variables
+### Contact Variables
 
-Here are the most commonly used dynamic variables:
+Use contact variables to personalize conversations with information about the current contact:
+
+**Standard Contact Fields:**
 
 ```markdown
-{{first_name}} / {{full_name}} – Greet leads by name
-{{time_zone}} – Helpful if you've pre-saved a contact's zone
-{{appointment_date}} – Reference upcoming bookings
-{{location}} – Mention their city or region
-{{company_name}} – For B2B calls
-{{last_contact_date}} – When you last spoke
-{{lead_source}} – Where they came from (Google, Facebook, referral)
-{{custom_field_name}} – Any custom field you store in your CRM
+{{contact.first_name}} – Contact's first name
+{{contact.last_name}} – Contact's last name
+{{contact.email}} – Contact's email address
+{{contact.phone}} – Contact's phone number
+{{contact.company_name}} – Contact's company (for B2B)
+{{contact.time_zone}} – Contact's timezone
+{{contact.location}} – Contact's city or region
 ```
 
-**Example Usage:**
+**Custom Fields:**
+
+Custom fields that you've created in Company Settings can be accessed using:
 
 ```markdown
-## First Message (Outbound)
+{{contact.custom_field_name}} – Any custom field assigned to contacts
+```
 
-"Hi {{first_name}}, this is Sarah from Elite Fitness.
-I'm following up on your inquiry about our {{membership_type}} membership.
+For example, if you created a custom field called `membership_type`, you would reference it as:
+
+```
+{{contact.membership_type}}
+```
+
+---
+
+### Company Variables
+
+Use company variables to reference company-specific information that can be updated once and used across all agents:
+
+**Standard Company Fields:**
+
+```markdown
+{{company.name}} – Company name
+{{company.address}} – Company address
+{{company.phone}} – Company phone number
+{{company.email}} – Company email address
+```
+
+**Custom Values:**
+
+Custom values that you've set in Company Settings can be accessed using:
+
+```markdown
+{{company.custom_value_name}} – Any custom value set at the company level
+```
+
+For example, if you created a custom value called `company_address`, you would reference it as:
+
+```
+{{company.company_address}}
+```
+
+<Tip>
+**Why use Custom Values?** If your company address changes, you only need to update it once in Company Settings rather than updating every agent prompt individually.
+</Tip>
+
+---
+
+### Example Usage
+
+**Voice Agent First Message:**
+
+```markdown
+"Hi {{contact.first_name}}, this is Sarah from {{company.name}}.
+I'm calling about your inquiry regarding our {{contact.membership_type}} membership.
+Our office is located at {{company.company_address}}.
 Do you have a quick minute to chat?"
-
-## Appointment Reminder
-
-"Hey {{first_name}}! Just a friendly reminder that you've got
-a session booked with us tomorrow ({{appointment_date}}) at
-{{appointment_time}}. Looking forward to seeing you!"
 ```
+
+**Chat Agent Prompt:**
+
+```markdown
+You are a customer service agent for {{company.name}}.
+
+When greeting customers, use their name: "Hi {{contact.first_name}}!"
+
+Our office address is {{company.company_address}}.
+If customers ask about our location, provide this address.
+```
+
+**Appointment Reminder:**
+
+```markdown
+"Hey {{contact.first_name}}! Just a friendly reminder that you've got
+a session booked with us tomorrow. Looking forward to seeing you at
+{{company.company_address}}!"
+```
+
+---
+
+### Syntax Rules
+
+- **Format:** `{{category.field_name}}` (e.g., `{{contact.first_name}}` or `{{company.name}}`)
+- **Categories:** Use `contact.` for contact fields, `company.` for company fields
+- **Custom Fields:** Access custom contact fields with `{{contact.custom_field_name}}`
+- **Custom Values:** Access custom company values with `{{company.custom_value_name}}`
+- **Case:** Keep field names lowercase with underscores
+- **Instant preview:** Once you type the tag and click Save, it appears in the Agent Context panel
 
 ---
 
@@ -475,7 +542,7 @@ a session booked with us tomorrow ({{appointment_date}}) at
 
 <Steps>
   <Step title="Insert the Tag">
-    Type `{{ variable_name }}` anywhere in your prompt or tool settings
+    Type `{{contact.field_name}}` or `{{company.field_name}}` anywhere in your prompt or first message
   </Step>
   <Step title="Save & Reload">
     Click Save. New fields appear under Agent Context
@@ -484,8 +551,7 @@ a session booked with us tomorrow ({{appointment_date}}) at
     Fill in test values to preview how the agent will sound
   </Step>
   <Step title="Populate in Workflow">
-    When configuring the "Send Outbound Call" action in your automation, supply
-    the live values from your CRM
+    For outbound calls/chats, supply the live values when configuring the action in your automation
   </Step>
 </Steps>
 
@@ -493,19 +559,21 @@ a session booked with us tomorrow ({{appointment_date}}) at
 
 ### Outbound vs Inbound
 
-**Outbound Calls:**  
-Dynamic variables work immediately. Supply values when you configure the Send Outbound Call action in your workflow.
+**Outbound Calls/Chats:**  
+Dynamic variables work immediately. Supply contact values when you configure the outbound action in your workflow. Company variables are automatically available.
 
-**Inbound Calls:**  
-Tags won't populate automatically. Instead:
+**Inbound Calls/Chats:**  
+Contact variables won't populate automatically. Instead:
 
-1. Trigger a **Find or Create Contact** tool at the start of the call
+1. Trigger a **Find or Create Contact** tool at the start of the conversation
 2. Pass returned details into the prompt
 3. Create a new contact on the fly if none exists
 
+Company variables are always available for both inbound and outbound conversations.
+
 <Note>
-  For inbound calls, you'll need to fetch contact data from your CRM first
-  before variables can be populated.
+  For inbound conversations, you'll need to fetch contact data from your CRM first
+  before contact variables can be populated. Company variables work immediately.
 </Note>
 
 ---
@@ -905,14 +973,17 @@ Done in seconds instead of hunting through the document manually!
 
 {" "}
 
-<Accordion title="Variables Not Populating" icon="brackets-curly">
-  **Problem:** Dynamic variables show as `{{ first_name }}` instead of actual
-  values. **Solutions:** - Check syntax: must be `{{ variable_name }}` with
-  double curly braces - Ensure variable is lowercase with underscores - For
-  inbound calls, add a Find or Create Contact tool first - For outbound calls,
-  verify values are passed in the workflow - Save and reload to see new
-  variables in Agent Context
-</Accordion>
+  <Accordion title="Variables Not Populating" icon="brackets-curly">
+    **Problem:** Dynamic variables show as `{{ contact.first_name }}` instead of actual
+    values. **Solutions:** 
+    - Check syntax: must use structured format `{{contact.field_name}}` or `{{company.field_name}}`
+    - Ensure you're using the correct category (`contact.` or `company.`)
+    - For custom fields/values, verify they exist in Company Settings
+    - For inbound calls/chats, add a Find or Create Contact tool first
+    - For outbound calls/chats, verify contact values are passed in the workflow
+    - Company variables should work automatically - if not, check Company Settings
+    - Save and reload to see new variables in Agent Context
+  </Accordion>
 
   <Accordion title="Markdown Not Rendering" icon="file-code">
     **Problem:** Your formatting looks broken in the agent's responses.

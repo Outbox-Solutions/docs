@@ -64,7 +64,7 @@ Set a greeting so callers know who answered.
 Create a personalized opening that gets attention.
 
 ```
-"Hi {{first_name}}, this is Sarah from Elite Fitness. I'm calling about your inquiry. Do you have a quick minute?"
+"Hi {{contact.first_name}}, this is Sarah from Elite Fitness. I'm calling about your inquiry. Do you have a quick minute?"
 ```
 
 **Leave Blank:**
@@ -514,14 +514,98 @@ Outbox AI offers access to ElevenLabs' massive voice library with over 1,000 pro
 
 ### Model Selection
 
-Choose the AI model that powers your agent's intelligence. Each model balances speed and reasoning ability differently.
+Choose the AI model that powers your agent's intelligence. Each model balances speed, reasoning ability, and cost differently.
 
-<Note>
-  **All models are priced the same**, so choose based on your needs for speed
-  vs. intelligence, not cost!
-</Note>
+---
+
+### Pricing Model
+
+Voice agents use a token-based pricing system:
+
+- **Included Tokens:** Each model includes a certain number of tokens in your agent's prompt per minute
+- **Overage Pricing:** Any tokens beyond the included limit are charged at a per-1000-tokens rate per minute
+
+**How it works:**
+- Your agent's prompt (including system instructions, tools, and context) consumes tokens
+- Each model includes a different amount of tokens in the base price
+- If your prompt exceeds the included token limit, you pay the overage rate for the additional tokens
+- Pricing is calculated per minute of call time
+
+<Tip>
+**Optimize Your Prompts:** Keep your prompts concise to stay within the included token limit. Longer prompts with extensive FAQs or tool configurations may incur overage charges.
+</Tip>
+
+---
 
 <AccordionGroup>
+  <Accordion title="GPT-5.2" icon="gem">
+    **Most Advanced • Highest Cost**
+
+    The most intelligent GPT-5 model with exceptional reasoning capabilities.
+
+    - 🎓 Exceptional reasoning and comprehension
+    - 🔍 Best for highly complex conversations
+    - ⏱️ Higher latency than GPT-4 models
+    - 💰 Premium pricing
+
+    **Pricing:**
+    - **Included Tokens:** 2,250 tokens per minute
+    - **Overage:** $1.75 per 1,000 tokens per minute
+
+    **Best for:** High-value consultations where accuracy matters more than speed, complex technical discussions, situations requiring deep reasoning
+
+  </Accordion>
+  <Accordion title="GPT-5.1 Chat Latest" icon="sparkles">
+    **Advanced Intelligence • High Cost**
+
+    Advanced GPT-5 model with strong reasoning capabilities.
+
+    - 🧠 Advanced intelligence and comprehension
+    - 📚 Excellent handling of complex scenarios
+    - ⏱️ Moderate latency
+    - 💰 Higher cost than GPT-4 models
+
+    **Pricing:**
+    - **Included Tokens:** 3,250 tokens per minute
+    - **Overage:** $1.25 per 1,000 tokens per minute
+
+    **Best for:** Complex sales conversations, technical support, consultative selling, handling difficult customers
+
+  </Accordion>
+  <Accordion title="GPT-5 Mini" icon="gauge-simple-max">
+    **Smart • Cost-Effective**
+
+    GPT-5 intelligence with better token allocation for longer prompts.
+
+    - 🧠 Advanced intelligence
+    - 📊 Handles longer conversation histories and prompts
+    - ⏱️ Moderate latency
+    - 💰 More cost-effective for longer prompts
+
+    **Pricing:**
+    - **Included Tokens:** 16,000 tokens per minute
+    - **Overage:** $0.25 per 1,000 tokens per minute
+
+    **Best for:** Complex conversations requiring extensive context, agents with long prompts or many tools
+
+  </Accordion>
+  <Accordion title="GPT-5 Nano" icon="microchip">
+    **Smart • Most Cost-Effective**
+
+    GPT-5 intelligence with the most generous token allocation.
+
+    - 🧠 Advanced intelligence
+    - 📊 Excellent for very long prompts and extensive tool configurations
+    - ⏱️ Moderate latency
+    - 💰 Most cost-effective for complex agents
+
+    **Pricing:**
+    - **Included Tokens:** 75,000 tokens per minute
+    - **Overage:** $0.05 per 1,000 tokens per minute
+
+    **Best for:** Agents with extensive prompts, many tools, large knowledge bases, or complex configurations
+
+  </Accordion>
   <Accordion title="GPT-4.1 (Recommended)" icon="star">
     **770ms • Accurate • Moderate**
 
@@ -532,89 +616,76 @@ Choose the AI model that powers your agent's intelligence. Each model balances s
     - ✅ Handles most conversation flows smoothly
     - 🎯 Reliable performance across scenarios
 
+    **Pricing:**
+    - **Included Tokens:** 1,500 tokens per minute
+    - **Overage:** $2.00 per 1,000 tokens per minute
+
     **Best for:** Standard appointment booking, lead qualification, customer support, sales calls, FAQ handling
 
   </Accordion>
   <Accordion title="GPT-4.1 Mini" icon="gauge-simple-max">
     **700ms • Moderate • Fast**
 
-    Faster than GPT-4.1 but with slightly reduced intelligence.
+    Faster than GPT-4.1 with better token allocation for longer prompts.
 
     - 🏃 Quick response times
     - 💬 Good for straightforward conversations
+    - 📊 More tokens included than GPT-4.1
     - ⚠️ May struggle with complex scenarios
 
-    **Best for:** Simple appointment confirmations, basic FAQs, predictable conversation flows
+    **Pricing:**
+    - **Included Tokens:** 7,500 tokens per minute
+    - **Overage:** $0.40 per 1,000 tokens per minute
+
+    **Best for:** Simple appointment confirmations, basic FAQs, predictable conversation flows, agents with moderate-length prompts
 
   </Accordion>
   <Accordion title="GPT-4.1 Nano" icon="microchip">
     **510ms • Less Accurate • Fastest**
 
-    The fastest model, but with reduced reasoning ability.
+    The fastest model with generous token allocation.
 
     - ⚡⚡ Extremely fast (under 1 second)
     - 📝 Best for scripted interactions
+    - 📊 Excellent token allocation for longer prompts
     - ⚠️ Limited ability to handle unexpected questions
 
-    **Best for:** Appointment reminders, simple confirmations, highly scripted calls where speed matters most
+    **Pricing:**
+    - **Included Tokens:** 30,000 tokens per minute
+    - **Overage:** $0.10 per 1,000 tokens per minute
+
+    **Best for:** Appointment reminders, simple confirmations, highly scripted calls where speed matters most, agents with long prompts
 
   </Accordion>
-  <Accordion title="GPT-4o" icon="brain">
-    **600ms • Most Accurate • Slower**
+  <Accordion title="ChatGPT-4o Latest (Legacy)" icon="brain">
+    **600ms • Most Accurate • Higher Cost**
 
-    The most intelligent GPT-4 model with superior reasoning.
+    Legacy GPT-4o model with superior reasoning but limited token allocation.
 
     - 🎯 Exceptional accuracy and comprehension
     - 📚 Handles complex scenarios excellently
     - 💡 Better at handling objections and edge cases
     - ⏱️ Slightly slower than GPT-4.1
+    - 💰 Higher overage costs
 
-    **Best for:** Complex sales conversations, technical support, consultative selling, handling difficult customers
+    **Pricing:**
+    - **Included Tokens:** 1,250 tokens per minute
+    - **Overage:** $2.50 per 1,000 tokens per minute
 
-  </Accordion>
-  <Accordion title="GPT-5" icon="gem">
-    **1550ms • Smartest • Slower**
-
-    The most intelligent model available, but with noticeable latency.
-
-    - 🎓 Exceptional reasoning capabilities
-    - 🔍 Best for highly complex conversations
-    - ⏱️ Significant delay (1.5+ seconds) may feel laggy
-
-    **Best for:** High-value consultations where accuracy matters more than speed, complex technical discussions, situations requiring deep reasoning
-
-  </Accordion>
-  <Accordion title="GPT-5 Mini" icon="sparkles">
-    **1450ms • Smart • Moderate**
-
-    Smart reasoning with slightly better speed than GPT-5.
-
-    - 🧠 Advanced intelligence
-    - ⏱️ Still slower than GPT-4 models
-    - 🎯 Good for complex scenarios that don't need full GPT-5 power
-
-    **Best for:** Complex conversations where you need strong reasoning but can't afford GPT-5's latency
-
-  </Accordion>
-  <Accordion title="GPT-5 Nano" icon="window-maximize">
-    **1350ms • Smart • Fastest (of GPT-5 series)**
-
-    The fastest GPT-5 model with good intelligence.
-
-    - 📊 Handles longer conversation histories
-    - ⚡ Faster than other GPT-5 models
-    - 🧠 Still intelligent, just not as advanced
-
-    **Best for:** Long conversations requiring extensive context, complex calls that need GPT-5 intelligence with better speed
+    **Best for:** Complex sales conversations, technical support, consultative selling, handling difficult customers (when prompt stays within token limit)
 
   </Accordion>
 </AccordionGroup>
 
 <Tip>
-  **Choosing the Right Model:** Start with **GPT-4.1** for most use cases. Only
-  upgrade to GPT-4o or GPT-5 if you encounter specific scenarios requiring
-  higher intelligence. Downgrade to Mini/Nano only if speed is critical and
-  conversations are simple.
+  **Choosing the Right Model:** 
+  
+  - **Start with GPT-4.1** for most use cases with standard-length prompts
+  - **Use GPT-4.1 Mini/Nano** if your prompt is longer and you want to avoid overage charges
+  - **Upgrade to GPT-5 models** if you need advanced reasoning capabilities
+  - **Consider GPT-5 Mini/Nano** for complex agents with extensive prompts, many tools, or large knowledge bases
+  
+  **Token Optimization:** If you're frequently hitting overage charges, consider switching to a model with more included tokens (Mini/Nano variants) rather than paying overage fees.
 </Tip>
 
 ---
@@ -932,7 +1003,7 @@ Burleigh Currumbin Coolangatta Broadbeach Robina
 **Example:**
 
 ```
-"Hi {{first_name}}, this is Sarah from Elite Fitness. I was just calling to follow up on your inquiry about our membership. Give us a call back at 08 1234 5678, or I'll try you again later. Have a great day!"
+"Hi {{contact.first_name}}, this is Sarah from Elite Fitness. I was just calling to follow up on your inquiry about our membership. Give us a call back at 08 1234 5678, or I'll try you again later. Have a great day!"
 ```
 
 **Best Practices:**
@@ -1408,6 +1479,11 @@ Track performance and identify issues across three key views.
 <AccordionGroup>
   <Accordion title="Start with GPT-4.1" icon="star">
     Don't overthink model selection. GPT-4.1 handles 95% of use cases perfectly. Only upgrade if you encounter specific limitations.
+    
+    **Token Considerations:**
+    - If your prompt is longer than ~1,500 tokens, consider GPT-4.1 Mini (7,500 included tokens) or GPT-4.1 Nano (30,000 included tokens) to avoid overage charges
+    - For very complex agents with extensive prompts, many tools, or large knowledge bases, GPT-5 Mini or GPT-5 Nano offer generous token allocations
+    - Monitor your token usage and switch models if you're frequently hitting overage charges
   </Accordion>
   <Accordion title="Test Voice Quality First" icon="headphones">
   Before writing a complex prompt, test the voice itself:
@@ -1435,11 +1511,13 @@ Track performance and identify issues across three key views.
     If your agent feels "laggy":
     
     - Remove knowledge base (adds 2-4s per query)
-    - Downgrade model (GPT-5 → GPT-4.1)
+    - Switch to a faster model (GPT-5 models → GPT-4.1 or GPT-4.1 Mini/Nano)
     - Simplify tool complexity
-    - Shorten your prompt
+    - Shorten your prompt to reduce token processing time
     
     Speed matters in voice. Aim for under 1.5 second response times.
+    
+    **Note:** If you need to shorten your prompt due to latency, consider switching to a model with more included tokens (like GPT-4.1 Mini/Nano) rather than cutting important content.
   </Accordion>
 
   <Accordion title="Review Conversations Weekly" icon="calendar">
@@ -1484,10 +1562,12 @@ Track performance and identify issues across three key views.
     
     **Solutions:**
     - Disable knowledge base if enabled
-    - Switch to a faster model (GPT-5 → GPT-4.1)
+    - Switch to a faster model (GPT-5 models → GPT-4.1 or GPT-4.1 Mini/Nano)
     - Simplify tool logic and reduce API calls
-    - Shorten your prompt (aim for under 2,000 words)
+    - Shorten your prompt to reduce token processing time
     - Remove complex conditional logic
+    
+    **Token Optimization:** If shortening your prompt reduces functionality, consider switching to GPT-4.1 Mini or GPT-4.1 Nano which have more included tokens and faster response times.
   </Accordion>
   <Accordion title="Tools Not Triggering" icon="wrench">
     **Problem:** The agent isn't using the tools you've configured.
@@ -1507,7 +1587,9 @@ Track performance and identify issues across three key views.
     - Use phonetic spelling if needed (e.g., "Mandjoogoordap" for "Mandogalup")
     - Test in a quiet environment first
     - Ensure the caller speaks clearly
-    - Switch to a model with better transcription (GPT-4o or GPT-5)
+    - Switch to a model with better transcription (GPT-5.2, GPT-5.1 Chat Latest, or ChatGPT-4o Latest)
+    
+    **Note:** GPT-5 models generally have better transcription accuracy, but consider token costs when upgrading.
   </Accordion>
 
   <Accordion title="Calls Going to Queue" icon="list">
@@ -1519,6 +1601,23 @@ Track performance and identify issues across three key views.
     - Review scheduled callback times
     - Resume the queue if it's paused
     - Contact support to increase limits if needed
+  </Accordion>
+
+  <Accordion title="High Token Overage Charges" icon="dollar-sign">
+    **Problem:** You're frequently paying overage charges for tokens beyond the included limit.
+    
+    **Solutions:**
+    - **Switch to a model with more included tokens:** If you're using GPT-4.1 (1,500 tokens), consider GPT-4.1 Mini (7,500 tokens) or GPT-4.1 Nano (30,000 tokens)
+    - **For complex agents:** Use GPT-5 Mini (16,000 tokens) or GPT-5 Nano (75,000 tokens) for agents with extensive prompts, many tools, or large knowledge bases
+    - **Optimize your prompt:** Remove unnecessary content, consolidate FAQs, simplify tool descriptions
+    - **Review your prompt length:** Check how many tokens your prompt consumes and compare to your model's included token limit
+    - **Monitor usage:** Track which agents are hitting overage charges most frequently
+    
+    **Cost Comparison Example:**
+    - GPT-4.1: 1,500 included tokens, $2.00 per 1K overage
+    - GPT-4.1 Nano: 30,000 included tokens, $0.10 per 1K overage
+    
+    If your prompt is 5,000 tokens, GPT-4.1 Nano would be significantly more cost-effective than paying overage on GPT-4.1.
   </Accordion>
 </AccordionGroup>
 

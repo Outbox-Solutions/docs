@@ -85,6 +85,82 @@ Agency admins have full rights over all company accounts under the agency.
   Agency Admins inherit full rights over all company accounts under that agency.
 </Info>
 
+## Custom Fields & Custom Values
+
+Custom Fields and Custom Values allow you to extend your company settings with additional data that can be referenced in your agent prompts.
+
+### Custom Fields
+
+Custom Fields are fields that can be assigned to contacts. When contacts are uploaded or created, these custom fields can be set and then referenced in agent prompts using dynamic variables.
+
+**Use Cases:**
+- Store contact-specific information like membership type, lead source, or referral code
+- Track custom attributes that aren't part of standard contact fields
+- Personalize agent conversations based on contact-specific data
+
+**How to Use:**
+
+1. **Create Custom Fields:**
+   - Navigate to **Settings → Company** within your company workspace
+   - Find the **Custom Fields** section
+   - Add new custom fields with names like `membership_type`, `lead_source`, `referral_code`, etc.
+
+2. **Assign to Contacts:**
+   - When uploading contacts via CSV or API, include your custom field values
+   - Custom fields can also be set when creating contacts programmatically
+
+3. **Reference in Agents:**
+   - Use the format `{{contact.custom_field_name}}` in your prompts
+   - Example: `"Hi {{contact.first_name}}, I see you're interested in our {{contact.membership_type}} membership."`
+
+<Tip>
+Custom Fields are perfect for storing data that varies per contact, like membership tiers, appointment preferences, or custom tags.
+</Tip>
+
+### Custom Values
+
+Custom Values are company-specific values that can be set once and referenced across all your agents. This allows you to update company-wide information in one place rather than updating every agent individually.
+
+**Use Cases:**
+- Company address, phone number, or business hours
+- Standard pricing or service descriptions
+- Company-wide policies or messaging
+- Any information that should be consistent across all agents
+
+**How to Use:**
+
+1. **Create Custom Values:**
+   - Navigate to **Settings → Company** within your company workspace
+   - Find the **Custom Values** section
+   - Add new custom values with names like `company_address`, `business_hours`, `support_email`, etc.
+
+2. **Set the Values:**
+   - Enter the value for each custom value field
+   - These values are shared across all agents in your company
+
+3. **Reference in Agents:**
+   - Use the format `{{company.custom_value_name}}` in your prompts
+   - Example: `"Our office is located at {{company.company_address}}. Would you like directions?"`
+
+<Tip>
+**Best Practice:** If your company address changes, update it once in Custom Values rather than editing every agent prompt. All agents will automatically use the new address!
+</Tip>
+
+**Example:**
+
+If you set a custom value called `company_address` with the value `"123 Main Street, Perth, WA 6000"`, you can reference it in any agent prompt:
+
+```markdown
+You are a receptionist for {{company.name}}.
+
+Our office is located at {{company.company_address}}.
+When customers ask for directions, provide this address.
+```
+
+If you later move to a new location, simply update the `company_address` custom value once, and all your agents will automatically use the new address.
+
+---
+
 ## Billing & Usage
 
 Track usage and profitability for each company account.

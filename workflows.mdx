@@ -1,0 +1,657 @@
+---
+title: "Workflows"
+icon: "diagram-project"
+description: "Automate outbound call campaigns with powerful workflow automation"
+---
+
+## Overview
+
+Workflows allow you to create automated campaigns that respond to AI call outcomes and execute follow-up actions. Build sophisticated automation sequences that handle everything from lead qualification to follow-up messaging, all triggered automatically when your AI agents complete calls.
+
+<CardGroup cols={2}>
+  <Card title="Automated Campaigns" icon="robot">
+    Create multi-step campaigns that automatically follow up based on call results
+  </Card>
+
+{" "}
+
+<Card title="Smart Routing" icon="code-branch">
+  Route contacts to different paths based on call status, score, or duration
+</Card>
+
+{" "}
+
+<Card title="Multi-Channel Follow-Up" icon="envelope">
+  Send SMS, emails, and additional calls based on conversation outcomes
+</Card>
+
+  <Card title="Contact Management" icon="users">
+    Automatically tag contacts, add them to sequences, or remove them from workflows
+  </Card>
+</CardGroup>
+
+<Tip>
+  **Best Practice:** Start with simple workflows and gradually add complexity.
+  Test each workflow with a small group before rolling out to all contacts.
+</Tip>
+
+---
+
+## How Workflows Work
+
+Workflows consist of **triggers** and **actions**:
+
+1. **Trigger:** An event that starts the workflow (e.g., when an AI call completes)
+2. **Filters:** Conditions that determine which calls should trigger the workflow
+3. **Actions:** Steps that execute automatically (send calls, SMS, emails, etc.)
+4. **Branches:** Conditional logic that routes contacts down different paths
+
+<Frame>
+  <img src="/images/workflows-overview.png" alt="Workflows Overview" />
+</Frame>
+
+---
+
+## Triggers
+
+### AI Call Completed
+
+The primary trigger for outbound call workflows. This trigger fires when an AI call finishes, allowing you to respond immediately to call outcomes.
+
+<Frame>
+  <img
+    src="/images/workflows-trigger-ai-call-completed.png"
+    alt="AI Call Completed Trigger"
+  />
+</Frame>
+
+---
+
+### Filters
+
+Filters allow you to control which calls trigger your workflow. Only calls that match ALL selected filters will trigger the workflow.
+
+#### Call Status Filter
+
+Filter workflows based on the outcome of the call:
+
+**Available Statuses:**
+
+- **Completed** – Call finished successfully
+- **Forwarded** – Call was transferred to a human
+- **Voicemail** – Agent left a voicemail message
+- **No Answer** – Contact didn't pick up
+- **Error** – Technical failure occurred
+- **Unqualified** – Contact didn't meet qualification criteria
+
+#### Direction Filter
+
+Filter based on the direction of the call:
+
+**Options:**
+
+- **Inbound** – Only trigger for calls received by your agents
+- **Outbound** – Only trigger for calls placed by your agents
+- **Web** – Only trigger for web-based calls (e.g., browser-based calling)
+
+#### Score Filter
+
+Filter based on the AI agent's call score:
+
+**Options:**
+
+- **Minimum Score** – Only trigger if score is at least X
+- **Maximum Score** – Only trigger if score is no more than X
+- **Range** – Trigger only for scores within a specific range
+
+<Note>
+  **Score Range:** Scores typically range from 0-100, with higher scores
+  indicating better-qualified leads or more successful conversations.
+</Note>
+
+#### Agent Filter
+
+Filter based on which AI agent handled the call:
+
+**Options:**
+
+- Select one or more specific agents
+- Useful when different agents handle different types of calls
+- Allows you to create agent-specific follow-up sequences
+
+---
+
+## Actions
+
+Actions are the steps your workflow takes after being triggered. You can chain multiple actions together to create complex automation sequences.
+
+### Send AI Call
+
+Place an outbound AI call to a contact using one of your voice agents.
+
+**Configuration:**
+
+- **Agent** – Select which voice agent to use for the call
+- **From Number** – Choose the phone number to call from
+- **First Message** – Set the opening line for the call
+
+<Frame>
+  <img
+    src="/images/workflows-action-send-ai-call.png"
+    alt="Send AI Call Action"
+  />
+</Frame>
+
+<Tip>
+  **Dynamic Variables:** Use `{{contact.first_name}}` and other contact variables in your first message to personalize each call automatically.
+</Tip>
+
+---
+
+### Wait
+
+Add a delay between workflow actions. This allows you to space out follow-up actions and create natural conversation timing.
+
+**Configuration:**
+
+- **Duration** – Set how long to wait (seconds, minutes, hours, or days)
+- **For call to end** - Wait until a call ends so that you can activate different actions based on the results of the call.
+
+**Use Cases:**
+
+- Wait 24 hours before sending a follow-up call
+- Space out multi-touch campaigns (call → wait 2 days → SMS)
+- Wait until call ends, if no answer, send SMS
+
+<Frame>
+  <img src="/images/workflows-action-wait.png" alt="Wait Action" />
+</Frame>
+
+**Example Workflow:**
+
+1. AI Call Completed → Status: No Answer
+2. Wait 4 hours
+3. Send AI Call (retry attempt)
+
+---
+
+### Drip Mode
+
+Enable drip mode to automatically space out actions over time, creating a natural follow-up cadence.
+
+**Configuration:**
+
+- **Drip Interval** – Time between each action (e.g., every 2 days)
+- **Batch Size** - The amount of contacts you want to push through at a time
+
+**How it works:**
+Drip mode automatically executes actions at set intervals without requiring manual scheduling. Perfect for managing concurrency.
+
+**Use Cases:**
+
+- Throttling campaigns that run through a few thousand contacts at a time.
+
+<Frame>
+  <img src="/images/workflows-action-drip-mode.png" alt="Drip Mode Action" />
+</Frame>
+
+<Tip>
+  **Drip vs. Wait:** Drip mode is ideal for ongoing sequences, while Wait is
+  better for one-time delays between specific actions.
+</Tip>
+
+---
+
+### Send SMS
+
+Send a text message to the contact's phone number.
+
+**Configuration:**
+
+- **Message Content** – Write the SMS message
+- **From Number** – Select the phone number to send from
+
+**Use Cases:**
+
+- Follow up after calls with additional information
+- Send links or resources mentioned during the call
+- Quick check-ins for leads that didn't answer
+
+<Frame>
+  <img src="/images/workflows-action-send-sms.png" alt="Send SMS Action" />
+</Frame>
+
+**Example Messages:**
+
+```
+Hi {{contact.first_name}}, thanks for your interest! Here's the link we discussed: [link]
+```
+
+```
+{{contact.first_name}}, just following up on our call. Let me know if you have any questions!
+```
+
+---
+
+### Send Email
+
+Send an email to the contact using your configured email provider.
+
+**Configuration:**
+
+- **From Email** – Select the email address to send from
+- **Subject** – Set the email subject line
+- **Body** – Write the email body content
+- **Custom Email List** (Optional) – Select a custom email list to send to
+
+**Use Cases:**
+
+- Send detailed information after a call
+- Follow up with resources, pricing, or documentation
+- Appointment confirmations with calendar invites
+- Nurture sequences for long-term leads
+
+<Frame>
+  <img src="/images/workflows-action-send-email.png" alt="Send Email Action" />
+</Frame>
+
+**Best Practices:**
+
+- Keep subject lines concise and relevant
+- Personalize content using contact variables
+- Include clear call-to-action buttons
+- Test email rendering across different clients
+
+---
+
+### Add to Workflow
+
+Add the contact to another workflow, allowing you to chain workflows together or move contacts between sequences.
+
+**Configuration:**
+
+- **Target Workflow** – Select which workflow to add the contact to
+
+**Use Cases:**
+
+- Move qualified leads from general nurture to sales sequence
+- Transfer contacts between different campaign types
+- Create workflow hierarchies (parent → child workflows)
+- Route contacts based on call outcomes
+
+<Frame>
+  <img
+    src="/images/workflows-action-add-to-workflow.png"
+    alt="Add to Workflow Action"
+  />
+</Frame>
+
+<Note>
+  Contacts can be in multiple workflows simultaneously. Use this action to add
+  them to additional sequences without removing them from the current workflow.
+</Note>
+
+---
+
+### Remove from Workflow
+
+Remove the contact from a workflow, stopping further automation for that contact in that specific sequence.
+
+**Configuration:**
+
+- **Target Workflow** – Select which workflow to remove the contact from
+
+**Use Cases:**
+
+- Stop automation when contact converts or opts out
+- Remove contacts who have been handled manually
+- Clean up workflows by removing unqualified contacts
+- Prevent duplicate automation when contacts are in multiple workflows
+
+<Frame>
+  <img
+    src="/images/workflows-action-remove-from-workflow.png"
+    alt="Remove from Workflow Action"
+  />
+</Frame>
+
+<Tip>
+  **Best Practice:** Always remove contacts from workflows when they convert or
+  explicitly opt out to avoid sending unwanted follow-ups.
+</Tip>
+
+---
+
+### Add Contact Tag
+
+Add a tag to the contact for organization, segmentation, and filtering.
+
+**Configuration:**
+
+- **Tags** – Add multiple tags at once
+
+**Use Cases:**
+
+- Tag contacts based on call outcomes ("Hot Lead", "Follow Up Needed")
+- Segment contacts by score ("High Score", "Low Score")
+- Mark contacts for specific campaigns ("Solar Interest", "Appointment Booked")
+- Organize contacts by status ("Qualified", "Unqualified")
+
+<Frame>
+  <img
+    src="/images/workflows-action-add-tag.png"
+    alt="Add Contact Tag Action"
+  />
+</Frame>
+
+**Example Tags:**
+
+- `hot-lead`, `warm-lead`, `cold-lead`
+- `appointment-booked`, `callback-requested`
+- `no-answer`, `voicemail-left`
+- `high-score`, `qualified`, `unqualified`
+
+---
+
+### Remove Contact Tag
+
+Remove a tag from the contact, useful for cleaning up tags or updating contact status.
+
+**Configuration:**
+
+- **Tags** – Remove multiple tags at once
+
+**Use Cases:**
+
+- Remove outdated tags when contact status changes
+- Clean up tags when contacts move between stages
+- Remove temporary tags used for filtering
+- Update contact segmentation
+
+<Frame>
+  <img
+    src="/images/workflows-action-remove-tag.png"
+    alt="Remove Contact Tag Action"
+  />
+</Frame>
+
+**Example Workflow:**
+
+1. AI Call Completed → Score > 80
+2. Remove Tag: "Cold Lead"
+3. Add Tag: "Hot Lead"
+
+---
+
+### If/Else
+
+Create conditional branches in your workflow based on call status or score. This allows you to route contacts down different paths depending on call outcomes.
+
+**Configuration:**
+
+- **Condition Type** – Choose "Call Status" or "Score"
+- **Condition Logic** – Set the comparison (equals, greater than, less than, etc.)
+- **If Path** – Actions to execute if condition is true
+- **Else Path** – Actions to execute if condition is false
+
+**Condition Types:**
+
+**Call Status:**
+
+- Equals: Completed, Forwarded, Voicemail, No Answer, Error, Unqualified
+- Not Equals: Any status except the specified one
+
+**Score:**
+
+- Greater Than: Score is above X
+- Less Than: Score is below X
+- Equals: Score equals exactly X
+- Between: Score is within a range
+
+<Frame>
+  <img src="/images/workflows-action-if-else.png" alt="If/Else Action" />
+</Frame>
+
+**Example Workflows:**
+
+**Example 1: Route by Score**
+
+```
+If Score > 80:
+  → Add Tag: "Hot Lead"
+  → Send Email: "High Priority Follow-Up"
+  → Notify Sales Team
+Else:
+  → Add Tag: "Warm Lead"
+  → Send SMS: "Thanks for your interest!"
+  → Add to Workflow: "Nurture Sequence"
+```
+
+**Example 2: Route by Call Status**
+
+```
+If Status = "Completed":
+  → Add Tag: "Engaged"
+  → Send Email: "Thank You"
+  → Wait 3 days
+  → Send AI Call: "Follow-Up"
+Else If Status = "No Answer":
+  → Wait 4 hours
+  → Send AI Call: "Retry"
+Else:
+  → Add Tag: "Needs Attention"
+  → Send SMS: "We tried to reach you"
+```
+
+<Tip>
+  **Complex Logic:** You can nest If/Else branches to create sophisticated
+  routing logic. Start simple and add complexity as needed.
+</Tip>
+
+---
+
+## Building Your First Workflow
+
+Follow these steps to create your first automated campaign:
+
+<Steps>
+  <Step title="Define Your Goal">
+    What do you want to achieve? (e.g., "Follow up on no-answer calls within 4
+    hours")
+  </Step>
+  <Step title="Set the Trigger">
+    Add "AI Call Completed" trigger and configure filters (e.g., Status = "No
+    Answer")
+  </Step>
+  <Step title="Add Actions">
+    Add the actions you want to execute (e.g., Wait 4 hours → Send AI Call)
+  </Step>
+  <Step title="Test the Workflow">
+    Test with a single contact to ensure it works as expected
+  </Step>
+  <Step title="Activate">Enable the workflow and monitor results</Step>
+</Steps>
+
+<Frame>
+  <img
+    src="/images/workflows-example-complete.png"
+    alt="Example Complete Workflow"
+  />
+</Frame>
+
+---
+
+## Common Workflow Patterns
+
+### Pattern 1: No-Answer Retry Sequence
+
+**Goal:** Retry calls that didn't get answered
+
+**Workflow:**
+
+1. Trigger: AI Call Completed → Filter: Status = "No Answer"
+2. Wait: 4 hours
+3. Send AI Call: Retry with different first message
+4. If/Else: Score > 70 → Add Tag "Engaged", Else → Add Tag "Low Interest"
+
+---
+
+### Pattern 2: High-Score Immediate Follow-Up
+
+**Goal:** Immediately follow up on highly qualified leads
+
+**Workflow:**
+
+1. Trigger: AI Call Completed → Filter: Score > 80
+2. Add Tag: "Hot Lead"
+3. Send Email: "High Priority Follow-Up" (immediately)
+4. Send SMS: "Quick follow-up" (wait 1 hour)
+5. Add to Workflow: "Sales Sequence"
+
+---
+
+### Pattern 3: Drip Nurture Campaign
+
+**Goal:** Maintain contact with leads over time
+
+**Workflow:**
+
+1. Trigger: AI Call Completed → Filter: Status = "Completed"
+2. Enable Drip Mode: Every 3 days, max 4 actions
+3. Action 1: Send Email (Day 0)
+4. Action 2: Send SMS (Day 3)
+5. Action 3: Send AI Call (Day 6)
+6. Action 4: Send Email (Day 9)
+
+---
+
+### Pattern 4: Multi-Channel Follow-Up
+
+**Goal:** Follow up across multiple channels
+
+**Workflow:**
+
+1. Trigger: AI Call Completed → Filter: Status = "Completed"
+2. Send Email: "Thank you for your time" (immediately)
+3. Wait: 1 day
+4. Send SMS: "Quick question" (Day 1)
+5. Wait: 2 days
+6. Send AI Call: "Follow-up call" (Day 3)
+
+---
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Start Simple" icon="star">
+    Begin with basic workflows and add complexity gradually. A simple workflow that works is better than a complex one that breaks.
+  </Accordion>
+
+{" "}
+
+<Accordion title="Test Before Scaling" icon="flask">
+  Always test workflows with a small group before rolling out to all contacts.
+  Monitor results and adjust as needed.
+</Accordion>
+
+{" "}
+
+<Accordion title="Respect Contact Preferences" icon="hand">
+  Use Wait actions to space out communications. Don't overwhelm contacts with
+  too many messages in a short time.
+</Accordion>
+
+{" "}
+
+<Accordion title="Use Tags Strategically" icon="tags">
+  Tag contacts consistently to enable filtering and segmentation. Create a
+  tagging strategy before building workflows.
+</Accordion>
+
+{" "}
+
+<Accordion title="Monitor Performance" icon="chart-line">
+  Track which workflows perform best. Review call logs, conversion rates, and
+  engagement metrics regularly.
+</Accordion>
+
+  <Accordion title="Clean Up Regularly" icon="broom">
+    Remove contacts from workflows when they convert, opt out, or become unqualified. Keep your workflows clean and efficient.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Workflow Not Triggering" icon="question">
+    **Problem:** Workflow isn't executing when expected.
+    
+    **Solutions:**
+    - Check that filters aren't too restrictive
+    - Verify the trigger conditions match your call outcomes
+    - Ensure the workflow is enabled/active
+    - Check that contacts meet all filter criteria
+    - Review call logs to confirm call status matches filters
+  </Accordion>
+
+{" "}
+
+<Accordion title="Actions Not Executing" icon="exclamation-triangle">
+  **Problem:** Some actions in the workflow aren't running. **Solutions:** -
+  Verify action configuration is correct - Check for errors in action settings
+  (invalid phone numbers, email addresses, etc.) - Ensure Wait actions aren't
+  blocking subsequent steps - Review action logs for error messages - Test each
+  action individually
+</Accordion>
+
+{" "}
+
+<Accordion title="Too Many Follow-Ups" icon="envelope-open">
+  **Problem:** Contacts are receiving too many messages. **Solutions:** - Add
+  Wait actions between communications - Use If/Else to prevent duplicate actions
+  - Remove contacts from workflows when they respond - Review your workflow
+  timing and spacing - Consider using Drip Mode for better pacing
+</Accordion>
+
+  <Accordion title="Contacts Stuck in Workflow" icon="lock">
+    **Problem:** Contacts remain in workflows when they shouldn't.
+    
+    **Solutions:**
+    - Add "Remove from Workflow" actions for conversion/opt-out scenarios
+    - Use If/Else branches to handle different outcomes
+    - Regularly review and clean up workflow members
+    - Set up automatic removal conditions
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Voice Agents" icon="phone" href="/voice-agents">
+    Learn how to create the AI agents that power your workflows
+  </Card>
+
+{" "}
+
+<Card
+  title="Prompting Guide"
+  icon="wand-magic-sparkles"
+  href="/prompting-guide"
+>
+  Master prompt writing to improve call outcomes
+</Card>
+
+{" "}
+
+<Card title="Tool Library" icon="books" href="/tool-library">
+  Explore tools that can enhance your workflows
+</Card>
+
+  <Card title="GoHighLevel Integration" icon="layer-group" href="/gohighlevel">
+    Integrate workflows with your CRM
+  </Card>
+</CardGroup>

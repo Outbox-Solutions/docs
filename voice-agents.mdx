@@ -261,10 +261,10 @@ Give your voice agent superpowers by connecting it to external services and auto
 
     When you choose the MCP Server tool type, you'll be prompted with two options:
 
-    **Option 1: Custom MCP Server**  
+    **Option 1: Custom MCP Server**
     Connect to your own custom MCP server (like Zapier MCP). Perfect for advanced users who want full control over their integrations.
 
-    **Option 2: Preset MCP Applications**  
+    **Option 2: Preset MCP Applications**
     Choose from our curated list of preset MCP application servers. Quick setup with popular applications like Gmail, Google Sheets, Slack, and more.
 
     **Using Preset MCP Applications:**
@@ -526,20 +526,23 @@ Voice agents use a token-based pricing system:
 - **Overage Pricing:** Any tokens beyond the included limit are charged at a per-1000-tokens rate per minute
 
 **How it works:**
+
 - Your agent's prompt (including system instructions, tools, and context) consumes tokens
 - Each model includes a different amount of tokens in the base price
 - If your prompt exceeds the included token limit, you pay the overage rate for the additional tokens
 - Pricing is calculated per minute of call time
 
 <Tip>
-**Optimize Your Prompts:** Keep your prompts concise to stay within the included token limit. Longer prompts with extensive FAQs or tool configurations may incur overage charges.
+  **Optimize Your Prompts:** Keep your prompts concise to stay within the
+  included token limit. Longer prompts with extensive FAQs or tool
+  configurations may incur overage charges.
 </Tip>
 
 ---
 
 <AccordionGroup>
   <Accordion title="GPT-5.2" icon="gem">
-    **Most Advanced • Highest Cost**
+    **850ms • Accurate • 1.75¢/1k tokens**
 
     The most intelligent GPT-5 model with exceptional reasoning capabilities.
 
@@ -555,8 +558,8 @@ Voice agents use a token-based pricing system:
     **Best for:** High-value consultations where accuracy matters more than speed, complex technical discussions, situations requiring deep reasoning
 
   </Accordion>
-  <Accordion title="GPT-5.1 Chat Latest" icon="sparkles">
-    **Advanced Intelligence • High Cost**
+  <Accordion title="GPT-5.1 (Recommended)" icon="sparkles">
+    **950ms • Very Accurate • 1.25¢/1k tokens**
 
     Advanced GPT-5 model with strong reasoning capabilities.
 
@@ -573,7 +576,7 @@ Voice agents use a token-based pricing system:
 
   </Accordion>
   <Accordion title="GPT-5 Mini" icon="gauge-simple-max">
-    **Smart • Cost-Effective**
+    **800ms • Moderate • 0.25¢/1k tokens**
 
     GPT-5 intelligence with better token allocation for longer prompts.
 
@@ -590,7 +593,7 @@ Voice agents use a token-based pricing system:
 
   </Accordion>
   <Accordion title="GPT-5 Nano" icon="microchip">
-    **Smart • Most Cost-Effective**
+    **700ms • Less Accurate • 0.05¢/1k tokens**
 
     GPT-5 intelligence with the most generous token allocation.
 
@@ -606,8 +609,8 @@ Voice agents use a token-based pricing system:
     **Best for:** Agents with extensive prompts, many tools, large knowledge bases, or complex configurations
 
   </Accordion>
-  <Accordion title="GPT-4.1 (Recommended)" icon="star">
-    **770ms • Accurate • Moderate**
+  <Accordion title="GPT-4.1" icon="star">
+    **770ms • Highly Accurate • 2¢/1k tokens**
 
     The best balance of speed and intelligence for most use cases.
 
@@ -624,7 +627,7 @@ Voice agents use a token-based pricing system:
 
   </Accordion>
   <Accordion title="GPT-4.1 Mini" icon="gauge-simple-max">
-    **700ms • Moderate • Fast**
+    **700ms • Moderate • 0.4¢/1k tokens**
 
     Faster than GPT-4.1 with better token allocation for longer prompts.
 
@@ -641,7 +644,7 @@ Voice agents use a token-based pricing system:
 
   </Accordion>
   <Accordion title="GPT-4.1 Nano" icon="microchip">
-    **510ms • Less Accurate • Fastest**
+    **600ms • Less Accurate • 0.1¢/1k tokens**
 
     The fastest model with generous token allocation.
 
@@ -657,8 +660,8 @@ Voice agents use a token-based pricing system:
     **Best for:** Appointment reminders, simple confirmations, highly scripted calls where speed matters most, agents with long prompts
 
   </Accordion>
-  <Accordion title="ChatGPT-4o Latest (Legacy)" icon="brain">
-    **600ms • Most Accurate • Higher Cost**
+  <Accordion title="GPT-4o" icon="brain">
+    **850ms • Accurate • 2.5¢/1k tokens**
 
     Legacy GPT-4o model with superior reasoning but limited token allocation.
 
@@ -678,14 +681,14 @@ Voice agents use a token-based pricing system:
 </AccordionGroup>
 
 <Tip>
-  **Choosing the Right Model:** 
-  
-  - **Start with GPT-4.1** for most use cases with standard-length prompts
-  - **Use GPT-4.1 Mini/Nano** if your prompt is longer and you want to avoid overage charges
-  - **Upgrade to GPT-5 models** if you need advanced reasoning capabilities
-  - **Consider GPT-5 Mini/Nano** for complex agents with extensive prompts, many tools, or large knowledge bases
-  
-  **Token Optimization:** If you're frequently hitting overage charges, consider switching to a model with more included tokens (Mini/Nano variants) rather than paying overage fees.
+  **Choosing the Right Model:** - **Start with GPT-4.1** for most use cases with
+  standard-length prompts - **Use GPT-4.1 Mini/Nano** if your prompt is longer
+  and you want to avoid overage charges - **Upgrade to GPT-5 models** if you
+  need advanced reasoning capabilities - **Consider GPT-5 Mini/Nano** for
+  complex agents with extensive prompts, many tools, or large knowledge bases
+  **Token Optimization:** If you're frequently hitting overage charges, consider
+  switching to a model with more included tokens (Mini/Nano variants) rather
+  than paying overage fees.
 </Tip>
 
 ---
@@ -977,10 +980,6 @@ Add terms that the speech-to-text engine might misunderstand. Separate each term
 Outbox Mandurah Fremantle Joondalup CrossFit Pilates HIIT
 ```
 
-```
-Burleigh Currumbin Coolangatta Broadbeach Robina
-```
-
 **What to Add:**
 
 - Business names (especially unique spellings)
@@ -1078,10 +1077,6 @@ Unqualified tags integrate with GoHighLevel automations, allowing you to:
 ### Summary Prompt
 
 **Tell Outbox AI how to format the call summary posted back to your CRM.**
-
-<Frame>
-  <img src="/images/voice-summary-prompt.png" alt="Summary Prompt" />
-</Frame>
 
 **Example:**
 
@@ -1592,16 +1587,14 @@ Track performance and identify issues across three key views.
     **Note:** GPT-5 models generally have better transcription accuracy, but consider token costs when upgrading.
   </Accordion>
 
-  <Accordion title="Calls Going to Queue" icon="list">
-    **Problem:** Calls aren't being placed immediately.
-    
-    **Solutions:**
-    - Check your **wallet balance** – top up if low
-    - Verify you haven't hit your **concurrent call limit**
-    - Review scheduled callback times
-    - Resume the queue if it's paused
-    - Contact support to increase limits if needed
-  </Accordion>
+{" "}
+
+<Accordion title="Calls Going to Queue" icon="list">
+  **Problem:** Calls aren't being placed immediately. **Solutions:** - Check
+  your **wallet balance** – top up if low - Verify you haven't hit your
+  **concurrent call limit** - Review scheduled callback times - Resume the queue
+  if it's paused - Contact support to increase limits if needed
+</Accordion>
 
   <Accordion title="High Token Overage Charges" icon="dollar-sign">
     **Problem:** You're frequently paying overage charges for tokens beyond the included limit.

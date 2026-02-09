@@ -8988,143 +8988,229 @@ _Tools documentation will be added here._
 
 ServiceM8 helps field service businesses schedule jobs, send quotes, and manage invoices, offering staff mobile apps and real-time job status tracking.
 
+**Available Tools:**
+
 <AccordionGroup>
   <Accordion title="Create Job Note" icon="note-sticky">
+    Create a new job note in ServiceM8.
+
+    **Description:**
     Create a new job note in ServiceM8. Requires the job's UUID (related_object_uuid) and the note content. Returns the UUID of the created note record. Use this to add comments, updates, or action items to a specific job.
 
   </Accordion>
 
   <Accordion title="Create Job Payment" icon="credit-card">
+    Create a new job payment in ServiceM8.
+
+    **Description:**
     Tool to create a new job payment in ServiceM8. Use when you have collected payment details and need to record payment against a job. Example: "Create a 100.00 cash payment for job 123e4567-e89b-12d3-a456-426614174000 at 2023-01-01 13:00:00."
 
   </Accordion>
 
   <Accordion title="Create Jobs" icon="hammer">
+    Create a new job in ServiceM8.
+
+    **Description:**
     Tool to create a new Job in ServiceM8. Use when you have gathered all job details and need to push a record. Example: "Create a Quote job for 123 Main St with PO #1234."
 
   </Accordion>
 
   <Accordion title="Delete Job Note" icon="trash">
+    Delete a job note in ServiceM8.
+
+    **Description:**
     Deletes (archives) a job note in ServiceM8 by its UUID. Use this tool when you need to remove a note from a job's diary. In ServiceM8, deletion is a soft-delete: the note is archived (active=0) rather than permanently removed, and can be restored later if needed. Prerequisites: You need the note's UUID, which can be obtained from the 'List All Job Notes' or 'Retrieve Job Note' actions.
 
   </Accordion>
 
   <Accordion title="Delete Job Payment" icon="trash">
+    Archive a job payment in ServiceM8.
+
+    **Description:**
     Archives (soft-deletes) a job payment record in ServiceM8 by its UUID. In ServiceM8, records are never permanently deleted. Instead, deletion sets the record's 'active' field to 0, which hides it from the UI but keeps it accessible via the API. Archived records can be restored by setting their 'active' field back to 1. Use this tool when you need to remove a payment record from active use, such as when a payment was recorded in error or needs to be voided. Requires the 'manage_job_payments' OAuth scope.
 
   </Accordion>
 
   <Accordion title="List All Assets" icon="box">
+    List all ServiceM8 assets.
+
+    **Description:**
     Tool to list all ServiceM8 assets. Use when you need a comprehensive asset registry, including custom fields, for inventory or reporting.
 
   </Accordion>
 
   <Accordion title="List All Clients" icon="users">
+    List all ServiceM8 clients.
+
+    **Description:**
     Tool to list all ServiceM8 clients. Use when you need a complete set of customer records for integrations or reporting.
 
   </Accordion>
 
   <Accordion title="List All Document Templates" icon="file-lines">
+    List all document templates in ServiceM8.
+
+    **Description:**
     Tool to list document templates. Use when you need to retrieve available template UUIDs and names before generating job documents.
 
   </Accordion>
 
   <Accordion title="List All Forms" icon="clipboard-list">
+    List all ServiceM8 forms.
+
+    **Description:**
     Tool to list all ServiceM8 forms. Use when you need to fetch available form templates with optional filters.
 
   </Accordion>
 
   <Accordion title="List All Job Notes" icon="note-sticky">
+    List all job notes from ServiceM8.
+
+    **Description:**
     List all job notes from ServiceM8. Use this tool to: - Retrieve all notes across all jobs (no filter) - Get notes for a specific job using filter: "related_object_uuid eq '<job_uuid>'" - Filter by active status: "active eq 1" for active notes only The response contains a list of note records with their content, timestamps, and associated job UUIDs.
 
   </Accordion>
 
   <Accordion title="List All Job Queues" icon="list">
+    List all job queues in ServiceM8.
+
+    **Description:**
     List all job queues in ServiceM8. Job queues are virtual folders for organizing jobs on hold. Use this to fetch available queues before assigning jobs to a queue, or to check queue configurations. Returns both regular queues (for jobs waiting on external actions) and assignable queues (for staff assignments).
 
   </Accordion>
 
   <Accordion title="List All Jobs" icon="briefcase">
+    List all jobs in ServiceM8.
+
+    **Description:**
     Tool to list all jobs. Use when you need to fetch all job records from your ServiceM8 account.
 
   </Accordion>
 
   <Accordion title="List All Locations" icon="map-marker-alt">
+    List all ServiceM8 locations.
+
+    **Description:**
     Lists all ServiceM8 locations. Use to fetch configured service areas, office locations, or warehouses for job assignments, mapping, or reporting.
 
   </Accordion>
 
   <Accordion title="List All Materials" icon="box-open">
+    List all materials in ServiceM8.
+
+    **Description:**
     Retrieve all materials (products, labour rates, inventory items) from ServiceM8. Use this to get a complete catalog of materials for quoting, invoicing, or inventory management. Requires the 'read_inventory' OAuth scope.
 
   </Accordion>
 
   <Accordion title="List All Tasks" icon="tasks">
+    List all tasks in ServiceM8.
+
+    **Description:**
     Retrieves all tasks from a ServiceM8 account with optional filtering and cursor-based pagination. Use this to fetch task records, track task assignments, monitor completion status, or sync task data. Requires 'read_tasks' OAuth scope.
 
   </Accordion>
 
   <Accordion title="Retrieve Client" icon="user">
+    Retrieve a specific client from ServiceM8.
+
+    **Description:**
     Tool to retrieve details of a specific client by its UUID. Use after confirming the client's UUID is valid.
 
   </Accordion>
 
   <Accordion title="Retrieve Form" icon="clipboard">
+    Retrieve a specific form template from ServiceM8.
+
+    **Description:**
     Retrieve details of a specific form template by its UUID. Use this tool when you have a form UUID and need to fetch its metadata, such as form name, description, and status. Requires the Forms add-on to be enabled in ServiceM8.
 
   </Accordion>
 
   <Accordion title="Retrieve Job" icon="briefcase">
+    Retrieve a specific job from ServiceM8.
+
+    **Description:**
     Tool to retrieve details of a specific job by its UUID. Use when you have the Job UUID and need its full record.
 
   </Accordion>
 
   <Accordion title="Retrieve Job Activity" icon="clock">
+    Retrieve a specific job activity from ServiceM8.
+
+    **Description:**
     Tool to retrieve details of a specific job activity by its UUID. Use when you have the job activity UUID and need its full details.
 
   </Accordion>
 
   <Accordion title="Retrieve Job Note" icon="note-sticky">
+    Retrieve a specific job note from ServiceM8.
+
+    **Description:**
     Retrieve the full details of a specific job note by its UUID. Use this action when you have a note UUID (e.g., from listing job notes) and need to view its complete record including content, timestamps, and the associated job reference.
 
   </Accordion>
 
   <Accordion title="Retrieve Job Payment" icon="credit-card">
+    Retrieve a specific job payment from ServiceM8.
+
+    **Description:**
     Retrieve a specific job payment record from ServiceM8 by its UUID. Use this tool when you need to: - Get full details of a specific payment (amount, method, timestamp, notes) - Check if a payment is a deposit or regular payment - View which staff member processed a payment - Verify payment information for a job Prerequisites: You need the job payment UUID, which can be obtained from the 'List All Job Payments' action or from creating a new job payment.
 
   </Accordion>
 
   <Accordion title="Retrieve Job Queue" icon="list">
+    Retrieve a specific job queue from ServiceM8.
+
+    **Description:**
     Tool to retrieve details of a specific job queue by its UUID. Use when you need full queue metadata before dispatching work.
 
   </Accordion>
 
   <Accordion title="Retrieve Location" icon="map-marker-alt">
+    Retrieve a specific location from ServiceM8.
+
+    **Description:**
     Retrieve a specific ServiceM8 location by its UUID. Returns complete location details including name, address fields (street, city, state, country, postal code), geographic coordinates (lat/lng), contact phone number, and active status. Use this when you have a known location UUID and need its full details. To list all available locations, use the List All Locations action first.
 
   </Accordion>
 
   <Accordion title="Retrieve Material" icon="box-open">
+    Retrieve a specific material from ServiceM8.
+
+    **Description:**
     Retrieve detailed information about a specific material/product/service by its UUID. Returns pricing, inventory levels, tax settings, and identification details. Use this when you have a material UUID from a job or list operation and need complete details like current stock levels or pricing information.
 
   </Accordion>
 
   <Accordion title="Retrieve Staff Member" icon="user-tie">
+    Retrieve a specific staff member from ServiceM8.
+
+    **Description:**
     Tool to retrieve details of a specific staff member by their UUID. Use when you need up-to-date staff information given a known staff UUID.
 
   </Accordion>
 
   <Accordion title="Service M8 Create Job" icon="hammer">
+    Create a new job in ServiceM8.
+
+    **Description:**
     Creates a new job in ServiceM8. Use this to add jobs to your dispatch board. Required fields: status, job_address. Optional: Link to a client (company_uuid), assign to a queue, add badges, etc. Returns the UUID of the newly created job which can be used with other job-related actions.
 
   </Accordion>
 
   <Accordion title="Update Job Note" icon="pen">
+    Update an existing job note in ServiceM8.
+
+    **Description:**
     Tool to update details of an existing job note. Use when modifying a note after its creation.
 
   </Accordion>
 
   <Accordion title="Update Job Payment" icon="credit-card">
+    Update an existing job payment in ServiceM8.
+
+    **Description:**
     Update an existing job payment record in ServiceM8. Use this to modify payment details such as amount, method, note, or status. Requires the payment UUID and at least one field to update.
 
   </Accordion>

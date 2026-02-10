@@ -1132,6 +1132,7 @@ The webhook sends a POST request with the following JSON payload:
   "id": "thread-uuid",
   "status": "did-succeed",
   "summary": "Caller wanted to book an appointment for teeth cleaning. Successfully scheduled for Tuesday at 3pm. Caller was friendly and confirmed contact details.",
+  "score": 87,
   "agent": {
     "id": "agent-uuid",
     "name": "Dental Receptionist",
@@ -1139,8 +1140,10 @@ The webhook sends a POST request with the following JSON payload:
   },
   "direction": "outbound",
   "duration": 142,
-  "user": {
+  "contact": {
+    "id": "contact-uuid",
     "name": "John Smith",
+    "email": "john@example.com",
     "phone_number": "+61498765432",
     "external_id": "ghl-contact-123"
   },
@@ -1153,14 +1156,17 @@ The webhook sends a POST request with the following JSON payload:
 - **id** – Unique thread identifier
 - **status** – Call outcome (did-succeed, did-not-answer, error, etc.)
 - **summary** – AI-generated summary of the call
+- **score** – Call quality score (0–100)
 - **agent.id** – The agent's unique ID
 - **agent.name** – The agent's name
 - **agent.phone_number** – The number the agent called from
 - **direction** – "inbound" or "outbound"
 - **duration** – Call length in seconds
-- **user.name** – Contact's full name
-- **user.phone_number** – Contact's phone number
-- **user.external_id** – Contact's ID in your CRM (e.g., GoHighLevel contact ID)
+- **contact.id** – Contact's unique ID
+- **contact.name** – Contact's full name
+- **contact.email** – Contact's email address
+- **contact.phone_number** – Contact's phone number
+- **contact.external_id** – Contact's ID in your CRM (e.g., GoHighLevel contact ID)
 - **transcript** – Complete conversation transcript
 
 **Use Cases:**

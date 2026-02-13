@@ -204,17 +204,13 @@ Retainer Fee: $0.00 USD/month
 
 Set a fixed monthly fee that will be charged to this company each month, regardless of usage.
 
-### Chat Multiplier
+### Chat Rate
 
 ```
-Chat Multiplier: 1.0x
+Chat Rate: From Agency Company Settings
 ```
 
-Multiplier applied to the cost of each chat message response. For example:
-
-- `1.0` = Pass through cost at 0% markup
-- `1.5` = 50% markup on chat costs
-- `2.0` = 100% markup on chat costs
+`chat_rate` is now inherited from your Agency Company settings and applied at the subaccount level. This keeps chat pricing consistent across all subaccounts under the same agency configuration.
 
 ### Call Rate (per minute)
 
@@ -239,6 +235,29 @@ Concurrent Lanes: 10 (Max: 25)
 ```
 
 Control how many simultaneous calls the client can handle at once. This prevents resource abuse and helps manage infrastructure costs.
+
+## JARVIS
+
+JARVIS is an AI operations assistant that can be turned on or off per subaccount.
+
+**Where to find it:** **Settings → Company → JARVIS**
+
+### What JARVIS Can Do
+
+- Instantly answer analytics questions across voice + chat
+- Find top and bottom conversations by score, duration, status, or timeframe
+- Search transcript content (promos, pricing, objections, keywords)
+- Pull full thread context for fast QA and debugging
+- Detect tool-call failures and show outputs
+- Surface workflow insights (list workflows, enrolments, execution logs, failures)
+- Calculate cost aggregates (when billing visibility is enabled)
+
+### Enable or Disable JARVIS
+
+Use the JARVIS toggle in subaccount settings:
+
+- **Enabled**: users can access JARVIS insights and investigation tools
+- **Disabled**: JARVIS is hidden for that subaccount
 
 ## Rebilling Options
 
@@ -343,6 +362,6 @@ Choose how you want to collect payment from your clients.
   <Accordion title="Usage costs seem incorrect">
     - Check the date range you're viewing - Verify the call duration calculation
     (some providers round up) - Review the chat message count and token usage -
-    Ensure your multipliers and rates are set correctly
+    Ensure your chat rates and call rates are set correctly
   </Accordion>
 </AccordionGroup>

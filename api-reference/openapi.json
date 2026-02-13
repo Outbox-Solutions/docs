@@ -5702,7 +5702,7 @@
                 "type": "string",
                 "enum": ["off", "agency_wallet", "ghl_wallet", "direct_billing"]
               },
-              "chat_multiplier": {
+              "chat_rate": {
                 "type": "number"
               },
               "call_rate": {
@@ -5755,7 +5755,7 @@
             "type": "integer",
             "description": "Capped at agency's max"
           },
-          "chat_multiplier": {
+          "chat_rate": {
             "type": "number",
             "description": "Cannot modify if direct_billing"
           },

@@ -59,6 +59,7 @@
       "pages": [
         "introduction",
         "quickstart",
+        "jarvis",
         "javascript-sdk",
         "prompting-guide",
         "chat-agents",

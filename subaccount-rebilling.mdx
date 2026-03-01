@@ -165,6 +165,16 @@ If you later move to a new location, simply update the `company_address` custom 
 
 Track usage and profitability for each company account.
 
+### Stripe Wallet (Recommended)
+
+Stripe Wallet is the newest rebilling method and is the default recommendation for most agencies.
+
+With Stripe Wallet, your client connects their own Stripe account and you can create a dedicated wallet for each subaccount/client. Usage charges are then automatically deducted from that wallet as their AI agents run.
+
+**What it covers automatically:**
+- Chat usage
+- Voice/call usage
+
 ### Hide Billing
 
 New **Hide Billing** toggle lets you hide call/chat costs from company users. This is useful when you want to keep internal margins private while still giving clients access to the rest of the platform.
@@ -180,6 +190,12 @@ View detailed metrics for each subaccount:
 - **Profit** – Your margin (Revenue - Cost)
 
 This gives you full visibility into which clients are most profitable and helps with pricing optimization.
+
+### Complimentary Credits
+
+You can add or remove complimentary credits for any client from that client’s subaccount menu (where the other subaccount stats and controls are managed).
+
+Use this to grant temporary credits for onboarding, promotions, service recovery, or one-off goodwill adjustments.
 
 ## Advanced Rebilling Settings
 
@@ -280,6 +296,13 @@ Choose how you want to collect payment from your clients.
 
 {" "}
 
+<Accordion title="Stripe Wallet (Recommended)">
+  Connect your client's Stripe account and set up a dedicated wallet for that client. Usage is automatically charged from the wallet as the client uses AI chat and voice agents.
+  **Best for:** Agencies that want automatic, usage-based charging with client-owned Stripe billing.
+</Accordion>
+
+{" "}
+
 <Accordion title="Stripe Draft">
   Generate an invoice draft that you can review before sending to the client.
   **Best for:** Agencies that want to review invoices before they go out.
@@ -329,10 +352,10 @@ Choose how you want to collect payment from your clients.
 
 {" "}
 
-<Accordion title="Start with Stripe Draft for new clients">
-  When onboarding new clients, use Stripe Draft mode so you can review usage and
-  costs before sending the first invoice. Once you're comfortable with their
-  usage patterns, switch to automatic charging.
+<Accordion title="Start with Stripe Wallet for most clients">
+  For most new clients, Stripe Wallet is the fastest way to automate usage-based
+  billing for both chat and voice. If you need a manual approval flow first, use
+  Stripe Draft during onboarding and move to Stripe Wallet later.
 </Accordion>
 
   <Accordion title="Set concurrent lane limits appropriately">

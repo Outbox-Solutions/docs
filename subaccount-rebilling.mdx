@@ -23,8 +23,8 @@ In the **Agency Settings**, click **Companies** on the sidebar to access the com
     company name - Enter e-mail address - Add postal address
   </Step>
   <Step title="Save">
-    Agency Growth and Agency Scale plans can hold unlimited companies. Agency Starter
-    is limited to 3 companies.
+    Agency Starter supports up to 3 companies, Growth supports up to 10
+    companies, and Scale supports unlimited companies.
   </Step>
 </Steps>
 
@@ -171,6 +171,11 @@ Stripe Wallet is the newest rebilling method and is the default recommendation f
 
 With Stripe Wallet, your client connects their own Stripe account and you can create a dedicated wallet for each subaccount/client. Usage charges are then automatically deducted from that wallet as their AI agents run.
 
+<Note>
+  Automated Stripe rebilling is available on **Growth** and **Scale** plans. If
+  you need automated Stripe rebilling, upgrade to **Growth**.
+</Note>
+
 **What it covers automatically:**
 - Chat usage
 - Voice/call usage
@@ -247,7 +252,7 @@ Set the maximum number of agents this company can create. Leave empty for unlimi
 ### Concurrent Lanes
 
 ```
-Concurrent Lanes: 10 (Max: 25)
+Concurrent Lanes: 10 (Starter) / 25 (Growth) / 100 (Scale)
 ```
 
 Control how many simultaneous calls the client can handle at once. This prevents resource abuse and helps manage infrastructure costs.

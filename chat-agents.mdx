@@ -50,6 +50,12 @@ The prompt is the brain of your chat agent. In the large text box, you'll define
   />
 </Frame>
 
+<Note>
+  **Current time:** Chat agents always receive the current time in context—you
+  do not need a separate tool to know “what time it is” for scheduling or
+  messaging.
+</Note>
+
 ### What to Include:
 
 1. **Agent's Role** – Who is the agent? (e.g., "You are a friendly customer service representative for XYZ Company")
@@ -66,6 +72,19 @@ When you need to check inventory, use the check_stock tool.
   **Don't forget to save!** Click the **Save** button to apply your changes.
   Once saved, the agent updates in real-time.
 </Note>
+
+---
+
+## Follow Up Prompt
+
+Use the **Follow Up Prompt** field to tell the chat agent how and when to **follow up with the contact later** if the conversation goes quiet—without you writing each message by hand.
+
+**Examples:**
+
+- “If the user doesn’t reply, send a friendly check-in after 3 hours, then again after 6 hours if they still haven’t responded.”
+- “After sending a quote, remind them once in 24 hours if they haven’t booked.”
+
+The agent uses this instruction together with your main prompt, so keep it specific about timing, tone, and what to say (or not say) on each nudge.
 
 ---
 
@@ -114,7 +133,6 @@ Tools give your chat agent superpowers—the ability to book appointments, send 
 
     **Popular Tools:**
     - **Book AI Callback** – Allow agents to call users back at a later time
-    - **Get Current Time** – Get the current time for a given timezone in ISO 8601 format
     - **Send SendGrid Email** – Integrate SendGrid to send emails directly from your agent
     - **Send Twilio SMS** – Integrate Twilio to send text messages directly from your agent
     - **Solar Savings (US Only)** – Calculate estimated savings of switching to solar based on monthly bill and address
@@ -340,6 +358,10 @@ To respond directly on your Instagram or Facebook Pages:
   new messages for that channel (unless a trigger blocks it—see next section).
 </Warning>
 
+### Automated do-not-contact (DND)
+
+If a contact **asks not to be contacted again** in chat or on a call, Outbox AI can **automatically mark them as DND (do not disturb)**. Once set, they will not be contacted again by your automated agents, helping you stay aligned with opt-out requests without manual tagging.
+
 ---
 
 ## Triggers for Campaigns & Keyword Flows
@@ -421,6 +443,17 @@ Make your agent feel more human by adding natural response delays.
   **Why randomize?** A fixed delay (e.g., always 60 seconds) feels robotic.
   Random delays make the agent feel more human and authentic.
 </Note>
+
+---
+
+## Message score and summary
+
+Every chat message is analyzed for **quality and outcome**:
+
+- **Score** – A percentage from **0% to 100%** reflecting how well the exchange went (engagement, resolution, tone, and similar signals).
+- **Summary** – A short **plain-language summary** of what was discussed or decided.
+
+Use scores and summaries in logs and reporting to spot coaching opportunities, compare agents, and prioritize follow-up without reading full threads.
 
 ---
 

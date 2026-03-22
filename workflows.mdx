@@ -6,7 +6,7 @@ description: "Automate outbound call campaigns with powerful workflow automation
 
 ## Overview
 
-Workflows allow you to create automated campaigns that respond to AI call outcomes and execute follow-up actions. Build sophisticated automation sequences that handle everything from lead qualification to follow-up messaging, all triggered automatically when your AI agents complete calls.
+Workflows let you automate follow-ups and routing across voice, chat, and external systems. Triggers can fire on call outcomes, Meta lead forms, inbound webhooks, and more—then actions run automatically (calls, SMS, webhooks, chat handoffs, and beyond).
 
 <CardGroup cols={2}>
   <Card title="Automated Campaigns" icon="robot">
@@ -41,7 +41,7 @@ Workflows allow you to create automated campaigns that respond to AI call outcom
 
 Workflows consist of **triggers** and **actions**:
 
-1. **Trigger:** An event that starts the workflow (e.g., when an AI call completes)
+1. **Trigger:** An event that starts the workflow (e.g., AI call completed, Meta form submitted, inbound webhook)
 2. **Filters:** Conditions that determine which calls should trigger the workflow
 3. **Actions:** Steps that execute automatically (send calls, SMS, emails, etc.)
 4. **Branches:** Conditional logic that routes contacts down different paths
@@ -67,9 +67,9 @@ The primary trigger for outbound call workflows. This trigger fires when an AI c
 
 ---
 
-### Meta Lead Form Submitted
+### Meta Ad Form Submitted
 
-Trigger a workflow the moment a lead submits a Facebook or Instagram lead form. Ideal for speed-to-lead campaigns where every minute counts.
+Trigger a workflow the moment a lead submits a **Meta ad lead form** (Facebook or Instagram). Ideal for speed-to-lead campaigns where every minute counts.
 
 **Common Uses:**
 
@@ -80,6 +80,24 @@ Trigger a workflow the moment a lead submits a Facebook or Instagram lead form. 
 <Note>
   Requires the **Meta Integration** to be connected in **Settings → Company →
   Integrations**.
+</Note>
+
+---
+
+### Inbound Webhook
+
+Start a workflow when an external system sends an HTTP request to your workflow’s inbound webhook URL. Use this to connect custom apps, landing pages, other SaaS tools, or middleware that can POST JSON payloads into Outbox AI.
+
+**Common uses:**
+
+- Fire automations from your own backend or a serverless function
+- Chain tools like Zapier, Make, or n8n into Outbox workflows
+- Kick off contact-specific sequences from product or billing events
+
+<Note>
+  Configure the webhook URL and authentication in the workflow trigger settings.
+  Payload fields you send can often be mapped into contact data and workflow
+  variables, depending on your setup.
 </Note>
 
 ### Filters
@@ -276,6 +294,48 @@ Send an email to the contact using your configured email provider.
 - Personalize content using contact variables
 - Include clear call-to-action buttons
 - Test email rendering across different clients
+
+---
+
+### Outbound Webhook
+
+Send an HTTP request to any URL you control—ideal for notifying external systems, Zapier/Make, or your own API when a workflow step runs.
+
+**Configuration:**
+
+- **URL** – Endpoint to call (often POST)
+- **Method / headers** – Match what your receiver expects
+- **Body** – JSON or text; use contact and workflow variables where supported
+
+**Use cases:**
+
+- Push lead or call outcomes into a data warehouse
+- Trigger a process in another product the moment a workflow runs
+- Mirror Outbox events into your internal tools
+
+---
+
+### Assign Chat Agent
+
+Hand the contact’s conversation to a specific **chat agent** as part of the workflow. Use this when a call, form, or webhook should change who handles ongoing SMS, DMs, web chat, or email threads.
+
+**Use cases:**
+
+- Route Meta leads to a dedicated sales chat agent
+- Escalate from a lightweight bot to a specialist agent after qualification
+- Align chat ownership with tags or workflow branches
+
+---
+
+### Interrupt Chat Agent
+
+Stop the active chat agent for a contact so automation pauses—useful when a human needs to take over or when you want to halt AI replies until something else happens.
+
+**Use cases:**
+
+- Pause AI after a high-value event until your team responds
+- Prevent duplicate automated messages when a workflow also assigns manual follow-up
+- Coordinate with **Interrupt Mode** and human handoff in the CRM
 
 ---
 

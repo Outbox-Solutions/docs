@@ -413,9 +413,10 @@ Dynamic variables let your agent personalize every conversation without hard-cod
 Dynamic variables work in both **chat and voice agents**, allowing you to reference contact information, company details, and custom data throughout your prompts.
 
 <Note>
-  **Voice calls include automatic context:** Outbox AI injects the last 3 call
-  summaries, the current time, and the caller's phone number. You don't need to
-  add these as variables.
+  **Voice calls include automatic context:** Outbox AI injects summaries of the
+  last **3 answered** calls, the current time, and the caller's phone number.
+  You don't need to add these as variables. **Chat agents** also receive the
+  current time in context—no separate time tool is required.
 </Note>
 
 ---

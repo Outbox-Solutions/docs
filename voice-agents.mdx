@@ -87,6 +87,20 @@ If you want the agent to **wait for the caller to speak first** (common for inbo
 
 Give your voice agent superpowers by connecting it to external services and automations.
 
+### Postrun
+
+Each tool can be marked **Postrun**. When enabled, the tool **does not run during the live call**. It runs **after the call ends**, using the **full transcript** as context instead of the real-time conversation.
+
+**When to use Postrun**
+
+- Heavy webhooks or CRM writes that should not add latency on the line
+- Integrations that only need the completed story of the call, not mid-call turns
+- Actions that could wait until hangup without risking caller experience
+
+**When to leave Postrun off**
+
+- Anything the agent must do while the caller is still on the phone (booking, transfers, lookups, SMS during the call)
+
 <AccordionGroup>
   <Accordion title="Custom URL" icon="link">
     Call external services via Zapier, Make, or any webhook.
@@ -129,6 +143,8 @@ Give your voice agent superpowers by connecting it to external services and auto
 
     **Popular Tools:**
     - **Book AI Callback** – Schedule the agent to call back later
+    - **Create Opportunity** – Create a pipeline opportunity from the conversation
+    - **Update Opportunity** – Move or update an existing opportunity (e.g. stage)
     - **Send SendGrid Email** – Email confirmations or follow-ups
     - **Send Twilio SMS** – Text messages during or after calls
     - **Solar Savings (US Only)** – Calculate solar savings on the fly

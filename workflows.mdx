@@ -1,7 +1,7 @@
 ---
 title: "Workflows"
 icon: "diagram-project"
-description: "Automate outbound call campaigns with powerful workflow automation"
+description: "Automate campaigns with triggers and actions—including calls, SMS, webhooks, and opportunities"
 ---
 
 ## Overview
@@ -336,6 +336,32 @@ Stop the active chat agent for a contact so automation pauses—useful when a hu
 - Pause AI after a high-value event until your team responds
 - Prevent duplicate automated messages when a workflow also assigns manual follow-up
 - Coordinate with **Interrupt Mode** and human handoff in the CRM
+
+---
+
+### Create Opportunity
+
+Creates a new **opportunity** in a pipeline for the contact, with the stage and fields you configure in the action.
+
+**Use cases:**
+
+- Log a deal when a Meta lead form triggers a workflow
+- Open an opportunity after a high-score AI call or webhook event
+- Start a sales track before a rep assigns ownership manually
+
+See [Opportunities](/opportunities) for pipelines and stages.
+
+---
+
+### Update Opportunity
+
+Updates an existing opportunity—typically **moving a stage** or refreshing fields after an automated step.
+
+**Use cases:**
+
+- Advance a deal after a successful follow-up SMS or email step
+- Sync pipeline status when a branch condition (score, tag, etc.) fires
+- Close or disqualify opportunities from automated sequences
 
 ---
 
@@ -724,6 +750,12 @@ Follow these steps to create your first automated campaign:
 
 <Card title="Tool Library" icon="books" href="/tool-library">
   Explore tools that can enhance your workflows
+</Card>
+
+{" "}
+
+<Card title="Opportunities" icon="bullseye" href="/opportunities">
+  Pipelines, stages, and opportunity tools
 </Card>
 
   <Card title="GoHighLevel Integration" icon="layer-group" href="/gohighlevel">

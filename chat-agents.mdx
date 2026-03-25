@@ -92,6 +92,10 @@ The agent uses this instruction together with your main prompt, so keep it speci
 
 Tools give your chat agent superpowers—the ability to book appointments, send data to external systems, fetch real-time information, and more.
 
+<Note>
+  **Postrun (voice calls):** On **voice** agents, tools support a **Postrun** flag so a tool can run **after the call ends** with the **transcript** as context instead of during the live call. Chat agents use tools in the conversation thread as usual; see [Voice Agents](/voice-agents#postrun) for Postrun behavior.
+</Note>
+
 <AccordionGroup>
   <Accordion title="Custom URL" icon="link">
     Call any webhook to integrate with Zapier, Make, or your own custom API.
@@ -133,6 +137,8 @@ Tools give your chat agent superpowers—the ability to book appointments, send 
 
     **Popular Tools:**
     - **Book AI Callback** – Allow agents to call users back at a later time
+    - **Create Opportunity** – Create a pipeline opportunity from the conversation
+    - **Update Opportunity** – Move or update an existing opportunity (e.g. stage)
     - **Send SendGrid Email** – Integrate SendGrid to send emails directly from your agent
     - **Send Twilio SMS** – Integrate Twilio to send text messages directly from your agent
     - **Solar Savings (US Only)** – Calculate estimated savings of switching to solar based on monthly bill and address

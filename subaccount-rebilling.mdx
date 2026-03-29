@@ -165,6 +165,52 @@ If you later move to a new location, simply update the `company_address` custom 
 
 Track usage and profitability for each company account.
 
+## SaaS Plans & Self-Serve Signup
+
+Create reusable SaaS plans that clients can subscribe to without manual setup.
+
+<Note>
+  Automated SaaS Plans are available on **Growth** and **Scale** plans. If you
+  need this feature, upgrade to **Growth**.
+</Note>
+
+### Create a SaaS Plan
+
+In **Agency Settings → SaaS Plans**, you can define a packaged offer with:
+
+- **Monthly Price**
+- **Free Trial Days**
+- **Included Credits**
+- **Chat Rate**
+- **Call Rate**
+- **Jarvis Multiplier**
+- **Agents Allowed**
+- **Websites Allowed**
+
+### Share Signup Link
+
+After saving a plan, copy its signup link and assign it to a website. Prospects
+can then self-onboard end to end: account creation, plan selection, and billing
+setup.
+
+<Tip>
+  Use one signup link per offer (for example, "Starter", "Growth", "Pro") so
+  your website CTAs map directly to the correct plan.
+</Tip>
+
+### Add Clients Manually (Alternative)
+
+If you onboard clients manually, you can still create them directly and set
+custom values per client:
+
+- **Rebill Option**
+- **Chat Rate**
+- **Call Rate**
+- **Jarvis Multiplier**
+- **Agent Limit**
+- **Website Limit**
+- **Concurrent Lanes**
+
 ### Stripe Wallet (Recommended)
 
 Stripe Wallet is the newest rebilling method and is the default recommendation for most agencies.
@@ -231,7 +277,8 @@ Set a fixed monthly fee that will be charged to this company each month, regardl
 Chat Rate: From Agency Company Settings
 ```
 
-`chat_rate` is now inherited from your Agency Company settings and applied at the subaccount level. This keeps chat pricing consistent across all subaccounts under the same agency configuration.
+Set the chat usage rate charged to this specific client. You can keep a default
+agency value or override it per client when needed.
 
 ### Call Rate (per minute)
 
@@ -241,6 +288,15 @@ Call Rate: $0.16/min
 
 The rate charged to your client per call minute (excluding VOIP provider costs). This is your margin on voice calls.
 
+### Jarvis Multiplier
+
+```
+Jarvis Multiplier: 1.0x
+```
+
+Adjust how JARVIS usage is priced for the client relative to your base rate.
+Use this to package higher-touch support tiers or discounted enterprise plans.
+
 ### Agent Limit (Optional)
 
 ```
@@ -248,6 +304,15 @@ Agent Limit: Unlimited
 ```
 
 Set the maximum number of agents this company can create. Leave empty for unlimited agents.
+
+### Website Limit (Optional)
+
+```
+Website Limit: Unlimited
+```
+
+Set the maximum number of websites this client can create or connect. Leave
+empty for unlimited websites.
 
 ### Concurrent Lanes
 
